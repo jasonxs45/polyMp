@@ -5,7 +5,7 @@ App({
     checkUserInfo().then(r => {
       wx.getUserInfo({
         success: res => {
-          console.log('主动触发获取用户信息')
+          console.log('主动触发获取用户信息1')
         }
       })
     }).catch(e => {
