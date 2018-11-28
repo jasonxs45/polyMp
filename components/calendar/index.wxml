@@ -1,0 +1,12 @@
+<view class="calendar">
+  <view class="legend">{{today}}</view>
+  <view class="flex header">
+    <view wx:for="{{dayTexts}}" wx:key="text-{{index}}" class="cell">{{item}}</view>
+  </view>
+  <view class="flex warp body">
+    <view wx:for="{{blank}}" wx:key="blank-{{index}}" class="cell"></view>
+    <view wx:for="{{monthDaySize}}" wx:key="day-{{index}}" class="cell {{item === 28 ? 'signed' : ''}}">
+      <view class="inner">{{item + 1}}</view>
+    </view>
+  </view>
+</view>

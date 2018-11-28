@@ -1,0 +1,41 @@
+.legend{
+  text-align: center;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #4d4d4d;
+}
+.flex{
+  display: flex;
+  align-items: center;
+}
+.flex.warp{
+  flex-wrap: wrap;
+}
+.cell{
+  flex: 0 0 calc(100% / 7);
+  text-align: center;
+}
+.header{
+  background: #ddd;
+}
+.header .cell{
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  color: #4d4d4d;
+}
+.body .cell {
+  padding: 0;
+  font-size: 30rpx;
+  line-height: 1;
+}
+.cell .inner{
+  width: calc(600rpx / 7);
+  height: calc(600rpx / 7);
+  line-height: calc(600rpx / 7);
+  border-radius: 50%;
+  color: #4d4d4d;
+}
+.cell.signed .inner{
+  border: 1px solid #edc27b;
+  color: #edc27b;
+}

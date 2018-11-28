@@ -1,0 +1,45 @@
+.info{
+  background: #4d4d4d;
+  padding: 30rpx 0;
+}
+.signin-btn{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: none;
+  margin: 30rpx auto 0;
+  line-height: 150rpx;
+}
+.signin-btn:after{
+  border: none;
+}
+.days{
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 200;
+  margin-top: 30rpx;
+}
+.days text{
+  font-weight: 400;
+  padding:0 10rpx;
+  color: #edc27b;
+}
+.points{
+  padding: 0 50rpx;
+  justify-content: space-around;
+}
+.available,
+.total{
+  text-align: center;
+  color: #fff;
+  padding:30rpx 0 0;
+}
+.nums{
+  font-size: 36rpx;
+}
+.text{
+  font-size: 26rpx;
+  font-weight: 200;
+  margin-top: 20rpx;
+}

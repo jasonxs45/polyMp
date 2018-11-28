@@ -1,0 +1,35 @@
+<view class="base-info">
+  <image class="avatar" mode="widthFix" src='{{avatar || "./avatar.png"}}' />
+  <view class="nickname">
+    {{nickname || "昵称"}}
+    <navigator class="nav" url="/pages/regist/regist">
+      <w-icon type="edit" />
+    </navigator>
+  </view>
+  <view class="role">黑卡会员</view>
+  <view class="flex point-money">
+    <view class="points">
+      <view class="numbers">123123</view>
+      <text class="text">积分</text>
+    </view>
+    <view class="money">
+      <view class="numbers">
+        <view class="icon"><w-icon type='star' /></view>
+        123123
+      </view>
+      <text class="text">红包</text>
+    </view>
+  </view>
+  <navigator class="go-signin" url="/pages/signin/index">签到</navigator>
+</view>
+<view class="list">
+  <navigator wx:for="{{entires}}" wx:key="nav-{{index}}" url="{{item.url}}" class="navigators flex">
+    <view class="icon">
+      <w-icon type="{{item.icon}}" />
+    </view>
+    <view class="label">{{item.label}}</view>
+    <view class="arrow">
+      <w-icon type="arrow-right" />
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/regist/regist",
+    "pages/login/login",
+    "pages/usercenter/index",
+    "pages/signin/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "湖北保利",
+    "navigationBarTextStyle": "black"
+  }
+}

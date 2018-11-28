@@ -1,0 +1,102 @@
+<view class="regist">
+  <scroll-view scroll-y class="content">
+    <image mode="widthFix" class="logo" src="/images/logo.png" />
+    <view class="form">
+      <view class="form-bar">
+        <view class="fh">选择身份</view>
+        <view class="fb flex">
+          <radio-group bindchange="roleChange">
+            <label class="cell-select" wx:for="{{roles}}" wx:key="r-{{index}}">
+              <radio value="{{index}}" checked='{{roleIndex === index}}'></radio>
+              <view class="text {{roleIndex === index ? 'checked' : ''}}">{{item.name}}</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view hidden='{{roleIndex === 1}}' class="main-wrapper visitor-wrapper">
+        <view class="form-bar">
+          <view class="fh">写字楼</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input select clear value='{{buildingName}}' class="input" bindinput='buildingInput' placeholder='请输入并选择写字楼名称' selected-items='{{buildings}}' selected-item-key='name' bindselect='buildingSelect' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">公司</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='name' bindselect='companySelect' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">姓名</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">性别</view>
+          <view class="fb flex">
+            <radio-group bindchange="genderChange">
+              <label class="cell-select">
+                <radio value="男" checked='{{gender === "男"}}'></radio>
+                <view class='text {{gender === "男" ? "checked" : ""}}'>男</view>
+              </label>
+              <label class="cell-select">
+                <radio value="女" checked='{{gender === "女"}}'></radio>
+                <view class='text {{gender === "女" ? "checked" : ""}}'>女</view>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">手机号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">验证码</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
+            </view>
+            <view class="get-code">
+              <button type='primary' disabled='{{codeDisabled}}' bindtap='getCode' class="get-code-btn">{{codeDisabled ? codeLimit + 's后重新获取' : '获取验证码'}}</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view hidden='{{roleIndex === 0}}' class="main-wrapper visitor-wrapper">
+        <view class="form-bar">
+          <view class="fh">手机号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">验证码</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
+            </view>
+            <view class="get-code">
+              <button type='primary' disabled='{{codeDisabled}}' bindtap='getCode' class="get-code-btn">{{codeDisabled ? codeLimit + 's后重新获取' : '获取验证码'}}</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="btns">
+    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">注册</button>
+  </view>
+</view>

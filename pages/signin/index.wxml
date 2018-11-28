@@ -1,0 +1,17 @@
+<view class="info">
+  <button class="signin-btn">签到</button>
+  <view class="days">累计签到<text>1</text>天</view>
+  <view class="flex points">
+    <view class="available">
+      <view class="nums">123</view>
+      <view class="text">可用积分</view>
+    </view>
+    <view class="total">
+      <view class="nums">123</view>
+      <view class="text">累积积分</view>
+    </view>
+  </view>
+</view>
+<view class="calendar">
+  <calendar></calendar>
+</view>

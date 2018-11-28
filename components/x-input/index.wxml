@@ -1,0 +1,40 @@
+<view class="x-input">
+  <input
+    value='{{value}}'
+    type='{{type}}'
+    password='{{password}}'
+    placeholder='{{placeholder}}'
+    placeholder-style='{{placeholderStyle}}'
+    disabled='{{disabled}}'
+    maxlength='{{maxlength}}'
+    cursor-spacing='{{cursorSpacing}}'
+    focus='{{focus}}'
+    confirm-type='{{confirmType}}'
+    confirm-hold='{{confirmHold}}'
+    cursor='{{cursor}}'
+    selection-start='{{selectionStart}}'
+    selection-end='{{selectionEnd}}'
+    adjust-position='{{adjustPosition}}'
+    bindinput='inputHandler'
+    bindblur='blurHandler'
+    bindfocus='focusHandler'
+    bindconfirm='confirmHandler'
+  />
+  <view class="icon" wx:if="{{clear && !!value}}" bindtap='clear' >
+    <icon size='14'  type="clear" />
+  </view>
+  <scroll-view scroll-y wx:if='{{select && focusing && selecting}}' class="drop-menu">
+    <block wx:if="{{selectedItems.length > 0}}">
+      <view
+        wx:for='{{selectedItems}}'
+        wx:key='item-{{index}}'
+        class='item'
+        bindtap='itemTap'
+        data-index='{{index}}'
+        data-key='{{selectedItemKey}}'
+        data-value='{{selectedItemKey ? item[selectedItemKey] : item}}'
+      >{{selectedItemKey ? item[selectedItemKey] : item}}</view>
+    </block>
+    <view wx:else class='item'>暂无数据</view>
+  </scroll-view>
+</view>
