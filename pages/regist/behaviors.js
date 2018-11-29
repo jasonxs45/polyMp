@@ -10,7 +10,7 @@ export default Behavior({
       })
     },
     buildingSelect(e) {
-      let value = e.detail
+      let value = e.detail.value
       this.setData({
         buildingSelectIndex: value,
         buildingName: value !== null ? this.data.buildings[value].name : ''

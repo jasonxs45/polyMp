@@ -47,8 +47,8 @@ function transferWeek(n) {
   }
   return txt
 }
-function formatNumber(num, cent, isThousand) {
-  // num = num.toString().replace(/\$|\,/g, '')
+function formatNumber(num, cent, isThousand = true) {
+  num = num.toString().replace(/\$|\,/g, '')
   // 检查传入数值为数值类型
   if (isNaN(num)) {
     num = 0

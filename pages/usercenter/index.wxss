@@ -1,88 +1,123 @@
-.base-info {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
+.split{
+  height: 20rpx;
+  background: rgba(245,245,245,1);
 }
-
+.base-info {
+  position: relative;
+  height: 330rpx;
+  padding: 30rpx;
+}
+.bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 .avatar {
-  width: 140rpx;
-  height: 140rpx;
+  width: 172rpx;
+  height: 172rpx;
   display: block;
   margin: 0 auto;
 }
 
 .nickname {
   text-align: center;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #333;
   margin-top: 30rpx;
+  line-height: 30rpx;
 }
 .go-signin{
   position: absolute;
   right: 0;
   top: 50%;
-  margin-top: -90rpx;
-  width: 120rpx;
-  height: 60rpx;
-  line-height: 60rpx;
+  margin-top: -40rpx;
+  width: 116rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: center;
-  background: #4d4d4d;
-  color: #edc27b;
-  font-size: 28rpx;
+  color: #4d4d4d;
+  background: #edc27b;
+  font-size: 24rpx;
+  font-weight: bold;
   border-top-left-radius: 40rpx;
   border-bottom-left-radius: 40rpx;
 }
-.nav {
+.edit {
   display: inline-block;
+  vertical-align: middle;
+  padding: 0 10rpx 0 5rpx;
+}
+.edit image{
+  width: 30rpx;
+  height: 30rpx;
 }
 
 .role {
   text-align: center;
-  font-size: 26rpx;
-  color: #666;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
+}
+.role text{
+  background: #4d4d4d;
+  font-size: 20rpx;
+  color: #edc27b;
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 0 10rpx;
 }
 
 .point-money {
   justify-content: space-around;
-  padding: 0 50rpx;
+  padding: 0 30rpx;
+  height: 120rpx;
 }
 
 .points, .money {
   flex: 0 0 50%;
   padding: 0 30rpx;
   text-align: center;
-  margin: 40rpx 0;
+  margin: 16rpx 0;
 }
 
 .numbers {
   font-size: 36rpx;
-  color: #333;
-}
-
-.money .icon {
-  display: inline-block;
-  font-size: 24rpx;
-  color: #888;
-  line-height: 1;
+  font-weight: 600;
+  color:#edc27b;
+  line-height: 50rpx;
 }
 .text {
-  font-size: 26rpx;
-  color: #888;
+  font-size: 24rpx;
+  color: #666;
+  font-weight: 500;
+  margin-top: 8rpx;
 }
 .navigators{
   border-bottom: 1rpx solid #ddd;
   padding: 30rpx;
   align-items: center;
 }
+.group .navigators:last-child{
+  border-bottom: none;
+}
+
 .navigators .icon{
-  flex: 0 0 60rpx;
+  flex: 0 0 72rpx;
+}
+.navigators .icon image {
+  width: 72rpx;
+  height: 72rpx;
 }
 .navigators .label{
   flex: 1;
-  color: #333;
-  font-size: 28rpx;
+  color: #4d4d4d;
+  font-size: 24rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
 }
 .navigators .arrow{
-  color: #888;
+  color: #4d4d4d;
   font-size: 26rpx;
+  font-weight: 600;
 }

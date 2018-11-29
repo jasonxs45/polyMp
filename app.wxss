@@ -17,6 +17,9 @@ view, scroll-view, picker-view, navigator, image, input, text{
 image{
   display: block;
 }
+.navigator-hover{
+  background: none;
+}
 .form-bar,.flex{
   display: flex;
 }
@@ -37,7 +40,7 @@ image{
 }
 .cell-select .text.checked{
   background-color:#4d4d4d;
-  color: #fff;
+  color: #EDC27B;
 }
 /* 重写部分原生组件样式 */
 button[type=primary]{

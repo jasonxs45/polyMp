@@ -8,7 +8,7 @@
           <radio-group bindchange="roleChange">
             <label class="cell-select" wx:for="{{roles}}" wx:key="r-{{index}}">
               <radio value="{{index}}" checked='{{roleIndex === index}}'></radio>
-              <view class="text {{roleIndex === index ? 'checked' : ''}}">{{item.name}}</view>
+              <view class="wx-radio-input text {{roleIndex === index ? 'checked' : ''}}">{{item.name}}</view>
             </label>
           </radio-group>
         </view>
@@ -18,7 +18,15 @@
           <view class="fh">写字楼</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <x-input select clear value='{{buildingName}}' class="input" bindinput='buildingInput' placeholder='请输入并选择写字楼名称' selected-items='{{buildings}}' selected-item-key='name' bindselect='buildingSelect' />
+              <picker class="input select" range='{{buildings}}' range-key='name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
+                <text wx:if="{{buildingSelectIndex !== null}}">
+                  {{buildings[buildingSelectIndex].name}}
+                </text>
+                <text wx:else class="placeholder">请选择写字楼</text>
+                <view class="icon">
+                  <x-icon type="caret-down" />
+                </view>
+              </picker>
             </view>
           </view>
         </view>

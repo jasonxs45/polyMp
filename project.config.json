@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -55,6 +55,24 @@
 					"id": -1,
 					"name": "签到",
 					"pathName": "pages/signin/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改资料",
+					"pathName": "pages/modify/index",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "访客记录-访客",
+					"pathName": "pages/visitrecord/visitor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "访客记录-员工",
+					"pathName": "pages/visitrecord/staff",
 					"query": ""
 				}
 			]

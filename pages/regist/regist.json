@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "注册",
   "usingComponents": {
-    "x-input": "/components/x-input/index"
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index"
   }
 }

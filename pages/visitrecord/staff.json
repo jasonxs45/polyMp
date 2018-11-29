@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "来访记录",
+  "usingComponents": {
+    "w-tabs": "wuss-weapp/w-tabs/index"
+  }
+}

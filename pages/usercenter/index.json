@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "w-icon": "wuss-weapp/w-icon/index"
+    "x-icon": "/components/x-icon/index"
   }
 }

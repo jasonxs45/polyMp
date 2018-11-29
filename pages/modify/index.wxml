@@ -1,0 +1,103 @@
+<view class="modify">
+  <view class="content">
+    <view class="wxinfo">
+      <image class="avatar" mode="widthFix" src='{{avatar || "../usercenter/avatar.png"}}' />
+      <view class="nickname">{{nickname || "昵称"}}</view>
+    </view>
+    <view class="split" />
+    <view class="form">
+      <view class="flex item" bindtap='show' data-item="name">
+        <view class="fh">姓名</view>
+        <view class="fb">
+          <view class="input">{{name}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
+      <view class="flex item" bindtap='show' data-item="gender">
+        <view class="fh">性别</view>
+        <view class="fb">
+          <view class="input">{{gender}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
+      <view class="flex item" bindtap='show' data-item="tel">
+        <view class="fh">手机号</view>
+        <view class="fb">
+          <view class="input">{{tel}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
+      <view class="flex item" bindtap='show' data-item="idnum">
+        <view class="fh">身份证号码</view>
+        <view class="fb">
+          <view class="input">{{idnum}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
+      <view class="flex item" bindtap='show' data-item="company">
+        <view class="fh">公司</view>
+        <view class="fb">
+          <view class="input">{{company}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view scroll-y class="popup {{modifyShow?'show': ''}}">
+  <view class="head flex">
+    <button plain class="cancel" bindtap='cancel'>取消</button>
+    <button type="primary" class="confirm" bindtap='confirm'>确定</button>
+  </view>
+  <view wx:if="{{modifyShow}}">
+    <block wx:if="{{modifyItem === 'name'}}">
+      <view class="title">修改姓名</view>
+      <view class="modify-item">
+        <x-input clear placeholder='修改姓名' value="{{name}}" bindinput='nameInput' />
+      </view>
+    </block>
+    <block wx:if="{{modifyItem === 'gender'}}">
+      <view class="title">修改性别</view>
+      <view class="gender-select">
+        <radio-group bindchange="genderChange">
+          <label class="gender-radio">
+            <view class="radio-text">男</view>
+            <radio class="radio" value="男" checked='{{gender === "男"}}' />
+          </label>
+          <label class="gender-radio">
+            <view class="radio-text">女</view>
+            <radio class="radio" value="女" checked='{{gender === "女"}}' />
+          </label>
+        </radio-group>
+      </view>
+    </block>
+    <block wx:if="{{modifyItem === 'tel'}}">
+      <view class="title">修改手机号码</view>
+      <view class="modify-item">
+        <x-input clear placeholder='修改手机号码' value="{{tel}}" bindinput='telInput' />
+      </view>
+    </block>
+    <block wx:if="{{modifyItem === 'idnum'}}">
+      <view class="title">修改身份证号码</view>
+      <view class="modify-item">
+        <x-input clear placeholder='修改身份证号' value="{{idnum}}" bindinput='idNumInput' />
+      </view>
+    </block>
+    <block wx:if="{{modifyItem === 'company'}}">
+      <view class="title">修改公司名称</view>
+      <view class="modify-item">
+        <x-input clear placeholder='修改公司名称' value="{{company}}" bindinput='companyInput' />
+      </view>
+    </block>
+  </view>
+</scroll-view>

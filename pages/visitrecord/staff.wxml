@@ -1,0 +1,10 @@
+<view>
+  <w-tabs
+    fixed
+    currentIndex="{{currentIndex}}"
+    options="{{tabs}}"
+    activeColor="#4d4d4d"
+    class="tabs"
+    bindonChange="tabChange"
+  />
+</view>

@@ -4,11 +4,15 @@
     "pages/regist/regist",
     "pages/login/login",
     "pages/usercenter/index",
-    "pages/signin/index"
+    "pages/signin/index",
+    "pages/modify/index",
+    "pages/visitrecord/visitor",
+    "pages/visitrecord/staff"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "湖北保利",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f2f2f2"
   }
 }

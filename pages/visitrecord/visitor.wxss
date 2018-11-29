@@ -1,0 +1,37 @@
+page{
+  background: #f2f2f2;
+}
+.tabs{
+  color: #888;
+}
+.content{
+  padding-top: 44px;
+  padding-bottom: 30rpx;
+}
+.card{
+  background: #fff;
+  margin: 30rpx;
+  border-radius: 4px;
+}
+.card .head{
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ddd;
+  padding:20rpx;
+  align-items: center;
+}
+.card .head .tit{
+  color:#4d4d4d;
+  font-size: 30rpx;
+}
+.card .head .sub-tit{
+  color:#333;
+  font-size: 26rpx;
+  font-weight: 200;
+}
+.card .body{
+  font-size: 40rpx;
+  padding:60rpx 20rpx;
+  text-align: center;
+  font-weight: 600;
+  color: #4d4d4d;
+}

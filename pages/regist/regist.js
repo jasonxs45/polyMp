@@ -29,7 +29,7 @@ Component({
     roleIndex: 0,
     allBuildings,
     allCompanies,
-    buildings: [],
+    buildings: allBuildings,
     companies: [],
     buildingSelectIndex: null,
     buildingName: '',
