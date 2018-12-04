@@ -1,4 +1,0 @@
-<label>
-  <radio></radio>
-  <view>{{label}}</view>
-</label>

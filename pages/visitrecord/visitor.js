@@ -1,21 +1,49 @@
-import { tabs, tabChange } from './mixins'
-Page({
+import behaviors  from './behaviors'
+Component({
   data: {
     role: '访客',
-    tabs: [],
-    currentIndex: 0
+    tabs: [
+      {
+        num: 123,
+        text: '发出的申请'
+      },
+      {
+        num: 34,
+        text: '收到的邀访'
+      },
+      {
+        num: 34,
+        text: '常用联系人'
+      }
+    ],
+    outLists: [
+      { open: false }, { open: false }, { open: false }, { open: false }, { open: false }
+    ]
   },
-  tabChange,
-  onLoad (options) {
-    this.setData({
-      tabs: tabs.filter(item => item.role === this.data.role)
-    })
-  },
-  onReady () {},
-  onShow () {},
-  onHide () {},
-  onUnload () {},
-  onPullDownRefresh () {},
-  onReachBottom () {},
-  onShareAppMessage () {}
+  behaviors: [behaviors],
+  methods: {
+    toggleDetail (e) {
+      let index = parseInt(e.currentTarget.dataset.index)
+      let open = this.data.outLists[index].open
+      let str = `outLists[${index}].open`
+      this.setData({
+        [str]: !open
+      })
+    },
+    onLoad(options) {
+      this.data.barWidth = 100 / this.data.tabs.length + '%'
+      this.setData({
+        barWidth: this.data.barWidth
+      })
+    },
+    onReady() { },
+    onShow() { },
+    onHide() { },
+    onUnload() { },
+    onPullDownRefresh() { },
+    onReachBottom() {
+      console.log(123)
+    },
+    onShareAppMessage() { }
+  }
 })

@@ -35,18 +35,19 @@ export default Behavior({
       let value = e.detail
       this.data.name = value
     },
-    genderChange (e) {
-      this.setData({
-        gender: e.detail.value
-      })
-    },
     telInput(e) {
       let value = e.detail
       this.data.tel = value
     },
-    codeInput(e) {
-      let value = e.detail
-      this.data.code = value
+    textInput (e) {
+      let value = e.detail.value
+      this.data.backinfo = value
+    },
+    datetimeChange (e) {
+      let datetimeValue = e.detail
+      this.data.datetimeValue = datetimeValue
     }
+  },
+  lifetimes: {
   }
 })

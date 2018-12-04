@@ -1,17 +1,40 @@
-<view class="info">
-  <button class="signin-btn">签到</button>
-  <view class="days">累计签到<text>1</text>天</view>
-  <view class="flex points">
-    <view class="available">
-      <view class="nums">123</view>
-      <view class="text">可用积分</view>
+<view class="base-info">
+  <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
+  <view class="info">
+    <view class="nickname">
+      {{nickname || "昵称"}}
     </view>
-    <view class="total">
-      <view class="nums">123</view>
-      <view class="text">累积积分</view>
-    </view>
+    <view class="role">{{role || '普通会员'}}</view>
+  </view>
+  <view class="points">
+    <text>{{points}}</text>积分
   </view>
 </view>
-<view class="calendar">
-  <calendar></calendar>
+<view class="content">
+  <view class="card">
+    <image class="bg" src="./bg.png" />
+    <view class="steps">
+      <view wx:for="{{steps}}" wx:key="step-{{index}}" class="step">
+        <view class="flex">
+          <view class="circle">
+            <icon wx:if="{{index < signedDays}}" size="30rpx" color="#7E581A" type="success_no_circle" />
+            <text wx:else>+{{item}}</text>
+          </view>
+        </view>
+        <view class="text">{{index + 1}}天</view>
+      </view>
+    </view>
+    <button
+      loading="{{submitLoading}}"
+      disabled="{{submitDisabled}}"
+      class="sign-btn"
+    >点击签到</button>
+  </view>
+  <view class="rule-tit">签到规则：</view>
+  <view class="rule-item">1.每个用户每天可签到一次，金币获取规则：签到初始值为1金币，连续签到每天金币额 外加1，第7天开始不再额外增加。若中断签到，将从初始值开始重新计算。 </view>
+  <view class="rule-item">2.您获得的金币可用来进行奖品兑换，奖品将由客服人员统一发放，请保持通讯通畅。</view>
+  <view class="rule-item">3.我们还定期为您准备了各种丰厚的奖励，敬请期！</view>
+  <navigator url="/pages/onlineshops/index">
+    <image mode="widthFix" class="ad" src="./ad.png" />
+  </navigator>
 </view>

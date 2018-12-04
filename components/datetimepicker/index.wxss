@@ -1,0 +1,23 @@
+.datetime-picker{
+  width: inherit;
+  height: inherit;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  position: relative;
+}
+.icon{
+  width: 50rpx;
+  height: inherit;
+  line-height: inherit;
+  position: absolute;
+  top: 0;
+  right:0 ;
+  color: #666;
+  font-size: 30rpx;
+}
+text{
+  display: inline-block;
+}
+.placeholder{
+  color: #888;
+}

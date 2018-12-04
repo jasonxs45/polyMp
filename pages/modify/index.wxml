@@ -1,7 +1,7 @@
 <view class="modify">
   <view class="content">
     <view class="wxinfo">
-      <image class="avatar" mode="widthFix" src='{{avatar || "../usercenter/avatar.png"}}' />
+      <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
       <view class="nickname">{{nickname || "昵称"}}</view>
     </view>
     <view class="split" />

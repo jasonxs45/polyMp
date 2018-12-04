@@ -19,6 +19,11 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -37,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -52,7 +57,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "签到",
 					"pathName": "pages/signin/index",
 					"query": ""
@@ -74,6 +79,18 @@
 					"name": "访客记录-员工",
 					"pathName": "pages/visitrecord/staff",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "来访申请页面",
+					"pathName": "pages/visitapply/index",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "添加常用联系人",
+					"pathName": "pages/addcontactor/index",
+					"query": "role=员工"
 				}
 			]
 		}

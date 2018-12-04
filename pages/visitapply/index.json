@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我要申访",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index",
+    "datetimepicker": "/components/datetimepicker/index"
+  }
+}

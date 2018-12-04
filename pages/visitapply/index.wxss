@@ -1,0 +1,98 @@
+.visit-apply{
+  width: 100%;
+  padding: 0 0 300rpx;
+  position: relative;
+  min-height: 100vh;
+}
+.content{
+}
+.title{
+  text-align: center;
+}
+.logo{
+  width: 318rpx;
+  margin: 60rpx auto 0;
+  display: block;
+}
+.form{
+  padding: 30rpx;
+}
+.form-bar{
+  display: block;
+  margin-top: 30rpx;
+}
+.fh{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+}
+.fb{
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  width: 100%;
+}
+.clearable-input{
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #F5F5F5;
+  border-radius: 4rpx;
+}
+.textarea{
+  width: 100%;
+  height: 150rpx;
+  color: #4d4d4d;
+  background: #F5F5F5;
+  border-radius: 4rpx;
+  padding: 15rpx;
+}
+.input{
+  width: 100%;
+  height: 100%;
+  color: #4d4d4d;
+}
+.select{
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  position: relative;
+}
+.select .icon{
+  width: 50rpx;
+  height:100%;
+  line-height: inherit;
+  position: absolute;
+  top: 0;
+  right:0 ;
+  color: #666;
+  font-size: 30rpx;
+}
+.select text{
+  display: inline-block;
+}
+.select .placeholder{
+  color: #888;
+}
+.btns{
+  text-align: center;
+  width: 100%;
+  height: 300rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30rpx 30rpx;
+  z-index: 10;
+}
+.btn{
+  font-size:34rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-weight: 600;
+  margin-top: 30rpx;
+}
+.torecord{
+  color: #666;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+}

@@ -1,0 +1,66 @@
+<view class="visit-apply">
+  <view scroll-y class="content">
+    <view class="form">
+      <view class="main-wrapper visitor-wrapper">
+        <view class="form-bar">
+          <view class="fh">写字楼</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <picker class="input select" range='{{buildings}}' range-key='name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
+                <text wx:if="{{buildingSelectIndex !== null}}">
+                  {{buildings[buildingSelectIndex].name}}
+                </text>
+                <text wx:else class="placeholder">请选择写字楼</text>
+                <view class="icon">
+                  <x-icon type="caret-down" />
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">公司</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='name' bindselect='companySelect' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">姓名</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">手机号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">约访时间</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+            <datetimepicker class="input" bindchange='datetimeChange' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">备注</view>
+          <view class="fb">
+            <textarea placeholder='请填写备注' class="textarea" bindinput='textInput'></textarea>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btns">
+    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap='submit'>提交申请</button>
+    <navigator class="torecord" url="/pages/visitrecord/visitor">来访记录</navigator>
+  </view>
+</view>

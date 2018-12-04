@@ -7,7 +7,10 @@
     "pages/signin/index",
     "pages/modify/index",
     "pages/visitrecord/visitor",
-    "pages/visitrecord/staff"
+    "pages/visitrecord/staff",
+    "pages/onlineshops/index",
+    "pages/visitapply/index",
+    "pages/addcontactor/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

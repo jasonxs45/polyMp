@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "物业-赚取积分",
-  "usingComponents": {
-    "calendar": "/components/calendar/index"
-  }
+  "navigationBarTitleText": "每日签到",
+  "usingComponents": {}
 }

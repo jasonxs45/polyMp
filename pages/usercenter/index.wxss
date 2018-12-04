@@ -1,6 +1,6 @@
 .split{
   height: 20rpx;
-  background: rgba(245,245,245,1);
+  background: #f2f2f2;
 }
 .base-info {
   position: relative;

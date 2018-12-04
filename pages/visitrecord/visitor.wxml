@@ -1,15 +1,72 @@
-<w-tabs fixed currentIndex="{{currentIndex}}" options="{{tabs}}" activeColor="#4d4d4d" class="tabs" bindonChange="tabChange" />
+<view class="tabs">
+  <view wx:for="{{tabs}}" wx:key="tab-item-{{index}}" data-index="{{index}}" bindtap="tabChange" class="tab-item">
+    <view class="num">{{item.num}}</view>
+    <view class="text">{{item.text}}</view>
+  </view>
+  <view class="bar" style="width:{{barWidth}};left:{{barLeft}}px"></view>
+</view>
 <view class="content">
-  <view hidden='{{currentIndex === 1}}' class="">
-    <view wx:for="{{6}}" wx:key="out-{{index}}" class="card">
-      <view class="flex head">
-        <view class="tit">测试</view>
-        <view class="sub-tit">2018/11/28</view>
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item>
+      <view wx:for="{{outLists}}" wx:key="out-{{index}}" class="card">
+        <view class="flex head">
+          <view class="tit">测试</view>
+          <view class="sub-tit">2018/11/28 12:12</view>
+        </view>
+        <view class="body">
+          <view class="company-name">武汉矩阵科技</view>
+          <view class="qr-detail">
+            <view class="detail {{item.open ? '' : 'hidden'}}">
+              <image src="" class="qrcode" />
+              <view class="main-tip">请向工作人员出示此二维码</view>
+              <view class="sub-tip">此二维码将在24小时后失效，未到预约时间不可使用</view>
+            </view>
+            <view class="packup-unfold" data-index="{{index}}" bindtap='toggleDetail'>
+              <x-icon class="icon" type="{{item.open ? 'packup' : 'unfold'}}" />
+              <text class="text">{{item.open ? '收起' : '展开'}}</text>
+            </view>
+          </view>
+        </view>
       </view>
-      <view class="body">武汉斗鱼</view>
-    </view>
-  </view>
-  <view hidden='{{currentIndex === 0}}' class="">
-    收到的
-  </view>
+    </swiper-item>
+    <swiper-item>
+      <view wx:for="{{6}}" wx:key="out-{{index}}" class="card">
+        <view class="flex head">
+          <view class="tit">测试</view>
+          <view class="sub-tit">2018/11/28 12:12</view>
+        </view>
+        <view class="body">
+          <view class="company-name">武汉矩阵科技</view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view wx:for="{{6}}" wx:key="contactor-{{index}}" class="card">
+        <view class="flex head">
+          <view class="tit">测试</view>
+          <view class="sub-tit">15972228857</view>
+        </view>
+        <view class="body">
+          <view class="flex contactor-info">
+            <view class="info">
+              <view class="company-name">公司名称</view>
+              <view class="building-name">楼栋名称</view>
+            </view>
+            <view class="icon">
+              <x-icon type="enter" />
+            </view>
+          </view>
+        </view>
+        <view class="foot">
+          <button class="edit">
+            <x-icon type="edit" />编辑</button>
+          <button class="del">
+            <x-icon type="del" />删除</button>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <navigator wx:if="{{currentIndex === 2}}" class="add" url="/pages/addcontactor/index">
+    <x-icon type="plus" />
+  </navigator>
 </view>

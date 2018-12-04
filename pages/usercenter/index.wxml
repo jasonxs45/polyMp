@@ -1,6 +1,6 @@
 <view class="base-info">
 <image class="bg" src='./bg.png'></image>
-  <image class="avatar" mode="widthFix" src='{{avatar || "./avatar.png"}}' />
+  <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
   <view class="nickname">
     {{nickname || "昵称"}}
     <navigator class="edit" url="/pages/modify/index">

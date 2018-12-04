@@ -1,37 +1,134 @@
-page{
-  background: #f2f2f2;
-}
-.tabs{
-  color: #888;
-}
-.content{
-  padding-top: 44px;
-  padding-bottom: 30rpx;
-}
-.card{
+@import './tab.wxss';
+.card {
   background: #fff;
   margin: 30rpx;
   border-radius: 4px;
 }
-.card .head{
+.card .head {
+  height: 76rpx;
   justify-content: space-between;
   border-bottom: 1rpx solid #ddd;
-  padding:20rpx;
+  padding: 0 20rpx;
   align-items: center;
 }
-.card .head .tit{
-  color:#4d4d4d;
-  font-size: 30rpx;
-}
-.card .head .sub-tit{
-  color:#333;
+.card .head .tit {
+  color: #666;
   font-size: 26rpx;
-  font-weight: 200;
+  font-weight: 300;
+  width: 450rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.card .body{
-  font-size: 40rpx;
-  padding:60rpx 20rpx;
+.card .head .sub-tit {
+  color: #666;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+.card .body {
+  font-size: 36rpx;
+  padding: 0;
   text-align: center;
-  font-weight: 600;
-  color: #4d4d4d;
+  font-weight: 500;
+  color: #333;
+}
+.card .foot{
+  border-top:1rpx solid #ddd;
+  padding: 10rpx;
+  text-align: right;
+}
+.contactor-info{
+  justify-content: space-between;
+  align-items: center;
+}
+.contactor-info .info{
+  text-align: left;
+}
+.contactor-info .icon{
+  color: #999;
+}
+.company-name{
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+  padding: 60rpx 0 70rpx;
+}
+.building-name{
+  color:#999;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-top: 30rpx;
+}
+.edit, .del{
+  display: inline-block;
+  background: none;
+  border:none;
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 15rpx;
+}
+.edit:after, .del:after{
+  background: none !important;
+  border: none !important;
+}
+.add{
+  position: fixed;
+  z-index: 11;
+  width: 80rpx;
+  height: 80rpx;
+  right: 30rpx;
+  bottom: 100rpx;
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 80rpx;
+}
+.qr-detail {
+  overflow: hidden;
+}
+.qr-detail .detail{
+  border-top:1rpx solid #ddd;
+  padding: 20rpx 0;
+  transition: height,padding,opacity .3s;
+}
+.qr-detail .detail.hidden{
+  border-top: none;
+  height: 0;
+  padding: 0;
+  opacity: 0
+}
+.qrcode{
+  width: 360rpx;
+  height: 360rpx;
+  background: #ccc;
+  margin: 0 auto 30rpx;
+}
+.main-tip{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 500;
+}
+.sub-tip{
+  color: #666;
+  font-size: 22rpx;
+  font-weight: 300;
+  margin-top: 12rpx;
+}
+.packup-unfold{
+  border-top:1rpx dotted #ddd;
+  height: 80rpx;
+  text-align: center;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+.packup-unfold .icon{
+  font-size: 30rpx;
+  color: #999;
+}
+.packup-unfold .text{
+  display: block;
+  font-size: 20rpx;
+  color: #999;
 }
