@@ -1,2 +1,52 @@
-<!--pages/onlineshops/index.wxml-->
-<text>pages/onlineshops/index.wxml</text>
+<swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="banner">
+  <swiper-item wx:for="{{banners}}" wx:key="banner-{{index}}">
+    <image class="img" src='{{item}}' mode='aspectFill' />
+  </swiper-item>
+</swiper>
+<view class="personal-info flex">
+  <view class="points">
+    <x-icon type="star-fill"/>12313积分
+  </view>
+  <navigator class="nav">
+    <x-icon type="foot"/>兑换记录
+  </navigator>
+</view>
+<view class="split"></view>
+<view class="sortbar flex {{fixed?'fixed': ''}}">
+  <view class="common item {{orderIndex === 0 ? 'active' : ''}}" bindtap='orderByCommon'>
+    <text class="text">{{commonSorts[commonSortsIndex]}}</text>
+    <x-icon type="caret-down"/>
+  </view>
+  <view class="price item {{orderIndex === 1 ? 'active' : ''}}" bindtap='orderByPrice'>
+    <view class="text">价位</view>
+    <view class="sort-icon">
+      <x-icon class="up {{ascending?'active': ''}}" type="caret-up"/>
+      <x-icon class="down {{ascending?'': 'active'}}" type="caret-down"/>
+    </view>
+  </view>
+  <view hidden='{{!commonSortsShow}}' class="drop-menu">
+    <radio-group bindchange="commonOrderChange">
+      <label
+        wx:for="{{commonSorts}}"
+        wx:key="d-{{index}}"
+        class="common-sortby {{commonSortsIndex === index ? 'active' : ''}}"
+      >
+        <view>{{item}}</view>
+        <radio value="{{index}}" checked='{{commonSortsIndex === index}}'/>
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view hidden='{{!fixed}}' class="sortbar"></view>
+<view class="list-wrapper">
+  <view wx:for="{{list}}" wx:key="cell-{{index}}" class="cell">
+    <image mode="aspectFill" class="img" src="{{item}}"/>
+    <view class="detail">
+      <view class="title">铁三角「s-bast」4201无损耳机有线耳机</view>
+      <view class="info">
+        <view class="cost">1000<text>积分</text></view>
+        <button class="btn" type="primary">兑换</button>
+      </view>
+    </view>
+  </view>
+</view>

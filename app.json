@@ -15,7 +15,9 @@
     "pages/conference/detail",
     "pages/conference/apply",
     "pages/passcard/index",
-    "pages/modifycontactor/index"
+    "pages/modifycontactor/index",
+    "pages/onlineshops/detail",
+    "pages/onlineshops/record"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
