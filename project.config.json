@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -127,6 +127,12 @@
 					"name": "积分商城兑换记录",
 					"pathName": "pages/onlineshops/record",
 					"query": ""
+        },
+        {
+          "id": -1,
+					"name": "圈层活动",
+					"pathName": "pages/activity/activity",
+          "query": ""
 				}
 			]
 		}
