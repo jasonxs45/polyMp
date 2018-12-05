@@ -5,12 +5,11 @@
       <view class="form-bar">
         <view class="fh">选择身份</view>
         <view class="fb flex">
-          <radio-group bindchange="roleChange">
-            <label class="cell-select" wx:for="{{roles}}" wx:key="r-{{index}}">
-              <radio value="{{index}}" checked='{{roleIndex === index}}'></radio>
-              <view class="wx-radio-input text {{roleIndex === index ? 'checked' : ''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
+          <cell-radio-group current="{{roleIndex}}" bindchange="roleChange">
+            <cell-radio class="cell-radio" wx:for="{{roles}}" wx:key="r-{{index}}">
+              {{item.name}}
+            </cell-radio>
+          </cell-radio-group>
         </view>
       </view>
       <view hidden='{{roleIndex === 1}}' class="main-wrapper visitor-wrapper">
@@ -49,16 +48,11 @@
         <view class="form-bar">
           <view class="fh">性别</view>
           <view class="fb flex">
-            <radio-group bindchange="genderChange">
-              <label class="cell-select">
-                <radio value="男" checked='{{gender === "男"}}'></radio>
-                <view class='text {{gender === "男" ? "checked" : ""}}'>男</view>
-              </label>
-              <label class="cell-select">
-                <radio value="女" checked='{{gender === "女"}}'></radio>
-                <view class='text {{gender === "女" ? "checked" : ""}}'>女</view>
-              </label>
-            </radio-group>
+            <cell-radio-group current="{{genderIndex}}" bindchange="genderChange">
+              <cell-radio wx:for="{{genders}}" wx:key="gender-{{index}}" class="cell-radio">
+                {{item}}
+              </cell-radio>
+            </cell-radio-group>
           </view>
         </view>
         <view class="form-bar">

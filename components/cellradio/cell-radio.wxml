@@ -1,0 +1,3 @@
+<view class="cell-radio {{checked?'checked':''}}" bindtap="onTap">
+	<slot/>
+</view>

@@ -1,10 +1,71 @@
-<view>
-  <w-tabs
-    fixed
-    currentIndex="{{currentIndex}}"
-    options="{{tabs}}"
-    activeColor="#4d4d4d"
-    class="tabs"
-    bindonChange="tabChange"
-  />
+<tabs class="tabs" bindchange="tabChange">
+  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}">
+    <view class="tab-item">
+      <view class="num">{{item.num}}</view>
+      <view class="text">{{item.text}}</view>
+    </view>
+  </tab-item>
+</tabs>
+<view class="content">
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item>
+      <view wx:for="{{outLists}}" wx:key="out-{{index}}" class="card">
+        <view class="flex head">
+          <view class="tit">测试</view>
+          <view class="sub-tit">2018/11/28 12:12</view>
+        </view>
+        <view class="body">
+          <view class="company-name">武汉矩阵科技</view>
+          <view class="qr-detail">
+            <view class="detail {{item.open ? '' : 'hidden'}}">
+              <view class="form-bar">
+                <view class="fh">联系方式：</view>
+                <view class="fb">12312313</view>
+              </view>
+              <view class="form-bar">
+                <view class="fh">约访时间：</view>
+                <view class="fb">12312313</view>
+              </view>
+              <view class="form-bar">
+                <view class="fh">备注：</view>
+                <view class="fb">12312313</view>
+              </view>
+            </view>
+            <view class="packup-unfold" data-index="{{index}}" bindtap='toggleDetail'>
+              <x-icon class="icon" type="{{item.open ? 'packup' : 'unfold'}}" />
+              <text class="text">{{item.open ? '收起' : '展开'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view wx:for="{{6}}" wx:key="contactor-{{index}}" class="card">
+        <view class="flex head">
+          <view class="tit">测试</view>
+          <view class="sub-tit">15972228857</view>
+        </view>
+        <view class="body">
+          <view class="flex contactor-info">
+            <view class="info">
+              <view class="company-name">公司名称</view>
+              <view class="building-name">楼栋名称</view>
+            </view>
+            <view class="icon">
+              <x-icon type="enter" />
+            </view>
+          </view>
+        </view>
+        <view class="foot">
+          <button class="edit" bindtap="goModify">
+            <x-icon type="edit" />编辑</button>
+          <button class="del" bindtap="del">
+            <x-icon type="del" />删除</button>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <navigator wx:if="{{currentIndex === 1}}" class="add" url="/pages/addcontactor/index?role={{role}}">
+    <x-icon type="plus" />
+  </navigator>
 </view>

@@ -1,0 +1,51 @@
+page{
+  background: #f2f2f2;
+}
+.con_list{
+  padding: 40rpx 30rpx;
+}
+.con{
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
+  overflow: hidden;
+}
+.con_img{
+ margin-bottom: 30rpx;
+}
+.con_img image{
+  display: block;
+  width: 100%;
+}
+.con_title{
+  padding: 0 20rpx;
+  color: #333333;
+  font-size: 36rpx;
+  line-height: 46rpx;
+  font-family:PingFang-TC-Regular;
+  font-weight: 500;
+  margin-bottom: 30rpx;
+}
+.con_title text{
+  padding: 0 10rpx;
+  margin-top: 8rpx;
+  height:36rpx;
+  background:rgba(237,194,123,0.2);
+  color: #C49A56;
+  font-size: 24rpx;
+  font-family:PingFang-TC-Medium;
+  line-height:36rpx;
+  text-align: center;
+  font-weight:400;
+  float: right;
+}
+.con_text{
+  clear: both;
+  padding: 0 20rpx;
+  font-size:24rpx;
+  font-family:PingFang-TC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:30rpx;
+}

@@ -1,0 +1,11 @@
+<view class="con_list">
+  <view class="con" wx:for="{{conAll}}" wx:key="con-{{index}}" data-id="{{item.id}}" bindtap="jump">
+    <view class="con_img">
+      <image mode="widthFix" src="{{item.src}}"></image>
+    </view>
+    <view class="con_title">{{item.name}}
+      <text>{{item.figure}}</text>
+    </view>
+    <view class="con_text">地址：{{item.address}}</view>
+  </view>
+</view>

@@ -1,10 +1,9 @@
-<view class="tabs">
-  <view wx:for="{{tabs}}" wx:key="tab-item-{{index}}" data-index="{{index}}" bindtap="tabChange" class="tab-item">
+<tabs class="tabs" bindchange="tabChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" class="tab-item">
     <view class="num">{{item.num}}</view>
     <view class="text">{{item.text}}</view>
-  </view>
-  <view class="bar" style="width:{{barWidth}};left:{{barLeft}}px"></view>
-</view>
+  </tab-item>
+</tabs>
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
     <swiper-item>
@@ -58,15 +57,15 @@
           </view>
         </view>
         <view class="foot">
-          <button class="edit">
+          <button class="edit" bindtap="goModify">
             <x-icon type="edit" />编辑</button>
-          <button class="del">
+          <button class="del" bindtap="del">
             <x-icon type="del" />删除</button>
         </view>
       </view>
     </swiper-item>
   </swiper>
-  <navigator wx:if="{{currentIndex === 2}}" class="add" url="/pages/addcontactor/index">
+  <navigator wx:if="{{currentIndex === 2}}" class="add" url="/pages/addcontactor/index?role={{role}}">
     <x-icon type="plus" />
   </navigator>
 </view>

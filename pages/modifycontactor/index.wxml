@@ -1,7 +1,7 @@
-<view class="visit-apply">
-  <view scroll-y class="content">
+<view class="modify">
+  <scroll-view scroll-y class="content">
     <view class="form">
-      <view class="main-wrapper visitor-wrapper">
+      <view wx:if="{{role === '访客' }}" class="main-wrapper visitor-wrapper">
         <view class="form-bar">
           <view class="fh">写字楼</view>
           <view class="fb flex">
@@ -42,25 +42,36 @@
             </view>
           </view>
         </view>
+      </view>
+      <view wx:if="{{role === '员工' }}" class="main-wrapper visitor-wrapper">
         <view class="form-bar">
-          <view class="fh">约访时间</view>
+          <view class="fh">公司</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <datetimepicker class="input" bindchange='datetimeChange' />
+              <x-input clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入公司名称' />
             </view>
           </view>
         </view>
         <view class="form-bar">
-          <view class="fh">备注</view>
-          <view class="fb">
-            <textarea placeholder='请填写备注' class="textarea" bindinput='textInput'></textarea>
+          <view class="fh">姓名</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">手机号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
   <view class="btns">
-    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap='submit'>提交申请</button>
-    <navigator class="torecord" url="/pages/visitrecord/visitor">来访记录</navigator>
+    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">确认</button>
   </view>
 </view>

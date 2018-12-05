@@ -1,0 +1,67 @@
+<view class='conForm'>
+  <view class="form">
+    <view class="form-bar">
+      <view class="fh">姓名</view>
+      <view class="fb flex">
+        <view class="clearable-input">
+          <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+        </view>
+      </view>
+    </view>
+    <view class="form-bar">
+      <view class="fh">手机号</view>
+      <view class="fb flex">
+        <view class="clearable-input">
+          <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+        </view>
+      </view>
+    </view>
+    <view class="form-bar">
+      <view class="fh">预约时间</view>
+      <view class="fb">
+        <view class="clearable-input" wx:if="{{yuyue.length<=0}}" bindtap="yuyueBut">
+          <text class='color9'>请选择预约时间</text>
+        </view>
+        <view class="con_time flex" wx:for="{{yuyue}}" wx:key="sj-{{index}}" data-id="{{index}}" bindtap="yuyueBut">
+          <text>{{item.rq}}</text>
+          <text>{{item.xq}}</text>
+          <text class="noon {{item.sw ? 'on' : ''}}">上午</text>
+          <text class="noon {{item.xw ? 'on' : ''}}">下午</text>
+        </view>
+      </view>
+    </view>
+    <view class="form-bar">
+      <view class="fh">备注</view>
+      <view class="fb flex">
+        <view class="clearable-textarea" wx:if="{{!yuyueB}}">
+          <textarea placeholder="请在此输入您要备注的信息" bindinput="bindTextAreaBlur" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btns">
+  <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="tijiao" class="btn">提交申请</button>
+</view>
+<view class="timeMain" wx:if="{{yuyueB}}">
+  <view class="timeMain_bg" bindtap="yuyueBut"></view>
+  <view class="timeContent">
+    <view class="timeContent_c">
+      <view class="up">
+        <x-icon type="caret-up" />
+      </view>
+      <scroll-view scroll-y class="content">
+        <view class="con_time flex" wx:for="{{list}}" wx:key="sj-{{index}}">
+          <text>{{item.rq}}</text>
+          <text>{{item.xq}}</text>
+          <text class="noon {{item.sw ? 'on' : ''}}" bindtap="selectBut" data-id="{{index}}" data-value="1">上午</text>
+          <text class="noon {{item.xw ? 'on' : ''}}" bindtap="selectBut" data-id="{{index}}" data-value="2">下午</text>
+        </view>
+      </scroll-view>
+      <view class="down">
+        <x-icon type="caret-down" />
+      </view>
+    </view>
+  </view>
+  <view class="timeBtn" bindtap="yuyueBut">确认</view>
+</view>

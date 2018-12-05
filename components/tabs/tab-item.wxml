@@ -1,0 +1,4 @@
+<view class="tab-item {{actived?'active':''}}" bindtap="onTap">
+	<slot/>
+</view>
+

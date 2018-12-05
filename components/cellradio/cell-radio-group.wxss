@@ -1,0 +1,5 @@
+.cell-radio-group {
+  position: relative;
+  height: inherit;
+  width: inherit;
+}

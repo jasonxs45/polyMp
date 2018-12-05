@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "预约申请",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index",
+    "datetimepicker": "/components/datetimepicker/index"
+  }
+}

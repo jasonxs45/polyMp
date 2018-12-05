@@ -35,18 +35,9 @@ export default Behavior({
       let value = e.detail
       this.data.name = value
     },
-    genderChange (e) {
-      this.setData({
-        genderIndex: e.detail
-      })
-    },
     telInput(e) {
       let value = e.detail
       this.data.tel = value
-    },
-    codeInput(e) {
-      let value = e.detail
-      this.data.code = value
     }
   }
 })

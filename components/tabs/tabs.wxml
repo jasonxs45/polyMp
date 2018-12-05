@@ -1,0 +1,6 @@
+<view class="tabs">
+  <view class="tabs-wrapper">
+    <slot/>
+  </view>
+  <view class="bar" style="left:{{rects[current].left}}px;width:{{rects[current].width}}px"></view>
+</view>

@@ -1,16 +1,25 @@
-import behaviors from './behaviors'
+import behavior from './behaviors'
 Component({
+  behaviors: [behavior],
   data: {
     role: '员工',
-    tabs: [],
-    currentIndex: 0
+    tabs: [
+      {
+        num: 34,
+        text: '发出的邀访'
+      },
+      {
+        num: 34,
+        text: '常用联系人'
+      }
+    ],
+    currentIndex: 0,
+    outLists: [
+      { open: false }, { open: false }, { open: false }, { open: false }, { open: false }
+    ]
   },
   methods: {
-    onLoad(options) {
-      this.setData({
-        tabs: tabs.filter(item => item.role === this.data.role)
-      })
-    },
+    onLoad(options) {},
     onReady() { },
     onShow() { },
     onHide() { },

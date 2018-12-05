@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -91,6 +91,24 @@
 					"name": "添加常用联系人",
 					"pathName": "pages/addcontactor/index",
 					"query": "role=员工"
+				},
+				{
+					"id": 8,
+					"name": "会务预约表单",
+					"pathName": "pages/conference/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "电子放行单",
+					"pathName": "pages/passcard/index",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "编辑联系人",
+					"pathName": "pages/modifycontactor/index",
+					"query": ""
 				}
 			]
 		}

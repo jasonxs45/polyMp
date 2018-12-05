@@ -1,0 +1,16 @@
+<view class="con">
+  <view class="con_img">
+    <image mode="widthFix" src="{{conMain.img}}"></image>
+  </view>
+  <view class="con_title">{{conMain.name}}
+    <text>{{conMain.figure}}</text>
+  </view>
+  <view class="con_text">地址：{{conMain.address}}</view>
+</view>
+<view class="con_text" wx:for="{{conMain.text}}" wx:key="con-{{index}}" data-id="{{item.id}}">
+  <text class="con_text_title">{{item.title}}</text>
+  <rich-text nodes="{{item.html}}" bindtap="tap"></rich-text>
+</view>
+<navigator url="../conferenceForm/conferenceForm?id={{conMain.id}}" class="conigators">
+  <text>预约申请</text>
+</navigator>

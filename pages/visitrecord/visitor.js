@@ -22,20 +22,7 @@ Component({
   },
   behaviors: [behaviors],
   methods: {
-    toggleDetail (e) {
-      let index = parseInt(e.currentTarget.dataset.index)
-      let open = this.data.outLists[index].open
-      let str = `outLists[${index}].open`
-      this.setData({
-        [str]: !open
-      })
-    },
-    onLoad(options) {
-      this.data.barWidth = 100 / this.data.tabs.length + '%'
-      this.setData({
-        barWidth: this.data.barWidth
-      })
-    },
+    onLoad(options) {},
     onReady() { },
     onShow() { },
     onHide() { },

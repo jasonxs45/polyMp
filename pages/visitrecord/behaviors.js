@@ -1,39 +1,40 @@
 export default Behavior({
   data: {
     currentIndex: 0,
-    barLeft: 0,
-    barWidth: 0,
-    barObjs: null
   },
   methods: {
     tabChange(e) {
-      let barLeft = e.currentTarget.offsetLeft
-      let currentIndex = parseInt(e.currentTarget.dataset.index)
+      let currentIndex = parseInt(e.detail)
       this.setData({
-        currentIndex,
-        barLeft
+        currentIndex
       })
     },
     swiperChange (e) {
       let currentIndex = parseInt(e.detail.current)
-      let barLeft = this.data.barObjs[currentIndex].left
       this.setData({
-        currentIndex,
-        barLeft
+        currentIndex
       })
+    },
+    toggleDetail(e) {
+      let index = parseInt(e.currentTarget.dataset.index)
+      let open = this.data.outLists[index].open
+      let str = `outLists[${index}].open`
+      this.setData({
+        [str]: !open
+      })
+    },
+    goModify() {
+      wx.navigateTo({
+        url: `/pages/modifycontactor/index?role=${this.data.role}`,
+      })
+    }
+  },
+  pageLifetimes: {
+    show () {
     }
   },
   lifetimes: {
     ready () {
-      const query = wx.createSelectorQuery().in(this)
-      query.selectAll('.tab-item').boundingClientRect()
-      query.exec(res => {
-        this.data.barObjs = res[0]
-        let barLeft = this.data.barObjs[this.data.currentIndex].left
-        this.setData({
-          barLeft
-        })
-      })
     }
   }
 })

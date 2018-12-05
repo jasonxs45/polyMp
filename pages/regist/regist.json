@@ -2,6 +2,8 @@
   "navigationBarTitleText": "注册",
   "usingComponents": {
     "x-input": "/components/x-input/index",
-    "x-icon": "/components/x-icon/index"
+    "x-icon": "/components/x-icon/index",
+    "cell-radio": "/components/cellradio/cell-radio",
+    "cell-radio-group": "/components/cellradio/cell-radio-group"
   }
 }

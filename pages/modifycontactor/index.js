@@ -18,17 +18,10 @@ const allCompanies = [
   { name: '郑州' },
   { name: '成都' }
 ]
-const codeLimit = 60
 import behavior from './behaviors'
 Component({
   data: {
-    roles: [
-      { name: '租户'},
-      { name: '访客'}
-    ],
-    genders: ['男', '女'],
-    roleIndex: 0,
-    genderIndex: 0,
+    role: '',
     allBuildings,
     allCompanies,
     buildings: allBuildings,
@@ -39,41 +32,15 @@ Component({
     companyName: '',
     name: '',
     tel: '',
-    gender: '',
-    code: '',
-    codeDisabled: false,
-    codeLimit,
     submitDisabled: false
   },
   behaviors: [behavior],
   methods: {
-    roleChange(e) {
-      let roleIndex = parseInt(e.detail)
-      this.setData({
-        roleIndex
-      })
-    },
-    getCode () {
-      this.setData({
-        codeDisabled: true
-      })
-      let timer = setInterval(() => {
-        if (this.data.codeLimit <= 0) {
-          clearInterval(timer)
-          this.setData({
-            codeDisabled: false,
-            codeLimit: codeLimit
-          })
-        } else {
-          this.data.codeLimit -= 1
-          this.setData({
-            codeLimit: this.data.codeLimit
-          })
-        }
-      }, 1000)
-    },
     onLoad(options) {
-      console.log(options)
+      this.data.role = options.role
+      this.setData({
+        role: this.data.role
+      })
     },
     onReady() { },
     onShow() { },

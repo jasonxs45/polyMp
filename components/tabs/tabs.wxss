@@ -1,0 +1,28 @@
+.tabs {
+  position: relative;
+  height: inherit;
+  width: inherit;
+  background: #fff;
+}
+
+.tabs-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.tabs-wrapper tab-item{
+  flex: 1;
+  height: inherit;
+  width: inherit;
+  line-height: inherit;
+}
+
+.bar {
+  position: absolute;
+  bottom:0;
+  width: 100rpx;
+  height: 3px;
+  background: #4d4d4d;
+  transform: scaleX(.7);
+  transition: all .2s;
+  border-radius: 4px;
+}

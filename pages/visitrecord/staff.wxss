@@ -1,1 +1,16 @@
-/* pages/visitrecord/staff.wxss */
+@import './common.wxss';
+.form-bar{
+  justify-content: space-between;
+  padding: 15rpx 30rpx;
+}
+.fh{
+  color: #666;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+.fb{
+  font-weight: 500;
+  color: #333;
+  font-size: 26rpx;
+  text-align: right;
+}

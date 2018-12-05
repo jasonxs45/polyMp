@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "会务预约",
+  "backgroundColor": "#f2f2f2",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "电子放行单",
+  "backgroundColor": "#f2f2f2",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "cell-radio-group": "/components/cellradio/cell-radio-group",
+    "cell-radio": "/components/cellradio/cell-radio",
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index",
+    "datetimepicker": "/components/datetimepicker/index"
+  }
+}

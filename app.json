@@ -10,7 +10,12 @@
     "pages/visitrecord/staff",
     "pages/onlineshops/index",
     "pages/visitapply/index",
-    "pages/addcontactor/index"
+    "pages/addcontactor/index",
+    "pages/conference/list",
+    "pages/conference/detail",
+    "pages/conference/apply",
+    "pages/passcard/index",
+    "pages/modifycontactor/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
