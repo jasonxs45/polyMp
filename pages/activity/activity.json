@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "圈层活动",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

@@ -15,7 +15,8 @@
     "pages/conference/detail",
     "pages/conference/apply",
     "pages/passcard/index",
-    "pages/modifycontactor/index"
+    "pages/modifycontactor/index",
+    "pages/activity/activity"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

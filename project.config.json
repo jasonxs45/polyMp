@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": 0,
@@ -109,6 +109,11 @@
 					"name": "编辑联系人",
 					"pathName": "pages/modifycontactor/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "圈层活动",
+					"pathName": "pages/activity/activity"
 				}
 			]
 		}
