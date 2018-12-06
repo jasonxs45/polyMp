@@ -1,0 +1,5 @@
+.split{
+  width:100%;
+  height: inherit;
+  background: #f2f2f2;
+}

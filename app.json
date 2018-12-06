@@ -16,6 +16,8 @@
     "pages/conference/apply",
     "pages/passcard/index",
     "pages/modifycontactor/index",
+    "pages/onlineshops/detail",
+    "pages/onlineshops/record",
     "pages/activity/activity",
     "pages/activity/detail"
   ],

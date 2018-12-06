@@ -12,7 +12,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.1",
 	"appid": "wx0d84f26eb0336e5b",
 	"projectname": "polyMp",
 	"debugOptions": {
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -111,10 +111,28 @@
 					"query": ""
 				},
 				{
-					"id": 11,
+					"id": -1,
+					"name": "积分商城首页",
+					"pathName": "pages/onlineshops/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城商品详细",
+					"pathName": "pages/onlineshops/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城兑换记录",
+					"pathName": "pages/onlineshops/record",
+					"query": ""
+        },
+        {
+          "id": -1,
 					"name": "圈层活动",
-					"pathName": "pages/activity/detail",
-					"query": "id=1"
+					"pathName": "pages/activity/activity",
+          "query": ""
 				}
 			]
 		}

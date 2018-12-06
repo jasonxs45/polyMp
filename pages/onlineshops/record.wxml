@@ -1,0 +1,12 @@
+<view class="list">
+  <view wx:for="{{list}}" wx:key="item-{{index}}" class="item flex">
+    <image class="img" src="{{src}}" mode="aspectFill" />
+    <view class="texts">
+      <view class="title">10元现金红包或礼包10元现金红包或礼包10元现金红包或礼包10元现金红包或礼包</view>
+      <view class="flex desc">
+        <view class="cost">100积分</view>
+        <view class="date">2018-12-02 14：30</view>
+      </view>
+    </view>
+  </view>
+</view>
