@@ -1,0 +1,36 @@
+<button
+  size="{{size}}"
+  type="{{type}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  loading="{{loading}}"
+  form-type="{{formType}}"
+  open-type="{{openType}}"
+  hover-class="{{hoverClass}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  hover-start-time="{{hoverStartTime}}"
+  hover-stay-time="{{hoverStayTime}}"
+  lang="{{lang}}"
+  bindgetuserinfo="getUserInfo"
+  session-from="{{sessionFrom}}"
+  send-message-title="{{sendMessageTitle}}"
+  send-send-message-path="{{sendSendMessagePath}}"
+  send-message-img="{{sendMessageImg}}"
+  show-message-card="{{showMessageCard}}"
+  bindcontact="contact"
+  bindgetphonenumber="getPhoneNumber"
+  app-parameter="{{appParameter}}"
+  binderrror="error"
+  bindopensetting="openSettting"
+  class="{{classes}}"
+>
+  <image
+    wx:if="{{imgBg}}"
+    mode="aspectFill"
+    class="bg"
+    src="{{disabled || loading ? bg['loading'] : bg['primary']}}"
+  />
+  <!-- <image class="hide" src="./primary.png"/> -->
+  <!-- <image class="hide" src="./disable.png"/> -->
+  <slot />
+</button>

@@ -99,6 +99,6 @@
     </view>
   </scroll-view>
   <view class="btns">
-    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">注册</button>
+    <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">注册</x-btn>
   </view>
 </view>

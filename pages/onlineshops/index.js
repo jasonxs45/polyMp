@@ -48,6 +48,12 @@ Page({
       })
     }
   },
+  _onScroll (top) {
+    this.data.fixed = this.data.sortBarTop <= top
+    this.setData({
+      fixed: this.data.fixed
+    })
+  },
   onLoad(options) { },
   onReady() {
     const query = wx.createSelectorQuery()
@@ -61,10 +67,7 @@ Page({
   onPullDownRefresh() { },
   onReachBottom() { },
   onPageScroll (obj) {
-    this.data.fixed = this.data.sortBarTop <= obj.scrollTop
-    this.setData({
-      fixed: this.data.fixed
-    })
+    this._onScroll(obj.scrollTop)
   },
   onShareAppMessage() { }
 })

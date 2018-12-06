@@ -33,7 +33,6 @@ Component({
   },
   lifetimes: {
     ready() {
-      console.log(this.properties.checked)
     }
   }
 })

@@ -7,7 +7,7 @@
   <view class="points">
     <x-icon type="star-fill"/>12313积分
   </view>
-  <navigator class="nav">
+  <navigator class="nav" url="/pages/onlineshops/record">
     <x-icon type="foot"/>兑换记录
   </navigator>
 </view>
@@ -24,7 +24,11 @@
       <x-icon class="down {{ascending?'': 'active'}}" type="caret-down"/>
     </view>
   </view>
-  <view hidden='{{!commonSortsShow}}' class="drop-menu">
+  <view
+    hidden='{{!commonSortsShow}}'
+    class="drop-menu"
+    style="{{commonSortsShow?autoHeight:'height:0px'}}"
+  >
     <radio-group bindchange="commonOrderChange">
       <label
         wx:for="{{commonSorts}}"
@@ -39,7 +43,7 @@
 </view>
 <view hidden='{{!fixed}}' class="sortbar"></view>
 <view class="list-wrapper">
-  <view wx:for="{{list}}" wx:key="cell-{{index}}" class="cell">
+  <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{index}}" class="cell">
     <image mode="aspectFill" class="img" src="{{item}}"/>
     <view class="detail">
       <view class="title">铁三角「s-bast」4201无损耳机有线耳机</view>
@@ -48,5 +52,5 @@
         <button class="btn" type="primary">兑换</button>
       </view>
     </view>
-  </view>
+  </navigator>
 </view>
