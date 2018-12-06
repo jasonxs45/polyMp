@@ -118,9 +118,21 @@
 				},
 				{
 					"id": -1,
-					"name": "圈层活动",
-					"pathName": "pages/activity/activity",
+					"name": "积分商城商品详细",
+					"pathName": "pages/onlineshops/detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城兑换记录",
+					"pathName": "pages/onlineshops/record",
+					"query": ""
+				},
+				{
+					"id": 14,
+					"name": "圈层活动",
+          "pathName": "pages/activity/activity",
+					"query": "id=1"
 				}
 			]
 		}
