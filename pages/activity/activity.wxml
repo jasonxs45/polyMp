@@ -1,2 +1,19 @@
-<!--pages/activity/activity.wxml-->
-<text>pages/activity/activity.wxml</text>
+<tabs class="actTop" bindchange="tabChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
+    <view class="text">{{item.name}}</view>
+  </tab-item>
+</tabs>
+<view class="actMain">
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item>
+        <view class="acList" wx:for="{{actAll}}" wx:key="swiper+{{index}}" data-id='{{item.id}}' bindtap='jump'>
+          <image mode="widthFix" src="{{item.img}}"></image>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class="acList" wx:for="{{actAll2}}" wx:key="swiper2+{{index}}">
+          <image mode="widthFix" src="{{item.img}}"></image>
+        </view>
+    </swiper-item>
+  </swiper>
+</view>

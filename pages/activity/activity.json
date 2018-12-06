@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "圈层活动",
+  "usingComponents": {
+    "tabs": "/components/tabs/tabs",
+    "tab-item": "/components/tabs/tab-item"
+  },
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50
 }

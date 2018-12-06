@@ -11,6 +11,6 @@
   <text class="con_text_title">{{item.title}}</text>
   <rich-text nodes="{{item.html}}" bindtap="tap"></rich-text>
 </view>
-<navigator url="../conferenceForm/conferenceForm?id={{conMain.id}}" class="conigators">
+<navigator url="/pages/conference/apply?id={{conMain.id}}" class="conigators">
   <text>预约申请</text>
 </navigator>

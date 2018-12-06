@@ -94,8 +94,8 @@
 				},
 				{
 					"id": 8,
-					"name": "会务预约表单",
-					"pathName": "pages/conference/apply",
+					"name": "会务预约",
+					"pathName": "pages/conference/list",
 					"query": ""
 				},
 				{
@@ -111,9 +111,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "圈层活动",
-					"pathName": "pages/activity/activity"
+					"pathName": "pages/activity/detail",
+					"query": "id=1"
 				}
 			]
 		}

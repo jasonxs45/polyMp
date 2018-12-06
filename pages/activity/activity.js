@@ -1,45 +1,34 @@
-const actAll = [
-  { id: '1', src: '1.png', name: 'P1+P2会议室1', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '2', src: '2.png', name: 'P1+P2会议室2', figure: '可容纳150人', address: ' 武汉市洪山区关山大道322号保利国' },
-  { id: '3', src: '3.png', name: 'P1+P2会议室3', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' }
-]
-const actAll2 = [
-  { id: '1', src: '1.png', name: 'P1+P2会议室1', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '2', src: '2.png', name: 'P1+P2会议室2', figure: '可容纳150人', address: ' 武汉市洪山区关山大道322号保利国' },
-  { id: '3', src: '3.png', name: 'P1+P2会议室3', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '4', src: '1.png', name: 'P1+P2会议室4', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '5', src: '2.png', name: 'P1+P2会议室5', figure: '可容纳150人', address: ' 武汉市洪山区关山大道322号保利国' },
-  { id: '6', src: '3.png', name: 'P1+P2会议室6', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' }
-]
+import {data,data2} from './data'
 Page({
   data: {
-    actAll,
-    actAll2: actAll2,
+    actAll: data,
+    actAll2: data2,
     tabMenus: [
       {
-        name: '进行中',
-        target: 'formal'
+        name: '进行中'
       },
       {
-        name: 'getOn',
-        target: 'finish'
+        name: '已结束'
       }
     ],
-    moveBarStyle: '',
-    activelistMode: 0
+    currentIndex: 0,
   },
-  tabChangeHandler(e) {
-    console.log(e)
-    let activeTabIndex = e.target.dataset.index
+  tabChange(e) {
+    let currentIndex = parseInt(e.detail)
     this.setData({
-      moveBarStyle: 'left:' + e.target.offsetLeft + 'px'
+      currentIndex
     })
-    //this.moveBar()
+  },
+  swiperChange(e) {
+    let currentIndex = parseInt(e.detail.current)
+    this.setData({
+      currentIndex
+    })
   },
   jump: function (e) {
-    // wx.navigateTo({
-    //   url: '/pages/conferenceDet/conferenceDet?id=' + e.currentTarget.dataset.id
-    // })
+    wx.navigateTo({
+      url: '/pages/activity/detail?id=' + e.currentTarget.dataset.id
+    })
   },
   onLoad: function (options) {
     //生命周期函数--监听页面加载
@@ -62,7 +51,7 @@ Page({
     // this.setData({
     //   actAll: actAll
     // })
-    // wx.stopPullDownRefresh()
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function () {
     // 页面上拉触底事件的处理函数
