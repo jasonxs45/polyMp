@@ -3,16 +3,24 @@
     <image mode="widthFix" src="{{detail.img}}"></image>
   </view>
   <view class="detail_title">
-    <view>detail.name</view>
-    <view></view>
-    <text>{{detail.figure}}</text>
+    <view class="detail_title_t1">{{detail.name}}</view>
+    <view class="detail_title_t2">已有{{detail.figure}}人报名<text>{{detail.jf}}积分</text> </view>
   </view>
-  <view class="detail_text">地址：{{detail.address}}</view>
+  <view class="detail_text">
+    <text>活动发起: {{detail.fq}}</text>
+    <text>活动发起: {{detail.sj}}</text>
+  </view>
 </view>
-<view class="con_text" wx:for="{{detail.text}}" wx:key="con-{{index}}" data-id="{{item.id}}">
-  <text class="con_text_title">{{item.title}}</text>
-  <rich-text nodes="{{item.html}}" bindtap="tap"></rich-text>
+<view class="detail detail_rem">
+  <image mode="widthFix" src=""></image>
+  <text>NO:2546523845672</text>
 </view>
-<view class="conigators">
+<view class="detail detail2" wx:for="{{detail.text}}" wx:key="con-{{index}}" data-id="{{item.id}}">
+  <view class="detail_text_title">{{item.title}}</view>
+  <view class="detail_html">
+    <rich-text nodes="{{item.html}}" bindtap="tap"></rich-text>
+  </view>
+</view>
+<view class="detaliBut" bindtap="yuyueBut">
   <text>立即报名</text>
 </view>
