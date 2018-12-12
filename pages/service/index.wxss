@@ -1,1 +1,39 @@
-/* pages/service/index.wxss */
+page{
+  background: #f2f2f2;
+}
+.section, .pad30{
+  background: #fff;
+  padding: 30rpx;
+}
+.pad30 {
+  background: none;
+}
+.swiper{
+  width: 100%;
+  height: 320rpx;
+}
+.swiper .img{
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.entries{
+  justify-content: space-between;
+  margin: 50rpx 0;
+}
+.entry{
+  display: inline-block;
+  text-align: center;
+}
+.entry .img{
+  width:98rpx;
+  height: 96rpx;
+  margin: 0 auto;
+}
+.entry .text{
+  color: #333;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+  letter-spacing: -1rpx;
+  word-spacing: -1rpx;
+}

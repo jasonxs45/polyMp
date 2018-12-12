@@ -10,7 +10,7 @@
         wx:for="{{item}}"
         wx:for-index="idx"
         wx:key="index-{{idx}}"
-        url="/pages/repairuser/detail?id={{1}}"
+        url="./detail?id={{1}}"
         class="card"
       >
         <view wx:if="{{index==='finishList'}}" class="mark">

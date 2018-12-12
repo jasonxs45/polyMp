@@ -1,1 +1,48 @@
-<view>首页</view>
+<view class="section">
+  <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
+    <swiper-item wx:for="{{banners}}" wx:key="swiper-item-{{index}}" class="swiper-item">
+      <image mode="aspectFill" src="{{item}}" class="img" />
+    </swiper-item>
+  </swiper>
+  <view class="entries flex">
+    <navigator class="entry" wx:for="{{entries}}" wx:key="entry-{{index}}" url="{{item.url}}">
+      <image class="img" src="{{item.icon}}" />
+      <view class="text">{{item.name}}</view>
+    </navigator>
+  </view>
+</view>
+<view class="pad30">
+  <view class="title flex">
+    <view class="text">最新活动</view>
+    <navigator open-type='switchTab' class="nav" url="/pages/activity/activity">
+      更多
+      <x-icon type="enter" />
+    </navigator>
+  </view>
+  <navigator wx:for="{{banners}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/activity/detail?id={{1}}">
+    <image mode="aspectFill" class="img" src="{{item}}" />
+  </navigator>
+</view>
+<view class="pad30">
+  <view class="title flex">
+    <view class="text">积分商城</view>
+    <navigator class="nav" url="/pages/onlineshops/index">
+      更多
+      <x-icon type="enter" />
+    </navigator>
+  </view>
+  <view class="list-wrapper">
+  <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{index}}" class="cell">
+    <image mode="aspectFill" class="img" src="{{item}}" />
+    <view class="detail">
+      <view class="tit">铁三角「s-bast」4201无损耳机有线耳机</view>
+      <view class="info">
+        <view class="cost">1000
+          <text>积分</text>
+        </view>
+        <button class="btn" type="primary">兑换</button>
+      </view>
+    </view>
+  </navigator>
+</view>
+</view>

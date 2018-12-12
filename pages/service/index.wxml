@@ -1,1 +1,25 @@
-<view>服务</view>
+<view class="section">
+  <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
+    <swiper-item wx:for="{{banners}}" wx:key="swiper-item-{{index}}" class="swiper-item">
+      <image mode="aspectFill" src="{{item}}" class="img" />
+    </swiper-item>
+  </swiper>
+</view>
+<split height="10"/>
+<view class="section">
+  <view class="entries flex">
+    <navigator class="entry" wx:for="{{entries}}" wx:key="entry-{{index}}" url="{{item.url}}">
+      <image class="img" src="{{item.icon}}" />
+      <view class="text">{{item.name}}</view>
+    </navigator>
+  </view>
+</view>
+<split height="10"/>
+<view class="section">
+  <view class="entries flex">
+    <navigator class="entry" wx:for="{{entries}}" wx:key="entry-{{index}}" url="{{item.url}}">
+      <image class="img" src="{{item.icon}}" />
+      <view class="text">{{item.name}}</view>
+    </navigator>
+  </view>
+</view>
