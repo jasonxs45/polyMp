@@ -13,10 +13,10 @@
   <navigator class="go-signin" url="/pages/signin/index">签到</navigator>
 </view>
 <view class="flex point-money">
-  <view class="points">
+  <navigator class="points" url="/pages/mypoints/index">
     <view class="numbers">{{points}}</view>
     <text class="text">积分</text>
-  </view>
+  </navigator>
   <view class="money">
     <view class="numbers">{{money}}</view>
     <text class="text">现金红包</text>

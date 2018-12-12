@@ -68,15 +68,22 @@
 }
 .get-code{
   flex: 0 0 180rpx;
-  margin-left: 10rpx;
 }
-.get-code-btn{
+.get-code-btn[type=primary]{
   font-size: 24rpx;
   height: 80rpx;
   line-height: 80rpx;
   padding:0 10rpx;
   width: auto;
-  border-radius: 4rpx;
+  border-radius: 0 4rpx 4rpx 0;
+  background: #f5f5f5 !important;
+  color: #F54848 !important;
+}
+.get-code-btn::after{
+  border:none;
+}
+.get-code-btn[disabled]{
+  color: #999 !important;
 }
 .btns{
   text-align: center;

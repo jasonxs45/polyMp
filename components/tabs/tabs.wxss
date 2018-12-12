@@ -1,11 +1,14 @@
 .tabs {
   position: relative;
   height: inherit;
+  line-height: inherit;
   width: inherit;
   background: #fff;
 }
 
 .tabs-wrapper {
+  height: inherit;
+  line-height: inherit;
   display: flex;
   justify-content: space-between;
 }
@@ -20,9 +23,7 @@
   position: absolute;
   bottom:0;
   width: 100rpx;
-  height: 3px;
-  background: #4d4d4d;
-  transform: scaleX(.7);
+  height:6rpx;
+  background:linear-gradient(315deg,rgba(160,160,160,1) 0%,rgba(239,239,239,1) 50%,rgba(114,113,113,1) 100%);
   transition: all .2s;
-  border-radius: 4px;
 }

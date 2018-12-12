@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 19,
 			"list": [
 				{
 					"id": 0,
@@ -131,8 +131,38 @@
 				{
 					"id": 14,
 					"name": "圈层活动",
-          "pathName": "pages/activity/activity",
+					"pathName": "pages/activity/activity",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/mypoints/index",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "用户报修列表",
+					"pathName": "pages/repairuser/list",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "用户报修评价",
+					"pathName": "pages/repairuser/rate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户报修详情",
+					"pathName": "pages/repairuser/detail",
+					"query": ""
 				}
 			]
 		}

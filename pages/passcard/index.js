@@ -1,60 +1,15 @@
-const allCompanies = [
-  { name: '公司1' },
-  { name: '公司2' },
-  { name: '公司3' },
-  { name: '公司4' },
-  { name: '公司5' },
-  { name: '公司6' },
-  { name: '公司7' },
-  { name: '公司8' }
-]
 Page({
   data: {
-    types: ['进场','出场'],
-    typeIndex: 0,
-    companyName: '',
-    allCompanies,
-    companies: [],
-    companySelectIndex: null,
-    name: '',
-    tel: '',
+    goodsArr: [],
     datetimeValue: null,
     description: '',
-    imgArr: [
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png'
-    ],
     submitDisabled: false
-  },
-  typeChange(e) {
-    this.setData({
-      typeIndex: e.detail
-    })
-  },
-  companyInput(e) {
-    let value = e.detail
-    this.setData({
-      companies: this.data.allCompanies.filter(item => item.name.includes(value)),
-      companyName: value,
-      companySelectIndex: null
-    })
-  },
-  companySelect(e) {
-    let value = e.detail
-    this.setData({
-      companySelectIndex: value,
-      companyName: value !== null ? this.data.companies[value].name : ''
-    })
   },
   nameInput(e) {
     let value = e.detail
     this.data.name = value
   },
-  telInput(e) {
+  countInput(e) {
     let value = e.detail
     this.data.tel = value
   },
@@ -67,31 +22,52 @@ Page({
       description: value
     })
   },
-  chooseImg () {
+  addLine() {
+    this.data.goodsArr.push({
+      img: '',
+      name: '',
+      count: 1
+    })
+    this.setData({
+      goodsArr: this.data.goodsArr
+    })
+  },
+  remove(e) {
+    let index = e.currentTarget.dataset.index
+    this.data.goodsArr.splice(index, 1)
+    this.setData({
+      goodsArr: this.data.goodsArr
+    })
+  },
+  chooseImg(e) {
+    let index = e.currentTarget.dataset.index
+    let str = `goodsArr[${index}].img`
     wx.chooseImage({
+      count: 1,
       success: r => {
         this.setData({
-          imgArr: r.tempFilePaths
+          [str]: r.tempFilePaths[0]
         })
       },
-      fail: e => {}
+      fail: e => { }
     })
   },
-  delImg (e) {
+  delImg(e) {
     let index = e.currentTarget.dataset.index
-    this.data.imgArr.splice(index, 1)
+    this.data.goodsArr[index].img = ''
+    let str = `goodsArr[${index}].img`
     this.setData({
-      imgArr: this.data.imgArr
+      [str]: ''
     })
   },
-  previewImg (e) {
+  previewImg(e) {
     let index = e.currentTarget.dataset.index
     wx.previewImage({
-      current: this.data.imgArr[index],
-      urls: this.data.imgArr
+      current: this.data.goodsArr[index].img,
+      urls: [this.data.goodsArr[index].img]
     })
   },
-  submit () {
+  submit() {
     wx.showModal({
       title: '提交成功',
       content: '恭喜您已提交成功，请耐心等候\r\n我们将尽快为您审核通过',
@@ -104,10 +80,10 @@ Page({
       }
     })
   },
-  onLoad (options) {},
-  onReady () {},
-  onShow () {},
-  onHide () {},
-  onUnload () {},
-  onShareAppMessage () {}
+  onLoad(options) { },
+  onReady() { },
+  onShow() { },
+  onHide() { },
+  onUnload() { },
+  onShareAppMessage() { }
 })

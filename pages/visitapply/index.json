@@ -4,6 +4,8 @@
   "usingComponents": {
     "x-input": "/components/x-input/index",
     "x-icon": "/components/x-icon/index",
-    "datetimepicker": "/components/datetimepicker/index"
+    "x-btn": "/components/x-btn/index",
+    "datetimepicker": "/components/datetimepicker/index",
+    "number": "/components/number/index"
   }
 }

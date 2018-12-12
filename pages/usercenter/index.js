@@ -7,7 +7,7 @@ const entires = [
     { label: '我的活动', icon: './activities.png', url: '' },
     { label: '我的红包', icon: './bonus.png', url: '' },
     { label: '我的卡券', icon: './card.png', url: '' },
-    { label: '我的积分', icon: './points.png', url: '' }
+    { label: '我的积分', icon: './points.png', url: '/pages/mypoints/index' }
   ],
   [
     { label: '会员权益', icon: './rights.png', url: '' },
@@ -16,6 +16,7 @@ const entires = [
   ]
 ]
 import { formatNumber } from '../../utils/util'
+const  app = getApp()
 Page({
   data: {
     avatar: '',
@@ -31,7 +32,13 @@ Page({
     })
   },
   onReady() { },
-  onShow() { },
+  onShow() {
+    app.memberCheck(app.globalData.uid).then(r => {
+      console.log(r)
+    }).catch(e => {
+      console.error(e)
+    })
+  },
   onHide() { },
   onUnload() { },
   onPullDownRefresh() { },

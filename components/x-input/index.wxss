@@ -14,7 +14,7 @@
   line-height: inherit;
   text-align: center;
 }
-input {
+.x-input input {
   font-size: inherit;
   flex: 1;
   margin-right: 10rpx;

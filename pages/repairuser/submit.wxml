@@ -1,0 +1,49 @@
+<view class="submit">
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">选择类别</view>
+      <view class="fb flex">
+        <view class="clearable-input">
+          <picker class="input select" range='{{categories}}' range-key='name' value='{{categoryIndex}}' bindchange='categorySelect'>
+            <text wx:if="{{categoryIndex !== null}}">
+                  {{categories[categoryIndex].name}}
+                </text>
+            <text wx:else class="placeholder">请选择类别</text>
+            <view class="icon">
+              <x-icon type="caret-down" />
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <split />
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">描述</view>
+      <view class="fb">
+        <textarea class="textarea" placeholder="请在此输入您要描述的信息"></textarea>
+      </view>
+    </view>
+  </view>
+  <split />
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">上传照片（限5张）</view>
+      <view class="fb imgrow flex">
+        <view wx:for="{{imgArr}}" wx:key="img-{{index}}" class="cell">
+          <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' />
+          <icon class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
+        </view>
+        <view hidden='{{imgArr.length >= limit}}' class="cell" bindtap='chooseImg'>
+          <view class="icon">
+            <x-icon type="camera" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btns">
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">提交</x-btn>
+</view>

@@ -1,7 +1,7 @@
 let data = [
   {
     id: '1',
-    img: '1.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
     name: '走路跑步领红包',
     figure: '115',
     jf: '+1',
@@ -14,7 +14,7 @@ let data = [
   },
   {
     id: '2',
-    img: '2.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -27,7 +27,7 @@ let data = [
   },
   {
     id: '3',
-    img: '3.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -42,7 +42,7 @@ let data = [
 let data2 = [
   {
     id: '1',
-    img: '1.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -55,7 +55,7 @@ let data2 = [
   },
   {
     id: '2',
-    img: '2.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -68,7 +68,7 @@ let data2 = [
   },
   {
     id: '3',
-    img: '3.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -81,7 +81,7 @@ let data2 = [
   },
   {
     id: '4',
-    img: '1.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -94,7 +94,7 @@ let data2 = [
   },
   {
     id: '5',
-    img: '2.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',
@@ -107,7 +107,7 @@ let data2 = [
   },
   {
     id: '6',
-    img: '3.png',
+    img: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232',
     name: '走路跑步领红包',
     figure: '115',
     jf: '1',

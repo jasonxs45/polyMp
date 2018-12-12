@@ -23,6 +23,7 @@ import behavior from './behaviors'
 Component({
   behaviors: [behavior],
   data: {
+    role: '员工',
     allBuildings,
     allCompanies,
     buildings: allBuildings,
@@ -41,7 +42,18 @@ Component({
     submit () {
       console.log(this.data.backinfo)
     },
-    onLoad(options) { },
+    onLoad(options) {
+      if (this.data.role === '访客') {
+        wx.setNavigationBarTitle({
+          title: '我要申访'
+        })
+      }
+      if (this.data.role === '员工') {
+        wx.setNavigationBarTitle({
+          title: '我要邀访'
+        })
+      }
+    },
     onReady() { },
     onShow() { },
     onHide() { },

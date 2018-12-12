@@ -1,0 +1,23 @@
+<view class="rate">
+  <view class="section">
+    <view class="rate-item flex">
+      <view class="tit">响应速度</view>
+      <star class="stars" data-index="0" bindchange="rate" />
+      <view class="describe">{{describes[scores[0] - 1]}}</view>
+    </view>
+    <view class="rate-item flex">
+      <view class="tit">服务态度</view>
+      <star class="stars" data-index="1" bindchange="rate" />
+      <view class="describe">{{describes[scores[1] - 1]}}</view>
+    </view>
+    <view class="rate-item flex">
+      <view class="tit">解决问题</view>
+      <star class="stars" data-index="2" bindchange="rate" />
+      <view class="describe">{{describes[scores[2] - 1 ]}}</view>
+    </view>
+    <textarea class="rate-texts" placeholder="请输入您要补充的信息"></textarea>
+  </view>
+</view>
+<view class="btns">
+  <x-btn>提交</x-btn>
+</view>

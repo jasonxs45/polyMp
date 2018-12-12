@@ -1,0 +1,18 @@
+<view class="banner">
+  <view class="tit">我的积分</view>
+  <view class="num">1234</view>
+  <navigator class="help" url="/pages/mypoints/explain">
+    <x-icon type='help' />
+  </navigator>
+</view>
+<view class="list">
+  <view wx:for="{{list}}" wx:key="item-{{index}}" class="item flex">
+    <view class="desc">
+      <view class="tit">参加活动</view>
+      <view class="date">2018-12-11 09:52:51</view>
+    </view>
+    <view class="point">
+      {{Math.random() > .2 ? '+10':'-19'}}
+    </view>
+  </view>
+</view>

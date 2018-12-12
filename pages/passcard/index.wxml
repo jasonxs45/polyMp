@@ -1,87 +1,65 @@
 <view class='electronic'>
-  <view class="form">
-    <view class="form-bar">
-      <view class="fh">选择通行方式</view>
-      <view class="fb flex">
-        <cell-radio-group current="{{typeIndex}}" bindchange="typeChange">
-          <cell-radio class="cell-radio" wx:for="{{types}}" wx:key="type-{{index}}">
-            {{item}}
-          </cell-radio>
-        </cell-radio-group>
-        <!-- <radio-group bindchange="genderChange">
-          <label class="cell-select">
-            <radio value="出场" checked='{{gender === "出场"}}'></radio>
-            <view class='text {{gender === "出场" ? "checked" : ""}}'>出场</view>
-          </label>
-          <label class="cell-select">
-            <radio value="进场" checked='{{gender === "进场"}}'></radio>
-            <view class='text {{gender === "进场" ? "checked" : ""}}'>进场</view>
-          </label>
-        </radio-group> -->
+  <view class="section user">
+    <view class="company">武汉市矩阵互动科技有限公司东西湖分公司</view>
+    <view class="info flex">
+      <view class="applier">
+        申请人：赵伟
+      </view>
+      <view class="tel">
+        15927323472
       </view>
     </view>
+  </view>
+  <split />
+  <view class="section">
     <view class="form-bar">
-      <view class="fh">公司名称</view>
-      <view class="fb flex">
-        <view class="clearable-input">
-          <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='name' bindselect='companySelect' />
+      <view class="fh">物品清单</view>
+      <view class="fb">
+        <view wx:for="{{goodsArr}}" wx:key="goods-{{index}}" class="goods flex">
+          <view class="img-wrapper">
+            <block wx:if='{{item.img}}'>
+              <image class="img" mode="aspectFill" src="{{item.img}}" data-index="{{index}}" bindtap='previewImg' />
+              <icon class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
+            </block>
+            <view wx:else class="icon" data-index="{{index}}" bindtap='chooseImg'>
+              <x-icon type="camera" />
+            </view>
+          </view>
+          <input class="goods-name" value="{{item.name}}" data-index="{{index}}" placeholder='请输入物品名称' />
+          <input class="goods-count" value="{{item.count}}" type='number' data-index="{{index}}" placeholder='数量' />
+          <view class="goods-remove" data-index="{{index}}" bindtap='remove'>
+            <x-icon class="remove" type="minus" />
+          </view>
         </view>
       </view>
     </view>
-    <view class="form-bar">
-      <view class="fh">姓名</view>
-      <view class="fb flex">
-        <view class="clearable-input">
-          <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
-        </view>
-      </view>
+    <view class="add" bindtap='addLine'>
+      <x-icon type="plus" />{{goodsArr.length ? '继续添加':'添加物品'}}
     </view>
-    <view class="form-bar">
-      <view class="fh">手机号</view>
-      <view class="fb flex">
-        <view class="clearable-input">
-          <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
-        </view>
-      </view>
-    </view>
+  </view>
+  <split />
+  <view class="section">
     <view class="form-bar">
       <view class="fh">通行时间</view>
       <view class="fb flex">
         <view class="clearable-input">
-          <datetimepicker class="input" placeholder="请选择通行时间" bindchange='changeDateTime' />
+          <datetimepicker class="timepicker" placeholder="请选择通行时间" bindchange='changeDateTime' />
         </view>
       </view>
     </view>
   </view>
-</view>
-<view class='electronic electronic2'>
-  <view class="form">
+  <split />
+  <view class="section">
     <view class="form-bar">
-      <view class="fh">描述</view>
+      <view class="fh">备注</view>
       <view class="fb flex">
         <view class="clearable-textarea">
-          <textarea placeholder="请在此填写您的物资清单并拍摄下来，便于我们审核" bindinput="bindTextAreaBlur" />
-        </view>
-      </view>
-    </view>
-    <view class="form-bar">
-      <view class="fh">拍摄照片
-        <text>（照片根据物品数量进行拍摄）</text>
-      </view>
-      <view class="imgrow flex">
-        <view wx:for="{{imgArr}}" wx:key="img-{{index}}" class="cell">
-          <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' />
-          <icon class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
-        </view>
-        <view class="cell" bindtap='chooseImg'>
-          <view class="icon">
-            <x-icon type="camera" />
-          </view>
+          <textarea placeholder="在此输入您要备注的文字" bindinput="bindTextAreaBlur" />
         </view>
       </view>
     </view>
   </view>
 </view>
 <view class="btns">
-  <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="submit" class="btn">注册</button>
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="submit" class="btn">注册</x-btn>
 </view>

@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/home/index",
     "pages/regist/regist",
-    "pages/login/login",
+    "pages/login/index",
     "pages/usercenter/index",
-    "pages/signin/index",
     "pages/modify/index",
     "pages/visitrecord/visitor",
     "pages/visitrecord/staff",
@@ -19,12 +18,51 @@
     "pages/onlineshops/detail",
     "pages/onlineshops/record",
     "pages/activity/activity",
-    "pages/activity/detail"
+    "pages/activity/detail",
+    "pages/service/index",
+    "pages/mypoints/index",
+    "pages/mypoints/explain",
+    "pages/onlineshops/rules",
+    "pages/repairuser/submit",
+    "pages/repairuser/list",
+    "pages/repairuser/detail",
+    "pages/repairmanager/list",
+    "pages/repairuser/rate"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "湖北保利",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f2f2f2"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "/images/home1.png",
+        "selectedIconPath": "/images/home2.png"
+      },
+      {
+        "pagePath": "pages/service/index",
+        "text": "服务",
+        "iconPath": "/images/service1.png",
+        "selectedIconPath": "/images/service2.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "/images/activity1.png",
+        "selectedIconPath": "/images/activity2.png"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "我",
+        "iconPath": "/images/user1.png",
+        "selectedIconPath": "/images/user2.png"
+      }
+    ]
   }
 }

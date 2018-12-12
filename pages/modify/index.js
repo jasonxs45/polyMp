@@ -1,6 +1,7 @@
 Page({
   data: {
     avatar: '',
+    nickname: '昵称',
     name: '测试',
     gender: '男',
     tel: '123',

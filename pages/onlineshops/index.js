@@ -8,6 +8,16 @@ const list = ['https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-section1-holiday-201811?wid=564&hei=516&fmt=png-alpha&qlt=80&.v=1540674991315']
 Page({
   data: {
+    avatar: '',
+    nickname: '',
+    role: '',
+    points: '12331323',
+    steps: [1, 1, 1, 2, 2, 3, 5],
+    signedDays: 2,
+    submitLoading: false,
+    submitDisabled: false,
+    cardShort: true,
+    succShow: true,
     banners,
     list,
     fixed: false,
@@ -18,6 +28,22 @@ Page({
     commonSorts: ['综合排序', '新品优先', '最受欢迎'],
     commonSortsIndex: 0,
     sortBarTop: null
+  },
+  toggleCard () {
+    this.data.cardShort = !this.data.cardShort
+    this.setData({
+      cardShort: this.data.cardShort
+    })
+  },
+  showSucc () {
+    this.setData({
+      succShow: true
+    })
+  },
+  hideSucc() {
+    this.setData({
+      succShow: false
+    })
   },
   orderByCommon() {
     if (this.data.orderIndex === 0) {

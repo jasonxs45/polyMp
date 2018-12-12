@@ -1,0 +1,33 @@
+<view
+ class="class number"
+ hover-stop-propagation="false"
+ hover-class="none"
+>
+	<view
+	 class="number-btn-box number-btn-box-cut {{ disabled || _cutDisabled ? 'number-btn-disabled' : '' }}"
+	 hover-stop-propagation="false"
+   hover-class="{{ disabled || _cutDisabled ? '' : 'number-btn-hover-class' }}"
+	 catchtap="handleCut"
+	>
+    <x-icon type="minus"/>
+  </view>
+	<input
+   class="number-input"
+   style="width: {{ width }}px;"
+	 value="{{ value }}"
+	 type="number"
+	 disabled="{{ !fillable || disabled }}"
+	 bindinput="handleInput"
+	 bindblur="handleBlur"
+	 bindconfirm="handleConfirm"
+	/>
+	<view
+	 class="number-btn-box number-btn-box-add {{ disabled || _addDisabled ? 'number-btn-disabled' : '' }}"
+   hover-class="{{ disabled || _addDisabled ? '' : 'number-btn-hover-class' }}"
+	 hover-stop-propagation="false"
+	 catchtap="handleAdd"
+	>
+    <x-icon type="plus"/>
+  </view>
+</view>
+

@@ -38,8 +38,8 @@
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
-  color: #4d4d4d;
-  background: #edc27b;
+  color: #fff;
+  background: #F59480;
   font-size: 24rpx;
   font-weight: bold;
   border-top-left-radius: 40rpx;
@@ -62,7 +62,7 @@
 .role text{
   background: #4d4d4d;
   font-size: 20rpx;
-  color: #edc27b;
+  color: #fff;
   border-radius: 12px;
   font-weight: 500;
   padding: 0 10rpx;
@@ -84,7 +84,7 @@
 .numbers {
   font-size: 36rpx;
   font-weight: 600;
-  color:#edc27b;
+  color:#333;
   line-height: 50rpx;
 }
 .text {

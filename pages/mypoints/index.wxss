@@ -1,0 +1,54 @@
+.banner{
+  height: 320rpx;
+  width: 100%;
+  background: #F37D69;
+  padding-top: 86rpx;
+  position: relative;
+}
+.banner .tit{
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+}
+.banner .num{
+  font-size: 96rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  margin-top: 20rpx;
+}
+.help{
+  position: absolute;
+  width: 52rpx;
+  height: 52rpx;
+  right: 30rpx;
+  top: 30rpx;
+  color: #fff;
+  font-size: 52rpx;
+}
+.list{
+}
+.item {
+  justify-content: space-between;
+  padding: 35rpx 30rpx;
+  border-bottom: 1rpx solid #ddd;
+  align-items: center;
+}
+.item:last-child{
+  border-bottom: none;
+}
+.item .tit{
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+.item .date{
+  font-size: 26rpx;
+  color: #888;
+  margin-top: 30rpx;
+}
+.item .point{
+  font-size: 40rpx;
+  color: #4d4d4d;
+  font-weight: bold;
+}

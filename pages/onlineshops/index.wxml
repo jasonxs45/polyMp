@@ -1,42 +1,68 @@
+<view class="signin">
+  <image class="bg" src="./bg.png" />
+  <view class="base-info">
+    <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
+    <view class="info">
+      <view class="nickname">
+        {{nickname || "昵称"}}
+      </view>
+      <view class="role">{{role || '普通会员'}}</view>
+    </view>
+    <navigator class="points" url="/pages/mypoints/index">
+      <text class="text">{{points}}</text>
+      <x-icon class="icon" type="enter" />
+    </navigator>
+  </view>
+  <view class="card {{cardShort?'short':''}}">
+    <image class="bg" src="../../images/unknowbg.png" />
+    <view class="title flex">
+      <navigator url="/pages/onlineshops/rules" class="tit">
+        连续签到积分翻倍
+        <x-icon type="help" />
+      </navigator>
+      <view class="toggle" bindtap="toggleCard">
+        <text>{{cardShort?'我要签到':'收起'}}</text>\n
+        <x-icon type="{{cardShort?'unfold':'packup'}}" />
+      </view>
+    </view>
+    <view class="steps">
+      <view wx:for="{{steps}}" wx:key="step-{{index}}" class="step">
+        <view class="flex">
+          <view class="circle">
+            <icon wx:if="{{index < signedDays}}" size="40rpx" color="#f8b474" type="success" />
+            <text wx:else>+{{item}}</text>
+          </view>
+        </view>
+        <view class="text">{{index + 1}}天</view>
+      </view>
+    </view>
+    <button loading="{{submitLoading}}" disabled="{{submitDisabled}}" class="sign-btn">点击签到</button>
+  </view>
+</view>
+<split />
 <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="banner">
   <swiper-item wx:for="{{banners}}" wx:key="banner-{{index}}">
     <image class="img" src='{{item}}' mode='aspectFill' />
   </swiper-item>
 </swiper>
-<view class="personal-info flex">
-  <view class="points">
-    <x-icon type="star-fill"/>12313积分
-  </view>
-  <navigator class="nav" url="/pages/onlineshops/record">
-    <x-icon type="foot"/>兑换记录
-  </navigator>
-</view>
-<view class="split"></view>
+<split />
 <view class="sortbar flex {{fixed?'fixed': ''}}">
   <view class="common item {{orderIndex === 0 ? 'active' : ''}}" bindtap='orderByCommon'>
     <text class="text">{{commonSorts[commonSortsIndex]}}</text>
-    <x-icon type="caret-down"/>
+    <x-icon type="caret-down" />
   </view>
   <view class="price item {{orderIndex === 1 ? 'active' : ''}}" bindtap='orderByPrice'>
     <view class="text">价位</view>
     <view class="sort-icon">
-      <x-icon class="up {{ascending?'active': ''}}" type="caret-up"/>
-      <x-icon class="down {{ascending?'': 'active'}}" type="caret-down"/>
+      <x-icon class="up {{ascending?'active': ''}}" type="caret-up" />
+      <x-icon class="down {{ascending?'': 'active'}}" type="caret-down" />
     </view>
   </view>
-  <view
-    hidden='{{!commonSortsShow}}'
-    class="drop-menu"
-    style="{{commonSortsShow?autoHeight:'height:0px'}}"
-  >
+  <view hidden='{{!commonSortsShow}}' class="drop-menu" style="{{commonSortsShow?autoHeight:'height:0px'}}">
     <radio-group bindchange="commonOrderChange">
-      <label
-        wx:for="{{commonSorts}}"
-        wx:key="d-{{index}}"
-        class="common-sortby {{commonSortsIndex === index ? 'active' : ''}}"
-      >
+      <label wx:for="{{commonSorts}}" wx:key="d-{{index}}" class="common-sortby {{commonSortsIndex === index ? 'active' : ''}}">
         <view>{{item}}</view>
-        <radio value="{{index}}" checked='{{commonSortsIndex === index}}'/>
+        <radio value="{{index}}" checked='{{commonSortsIndex === index}}' />
       </label>
     </radio-group>
   </view>
@@ -44,13 +70,27 @@
 <view hidden='{{!fixed}}' class="sortbar"></view>
 <view class="list-wrapper">
   <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{index}}" class="cell">
-    <image mode="aspectFill" class="img" src="{{item}}"/>
+    <image mode="aspectFill" class="img" src="{{item}}" />
     <view class="detail">
       <view class="title">铁三角「s-bast」4201无损耳机有线耳机</view>
       <view class="info">
-        <view class="cost">1000<text>积分</text></view>
+        <view class="cost">1000
+          <text>积分</text>
+        </view>
         <button class="btn" type="primary">兑换</button>
       </view>
     </view>
   </navigator>
+</view>
+<view wx:if="{{succShow}}" class="success">
+  <view class="bg"></view>
+  <view class="success-wrapper">
+    <view class="succ">
+      <image class="succ_bg" src="./success.png" />
+      <text class="desc">恭喜您签到成功\n快去商城兑换物品吧！</text>
+    </view>
+    <view class="close" bindtap='hideSucc'>
+      <icon type="cancel" color="#fff" size="40" />
+    </view>
+  </view>
 </view>

@@ -6,14 +6,14 @@
 <view class="actMain">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
     <swiper-item>
-        <view class="acList" wx:for="{{actAll}}" wx:key="swiper+{{index}}" data-id='{{item.id}}' bindtap='jump'>
-          <image mode="widthFix" src="{{item.img}}"></image>
-        </view>
+        <navigator class="acList" wx:for="{{actAll}}" wx:key="goingon+{{index}}" url="/pages/activity/detail?id={{item.id}}">
+          <image mode="aspectFill" src="{{item.img}}"></image>
+        </navigator>
     </swiper-item>
     <swiper-item>
-        <view class="acList" wx:for="{{actAll2}}" wx:key="swiper2+{{index}}">
-          <image mode="widthFix" src="{{item.img}}"></image>
-        </view>
+        <navigator class="acList" wx:for="{{actAll2}}" wx:key="over+{{index}}" url="/pages/activity/detail?id={{item.id}}">
+          <image mode="aspectFill" src="{{item.img}}"></image>
+        </navigator>
     </swiper-item>
   </swiper>
 </view>

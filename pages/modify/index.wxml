@@ -2,10 +2,19 @@
   <view class="content">
     <view class="wxinfo">
       <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
-      <view class="nickname">{{nickname || "昵称"}}</view>
+      <view class="nickname">点击修改头像</view>
     </view>
     <view class="split" />
     <view class="form">
+      <view class="flex item" bindtap='show' data-item="nickname">
+        <view class="fh">昵称</view>
+        <view class="fb">
+          <view class="input">{{nickname}}</view>
+        </view>
+        <view class="icon">
+          <x-icon type="enter" />
+        </view>
+      </view>
       <view class="flex item" bindtap='show' data-item="name">
         <view class="fh">姓名</view>
         <view class="fb">
@@ -60,6 +69,12 @@
     <button type="primary" class="confirm" bindtap='confirm'>确定</button>
   </view>
   <view wx:if="{{modifyShow}}">
+    <block wx:if="{{modifyItem === 'nickname'}}">
+      <view class="title">修改昵称</view>
+      <view class="modify-item">
+        <x-input clear placeholder='修改昵称' value="{{nickname}}" bindinput='nameInput' />
+      </view>
+    </block>
     <block wx:if="{{modifyItem === 'name'}}">
       <view class="title">修改姓名</view>
       <view class="modify-item">

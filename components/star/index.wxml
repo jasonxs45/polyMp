@@ -1,0 +1,10 @@
+<view class="star-wrapper">
+  <x-icon
+    wx:for="{{5}}"
+    wx:key="star-{{index}}"
+    type="{{score - 1 >= index ? 'star-fill' : 'star'}}"
+    data-index="{{index}}"
+    bindtap="tapHandler"
+    class="star"
+  />
+</view>

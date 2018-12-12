@@ -11,6 +11,7 @@ Component({
     }
   },
   properties: {
+    bg: Boolean,
     checked: {
       type: Boolean,
       value: false

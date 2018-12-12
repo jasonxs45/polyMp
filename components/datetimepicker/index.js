@@ -30,7 +30,9 @@ let defaultTimeValue = [
   minutes.findIndex(item => item === nowMinute)
 ]
 Component({
-  properties: {},
+  properties: {
+    placeholder: String
+  },
   data: {
     currentYear: null,
     datetimeRange: [years, months, dates, hours, minutes],

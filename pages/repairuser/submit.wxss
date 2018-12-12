@@ -1,0 +1,112 @@
+page{
+  background: #f2f2f2;
+}
+.submit{
+  min-height: 100vh;
+  padding-bottom: 200rpx;
+}
+.section{
+  padding: 30rpx;
+  background: #fff;
+}
+.form-bar{
+  display: block;
+}
+.fh{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+}
+.fb{
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+.clearable-input{
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #F5F5F5;
+  border-radius: 4rpx;
+}
+.input{
+  width: 100%;
+  height: 100%;
+  color: #4d4d4d;
+}
+.select{
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  position: relative;
+}
+.select .icon{
+  width: 50rpx;
+  height:100%;
+  line-height: inherit;
+  position: absolute;
+  top: 0;
+  right:0 ;
+  color: #666;
+  font-size: 30rpx;
+}
+.select text{
+  display: inline-block;
+}
+.select .placeholder{
+  color: #888;
+}
+.textarea{
+  background: #F5F5F5;
+  color: #4d4d4d;
+  width: 100%;
+  border-radius: 4rpx;
+  padding: 15rpx;
+  font-size: 30rpx;
+}
+.imgrow {
+  flex-wrap: wrap;
+  margin: 30rpx -10rpx
+}
+.imgrow .cell{
+  width: 20%;
+  margin: 10rpx 0;
+  position: relative;
+}
+.imgrow .cell .del{
+  position: absolute;
+  top:-8px;
+  right:-3px;
+}
+.imgrow .cell image{
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  border-radius: 4rpx;
+}
+
+.imgrow .cell .icon {
+  font-size: 60rpx;
+  color: #999;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  line-height: 120rpx;
+  text-align: center;
+  border:1px dashed #333;
+  border-radius: 4rpx;
+}
+.btns{
+  text-align: center;
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  padding: 50rpx 30rpx;
+  margin-top: -200rpx;
+}
+.btn{
+  font-size:34rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-weight: 600;
+}

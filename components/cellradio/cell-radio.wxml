@@ -1,3 +1,4 @@
-<view class="cell-radio {{checked?'checked':''}}" bindtap="onTap">
+<view class="cell-radio {{checked?'checked':''}} {{bg?'bg':''}}" bindtap="onTap">
+<image wx:if="{{bg&&checked}}" mode="" class="bg" src="./bg.png"/>
 	<slot/>
 </view>

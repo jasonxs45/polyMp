@@ -2,3 +2,12 @@
 # yarn lockfile v1
 
 
+miniprogram-computed@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/miniprogram-computed/-/miniprogram-computed-0.0.6.tgz#c8fc83517a1394ee436838a2bb266ec4ab58da2f"
+  integrity sha512-J47fQ+nM9hP+GHq8la5b1UvW+sxbkdy09Lf3tl+jQtxFBsDUScHoDjBqk7Dytn9REuxir4n5pomAG9/7gNEsiA==
+
+wuss-weapp@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/wuss-weapp/-/wuss-weapp-2.0.3.tgz#9c21eb9992c2cd8b4b86c1c20e51c84e05c0bb2f"
+  integrity sha512-KHfr3bD8fz2o+o8RN4cfbjnoEsmOLlIWofdWjWOks6iixqrRpJce8ztiTbo60KjCPrUnJJ9avU8t8kxoi1VH/A==

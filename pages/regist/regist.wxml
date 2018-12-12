@@ -6,7 +6,7 @@
         <view class="fh">选择身份</view>
         <view class="fb flex">
           <cell-radio-group current="{{roleIndex}}" bindchange="roleChange">
-            <cell-radio class="cell-radio" wx:for="{{roles}}" wx:key="r-{{index}}">
+            <cell-radio bg class="cell-radio" wx:for="{{roles}}" wx:key="r-{{index}}">
               {{item.name}}
             </cell-radio>
           </cell-radio-group>
@@ -49,7 +49,7 @@
           <view class="fh">性别</view>
           <view class="fb flex">
             <cell-radio-group current="{{genderIndex}}" bindchange="genderChange">
-              <cell-radio wx:for="{{genders}}" wx:key="gender-{{index}}" class="cell-radio">
+              <cell-radio bg wx:for="{{genders}}" wx:key="gender-{{index}}" class="cell-radio">
                 {{item}}
               </cell-radio>
             </cell-radio-group>
