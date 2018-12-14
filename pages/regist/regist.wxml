@@ -1,51 +1,50 @@
 <view class="regist">
-  <scroll-view scroll-y class="content">
-    <image mode="widthFix" class="logo" src="/images/logo.png" />
-    <view class="form">
+  <image mode="widthFix" class="logo" src="/images/logo.png" />
+  <view class="form">
+    <view class="form-bar">
+      <view class="fh">选择身份</view>
+      <view class="fb flex">
+        <cell-radio-group current="{{roleIndex}}" bindchange="roleChange">
+          <cell-radio bg class="cell-radio" wx:for="{{roles}}" wx:key="r-{{index}}">
+            {{item.name}}
+          </cell-radio>
+        </cell-radio-group>
+      </view>
+    </view>
+    <view hidden='{{roleIndex === 1}}' class="main-wrapper visitor-wrapper">
       <view class="form-bar">
-        <view class="fh">选择身份</view>
+        <view class="fh">写字楼</view>
         <view class="fb flex">
-          <cell-radio-group current="{{roleIndex}}" bindchange="roleChange">
-            <cell-radio bg class="cell-radio" wx:for="{{roles}}" wx:key="r-{{index}}">
-              {{item.name}}
-            </cell-radio>
-          </cell-radio-group>
+          <view class="clearable-input">
+            <picker class="input select" range='{{buildings}}' range-key='Name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
+              <text wx:if="{{buildingSelectIndex !== null}}">
+                  {{buildings[buildingSelectIndex].Name}}
+                </text>
+              <text wx:else class="placeholder">请选择写字楼</text>
+              <view class="icon">
+                <x-icon type="caret-down" />
+              </view>
+            </picker>
+          </view>
         </view>
       </view>
-      <view hidden='{{roleIndex === 1}}' class="main-wrapper visitor-wrapper">
-        <view class="form-bar">
-          <view class="fh">写字楼</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <picker class="input select" range='{{buildings}}' range-key='name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
-                <text wx:if="{{buildingSelectIndex !== null}}">
-                  {{buildings[buildingSelectIndex].name}}
-                </text>
-                <text wx:else class="placeholder">请选择写字楼</text>
-                <view class="icon">
-                  <x-icon type="caret-down" />
-                </view>
-              </picker>
-            </view>
+      <view class="form-bar">
+        <view class="fh">公司</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='Name' bindselect='companySelect' />
           </view>
         </view>
-        <view class="form-bar">
-          <view class="fh">公司</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='name' bindselect='companySelect' />
-            </view>
+      </view>
+      <view class="form-bar">
+        <view class="fh">姓名</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
           </view>
         </view>
-        <view class="form-bar">
-          <view class="fh">姓名</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
-            </view>
-          </view>
-        </view>
-        <view class="form-bar">
+      </view>
+      <!-- <view class="form-bar">
           <view class="fh">性别</view>
           <view class="fb flex">
             <cell-radio-group current="{{genderIndex}}" bindchange="genderChange">
@@ -54,51 +53,58 @@
               </cell-radio>
             </cell-radio-group>
           </view>
-        </view>
-        <view class="form-bar">
-          <view class="fh">手机号</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
-            </view>
-          </view>
-        </view>
-        <view class="form-bar">
-          <view class="fh">验证码</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
-            </view>
+        </view> -->
+      <view class="form-bar">
+        <view class="fh">手机号</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
             <view class="get-code">
               <button type='primary' disabled='{{codeDisabled}}' bindtap='getCode' class="get-code-btn">{{codeDisabled ? codeLimit + 's后重新获取' : '获取验证码'}}</button>
             </view>
           </view>
         </view>
       </view>
-      <view hidden='{{roleIndex === 0}}' class="main-wrapper visitor-wrapper">
-        <view class="form-bar">
-          <view class="fh">手机号</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
-            </view>
-          </view>
-        </view>
-        <view class="form-bar">
-          <view class="fh">验证码</view>
-          <view class="fb flex">
-            <view class="clearable-input">
-              <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
-            </view>
-            <view class="get-code">
-              <button type='primary' disabled='{{codeDisabled}}' bindtap='getCode' class="get-code-btn">{{codeDisabled ? codeLimit + 's后重新获取' : '获取验证码'}}</button>
-            </view>
+      <view class="form-bar">
+        <view class="fh">验证码</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
           </view>
         </view>
       </view>
     </view>
-  </scroll-view>
-  <view class="btns">
-    <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">注册</x-btn>
+    <view hidden='{{roleIndex === 0}}' class="main-wrapper visitor-wrapper">
+      <view class="form-bar">
+        <view class="fh">姓名</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+          </view>
+        </view>
+      </view>
+      <view class="form-bar">
+        <view class="fh">手机号</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+            <view class="get-code">
+              <button type='primary' disabled='{{codeDisabled}}' bindtap='getCode' class="get-code-btn">{{codeDisabled ? codeLimit + 's后重新获取' : '获取验证码'}}</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-bar">
+        <view class="fh">验证码</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear type='number' value='{{code}}' class="input" bindinput='codeInput' placeholder='请输入手机验证码' />
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
+</view>
+<view class="btns">
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap="submit">注册</x-btn>
 </view>

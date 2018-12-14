@@ -12,7 +12,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.4.2",
 	"appid": "wx0d84f26eb0336e5b",
 	"projectname": "polyMp",
 	"debugOptions": {
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -59,7 +59,7 @@
 				{
 					"id": 2,
 					"name": "签到",
-					"pathName": "pages/signin/index",
+					"pathName": "pages/onlineshops/index",
 					"query": ""
 				},
 				{
@@ -135,8 +135,8 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
-					"name": "登录",
+					"id": 15,
+					"name": "授权",
 					"pathName": "pages/login/index",
 					"query": ""
 				},
@@ -179,7 +179,8 @@
 				{
 					"id": -1,
 					"name": "服务",
-					"pathName": "pages/service/index"
+					"pathName": "pages/service/index",
+					"query": ""
 				}
 			]
 		}

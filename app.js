@@ -1,129 +1,130 @@
-import { checkUid, login, checkUserInfo } from 'common/login'
-import { mc } from 'common/memberCheck'
+import { fetch } from 'common/api'
+import { toast, loading } from 'utils/util'
 App({
   globalData: {
-    isMember: null,
-    s_key: '',
-    uid: ''
+    s_key: null,
+    uid: null,
+    fans: null,
+    member: null,
+    firstRoute: null
   },
-  memberCheck(uid) {
-    return new Promise((resolve, reject) => {
-      let isMember = wx.getStorageSync('isMember')
-      if (isMember === true) {
-        this.globalData.isMember = true
-        resolve(true)
-      }
-      // else if (isMember === false){
-      //   wx.showModal({
-      //     title: '温馨提示',
-      //     content: '您还不是会员，请先注册会员',
-      //     success: res => {
-      //       if (res.confirm) {
-      //         wx.navigateTo({
-      //           url: '/pages/regist/regist'
-      //         })
-      //       }
-      //       if (res.cancel) {
-      //         wx.switchTab({
-      //           url: '/pages/home/index'
-      //         })
-      //       }
-      //     }
-      //   })
-      // } 
-      else {
-        wx.showLoading({
-          title: '加载中',
-          mask: true
-        })
-        mc(uid).then(r => {
-          wx.hideLoading()
-          wx.setStorageSync('isMember', r)
-          this.globalData.isMember = r
-          resolve(true)
-        }).catch(e => {
-          wx.hideLoading()
-          wx.setStorageSync('isMember', false)
-          this.globalData.isMember = false
-          wx.showModal({
-            title: '温馨提示',
-            content: '您还不是会员，请先注册会员',
-            success: res => {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '/pages/regist/regist'
+  init() {
+    let firstRoute = getCurrentPages()[0].route
+    this.globalData.firstRoute = '/' + firstRoute
+    let fans = this.globalData.fans || wx.getStorageSync('fans')
+    if (!fans) {
+      this.loading('加载中')
+      wx.login({
+        success: r => {
+          fetch(
+            'WxOpen.ashx?Act=onlogin',
+            { code: r.code }
+          ).then(res => {
+            if (res.data.IsSuccess) {
+              wx.setStorageSync('s_key', res.data.Data.sessionId)
+              if (res.data.Data.unionid) {
+                // 返回信息含有uid
+                wx.setStorageSync('uid', res.data.Data.unionid)
+                this.globalData.uid = res.data.Data.unionid
+                console.log('login返回了uid,直接用uid请求信息')
+                fetch(
+                  'WebApi.ashx?Act=GetUserInfo',
+                  { UnionID: this.globalData.uid }
+                ).then(result => {
+                  wx.hideLoading()
+                  if (result.data.IsSuccess) {
+                    // 判断是否有粉丝信息，有就直接获取，没有就跳转授权页面
+                    if (result.data.Data.Fans) {
+                      wx.setStorageSync('fans', result.data.Data.Fans)
+                      this.globalData.fans = result.data.Data.Fans
+                    } else {
+                      wx.redirectTo({
+                        url: '/pages/login/index'
+                      })
+                    }
+                  } else {
+                    wx.hideLoading()
+                    wx.showModal({
+                      title: '对不起',
+                      content: result.data.Msg,
+                      showCancel: false
+                    })
+                  }
+                })
+              } else {
+                console.log('login没有返回uid,跳转授权页面')
+                wx.redirectTo({
+                  url: '/pages/login/index'
                 })
               }
-              if (res.cancel) {
-                wx.switchTab({
-                  url: '/pages/home/index'
-                })
-              }
+            } else {
+              wx.showModal({
+                title: '对不起',
+                content: res.data.Msg,
+                showCancel: false
+              })
             }
-          })
-          reject(false)
-        })
-      }
-    })
-  },
-  onLaunch() {
-    checkUid().then(r => {
-      this.globalData.uid = r.data
-    }).catch(e => {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-      login().then(r => {
-        wx.hideLoading()
-        if (r.data.IsSuccess) {
-          wx.setStorageSync('s_key', r.data.Data.sessionId)
-          console.log(r.data.Data.sessionId)
-          this.globalData.s_key = r.data.Data.sessionId
-          if (r.data.Data.unionid) {
-            // 已授权，返回信息含有uid
-            wx.setStorageSync('uid', r.data.Data.unionid)
-            this.globalData.uid = r.data.Data.unionid
-            wx.navigateTo({
-              url: '/pages/login/index'
+          }).catch(e => {
+            wx.hideLoading()
+            wx.showModal({
+              title: '对不起',
+              content: JSON.stringify(e),
+              showCancel: false
             })
-          } else {
-            // 未授权，返回信息没有uid，跳转授权页面
-            // wx.navigateTo({
-            //   url: '/pages/login/index'
-            // })
+          })
+        },
+        fail: e => {
+          wx.showModal({
+            title: '对不起',
+            content: '微信登录失败，请稍后再试！',
+            showCancel: false
+          })
+        }
+      })
+    }
+  },
+  checkMember () {
+    let member = this.globalData.member || wx.getStorageSync('member')
+    if (!member) {
+      wx.showModal({
+        title: '对不起',
+        content: '您未注册会员，请先注册会员',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/regist/regist'
+            })
+          }
+          if (res.cancel) {
+            wx.switchTab({
+              url: '/pages/home/index'
+            })
           }
         }
-      }).catch(e => {
-        wx.hideLoading()
-        console.log(e)
       })
-      // wx.navigateTo({
-      //   url: '/pages/login/index'
-      // })
-      // wx.showModal({
-      //   title: '友情提示',
-      //   content: '请先登录',
-      //   showCancel: false,
-      //   success (r) {
-      //     if (r.confirm) {
-      //       wx.navigateTo({
-      //         url: '/pages/login/index'
-      //       })
-      //     }
-      //   }
-      // })
-    })
-    // checkUserInfo().then(r => {
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       console.log('主动触发获取用户信息1')
-    //     }
-    //   })
-    // }).catch(e => {
-    //   console.log(e)
-    // })
+    }
   },
-  onShow() {
-  }
+  globalInit(cb) {
+    // this._init()
+    // let uid = wx.getStorageSync('uid') || this.globalData.uid
+    // if (!uid) {
+    //   init(() => {
+    //     this.globalData.uid = wx.getStorageSync('uid')
+    //     this.globalData.s_key = wx.getStorageSync('s_key')
+    //     this.globalData.fans = wx.getStorageSync('fans')
+    //     this.globalData.member = wx.getStorageSync('member')
+    //     cb && cb()
+    //   })
+    // } else {
+    //   this.globalData.uid = wx.getStorageSync('uid')
+    //   this.globalData.s_key = wx.getStorageSync('s_key')
+    //   this.globalData.fans = wx.getStorageSync('fans')
+    //   this.globalData.member = wx.getStorageSync('member')
+    //   cb && cb()
+    // }
+  },
+  toast,
+  loading,
+  onLaunch() { },
+  onShow() { }
 })

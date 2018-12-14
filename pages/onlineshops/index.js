@@ -6,6 +6,7 @@ const list = ['https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232',
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-section1-holiday-201811?wid=564&hei=516&fmt=png-alpha&qlt=80&.v=1540674991315']
+const app = getApp()
 Page({
   data: {
     avatar: '',
@@ -17,7 +18,7 @@ Page({
     submitLoading: false,
     submitDisabled: false,
     cardShort: true,
-    succShow: true,
+    succShow: false,
     banners,
     list,
     fixed: false,
@@ -80,7 +81,11 @@ Page({
       fixed: this.data.fixed
     })
   },
-  onLoad(options) { },
+  onLoad(options) {
+    app.globalInit(() => {
+      app.checkMember(app.globalData.member)
+    })
+  },
   onReady() {
     const query = wx.createSelectorQuery()
     query.select('.sortbar').boundingClientRect(res => {

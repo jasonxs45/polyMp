@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "点击进入",
+  "usingComponents": {
+    "x-btn": "/components/x-btn/index"
+  }
+}

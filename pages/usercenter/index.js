@@ -26,18 +26,19 @@ Page({
     entires
   },
   onLoad(options) {
-    this.setData({
-      points: formatNumber(this.data.points, 0),
-      money: formatNumber(this.data.money, 2)
+    app.globalInit(()=> {
+      app.checkMember(app.globalData.member)
+      console.log(app.globalData)
+      this.setData({
+        avatar: app.globalData.fans.HeadImgUrl,
+        nickname: app.globalData.fans.NickName
+      })
     })
   },
-  onReady() { },
+  onReady() {
+  },
   onShow() {
-    app.memberCheck(app.globalData.uid).then(r => {
-      console.log(r)
-    }).catch(e => {
-      console.error(e)
-    })
+    app.checkMember(app.globalData.member)
   },
   onHide() { },
   onUnload() { },

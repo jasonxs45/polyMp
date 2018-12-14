@@ -1,25 +1,19 @@
 // 表单相关的方法
 export default Behavior({
   methods: {
-    buildingInput(e) {
-      let value = e.detail
-      this.setData({
-        buildings: this.data.allBuildings.filter(item => item.name.includes(value)),
-        buildingName: value,
-        buildingSelectIndex: null
-      })
-    },
     buildingSelect(e) {
       let value = e.detail.value
       this.setData({
-        buildingSelectIndex: value,
-        buildingName: value !== null ? this.data.buildings[value].name : ''
+        buildingSelectIndex: value
+      }, () => {
+        let id = this.data.buildings[value].ID
+        this.getCompanyList(id)
       })
     },
     companyInput(e) {
       let value = e.detail
       this.setData({
-        companies: this.data.allCompanies.filter(item => item.name.includes(value)),
+        companies: this.data.allCompanies.filter(item => item.Name.includes(value)),
         companyName: value,
         companySelectIndex: null
       })
@@ -28,25 +22,29 @@ export default Behavior({
       let value = e.detail
       this.setData({
         companySelectIndex: value,
-        companyName: value !== null ? this.data.companies[value].name : ''
+        companyName: value !== null ? this.data.companies[value].Name : ''
       })
     },
     nameInput(e) {
       let value = e.detail
       this.data.name = value
-    },
-    genderChange (e) {
       this.setData({
-        genderIndex: e.detail
+        name: this.data.name
       })
     },
     telInput(e) {
       let value = e.detail
       this.data.tel = value
+      this.setData({
+        tel: this.data.tel
+      })
     },
     codeInput(e) {
       let value = e.detail
       this.data.code = value
+      this.setData({
+        code: this.data.code
+      })
     }
   }
 })

@@ -77,7 +77,9 @@ Component({
     }
   },
   methods: {
-    getUserInfo() { },
+    getUserInfo(e) {
+      this.triggerEvent('getuserinfo', e.detail)
+    },
     contact() { },
     getPhoneNumber() { },
     error() { },

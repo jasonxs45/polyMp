@@ -1,34 +1,12 @@
 import { fetch } from './api'
-export function checkUid (cb) {
-  return new Promise((resolve, reject) => {
-    wx.getStorage({
-      key: 'uid',
-      success(r) {
-        console.log('本地storage已存在uid,可直接使用')
-        resolve(r)
-      },
-      fail(e) {
-        console.log('本地storage不存在uid,先登录')
-        reject(e)
-      }
-    })
-  })
-}
-export function login () {
-  return new Promise((resolve, reject) => {
-    wx.login({
-      success: r => {
-        console.log('登录success')
-        resolve(fetch('WxOpen.ashx?Act=onlogin', { code: r.code }))
-      },
-      fail: e => {
-        console.log('登录fail')
-        reject(e)
-      }
-    })
-  })
-}
-export function getUserInfo(opt) {
+// doLogin 通过wx.login获取uid，获取不到则跳转授权页面
+// 授权用户信息
+export function getUserInfoByKey(opt) {
   let { iv, encryptedData, key } = opt
   return fetch('WxOpen.ashx?Act=getuserinfo', { iv, encryptedData, key })
+}
+// 通过unionid获取用户信息
+function getUserInfoByUID (uid) {
+  console.log('通过uid直接查询用户信息')
+  return fetch('WebApi.ashx?Act=GetUserInfo', { UnionID: uid })
 }

@@ -82,7 +82,7 @@ Component({
     },
     adjustPosition: {
       type: Boolean,
-      vaule: true
+      value: true
     }
   },
   data: {

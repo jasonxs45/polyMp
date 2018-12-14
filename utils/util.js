@@ -77,8 +77,23 @@ function formatNumber(num, cent, isThousand = true) {
     return (((sign) ? '' : '-') + num)
   }
 }
+function toast (msg) {
+  wx.showToast({
+    title: msg,
+    icon: 'none',
+    mask: true
+  })
+}
+function loading(msg) {
+  wx.showLoading({
+    title: msg,
+    mask: true
+  })
+}
 export {
   formatDate,
   transferWeek,
-  formatNumber
+  formatNumber,
+  toast,
+  loading
 }

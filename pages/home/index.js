@@ -1,4 +1,4 @@
-const app = getApp()
+import { fetch } from '../../common/api'
 const banners = ['https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
   'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232'
@@ -34,6 +34,7 @@ const entries = [
     url: '/pages/onlineshops/index'
   }
 ]
+const app = getApp()
 Page({
   data: {
     banners,
@@ -41,5 +42,8 @@ Page({
     entries
   },
   onLoad() {
+    app.init()
+  },
+  onShow() {
   }
 })
