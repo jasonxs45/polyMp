@@ -30,13 +30,13 @@
         <view class="flex">
           <view class="circle">
             <icon wx:if="{{index < signedDays}}" size="40rpx" color="#f8b474" type="success" />
-            <text wx:else>+{{item}}</text>
+            <text wx:else>+{{item.Score}}</text>
           </view>
         </view>
         <view class="text">{{index + 1}}天</view>
       </view>
     </view>
-    <button loading="{{submitLoading}}" disabled="{{submitDisabled}}" class="sign-btn">点击签到</button>
+    <button loading="{{submitDisabled}}" disabled="{{submitDisabled}}" bindtap='signIn' class="sign-btn">点击签到</button>
   </view>
 </view>
 <split />
@@ -48,7 +48,7 @@
 <split />
 <view class="sortbar flex {{fixed?'fixed': ''}}">
   <view class="common item {{orderIndex === 0 ? 'active' : ''}}" bindtap='orderByCommon'>
-    <text class="text">{{commonSorts[commonSortsIndex]}}</text>
+    <text class="text">{{commonSorts[commonSortsIndex].label}}</text>
     <x-icon type="caret-down" />
   </view>
   <view class="price item {{orderIndex === 1 ? 'active' : ''}}" bindtap='orderByPrice'>
@@ -61,7 +61,7 @@
   <view hidden='{{!commonSortsShow}}' class="drop-menu" style="{{commonSortsShow?autoHeight:'height:0px'}}">
     <radio-group bindchange="commonOrderChange">
       <label wx:for="{{commonSorts}}" wx:key="d-{{index}}" class="common-sortby {{commonSortsIndex === index ? 'active' : ''}}">
-        <view>{{item}}</view>
+        <view>{{item.label}}</view>
         <radio value="{{index}}" checked='{{commonSortsIndex === index}}' />
       </label>
     </radio-group>
@@ -69,18 +69,20 @@
 </view>
 <view hidden='{{!fixed}}' class="sortbar"></view>
 <view class="list-wrapper">
-  <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{index}}" class="cell">
-    <image mode="aspectFill" class="img" src="{{item}}" />
+  <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="./detail?id={{item.ID}}" class="cell">
+    <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
     <view class="detail">
-      <view class="title">铁三角「s-bast」4201无损耳机有线耳机</view>
+      <view class="title">{{item.Name}}</view>
       <view class="info">
-        <view class="cost">1000
+        <view class="cost">{{item.Score}}
           <text>积分</text>
         </view>
-        <button class="btn" type="primary">兑换</button>
       </view>
     </view>
   </navigator>
+  <view class="cell bottom {{list.length % 2 === 0 ? 'w100':''}}">
+    {{finished?'没有更多了':'加载中'}}
+  </view>
 </view>
 <view wx:if="{{succShow}}" class="success">
   <view class="bg"></view>

@@ -34,9 +34,6 @@
   border-bottom: 1rpx solid #ddd;
   align-items: center;
 }
-.item:last-child{
-  border-bottom: none;
-}
 .item .tit{
   font-size: 28rpx;
   color: #333;
@@ -51,4 +48,10 @@
   font-size: 40rpx;
   color: #4d4d4d;
   font-weight: bold;
+}
+.bottom{
+  text-align: center;
+  font-size: 26rpx;
+  color: #ddd;
+  padding: 30rpx;
 }

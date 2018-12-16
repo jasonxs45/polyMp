@@ -19,9 +19,8 @@ Page({
         app.globalData.fans = fans
         wx.setStorageSync('member', member)
         app.globalData.member = member
-        console.log(app.globalData.firstRoute)
         wx.switchTab({
-          url: app.globalData.firstRoute
+          url: '/pages/home/index'
         })
       } else {
         wx.showModal({

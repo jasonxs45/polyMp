@@ -26,14 +26,6 @@ Page({
     entires
   },
   onLoad(options) {
-    app.globalInit(()=> {
-      app.checkMember(app.globalData.member)
-      console.log(app.globalData)
-      this.setData({
-        avatar: app.globalData.fans.HeadImgUrl,
-        nickname: app.globalData.fans.NickName
-      })
-    })
   },
   onReady() {
   },

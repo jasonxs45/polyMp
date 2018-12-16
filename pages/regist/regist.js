@@ -1,4 +1,4 @@
-import { _getCode, _regist, _getBuildingList, _getCompanyList } from '../../common/api'
+import { _getCode, _regist, _getBuildingList, _getCompanyList } from '../../common/regist'
 import { NAME_REG, TEL_REG } from '../../utils/reg'
 const codeLimit = 60
 import behavior from './behaviors'
@@ -189,9 +189,7 @@ Component({
       })
     },
     onLoad(options) {
-      app.globalInit(() => {
-        console.log(app.globalData.uid)
-      })
+      app.init()
       this.getBuildingList()
     },
     onReady() { },

@@ -27,6 +27,7 @@ page{
   width: 96rpx;
   height: 96rpx;
   margin-right: 30rpx;
+  border-radius: 50%;
 }
 .nickname{
   color: #333;
@@ -68,11 +69,11 @@ page{
   border-radius: 4px;
   box-shadow: 0 1px 8px 1px rgba(0,0,0,.2);
   overflow: hidden;
-  transition: all .2s ease-out;
+  transition: height .2s linear;
 }
 .card.short{
   height: 110rpx;
-  border-radius: 55rpx;
+  /* border-radius: 55rpx; */
 }
 .card .bg{
   width: 100%;
@@ -97,6 +98,7 @@ page{
   color: #fff;
   font-size: 20rpx;
   font-weight: 600;
+  padding:5rpx;
 }
 .steps{
   display: flex;
@@ -271,11 +273,23 @@ page{
 }
 .cell {
   width: 50%;
-  height: 542rpx;
+  height: 480rpx;
   background: #fff;
   overflow: hidden;
   border-bottom: 1rpx solid #ddd;
   padding: 30rpx;
+}
+.cell.bottom{
+  font-size: 26rpx;
+  line-height: 480rpx;
+  color: #666;
+  text-align: center;
+}
+.cell.bottom.w100{
+  width: 100%;
+  height: auto !important;
+  line-height: 1 !important;
+  border-bottom: none;
 }
 .cell:nth-child(2n+1) {
   border-right: 1rpx solid #ddd;
@@ -290,18 +304,17 @@ page{
 .cell .title{
   font-size: 28rpx;
   color: #333;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 40rpx;
+  height: 40rpx;
+  white-space: nowrap;
 }
 .cell .info{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 30rpx;
+  margin-top: 15rpx;
 }
 .cell .cost{
   font-size: 28rpx;

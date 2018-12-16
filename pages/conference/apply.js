@@ -21,7 +21,8 @@ Page({
     description: '',
     yuyue: [],
     list,
-    yuyueB: false
+    yuyueB: false,
+    notallowed: true
   },
   nameInput(e) {
     let value = e.detail
@@ -39,6 +40,13 @@ Page({
     let value = e.detail.value
     this.setData({
       description: value
+    })
+  },
+  allowHandler (e) {
+    console.log(e)
+    this.data.notallowed = !this.data.notallowed
+    this.setData({
+      notallowed: this.data.notallowed
     })
   },
   tijiao() {

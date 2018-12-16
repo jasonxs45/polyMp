@@ -38,10 +38,19 @@
         </view>
       </view>
     </view>
+    <view class="need-to-know">
+      <checkbox-group class="radio-wrapper" bindchange="allowHandler">
+        <label>
+          <checkbox class="checkbox" checked="{{!notallowed}}"/>
+          <text>我已阅读</text>
+        </label>
+      </checkbox-group>
+      <navigator class="nav" url="./rule">《场地使用须知》</navigator>
+    </view>
   </view>
 </view>
 <view class="btns">
-  <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="tijiao" class="btn">提交申请</button>
+  <x-btn loading='{{submitDisabled}}' disabled='{{notallowed || submitDisabled}}' type='primary' bindtap="tijiao" class="btn">提交申请</x-btn>
 </view>
 <view class="timeMain" wx:if="{{yuyueB}}">
   <view class="timeMain_bg" bindtap="yuyueBut"></view>

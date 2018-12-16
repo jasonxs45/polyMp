@@ -107,9 +107,9 @@
 }
 
 .noon.on {
-  background: rgba(237, 194, 123, 0.5);
-  color: #7e581a;
-  border: 2rpx solid rgba(237, 194, 123, 0.5);
+  background: #4d4d4d;
+  color: #fff;
+  border: 2rpx solid #4d4d4d;
 }
 
 .timeMain {
@@ -190,4 +190,36 @@
   color: #999;
   line-height: inherit;
   padding: 0 15rpx;
+}
+.need-to-know{
+  color: #666;
+  font-size: 0;
+  margin-top: 30rpx;
+}
+.need-to-know .radio-wrapper{
+  display: inline;
+}
+.need-to-know .radio-wrapper text{
+  vertical-align: middle;
+  font-size: 24rpx;
+}
+.need-to-know checkbox .wx-checkbox-input{
+  position: relative;
+  width: 24rpx !important;
+  height: 24rpx !important;
+  margin-right: 10rpx;
+  display:inline-block;
+  box-sizing: border-box;
+}
+.need-to-know checkbox[checked] .wx-checkbox-input{
+  background: #666;
+}
+.need-to-know checkbox[checked] .wx-checkbox-input::before{
+  color: transparent;
+}
+.need-to-know .nav{
+  display: inline;
+  text-decoration: underline;
+  vertical-align: middle;
+  font-size: 24rpx;
 }

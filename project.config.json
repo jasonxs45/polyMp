@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -180,6 +180,12 @@
 					"id": -1,
 					"name": "服务",
 					"pathName": "pages/service/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "会务预约申请",
+					"pathName": "pages/conference/apply",
 					"query": ""
 				}
 			]

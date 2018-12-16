@@ -5,12 +5,10 @@ App({
     s_key: null,
     uid: null,
     fans: null,
-    member: null,
-    firstRoute: null
+    member: null
   },
+  fansReadyCb () {},
   init() {
-    let firstRoute = getCurrentPages()[0].route
-    this.globalData.firstRoute = '/' + firstRoute
     let fans = this.globalData.fans || wx.getStorageSync('fans')
     if (!fans) {
       this.loading('加载中')
@@ -37,6 +35,9 @@ App({
                     if (result.data.Data.Fans) {
                       wx.setStorageSync('fans', result.data.Data.Fans)
                       this.globalData.fans = result.data.Data.Fans
+                      wx.setStorageSync('member', result.data.Data.Member)
+                      this.globalData.member = result.data.Data.Member
+                      this.fansReadyCb()
                     } else {
                       wx.redirectTo({
                         url: '/pages/login/index'
@@ -44,12 +45,15 @@ App({
                     }
                   } else {
                     wx.hideLoading()
+                    console.log(result)
                     wx.showModal({
                       title: '对不起',
-                      content: result.data.Msg,
+                      content: result.data.Msg||'网络问题，请稍后再试！',
                       showCancel: false
                     })
                   }
+                }).catch(err => {
+                  console.log(err)
                 })
               } else {
                 console.log('login没有返回uid,跳转授权页面')
@@ -81,8 +85,15 @@ App({
           })
         }
       })
+    } else {
+      this.globalData.s_key = wx.getStorageSync('s_key')
+      this.globalData.uid = wx.getStorageSync('uid')
+      this.globalData.fans = wx.getStorageSync('fans')
+      this.globalData.member = wx.getStorageSync('member')
+      this.fansReadyCb()
     }
   },
+  memberReadyCb () {},
   checkMember () {
     let member = this.globalData.member || wx.getStorageSync('member')
     if (!member) {
@@ -102,29 +113,16 @@ App({
           }
         }
       })
+    } else {
+      this.globalData.s_key = wx.getStorageSync('s_key')
+      this.globalData.uid = wx.getStorageSync('uid')
+      this.globalData.fans = wx.getStorageSync('fans')
+      this.globalData.member = wx.getStorageSync('member')
+      this.memberReadyCb()
     }
-  },
-  globalInit(cb) {
-    // this._init()
-    // let uid = wx.getStorageSync('uid') || this.globalData.uid
-    // if (!uid) {
-    //   init(() => {
-    //     this.globalData.uid = wx.getStorageSync('uid')
-    //     this.globalData.s_key = wx.getStorageSync('s_key')
-    //     this.globalData.fans = wx.getStorageSync('fans')
-    //     this.globalData.member = wx.getStorageSync('member')
-    //     cb && cb()
-    //   })
-    // } else {
-    //   this.globalData.uid = wx.getStorageSync('uid')
-    //   this.globalData.s_key = wx.getStorageSync('s_key')
-    //   this.globalData.fans = wx.getStorageSync('fans')
-    //   this.globalData.member = wx.getStorageSync('member')
-    //   cb && cb()
-    // }
   },
   toast,
   loading,
-  onLaunch() { },
+  onLaunch() {},
   onShow() { }
 })

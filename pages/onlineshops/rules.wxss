@@ -1,1 +1,18 @@
-/* pages/onlineshops/rules.wxss */
+.rules{
+  padding: 30rpx;
+}
+.title{
+  color: #333;
+  font-size: 36rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.detail{
+  margin-top: 50rpx;
+}
+.item{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 38rpx;
+  margin: 30rpx 0;
+}

@@ -27,7 +27,8 @@
     "pages/repairuser/list",
     "pages/repairuser/detail",
     "pages/repairmanager/list",
-    "pages/repairuser/rate"
+    "pages/repairuser/rate",
+    "pages/conference/rule"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
