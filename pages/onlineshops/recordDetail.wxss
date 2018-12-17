@@ -60,3 +60,19 @@
 .nodata{
   text-align: center;
 }
+.qrcode{
+  padding: 30rpx 0;
+}
+.code {
+  width: 360rpx;
+  height: 360rpx;
+  background: #fff;
+  padding: 3rpx;
+  margin: 30rpx auto;
+}
+.exchange-date{
+  color: #333;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 30rpx auto;
+}

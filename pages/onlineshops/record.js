@@ -1,14 +1,60 @@
+import { _record } from '../../common/shop'
+import { formatDate } from '../../utils/util'
+const app = getApp()
 Page({
   data: {
-    src: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
-    list: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    list: [],
+    totalCount: null,
+    finished: false,
+    pageIndex: 1,
+    pageSize: 6
   },
-  onLoad (options) {},
+  concatList() {
+    _record(
+      app.globalData.member.ID,
+      this.data.pageIndex,
+      this.data.pageSize
+    ).then(res => {
+      this.data.totalCount = res.data.total_count
+      let list = res.data.Shop_Exchange_list.map(item => {
+        item.AddTime = formatDate(new Date(item.AddTime), 'yyyy-MM-dd hh: mm')
+        return item
+      })
+      this.setData({
+        list: this.data.list.concat(list)
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  onLoad (options) {
+    app.memberReadyCb = () => {
+      this.concatList()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
+    }
+    app.init()
+  },
   onReady () {},
   onShow () {},
   onHide () {},
   onUnload () {},
   onPullDownRefresh () {},
-  onReachBottom () {},
+  onReachBottom() {
+    if (this.data.list.length >= this.data.totalCount) {
+      this.setData({
+        finished: true
+      })
+    } else {
+      this.data.pageIndex += 1
+      this.concatList()
+    }
+  },
   onShareAppMessage () {}
 })

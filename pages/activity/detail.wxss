@@ -133,3 +133,6 @@ page {
   font-weight: 500;
   color: #edc27b;
 }
+.nodata{
+  text-align: center;
+}

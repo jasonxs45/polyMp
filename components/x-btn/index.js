@@ -69,12 +69,7 @@ Component({
     appParameter: String
   },
   data: {
-    classes: [],
-    bg: {
-      primary: './primary.png',
-      loading: './disable.png',
-      disabled: './disable.png'
-    }
+    classes: []
   },
   methods: {
     getUserInfo(e) {
@@ -86,11 +81,18 @@ Component({
     openSetting() { }
   },
   attached() {
+    this.data.classes = [this.properties.type]
     if (this.properties.imgBg) {
       this.data.classes.push('imgBg')
-      this.setData({
-        classes: this.data.classes
-      })
     }
+    if (this.properties.disabled) {
+      this.data.classes.push('disabled')
+    }
+    if (this.properties.loading) {
+      this.data.classes.push('loading')
+    }
+    this.setData({
+      classes: this.data.classes
+    })
   }
 })

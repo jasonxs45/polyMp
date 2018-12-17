@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品兑换详情",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "split": "/components/split/index"
+  }
+}

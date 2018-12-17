@@ -1,0 +1,34 @@
+<view class="banner">
+  <view class="brief">
+    <view class="tit">我的红包</view>
+    <view class="num">{{money}}</view>
+  </view>
+  <view class="help" bindtap='popIn'>
+    我要提现
+    <x-icon type='enter' />
+  </view>
+</view>
+<view class="list">
+  <view wx:for="{{list}}" wx:key="item-{{index}}" class="item flex">
+    <view class="desc">
+      <view class="tit">{{item.Title}}</view>
+      <view class="date">{{item.AddTime}}</view>
+    </view>
+    <view class="point">
+      {{item.RedMoney}}
+    </view>
+  </view>
+</view>
+<view class="bottom">{{finished ? '没有更多了' : '加载中'}}</view>
+<view class="popup {{showPop?'show': ''}}">
+  <view class="panel">
+    <view class="title">提现金额</view>
+    <label class="money-input flex">
+      <text>￥</text>
+      <input placeholder-class='placeholder' type='digit' placeholder='请输入金额' bindinput='inputHandler' value="{{outNum}}" />
+    </label>
+    <view class="tips">红包余额￥{{money}}，<text class="all" bindtap='all'>全部提现</text></view>
+    <x-btn disabled="{{!outNum || submiting}}" loading="{{submiting}}" type="primary" class="btn" bindtap="toAccount">提现</x-btn>
+        <x-btn class="cancel" bindtap="popOut">取消</x-btn>
+  </view>
+</view>

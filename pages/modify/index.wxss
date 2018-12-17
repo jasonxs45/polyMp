@@ -16,10 +16,11 @@ page{
   padding-bottom: 300rpx;
 }
 .avatar{
-  width: 200rpx;
-  height: 200rpx;
+  width: 200rpx !important;
+  height: 200rpx !important;
   display: block;
   margin: 30rpx auto 18rpx;
+  border-radius: 50%;
 }
 .nickname {
   text-align: center;
@@ -62,6 +63,13 @@ page{
   color: #858585;
   margin-left: 20rpx;
 }
+.birthday{
+  padding: 0 15rpx;
+  line-height: 1.5;
+}
+.birthday .placeholder{
+  color: #888;
+}
 .popup{
   position: fixed;
   background: #f2f2f2;
@@ -88,6 +96,9 @@ page{
   font-size: 28rpx;
   height: 70rpx;
   line-height: 70rpx;
+}
+.popup .head .confirm{
+  color: #fff !important;
 }
 .popup .title{
   font-size: 26rpx;
@@ -128,4 +139,23 @@ page{
 }
 .wx-radio-input-checked:before{
   color: #4d4d4d !important;
+}
+.popup .building{
+  justify-content: space-between;
+  align-items: center;
+}
+.popup .building .text{
+  flex: 1;
+  padding: 10rpx 0;
+}
+.popup .building .placeholder{
+  color: #888;
+}
+.popup .building .icon{
+  width: 40rpx;
+}
+.popup .company-input{
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
 }

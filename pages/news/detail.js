@@ -1,5 +1,7 @@
 Page({
-  data: {},
+  data: {
+    content: '123'
+  },
   onLoad (options) {},
   onReady () {},
   onShow () {},

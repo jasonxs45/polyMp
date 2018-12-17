@@ -32,7 +32,9 @@ Component({
       })
     },
     getBuildingList () {
+      app.loading('加载中')
       _getBuildingList().then(res => {
+        wx.hideLoading()
         if (res.data.code == 200) {
           this.data.buildings = res.data.Office_Building_list
           this.setData({
@@ -40,7 +42,13 @@ Component({
           })
         }
       }).catch(err => {
+        wx.hideLoading()
         console.log(err)
+        wx.showModal({
+          title: '对不起',
+          content: '获取写字楼失败，请稍后再试',
+          showCancel: false
+        })
       })
     },
     getCompanyList (id) {

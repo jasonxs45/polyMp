@@ -1,11 +1,24 @@
-import { data} from './data'
+import { _detail } from '../../common/activity'
+const app = getApp()
 Page({
   data: {
+    id: null,
     detail: {}
   },
-  jump: function (e) {
-    wx.navigateTo({
-      url: '/pages/activity/detail?id=' + e.currentTarget.dataset.id
+  getDetail () {
+    app.loading('加载中')
+    _detail(this.data.id).then(res => {
+      wx.hideLoading()
+      this.setData({
+        detail: res.data.Activity_Activity
+      })
+    }).catch(err => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
     })
   },
   yuyueBut() {
@@ -21,30 +34,13 @@ Page({
       }
     })
   },
-  onLoad: function (options) {
-    //生命周期函数--监听页面加载
-    for(let i = 0; i<data.length; i++){
-      if (data[i].id == options.id){
-        this.setData({
-          detail: data[i]
-        })
-        break
-      }
-    }
+  onLoad (options) {
+    this.data.id = options.id
+    this.getDetail()
   },
-  onReady: function () {
-    // 生命周期函数--监听页面初次渲染完成
-  },
-  onShow: function () {
-    // 生命周期函数--监听页面显示
-  },
-  onHide: function () {
-    // 生命周期函数--监听页面隐藏
-  },
-  onUnload: function () {
-    //生命周期函数--监听页面卸载
-  },
-  onShareAppMessage: function () {
-    // 用户点击右上角分享
-  }
+  onReady () {},
+  onShow () {},
+  onHide () {},
+  onUnload () {},
+  onShareAppMessage () {}
 })

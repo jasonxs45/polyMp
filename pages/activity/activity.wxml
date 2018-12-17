@@ -5,15 +5,16 @@
 </tabs>
 <view class="actMain">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
-    <swiper-item>
-        <navigator class="acList" wx:for="{{actAll}}" wx:key="goingon+{{index}}" url="/pages/activity/detail?id={{item.id}}">
-          <image mode="aspectFill" src="{{item.img}}"></image>
-        </navigator>
-    </swiper-item>
-    <swiper-item>
-        <navigator class="acList" wx:for="{{actAll2}}" wx:key="over+{{index}}" url="/pages/activity/detail?id={{item.id}}">
-          <image mode="aspectFill" src="{{item.img}}"></image>
-        </navigator>
+    <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="container">
+        <block wx:if="{{list.length > 0}}">
+          <navigator class="acList" wx:for="{{list}}" wx:key="item+{{idx}}+{{index}}" url="/pages/activity/detail?id={{item.ID}}">
+            <image mode="aspectFill" src="{{item.SmallImg}}" />
+          </navigator>
+        </block>
+        <!-- <view wx:else>暂无内容</view> -->
+        <view class="bottom">{{finished[currentIndex]?'没有更多了':'加载中'}}</view>
+      </scroll-view>
     </swiper-item>
   </swiper>
 </view>

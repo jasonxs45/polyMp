@@ -13,6 +13,6 @@
 .item{
   font-size: 28rpx;
   color: #666;
-  line-height: 38rpx;
+  line-height: 48rpx;
   margin: 30rpx 0;
 }

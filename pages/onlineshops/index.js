@@ -175,12 +175,16 @@ Page({
       // 商品列表
       let list = res[2].data.Shop_Goods_list
       let totalCount = res[2].data.total_count
+      if (list.length >= totalCount) {
+        this.data.finished = true
+      }
       this.setData({
         points: formatNumber(num, 0),
         steps,
         signedDays,
         list,
-        totalCount
+        totalCount,
+        finished: this.data.finished
       })
     }).catch(err => {
       wx.hideLoading()

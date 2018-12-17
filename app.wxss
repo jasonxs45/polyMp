@@ -14,6 +14,20 @@ image{
 .form-bar,.flex{
   display: flex;
 }
+@keyframes slide-up {
+  0% {transform: translateY(100%)}
+  100% {transform: none}
+}
+.slide-up{
+  animation-name: slide-up
+}
+.slide-up-reverse{
+  animation-name: slide-up;
+  animation-direction: reverse;
+}
+.animation{
+  animation-duration: 200ms;
+}
 /* 标签形式的选择 */
 .cell-radio{
   display: inline-block;
@@ -28,10 +42,6 @@ image{
 }
 /* 重写部分原生组件样式 */
 button[type=primary]{
-  background: #4d4d4d !important;
-  color:#EDC27B !important;
 }
 button[disabled]{
-  background: #ccc !important;
-  color: #888 !important;
 }

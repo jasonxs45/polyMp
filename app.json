@@ -22,13 +22,17 @@
     "pages/service/index",
     "pages/mypoints/index",
     "pages/mypoints/explain",
+    "pages/mymoney/index",
     "pages/onlineshops/rules",
     "pages/repairuser/submit",
     "pages/repairuser/list",
     "pages/repairuser/detail",
     "pages/repairmanager/list",
     "pages/repairuser/rate",
-    "pages/conference/rule"
+    "pages/conference/rule",
+    "pages/onlineshops/recordDetail",
+    "pages/news/index",
+    "pages/news/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

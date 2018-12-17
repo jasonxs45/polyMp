@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 14,
 			"list": [
 				{
 					"id": 0,
@@ -117,13 +117,13 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 12,
 					"name": "积分商城商品详细",
 					"pathName": "pages/onlineshops/detail",
-					"query": ""
+					"query": "id=1"
 				},
 				{
-					"id": -1,
+					"id": 13,
 					"name": "积分商城兑换记录",
 					"pathName": "pages/onlineshops/record",
 					"query": ""
@@ -132,7 +132,7 @@
 					"id": 14,
 					"name": "圈层活动",
 					"pathName": "pages/activity/activity",
-					"query": "id=1"
+					"query": ""
 				},
 				{
 					"id": 15,
@@ -141,9 +141,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "我的积分",
-					"pathName": "pages/mypoints/index",
+					"id": 16,
+					"name": "我的红包",
+					"pathName": "pages/mymoney/index",
 					"query": ""
 				},
 				{
@@ -186,6 +186,24 @@
 					"id": -1,
 					"name": "会务预约申请",
 					"pathName": "pages/conference/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城兑换记录详情",
+					"pathName": "pages/onlineshops/recordDetail",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "企业快讯",
+					"pathName": "pages/news/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/mypoints/index",
 					"query": ""
 				}
 			]

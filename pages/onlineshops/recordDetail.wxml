@@ -1,0 +1,19 @@
+<image src="{{goods.BigImg}}" class="banner" mode="aspectFill" />
+<view class="info">
+  <view class="cost">{{goods.GoodsScore}}<text>积分</text></view>
+  <view class="title">{{goods.GoodsName}}</view>
+  <view class="desc">使用时间: {{goods.GoodsUseStart}}—{{goods.GoodsUseEnd}}</view>
+</view>
+<split height="10"/>
+<view class="qrcode">
+  <image class="code" src="{{code}}"/>
+  <view class="exchange-date">兑换时间：{{goods.AddTime}}</view>
+</view>
+<split height="10"/>
+<view class="detail">
+  <view class="title">商品详情</view>
+  <view class="content">
+    <rich-text wx:if="{{goods.Content}}" nodes="{{goods.Content}}"></rich-text>
+    <view wx:else class="nodata">暂无内容</view>
+  </view>
+</view>

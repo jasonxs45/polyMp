@@ -8,7 +8,7 @@
     </navigator>
   </view>
   <view class="role">
-    <text>黑卡会员</text>
+    <text>{{role}}</text>
   </view>
   <navigator class="go-signin" url="/pages/signin/index">签到</navigator>
 </view>

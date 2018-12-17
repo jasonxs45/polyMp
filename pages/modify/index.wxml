@@ -1,7 +1,7 @@
 <view class="modify">
   <view class="content">
     <view class="wxinfo">
-      <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
+      <image class="avatar" mode="widthFix" src='{{avatar? avatar : "../../images/avatar.png"}}' bindtap='avatarTap' binderror='avatarError' />
       <view class="nickname">点击修改头像</view>
     </view>
     <view class="split" />
@@ -24,19 +24,19 @@
           <x-icon type="enter" />
         </view>
       </view>
-      <view class="flex item" bindtap='show' data-item="gender">
-        <view class="fh">性别</view>
+      <view class="flex item" bindtap='show' data-item="tel">
+        <view class="fh">手机号</view>
         <view class="fb">
-          <view class="input">{{gender}}</view>
+          <view class="input">{{tel}}</view>
         </view>
         <view class="icon">
           <x-icon type="enter" />
         </view>
       </view>
-      <view class="flex item" bindtap='show' data-item="tel">
-        <view class="fh">手机号</view>
+      <view class="flex item" bindtap='show' data-item="birthday">
+        <view class="fh">生日</view>
         <view class="fb">
-          <view class="input">{{tel}}</view>
+          <view class="input">{{birthday}}</view>
         </view>
         <view class="icon">
           <x-icon type="enter" />
@@ -54,7 +54,7 @@
       <view class="flex item" bindtap='show' data-item="company">
         <view class="fh">公司</view>
         <view class="fb">
-          <view class="input">{{company}}</view>
+          <view class="input">{{companyName}}</view>
         </view>
         <view class="icon">
           <x-icon type="enter" />
@@ -63,7 +63,7 @@
     </view>
   </view>
 </view>
-<scroll-view scroll-y class="popup {{modifyShow?'show': ''}}">
+<view class="popup {{modifyShow?'show': ''}}">
   <view class="head flex">
     <button plain class="cancel" bindtap='cancel'>取消</button>
     <button type="primary" class="confirm" bindtap='confirm'>确定</button>
@@ -72,7 +72,7 @@
     <block wx:if="{{modifyItem === 'nickname'}}">
       <view class="title">修改昵称</view>
       <view class="modify-item">
-        <x-input clear placeholder='修改昵称' value="{{nickname}}" bindinput='nameInput' />
+        <x-input clear placeholder='修改昵称' value="{{nickname}}" bindinput='nicknameInput' />
       </view>
     </block>
     <block wx:if="{{modifyItem === 'name'}}">
@@ -81,25 +81,19 @@
         <x-input clear placeholder='修改姓名' value="{{name}}" bindinput='nameInput' />
       </view>
     </block>
-    <block wx:if="{{modifyItem === 'gender'}}">
-      <view class="title">修改性别</view>
-      <view class="gender-select">
-        <radio-group bindchange="genderChange">
-          <label class="gender-radio">
-            <view class="radio-text">男</view>
-            <radio class="radio" value="男" checked='{{gender === "男"}}' />
-          </label>
-          <label class="gender-radio">
-            <view class="radio-text">女</view>
-            <radio class="radio" value="女" checked='{{gender === "女"}}' />
-          </label>
-        </radio-group>
-      </view>
-    </block>
     <block wx:if="{{modifyItem === 'tel'}}">
       <view class="title">修改手机号码</view>
       <view class="modify-item">
         <x-input clear placeholder='修改手机号码' value="{{tel}}" bindinput='telInput' />
+      </view>
+    </block>
+    <block wx:if="{{modifyItem === 'birthday'}}">
+      <view class="title">修改生日</view>
+      <view class="modify-item">
+        <picker class="birthday" mode="date" bindchange='birthdayChange'>
+          <text class="placeholder" wx:if="{{!birthday}}">请选择您的生日</text>
+          <text wx:else>{{birthday}}</text>
+        </picker>
       </view>
     </block>
     <block wx:if="{{modifyItem === 'idnum'}}">
@@ -111,8 +105,24 @@
     <block wx:if="{{modifyItem === 'company'}}">
       <view class="title">修改公司名称</view>
       <view class="modify-item">
-        <x-input clear placeholder='修改公司名称' value="{{company}}" bindinput='companyInput' />
+        <picker range='{{buildings}}' range-key='Name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
+          <view class="flex building">
+            <view class="text">
+              <text wx:if="{{buildingSelectIndex !== null}}">{{buildings[buildingSelectIndex].Name}}</text>
+              <text wx:else class="placeholder">请选择写字楼</text>
+            </view>
+            <view class="icon">
+              <x-icon type="caret-down" />
+            </view>
+          </view>
+        </picker>
       </view>
+      <view class="modify-item company-input">
+        <x-input select clear value='{{companyName}}' class="" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='Name' bindselect='companySelect' />
+      </view>
+      <!-- <view class="modify-item">
+        <x-input clear placeholder='修改公司名称' value="{{company}}" bindinput='companyInput' />
+      </view> -->
     </block>
   </view>
-</scroll-view>
+</view>

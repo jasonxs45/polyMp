@@ -1,5 +1,4 @@
 <view class="rules">
-  <view class="title">积分规则</view>
   <view class="detail">
     <view class="item">
       1、每个用户每天可签到一次，金币获取规则：签到初始值为1金币，连续签到每 天金币额外加1，第7天开始不再额外增加。若中断签到，将从初始值开始重新计算。</view>

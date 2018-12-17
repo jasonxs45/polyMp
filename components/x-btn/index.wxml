@@ -24,13 +24,5 @@
   bindopensetting="openSettting"
   class="{{classes}}"
 >
-  <image
-    wx:if="{{imgBg}}"
-    mode="aspectFill"
-    class="bg"
-    src="{{disabled || loading ? bg['loading'] : bg['primary']}}"
-  />
-  <!-- <image class="hide" src="./primary.png"/> -->
-  <!-- <image class="hide" src="./disable.png"/> -->
   <slot />
 </button>

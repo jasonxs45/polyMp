@@ -1,14 +1,67 @@
+import { _detail, _exchange } from '../../common/shop'
+import { formatDate } from '../../utils/util'
+const app = getApp()
 Page({
   data: {
-    banner: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
-    title: '铁三角「s-bast」4201无损耳机有线耳机'
+    id: null,
+    goods: {}
   },
-  onLoad (options) {},
-  onReady () {},
-  onShow () {},
-  onHide () {},
-  onUnload () {},
-  onPullDownRefresh () {},
-  onReachBottom () {},
-  onShareAppMessage () {}
+  getDetail() {
+    app.loading('加载中')
+    _detail(this.data.id).then(res => {
+      wx.stopPullDownRefresh()
+      wx.hideLoading()
+      let goods = res.data.Shop_Goods
+      goods.ExchangeStart = formatDate(new Date(goods.ExchangeStart), 'yyyy年MM月dd日')
+      goods.ExchangeEnd = formatDate(new Date(goods.ExchangeEnd), 'yyyy年MM月dd日')
+      this.setData({
+        goods
+      })
+    }).catch(err => {
+      wx.stopPullDownRefresh()
+      wx.hideLoading()
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  exchange () {
+    app.loading('加载中')
+    _exchange(app.globalData.uid, this.data.id).then(res => {
+      wx.hideLoading()
+      wx.showModal({
+        title: res.data.IsSuccess ? '恭喜您' : '对不起',
+        content: res.data.Msg,
+        showCancel: false
+      })
+    }).catch(err => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  onLoad(options) {
+    app.memberReadyCb = () => {
+      this.data.id = options.id
+      this.getDetail()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
+    }
+    app.init()
+  },
+  onReady() { },
+  onShow() { },
+  onHide() { },
+  onUnload() { },
+  onPullDownRefresh() {
+    this.getDetail()
+  },
+  onReachBottom() { },
+  onShareAppMessage() { }
 })

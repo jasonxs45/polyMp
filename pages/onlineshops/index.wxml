@@ -40,11 +40,11 @@
   </view>
 </view>
 <split />
-<swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="banner">
+<!-- <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="banner">
   <swiper-item wx:for="{{banners}}" wx:key="banner-{{index}}">
     <image class="img" src='{{item}}' mode='aspectFill' />
   </swiper-item>
-</swiper>
+</swiper> -->
 <split />
 <view class="sortbar flex {{fixed?'fixed': ''}}">
   <view class="common item {{orderIndex === 0 ? 'active' : ''}}" bindtap='orderByCommon'>

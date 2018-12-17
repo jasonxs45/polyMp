@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "商品详情",
   "backgroundColor": "#fff",
+  "enablePullDownRefresh": true,
   "usingComponents": {
-    "split": "/components/split/index"
+    "split": "/components/split/index",
+    "x-btn": "/components/x-btn/index"
   }
 }

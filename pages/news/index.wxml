@@ -1,0 +1,14 @@
+<swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
+  <swiper-item wx:for="{{banners}}" wx:key="swiper-item-{{index}}" class="swiper-item">
+    <image mode="aspectFill" src="{{item}}" class="img" />
+  </swiper-item>
+</swiper>
+<view>
+  <navigator class="item flex" wx:for="{{list}}" wx:key="item-{{index}}" url="./detail?id={{id}}">
+    <image class="img" src="{{item.icon}}" mode="aspectFill" />
+    <view class="text">
+      <view class="title">徐念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参加中西邀参加中西邀参加中西企业顾问委员会会议</view>
+      <view class="date">2018-12-16</view>
+    </view>
+  </navigator>
+</view>
