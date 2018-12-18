@@ -16,8 +16,8 @@
   z-index: -1;
 }
 .avatar {
-  width: 172rpx;
-  height: 172rpx;
+  width: 172rpx !important;
+  height: 172rpx !important;
   display: block;
   margin: 0 auto;
   border-radius: 50%;

@@ -53,6 +53,8 @@ page{
 }
 .activity-nav {
   margin-top: 30rpx;
+  background: #fff;
+  border-radius: 8rpx;
 }
 .activity-nav .img{
   width: 100%;

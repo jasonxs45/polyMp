@@ -8,17 +8,14 @@
 .banner .brief{
   display: inline-block;
   margin-left: 30rpx;
-  text-align: center;
 }
 .banner .tit{
   font-size: 24rpx;
   color: #fff;
-  text-align: center;
 }
 .banner .num{
-  font-size: 96rpx;
+  font-size: 90rpx;
   font-weight: bold;
-  text-align: center;
   color: #fff;
   margin-top: 20rpx;
 }

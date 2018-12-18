@@ -1,4 +1,5 @@
 Component({
+  addGlobalClass: true,
   properties: {
     imgBg: {
       type: Boolean,
@@ -69,7 +70,7 @@ Component({
     appParameter: String
   },
   data: {
-    classes: []
+    classes: ['x-btn']
   },
   methods: {
     getUserInfo(e) {
@@ -81,7 +82,7 @@ Component({
     openSetting() { }
   },
   attached() {
-    this.data.classes = [this.properties.type]
+    this.data.classes.push(this.properties.type)
     if (this.properties.imgBg) {
       this.data.classes.push('imgBg')
     }

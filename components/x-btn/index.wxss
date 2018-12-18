@@ -1,4 +1,8 @@
 @import './bg.wxss';
+.x-btn{
+  height: 90rpx;
+  line-height: 90rpx;
+}
 .hide{
   width: 0;
   height: 0 !important;

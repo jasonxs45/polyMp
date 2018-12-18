@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 29,
 			"list": [
 				{
 					"id": 0,
@@ -205,6 +205,24 @@
 					"name": "我的积分",
 					"pathName": "pages/mypoints/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "圈层活动详情",
+					"pathName": "pages/activity/detail",
+					"query": "id=9"
+				},
+				{
+					"id": -1,
+					"name": "我的活动列表",
+					"pathName": "pages/myactivities/list",
+					"query": ""
+				},
+				{
+					"id": 29,
+					"name": "我的活动详情",
+					"pathName": "pages/myactivities/detail",
+					"query": "id=1"
 				}
 			]
 		}

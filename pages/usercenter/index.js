@@ -4,9 +4,9 @@ const entires = [
     { label: '会务订单', icon: './meeting.png', url: '' }
   ],
   [
-    { label: '我的活动', icon: './activities.png', url: '' },
-    { label: '我的红包', icon: './bonus.png', url: '' },
-    { label: '我的卡券', icon: './card.png', url: '' },
+    { label: '我的活动', icon: './activities.png', url: '/pages/myactivities/list' },
+    { label: '我的红包', icon: './bonus.png', url: '/pages/mymoney/index' },
+    { label: '我的卡券', icon: './card.png', url: '/pages/onlineshops/record' },
     { label: '我的积分', icon: './points.png', url: '/pages/mypoints/index' }
   ],
   [
@@ -16,26 +16,31 @@ const entires = [
   ]
 ]
 import { _getscore } from '../../common/points'
+import { _money } from '../../common/money'
 import { formatNumber } from '../../utils/util'
 const  app = getApp()
 Page({
   data: {
     avatar: '',
     nickname: '',
-    points: '123123123123',
-    money: '2312313.12',
+    points: '',
+    money: '',
     entires
   },
   totalQuery() {
     app.loading('加载中')
     Promise.all([
-      _getscore(app.globalData.member.ID)
+      _getscore(app.globalData.member.ID),
+      _money(app.globalData.member.ID)
     ]).then(res => {
       wx.hideLoading()
       // 积分
       let num = res[0].data.Score_Log_sum || 0
+      // 红包
+      let money = res[1].data.Red_Log_sum || 0
       this.setData({
-        points: formatNumber(num, 0)
+        points: formatNumber(num, 0),
+        money: formatNumber(money, 0)
       })
     }).catch(err => {
       wx.hideLoading()
@@ -63,6 +68,12 @@ Page({
   onReady() {
   },
   onShow() {
+    this.setData({
+      avatar: app.globalData.fans.HeadImgUrl,
+      nickname: app.globalData.fans.NickName,
+      role: app.globalData.member.Type
+    })
+    this.totalQuery()
   },
   onHide() { },
   onUnload() { },

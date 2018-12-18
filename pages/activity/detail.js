@@ -1,4 +1,5 @@
-import { _detail } from '../../common/activity'
+import { _detail, _submit } from '../../common/activity'
+import { formatDate } from '../../utils/util'
 const app = getApp()
 Page({
   data: {
@@ -9,8 +10,13 @@ Page({
     app.loading('加载中')
     _detail(this.data.id).then(res => {
       wx.hideLoading()
+      let detail = res.data.Activity_Activity
+      detail.ApplyStart = formatDate(new Date(detail.ApplyStart), 'yyyy/MM/dd hh:mm')
+      detail.ApplyEnd = formatDate(new Date(detail.ApplyEnd), 'yyyy/MM/dd hh:mm')
+      detail.PlayStart = formatDate(new Date(detail.PlayStart), 'yyyy/MM/dd hh:mm')
+      detail.PlayEnd = formatDate(new Date(detail.PlayEnd), 'yyyy/MM/dd hh:mm')
       this.setData({
-        detail: res.data.Activity_Activity
+        detail
       })
     }).catch(err => {
       wx.hideLoading()
@@ -21,22 +27,41 @@ Page({
       })
     })
   },
-  yuyueBut() {
+  submit() {
     wx.showModal({
-      title: '报名成功',
-      content: '您已报名成功，可在个人中心【我的活动】里',
-      success(res) {
+      title: '提示',
+      content: '确定报名吗？',
+      success: res => {
         if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+          app.loading('提交中')
+          _submit(app.globalData.member.ID, this.data.id).then(r => {
+            wx.hideLoading()
+            wx.showModal({
+              title: r.data.IsSuccess?'恭喜您':'对不起',
+              content: r.data.IsSuccess ? '您已报名成功，可在个人中心【我的活动】里':r.data.Msg,
+              showCancel: false
+            })
+          }).catch(e => {
+            wx.hideLoading()
+            wx.showModal({
+              title: '对不起',
+              content: JSON.stringify(e) || '网络错误，请稍后再试',
+              showCancel: false
+            })
+          })
         }
       }
     })
   },
   onLoad (options) {
     this.data.id = options.id
-    this.getDetail()
+    app.memberReadyCb = () => {
+      this.getDetail()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
+    }
+    app.init()
   },
   onReady () {},
   onShow () {},

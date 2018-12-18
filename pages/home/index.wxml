@@ -19,8 +19,8 @@
       <x-icon type="enter" />
     </navigator>
   </view>
-  <navigator wx:for="{{banners}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/activity/detail?id={{1}}">
-    <image mode="aspectFill" class="img" src="{{item}}" />
+  <navigator wx:for="{{actList}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/activity/detail?id={{item.ID}}">
+    <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
   </navigator>
 </view>
 <view class="pad30">
@@ -32,15 +32,14 @@
     </navigator>
   </view>
   <view class="list-wrapper">
-  <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{index}}" class="cell">
-    <image mode="aspectFill" class="img" src="{{item}}" />
+  <navigator wx:for="{{goodsList}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{item.ID}}" class="cell">
+    <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
     <view class="detail">
-      <view class="tit">铁三角「s-bast」4201无损耳机有线耳机</view>
+      <view class="title">{{item.Name}}</view>
       <view class="info">
-        <view class="cost">1000
+        <view class="cost">{{item.Score}}
           <text>积分</text>
         </view>
-        <button class="btn" type="primary">兑换</button>
       </view>
     </view>
   </navigator>

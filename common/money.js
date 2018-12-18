@@ -27,10 +27,10 @@ let _record = (MemberID, pageIndex = 1, pageSize = 10) => {
   return query(param)
 }
 // 提现
-let _toaccount = (UnionID, Money) => {
+let _toaccount = (MemberID, Money) => {
   return fetch(
     'WebApi.ashx?Act=ReceiveRedPacket',
-    { UnionID, Money }
+    { MemberID, Money }
   )
 }
 export {

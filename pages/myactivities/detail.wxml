@@ -1,16 +1,15 @@
-<image class="detail_img" mode="widthFix" src="{{detail.BigImg}}"></image>
+<image class="detail_img" mode="widthFix" src="{{detail.BigImg}}" />
 <view class="detail">
   <view class="detail_title">
     <view class="detail_title_t1">{{detail.Name}}</view>
-    <view class="detail_title_t2 flex">
-      <text class="desc">已有{{detail.ApplyCount}}人报名</text>
-      <text class="tag">{{detail.ApplyScore}}积分</text>
-    </view>
   </view>
   <view class="detail_text">
-    <text>报名时间: {{detail.ApplyStart}}-{{detail.ApplyEnd}}</text>
     <text>活动时间: {{detail.PlayStart}}-{{detail.PlayEnd}}</text>
   </view>
+</view>
+<view class="detail detail_rem">
+  <image mode="widthFix" src="{{applyDetail.qrimg}}"></image>
+  <text>NO.{{applyDetail.SN}}</text>
 </view>
 <view class="detail detail2">
   <view class="detail_text_title">活动规则</view>
@@ -26,6 +25,3 @@
     <rich-text nodes="{{detail.Content}}"></rich-text>
   </view>
 </view>
-<x-btn class="detaliBut" type="primary" bindtap="submit">
-  立即报名
-</x-btn>

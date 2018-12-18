@@ -27,7 +27,7 @@
       <text>￥</text>
       <input placeholder-class='placeholder' type='digit' placeholder='请输入金额' bindinput='inputHandler' value="{{outNum}}" />
     </label>
-    <view class="tips">红包余额￥{{money}}，<text class="all" bindtap='all'>全部提现</text></view>
+    <view class="tips">红包余额￥{{money}}，<text class="all" bindtap='all'>全部提现</text>（单次提现不能超过200）</view>
     <x-btn disabled="{{!outNum || submiting}}" loading="{{submiting}}" type="primary" class="btn" bindtap="toAccount">提现</x-btn>
         <x-btn class="cancel" bindtap="popOut">取消</x-btn>
   </view>

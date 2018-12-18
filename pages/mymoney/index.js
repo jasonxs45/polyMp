@@ -31,11 +31,26 @@ Page({
   },
   all () {
     this.setData({
-      outNum: this.data.money
+      outNum: Number(this.data.money)
     })
   },
   toAccount () {
-    _toaccount(app.globalData.uid, this.data.outNum).then(res => {
+    let value = Number(this.data.outNum)
+    if (!value) {
+      app.toast('请输入正确的金额')
+      return
+    }
+    if (value > 200) {
+      app.toast('单次提现不能超过200')
+      return
+    }
+    if (value > Number(this.data.money)) {
+      app.toast('提现金额超过当前余额')
+      return
+    }
+    app.loading('提交中')
+    _toaccount(app.globalData.member.ID, value).then(res => {
+      wx.hideLoading()
       if (res.data.IsSuccess) {
         wx.showModal({
           title: '恭喜您',
@@ -44,9 +59,12 @@ Page({
           success: r => {
             if (r.confirm) {
               this.setData({
-                money: parseFloat(res.data.Data)
+                money: parseFloat(res.data.Data),
+                outNum: '',
+              }, () => {
+                this.popOut()
+                this.getAll()
               })
-              this.getAll()
             }
           }
         })
@@ -58,6 +76,7 @@ Page({
         })
       }
     }).catch(err => {
+      wx.hideLoading()
       wx.showModal({
         title: '对不起',
         content: '网络错误，请稍后再试',
@@ -102,7 +121,7 @@ Page({
       })
       this.data.totalCount = res[1].data.total_count
       this.setData({
-        money: formatNumber(num, 0),
+        money: formatNumber(num, 2),
         list
       })
     }).catch(err => {

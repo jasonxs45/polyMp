@@ -1,0 +1,9 @@
+<view class="actMain">
+  <block wx:if="{{list.length > 0}}">
+    <navigator class="acList" wx:for="{{list}}" wx:key="item+{{index}}" url="./detail?id={{item.ID}}">
+      <image mode="aspectFill" src="{{item.SmallImg}}" />
+    </navigator>
+  </block>
+  <!-- <view wx:else>暂无内容</view> -->
+  <view class="bottom">{{finished?'没有更多了':'加载中'}}</view>
+</view>

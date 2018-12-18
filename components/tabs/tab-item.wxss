@@ -5,4 +5,5 @@
 }
 .tab-item.active{
   background: #fff;
+  font-weight: 600;
 }

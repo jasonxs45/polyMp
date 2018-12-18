@@ -10,17 +10,17 @@
   <view class="role">
     <text>{{role}}</text>
   </view>
-  <navigator class="go-signin" url="/pages/signin/index">签到</navigator>
+  <navigator class="go-signin" url="/pages/onlineshops/index">签到</navigator>
 </view>
 <view class="flex point-money">
   <navigator class="points" url="/pages/mypoints/index">
     <view class="numbers">{{points}}</view>
     <text class="text">积分</text>
   </navigator>
-  <view class="money">
+  <navigator class="money" url="/pages/mymoney/index">
     <view class="numbers">{{money}}</view>
     <text class="text">现金红包</text>
-  </view>
+  </navigator>
 </view>
 <view class="split"></view>
 <view class="list">

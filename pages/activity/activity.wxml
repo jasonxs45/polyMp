@@ -1,6 +1,6 @@
 <tabs class="actTop" bindchange="tabChange" current="{{currentIndex}}">
   <tab-item wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
-    <view class="text">{{item.name}}</view>
+    <view class="text {{index === currentIndex ? 'on': ''}}">{{item.name}}</view>
   </tab-item>
 </tabs>
 <view class="actMain">

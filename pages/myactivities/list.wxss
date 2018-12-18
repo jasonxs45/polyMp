@@ -1,0 +1,25 @@
+
+.acList {
+  display: block;
+  width: 100%;
+  height: 330rpx;
+  margin: 30rpx 0;
+  overflow: hidden;
+  border-radius: 8rpx;
+  padding: 5rpx 30rpx;
+}
+
+.acList image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  box-shadow: 0 0 2rpx 1rpx rgba(0, 0, 0, 0.1);
+}
+
+.bottom {
+  font-size: 26rpx;
+  line-height: 46rpx;
+  color: #666;
+  text-align: center;
+  margin: 15rpx 0;
+}

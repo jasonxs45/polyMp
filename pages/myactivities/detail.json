@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "活动详情",
+  "usingComponents": {
+    "x-btn": "/components/x-btn/index"
+  }
+}

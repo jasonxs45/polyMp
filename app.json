@@ -32,7 +32,9 @@
     "pages/conference/rule",
     "pages/onlineshops/recordDetail",
     "pages/news/index",
-    "pages/news/detail"
+    "pages/news/detail",
+    "pages/myactivities/list",
+    "pages/myactivities/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
