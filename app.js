@@ -102,7 +102,7 @@ App({
         content: '您未注册会员，请先注册会员',
         success: res => {
           if (res.confirm) {
-            wx.navigateTo({
+            wx.reLaunch({
               url: '/pages/regist/regist'
             })
           }

@@ -1,6 +1,6 @@
 <view class="img-row flex">
   <view wx:for="{{group}}" wx:key="img-{{index}}" class="cell">
-    <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' />
+    <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' binderror="errorHandler"/>
     <icon wx:if="{{!readonly}}" class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
   </view>
   <view wx:if="{{!readonly}}" hidden='{{group.length >= max}}' class="cell" bindtap='chooseImg'>
@@ -9,7 +9,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{readonly || uploading}}" class="progress">
+<view wx:if="{{!readonly}}" hidden="{{!uploading}}" class="progress">
   <progress border-radius="4px" stroke-width="3px" backgroundColor='#ddd' percent='{{100 * current/total}}' />
   <text>{{uploading?'上传中...':'上传完成'}}</text>
 </view>

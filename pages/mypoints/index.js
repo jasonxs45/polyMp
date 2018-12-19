@@ -46,9 +46,12 @@ Page({
         return item
       })
       this.data.totalCount = res[1].data.total_count
+      let finished = false
+      finished = list.length >= this.data.totalCount
       this.setData({
         points: formatNumber(num, 0),
-        list
+        list,
+        finished
       })
     }).catch(err => {
       console.log(err)

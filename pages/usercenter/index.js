@@ -40,7 +40,7 @@ Page({
       let money = res[1].data.Red_Log_sum || 0
       this.setData({
         points: formatNumber(num, 0),
-        money: formatNumber(money, 0)
+        money: formatNumber(money, 2)
       })
     }).catch(err => {
       wx.hideLoading()
@@ -52,6 +52,10 @@ Page({
     })
   },
   onLoad(options) {
+  },
+  onReady() {
+  },
+  onShow() {
     app.memberReadyCb = () => {
       this.setData({
         avatar: app.globalData.fans.HeadImgUrl,
@@ -64,16 +68,6 @@ Page({
       app.checkMember()
     }
     app.init()
-  },
-  onReady() {
-  },
-  onShow() {
-    this.setData({
-      avatar: app.globalData.fans.HeadImgUrl,
-      nickname: app.globalData.fans.NickName,
-      role: app.globalData.member.Type
-    })
-    this.totalQuery()
   },
   onHide() { },
   onUnload() { },

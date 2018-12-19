@@ -2,13 +2,13 @@
   <view class="section">
     <view class="form-bar">
       <view class="fh">选择类别</view>
-      <view class="fb flex">
+      <view class="fb">
         <view class="clearable-input">
-          <picker class="input select" range='{{categories}}' range-key='name' value='{{categoryIndex}}' bindchange='categorySelect'>
-            <text wx:if="{{categoryIndex !== null}}">
-                  {{categories[categoryIndex].name}}
-                </text>
-            <text wx:else class="placeholder">请选择类别</text>
+          <picker class="input select" range='{{categories}}' range-key='Name' value='{{categoryIndex}}' bindchange='categorySelect'>
+            <view class="text" wx:if="{{categoryIndex !== null}}">
+              {{categories[categoryIndex].Name}}
+            </view>
+            <view class="text placeholder" wx:else>请选择类别</view>
             <view class="icon">
               <x-icon type="caret-down" />
             </view>
@@ -22,7 +22,7 @@
     <view class="form-bar">
       <view class="fh">描述</view>
       <view class="fb">
-        <textarea class="textarea" placeholder="请在此输入您要描述的信息"></textarea>
+        <textarea class="textarea" placeholder="请在此输入您要描述的信息" bindinput='textHandler'></textarea>
       </view>
     </view>
   </view>
@@ -31,11 +31,11 @@
     <view class="form-bar">
       <view class="fh">上传照片（限5张）</view>
       <view class="fb img-row">
-        <img-row group="{{imgArr}}" max="{{limit}}" binduploading="uploadingHandler" binddel="delHandler" binduploadOver="uploadOverHandler"></img-row>
+        <img-row group="{{imgArr}}" max="{{limit}}" binddel="delHandler" binduploadOver="uploadOverHandler"></img-row>
       </view>
     </view>
   </view>
 </view>
 <view class="btns">
-  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">提交</x-btn>
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap="submit">提交</x-btn>
 </view>

@@ -5,34 +5,34 @@
 </tabs>
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
-    <swiper-item wx:for="{{lists}}" wx:key="swiper-item-{{index}}" class="list-wrapper">
-      <navigator
-        wx:for="{{item}}"
-        wx:for-index="idx"
-        wx:key="index-{{idx}}"
-        url="./detail?id={{1}}"
-        class="card"
-      >
-        <view wx:if="{{index==='finishList'}}" class="mark">
-          待评价
+    <swiper-item wx:for="{{lists}}" wx:key="swiper-item-{{index}}">
+      <scroll-view scroll-y enable-back-to-top scroll-y bindscrolltolower="onReachLower" 
+     bindscroll="scrollHandler" class="scroll-view">
+        <view class="list-wrapper">
+          <navigator wx:for="{{item}}" wx:for-index="idx" wx:key="index-{{idx}}" url="./detail?id={{item.ID}}" class="card">
+            <view wx:if="{{item.Status ==='已完成' && item.EvaluateTime === null}}" class="mark">
+              待评价
+            </view>
+            <view class="head flex">
+              <view class="tit">
+                {{item.CompanyName}}
+              </view>
+              <view class="date">{{item.AddTime}}</view>
+            </view>
+            <split class="line" height="2" />
+            <view class="body">
+              <text class="desc">{{item.Description}}</text>
+              <view class="tags">
+                <view class="tag">{{item.TypeName}}</view>
+              </view>
+            </view>
+          </navigator>
         </view>
-        <view class="head flex">
-          <view class="tit">
-          武汉市木仓科技有限公司
-          </view>
-          <view class="date">2018-03-13 12:11</view>
-        </view>
-        <split class="line" height="1" />
-        <view class="body">
-          <text class="desc">办公室的墙面墙纸大面积脱落，过道的天花板有渗水现象，烦请尽快安排维修人员处理。</text>
-          <view class="tags">
-            <view class="tag">墙面</view>
-            <view class="tag">墙墙面</view>
-            <view class="tag">墙墙墙面</view>
-            <view class="tag">墙面</view>
-          </view>
-        </view>
-      </navigator>
+        <view class="bottom">{{finished[currentIndex]?'没有更多了':'加载中'}}</view>
+      </scroll-view>
     </swiper-item>
   </swiper>
 </view>
+<navigator url="./submit" class="tosubmit">
+  <x-icon type="plus" />
+</navigator>

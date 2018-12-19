@@ -1,59 +1,47 @@
-<view class="card section">
-  <view class="title">武汉市木仓科技有限公司</view>
-  <view class="date">2018-03-13 12:11</view>
-  <split class="line" height="1" />
-  <view class="desc">
-    办公室的墙面墙纸大面积脱落，烦请尽快安排维修人员处理，以免影响正常办公
-  </view>
-  <view class="imgrow flex">
-    <view wx:for="{{imgArr}}" wx:key="img-{{index}}" class="cell">
-      <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' />
+<view class="detail-page {{detail.FinishTime && detail.EvaluateTime === null ?'padding': ''}}">
+  <view class="card section">
+    <view class="title">{{detail.CompanyName}}</view>
+    <view class="date">{{detail.AddTime}}</view>
+    <split class="line" height="2" />
+    <view class="desc">{{detail.Description}}</view>
+    <img-row class="imgrow" readonly group="{{detail.Img}}" />
+    <split class="line" height="1" />
+    <view class="tags">
+      <view class="tag">{{detail.TypeName}}</view>
     </view>
   </view>
-  <split class="line" height="1" />
-  <view class="tags">
-    <view class="tag">墙面</view>
-    <view class="tag">墙墙面</view>
-    <view class="tag">墙墙墙面</view>
-    <view class="tag">墙面</view>
-  </view>
-</view>
-<split />
-<view class="section">
-  <view class="sub-tit">处理进度</view>
-  <view class="steps-wrapper">
-    <view wx:for="{{steps}}" wx:key="step-{{index}}" class="step flex">
-      <view class="circle">
-        <view class="cir"></view>
-      </view>
-      <view class="content">
-        <view class="date">{{item.date}}</view>
-        <view class="desc">{{item.desc}}</view>
+  <split />
+  <block wx:if="{{steps.length > 0}}">
+    <view class="section">
+      <view class="sub-tit">处理进度</view>
+      <view class="steps-wrapper">
+        <view wx:for="{{steps}}" wx:key="step-{{index}}" class="step flex">
+          <view class="circle">
+            <view class="cir"></view>
+          </view>
+          <view class="content">
+            <view class="date">{{item.AddTime}}</view>
+            <view class="desc">
+              <text class="depart">【{{item.Department}}】</text>{{item.ArriveDuration}}</view>
+          </view>
+        </view>
       </view>
     </view>
-  </view>
+    <split />
+  </block>
+  <block wx:if="{{detail.FinishTime && detail.EvaluateTime !== null}}">
+    <view class="section">
+      <view class="sub-tit">我的评价</view>
+      <view wx:for="{{rateItems}}" wx:key="rate-item-{{index}}" class="rate-item flex">
+        <view class="tit">{{item}}</view>
+        <star class="stars" readonly score="{{scores[index]}}" />
+        <view class="describe">{{describes[scores[index] - 1]}}</view>
+      </view>
+      <text wx:if="{{detail.EvaluateRemark}}" class="rate-texts">{{detail.EvaluateRemark}}</text>
+    </view>
+    <split />
+  </block>
 </view>
-<split />
-<view class="btns">
-  <x-btn class="rate-btn">我要评价</x-btn>
+<view wx:if="{{detail.FinishTime && detail.EvaluateTime === null}}" class="btns">
+  <x-btn type="primary" class="rate-btn" bindtap="goRate">我要评价</x-btn>
 </view>
-<view class="section">
-  <view class="sub-tit">我的评价</view>
-  <view class="rate-item flex">
-    <view class="tit">响应速度</view>
-    <star class="stars" readonly score="{{scores[0]}}" />
-    <view class="describe">{{describes[scores[0]]}}</view>
-  </view>
-  <view class="rate-item flex">
-    <view class="tit">服务态度</view>
-    <star class="stars" readonly score="{{scores[1]}}" />
-    <view class="describe">{{describes[scores[1]]}}</view>
-  </view>
-  <view class="rate-item flex">
-    <view class="tit">解决问题</view>
-    <star class="stars" readonly score="{{scores[2]}}" />
-    <view class="describe">{{describes[scores[2]]}}</view>
-  </view>
-  <text class="rate-texts">评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</text>
-</view>
-<split />

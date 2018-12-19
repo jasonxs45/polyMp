@@ -8,8 +8,15 @@ Component({
       value: false
     },
     score: {
-      type: Number,
-      value: 0
+      type: [Number, String],
+      value: 0,
+      observer (newVal) {
+        if (typeof newVal === 'string') {
+          this.setData({
+            score: Number(newVal)
+          })
+        }
+      }
     }
   },
   data: {},
@@ -25,5 +32,8 @@ Component({
         return
       }
     }
+  },
+  attached () {
+    console.log(this.data.score)
   }
 })

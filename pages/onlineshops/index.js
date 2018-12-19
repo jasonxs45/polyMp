@@ -16,7 +16,7 @@ Page({
     steps: [],
     signedDays: 0,
     submitDisabled: false,
-    cardShort: true,
+    cardShort: false,
     succShow: false,
     banners,
     list: [],
@@ -222,13 +222,13 @@ Page({
   onUnload() { },
   onPullDownRefresh() { },
   onReachBottom() {
-    if (this.data.list.length < this.data.totalCount) {
-      this.data.pageIndex += 1
-      this.concatGoodsList()
-    } else {
+    if (this.data.list.length >= this.data.totalCount) {
       this.setData({
         finished: true
       })
+    } else {
+      this.data.pageIndex += 1
+      this.concatGoodsList()
     }
   },
   onPageScroll(obj) {

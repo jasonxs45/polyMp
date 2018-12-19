@@ -24,7 +24,7 @@ const entries = [
   {
     icon: './repair.png',
     name: '报修投诉',
-    url: '/pages/repairuser/submit'
+    url: '/pages/repairuser/list'
   },
   {
     icon: './onlineshop.png',
@@ -65,11 +65,11 @@ Page({
     })
   },
   onLoad() {
-    app.memberReadyCb = () => {
-      this.totalQuery()
-    }
+    // app.memberReadyCb = () => {
+    //   this.totalQuery()
+    // }
     app.fansReadyCb = () => {
-      app.checkMember()
+      this.totalQuery()
     }
     app.init()
   },

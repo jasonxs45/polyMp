@@ -1,5 +1,6 @@
 import { rootUrl } from '../../common/config'
 import { _uploadFile } from '../../common/uploadFile'
+import default_src from './default'
 const app = getApp()
 Component({
   properties: {
@@ -17,6 +18,13 @@ Component({
     uploadOver: true
   },
   methods: {
+    errorHandler (e) {
+      let index = e.currentTarget.dataset.index
+      this.properties.group[index] = default_src
+      this.setData({
+        group: this.properties.group
+      })
+    },
     chooseImg() {
       let count = this.properties.max - this.properties.group.length
       this.setData({

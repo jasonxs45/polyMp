@@ -1,24 +1,17 @@
 page{
   background: #f2f2f2;
 }
+.detail-page.padding{
+  min-height: 100vh;
+  padding-bottom: 180rpx;
+}
 .section{
   padding: 30rpx;
   background: #fff;
 }
 .imgrow {
-  flex-wrap: wrap;
-  margin: 30rpx -10rpx
-}
-.imgrow .cell{
-  width: 20%;
-  margin: 10rpx 0;
-  position: relative;
-}
-.imgrow .cell image{
-  width: 120rpx;
-  height: 120rpx;
-  margin: 0 auto;
-  border-radius: 4rpx;
+  display: block;
+  margin-top: 30rpx;
 }
 .card .title{
   font-size: 34rpx;
@@ -96,10 +89,14 @@ page{
   color: #999;
 }
 .step .desc{
-  font-size: 28rpx;
-  color: #333;
+  font-size: 26rpx;
+  color: #666;
   line-height: 40rpx;
   margin-top: 20rpx;
+}
+.step .desc .depart{
+  color: #333;
+  font-weight: 500;
 }
 .step .circle::after{
   content: '';
@@ -147,6 +144,9 @@ page{
   margin: 10rpx;
 }
 .btns{
+  height: 180rpx;
+  position: relative;
+  margin-top: -180rpx;
   padding: 30rpx;
 }
 .rate-texts{

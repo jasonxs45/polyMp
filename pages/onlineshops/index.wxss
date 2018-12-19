@@ -1,3 +1,4 @@
+@import './bg.wxss';
 page{
   background: #fff;
 }
@@ -5,14 +6,6 @@ page{
   position: relative;
   padding: 30rpx;
   border-bottom: 1rpx solid #eee;
-}
-.signin .bg{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: -1;
 }
 .base-info{
   padding: 30rpx 0 0;
@@ -74,16 +67,6 @@ page{
 .card.short{
   height: 110rpx;
   /* border-radius: 55rpx; */
-}
-.card .bg{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: -1;
-  border-radius: inherit;
-  /* box-shadow: inherit; */
 }
 .card .title{
   justify-content: space-between;
@@ -257,10 +240,10 @@ page{
   transition: all .2s;
 }
 .sortbar .sort-icon .up{
-  margin-top: -14rpx
+  margin-top: -17rpx
 }
 .sortbar .sort-icon .down{
-  margin-top: -4rpx;
+  margin-top: -7rpx;
 }
 .item.active .up.active,
 .item.active .down.active{

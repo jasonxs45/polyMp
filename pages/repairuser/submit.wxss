@@ -50,19 +50,21 @@ page{
   color: #666;
   font-size: 30rpx;
 }
-.select text{
+.select .text{
+  font-size: 28rpx;
   display: inline-block;
+  color: #333;
 }
 .select .placeholder{
   color: #888;
 }
 .textarea{
   background: #F5F5F5;
-  color: #4d4d4d;
+  color: #333;
   width: 100%;
   border-radius: 4rpx;
   padding: 15rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 .img-row{
   width: 100%;

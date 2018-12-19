@@ -1,5 +1,5 @@
-<view class="signin">
-  <image class="bg" src="./bg.png" />
+<view class="signin topbg">
+  <!-- <image class="bg" src="./bg.png" /> -->
   <view class="base-info">
     <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
     <view class="info">
@@ -13,8 +13,8 @@
       <x-icon class="icon" type="enter" />
     </navigator>
   </view>
-  <view class="card {{cardShort?'short':''}}">
-    <image class="bg" src="../../images/unknowbg.png" />
+  <view class="card cardbg {{cardShort?'short':''}}">
+    <!-- <image class="bg" src="../../images/unknowbg.png" /> -->
     <view class="title flex">
       <navigator url="/pages/onlineshops/rules" class="tit">
         连续签到积分翻倍
