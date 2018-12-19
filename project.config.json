@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 30,
 			"list": [
 				{
 					"id": 0,
@@ -223,6 +223,12 @@
 					"name": "我的活动详情",
 					"pathName": "pages/myactivities/detail",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "报修提交",
+					"pathName": "pages/repairuser/submit",
+					"query": ""
 				}
 			]
 		}

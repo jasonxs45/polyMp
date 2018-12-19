@@ -13,13 +13,7 @@ Page({
     ],
     categoryIndex: null,
     limit,
-    imgArr: [
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png',
-      '../../images/logo.png'
-    ],
+    imgArr: [],
     submitDisabled: false
   },
   categorySelect (e) {
@@ -28,29 +22,16 @@ Page({
       categoryIndex: value
     })
   },
-  chooseImg() {
-    wx.chooseImage({
-      count: limit - this.data.imgArr.length,
-      success: r => {
-        this.setData({
-          imgArr: r.tempFilePaths
-        })
-      },
-      fail: e => { }
-    })
+  uploadingHandler (e) {
   },
-  delImg(e) {
-    let index = e.currentTarget.dataset.index
-    this.data.imgArr.splice(index, 1)
+  uploadOverHandler (e) {
     this.setData({
-      imgArr: this.data.imgArr
+      imgArr: this.data.imgArr.concat(e.detail.group)
     })
   },
-  previewImg(e) {
-    let index = e.currentTarget.dataset.index
-    wx.previewImage({
-      current: this.data.imgArr[index],
-      urls: this.data.imgArr
+  delHandler (e) {
+    this.setData({
+      imgArr: e.detail.group
     })
   },
   onLoad (options) {},

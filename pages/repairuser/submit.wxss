@@ -64,37 +64,8 @@ page{
   padding: 15rpx;
   font-size: 30rpx;
 }
-.imgrow {
-  flex-wrap: wrap;
-  margin: 30rpx -10rpx
-}
-.imgrow .cell{
-  width: 20%;
-  margin: 10rpx 0;
-  position: relative;
-}
-.imgrow .cell .del{
-  position: absolute;
-  top:-8px;
-  right:-3px;
-}
-.imgrow .cell image{
-  width: 120rpx;
-  height: 120rpx;
-  margin: 0 auto;
-  border-radius: 4rpx;
-}
-
-.imgrow .cell .icon {
-  font-size: 60rpx;
-  color: #999;
-  width: 120rpx;
-  height: 120rpx;
-  margin: 0 auto;
-  line-height: 120rpx;
-  text-align: center;
-  border:1px dashed #333;
-  border-radius: 4rpx;
+.img-row{
+  width: 100%;
 }
 .btns{
   text-align: center;

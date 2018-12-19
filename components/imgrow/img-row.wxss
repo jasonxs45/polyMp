@@ -1,0 +1,45 @@
+.img-row{
+  flex-wrap: wrap;
+  margin-left: -15rpx;
+  margin-right: -15rpx;
+  display: flex;
+}
+.progress{
+  width:100%;
+  margin-top: 15rpx;
+}
+.progress text{
+  display: block;
+  text-align: center;
+  margin: 10rpx;
+  font-size: 24rpx;
+  color: #bbb;
+}
+.img-row .cell{
+  width: 20%;
+  margin: 10rpx 0;
+  position: relative;
+}
+.img-row .cell .del{
+  position: absolute;
+  top:-8px;
+  right:-3px;
+}
+.img-row .cell image{
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  border-radius: 4rpx;
+}
+
+.img-row .cell .icon {
+  font-size: 60rpx;
+  color: #999;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  line-height: 120rpx;
+  text-align: center;
+  border:1px dashed #333;
+  border-radius: 4rpx;
+}

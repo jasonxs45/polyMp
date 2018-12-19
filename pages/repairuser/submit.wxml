@@ -30,16 +30,8 @@
   <view class="section">
     <view class="form-bar">
       <view class="fh">上传照片（限5张）</view>
-      <view class="fb imgrow flex">
-        <view wx:for="{{imgArr}}" wx:key="img-{{index}}" class="cell">
-          <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap='previewImg' />
-          <icon class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
-        </view>
-        <view hidden='{{imgArr.length >= limit}}' class="cell" bindtap='chooseImg'>
-          <view class="icon">
-            <x-icon type="camera" />
-          </view>
-        </view>
+      <view class="fb img-row">
+        <img-row group="{{imgArr}}" max="{{limit}}" binduploading="uploadingHandler" binddel="delHandler" binduploadOver="uploadOverHandler"></img-row>
       </view>
     </view>
   </view>

@@ -6,6 +6,7 @@
   "usingComponents": {
     "split": "/components/split/index",
     "x-icon": "/components/x-icon/index",
-    "x-btn": "/components/x-btn/index"
+    "x-btn": "/components/x-btn/index",
+    "img-row": "/components/imgrow/img-row"
   }
 }
