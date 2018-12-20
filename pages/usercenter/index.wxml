@@ -1,6 +1,5 @@
-<view class="base-info">
-<image class="bg" src='./bg.png'></image>
-  <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
+<view class="base-info topbg">
+  <image class="avatar" mode="aspectFill" src='{{avatar || "../../images/avatar.png"}}' />
   <view class="nickname">
     {{nickname || "昵称"}}
     <navigator class="edit" url="/pages/modify/index">
@@ -22,7 +21,7 @@
     <text class="text">现金红包</text>
   </navigator>
 </view>
-<view class="split"></view>
+<split />
 <view class="list">
   <view class="group" wx:for="{{entires}}" wx:for-item="group" wx wx:key="group-{{index}}">
     <view class="test">
@@ -36,6 +35,6 @@
         </view>
       </navigator>
     </view>
-    <view class="split"></view>
+    <split />
   </view>
 </view>

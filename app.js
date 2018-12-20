@@ -7,7 +7,6 @@ App({
     fans: null,
     member: null
   },
-  fansReadyCb () {},
   init() {
     let fans = this.globalData.fans || wx.getStorageSync('fans')
     if (!fans) {
@@ -37,7 +36,7 @@ App({
                       this.globalData.fans = result.data.Data.Fans
                       wx.setStorageSync('member', result.data.Data.Member)
                       this.globalData.member = result.data.Data.Member
-                      this.fansReadyCb()
+                      this.fansReadyCb && this.fansReadyCb()
                     } else {
                       wx.redirectTo({
                         url: '/pages/login/index'
@@ -90,10 +89,9 @@ App({
       this.globalData.uid = wx.getStorageSync('uid')
       this.globalData.fans = wx.getStorageSync('fans')
       this.globalData.member = wx.getStorageSync('member')
-      this.fansReadyCb()
+      this.fansReadyCb && this.fansReadyCb()
     }
   },
-  memberReadyCb () {},
   checkMember () {
     let member = this.globalData.member || wx.getStorageSync('member')
     if (!member) {
@@ -118,7 +116,7 @@ App({
       this.globalData.uid = wx.getStorageSync('uid')
       this.globalData.fans = wx.getStorageSync('fans')
       this.globalData.member = wx.getStorageSync('member')
-      this.memberReadyCb()
+      this.memberReadyCb && this.memberReadyCb()
     }
   },
   toast,

@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -81,9 +81,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "来访申请页面",
-					"pathName": "pages/visitapply/index",
+					"id": 6,
+					"name": "邀请访问页面",
+					"pathName": "pages/visitapply/staff",
 					"query": ""
 				},
 				{
@@ -99,9 +99,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "电子放行单",
-					"pathName": "pages/passcard/index",
+					"id": 9,
+					"name": "电子放行单提交",
+					"pathName": "pages/passcarduser/submit",
 					"query": ""
 				},
 				{
@@ -228,6 +228,24 @@
 					"id": -1,
 					"name": "报修提交",
 					"pathName": "pages/repairuser/submit",
+					"query": ""
+				},
+				{
+					"id": 31,
+					"name": "电子放行单用户列表",
+					"pathName": "pages/passcarduser/list",
+					"query": ""
+				},
+				{
+					"id": 32,
+					"name": "电子放行单用户详情",
+					"pathName": "pages/passcarduser/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请访问页面",
+					"pathName": "pages/visitapply/visitor",
 					"query": ""
 				}
 			]

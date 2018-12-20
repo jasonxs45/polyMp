@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "我要邀访",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index",
+    "x-btn": "/components/x-btn/index",
+    "datetimepicker": "/components/datetimepicker/index",
+    "number": "/components/number/index"
+  }
+}

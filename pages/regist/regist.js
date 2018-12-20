@@ -1,4 +1,5 @@
 import { _getCode, _regist, _getBuildingList, _getCompanyList } from '../../common/regist'
+import { fetch } from '../../common/api'
 import { NAME_REG, TEL_REG } from '../../utils/reg'
 const codeLimit = 60
 import behavior from './behaviors'

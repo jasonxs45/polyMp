@@ -1,36 +1,12 @@
+import { _contactorlist } from '../../common/visit'
+const app = getApp()
 // 表单相关的方法
 export default Behavior({
+  data: {
+    sidemenuShow: false,
+    contactList: []
+  },
   methods: {
-    buildingInput(e) {
-      let value = e.detail
-      this.setData({
-        buildings: this.data.allBuildings.filter(item => item.name.includes(value)),
-        buildingName: value,
-        buildingSelectIndex: null
-      })
-    },
-    buildingSelect(e) {
-      let value = e.detail.value
-      this.setData({
-        buildingSelectIndex: value,
-        buildingName: value !== null ? this.data.buildings[value].name : ''
-      })
-    },
-    companyInput(e) {
-      let value = e.detail
-      this.setData({
-        companies: this.data.allCompanies.filter(item => item.name.includes(value)),
-        companyName: value,
-        companySelectIndex: null
-      })
-    },
-    companySelect(e) {
-      let value = e.detail
-      this.setData({
-        companySelectIndex: value,
-        companyName: value !== null ? this.data.companies[value].name : ''
-      })
-    },
     nameInput(e) {
       let value = e.detail
       this.data.name = value
@@ -46,6 +22,37 @@ export default Behavior({
     datetimeChange (e) {
       let datetimeValue = e.detail
       this.data.datetimeValue = datetimeValue
+    },
+    openSide () {
+      this.setData({
+        sidemenuShow: true
+      }, () => {
+        this.getContactList()
+      })
+    },
+    hideSide() {
+      this.setData({
+        sidemenuShow: false
+      })
+    },
+    getContactList () {
+      app.loading('加载中')
+      _contactorlist(app.globalData.member.ID, '', '').then(res => {
+        wx.hideLoading()
+        let list = []
+        list = res.data.Visit_Contacts_list || []
+        this.setData({
+          contactList: list
+        })
+      }).catch(err => {
+        console.log(err)
+        wx.hideLoading()
+        wx.showModal({
+          title: '对不起',
+          content: '请求失败，请稍后再试',
+          showCancel: false
+        })
+      })
     }
   },
   lifetimes: {

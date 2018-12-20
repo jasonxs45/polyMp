@@ -6,8 +6,8 @@
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
     <swiper-item wx:for="{{lists}}" wx:key="swiper-item-{{index}}">
-      <scroll-view scroll-y enable-back-to-top scroll-y bindscrolltolower="onReachLower" 
-     bindscroll="scrollHandler" class="scroll-view">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" 
+      class="scroll-view">
         <view class="list-wrapper">
           <navigator wx:for="{{item}}" wx:for-index="idx" wx:key="index-{{idx}}" url="./detail?id={{item.ID}}" class="card">
             <view wx:if="{{item.Status ==='已完成' && item.EvaluateTime === null}}" class="mark">

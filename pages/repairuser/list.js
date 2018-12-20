@@ -24,7 +24,6 @@ Component({
     pageIndexes: [1, 1, 1],
     pageSize: 4,
     states: ['待受理', '已受理', '已完成'],
-    refresh: false,
     finished: [false, false, false],
     totalCount: [null, null, null]
   },
@@ -117,16 +116,6 @@ Component({
         this.data.pageIndexes[currentIndex] += 1
         this.concatList()
       }
-    },
-    scrollHandler (e) {
-      if (e.detail.scrollTop < -50) {
-        this.data.refresh = true
-      } else {
-        this.data.refresh = false
-      }
-      this.setData({
-        refresh: this.data.refresh
-      })
     },
     onLoad(options) {
     },

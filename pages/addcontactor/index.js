@@ -18,6 +18,7 @@ const allCompanies = [
   { name: '郑州' },
   { name: '成都' }
 ]
+const app = getApp()
 Page({
   data: {
     role: null,
@@ -76,6 +77,7 @@ Page({
     this.setData({
       role: this.data.role
     })
+    app.init()
   },
   onReady () {},
   onShow () {},

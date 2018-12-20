@@ -3,6 +3,7 @@
   "backgroundColor": "#f2f2f2",
   "usingComponents": {
     "x-icon": "/components/x-icon/index",
-    "x-input": "/components/x-input/index"
+    "x-input": "/components/x-input/index",
+    "split": "/components/split/index"
   }
 }

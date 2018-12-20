@@ -1,0 +1,28 @@
+<view class="waiting">您提交的放行单还在审核中，请耐心等候</view>
+<view class="section user">
+  <view class="company">武汉市矩阵互动科技有限公司东西湖分公司</view>
+  <view class="info flex">
+    <view class="applier">
+      申请人：赵伟
+    </view>
+    <view class="tel">
+      15927323472
+    </view>
+  </view>
+</view>
+<view class="list">
+  <view class="title">物品清单</view>
+  <view class="listXq">
+    <view class="" wx:for="{{list}}" wx:key="tab-item-{{index}}">
+      <image mode="aspectFit"></image>戴尔笔记本电脑<text>X13</text>
+    </view>
+  </view>
+  <view class="remarks">备注</view>
+  <view class="remarksText">因分公司人员调配，根据公司业务需求将转移部分物资到三阳路分公司</view>
+  <view class="remarksTime"><text>通行时间</text>2018年12月24日 14：30</view>
+</view>
+<view class="bombContent">
+  <image class="ewmImg"></image>
+  <view class="ewmText">NO:2495612395</view>
+  <view class="prompt">请将此二维码出示给保安人员</view>
+</view>

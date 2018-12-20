@@ -1,0 +1,16 @@
+<view class="list">
+  <view class="content" wx:for="{{list}}" wx:key="tab-item-{{index}}" data-id="{{index}}" catchtap="jump">
+    <text class="status {{item.jieg=='已拒绝'?'on':''}}" catchtap="{{item.jieg=='审核通过'? 'show':''}}">{{item.jieg}}</text>
+    <view><text>申 请 人 ：</text>王思</view>
+    <view><text>所属公司：</text>武汉市矩阵互动科技有限公司东西湖分公司</view>
+    <view><text>出厂日期：</text>2018年12月24日 14：00</view>
+  </view>
+</view>
+<view class="bomb" hidden="{{!bomb}}">
+  <view class="bombContent">
+    <image class="ewmImg"></image>
+    <view class="ewmText">NO:2495612395</view>
+    <view class="prompt">请将此二维码出示给保安人员</view>
+    <text class="close" bindtap="close">×</text>
+  </view>
+</view>

@@ -1,19 +1,8 @@
-.split{
-  height: 20rpx;
-  background: #f2f2f2;
-}
+@import './bg.wxss';
 .base-info {
   position: relative;
   height: 330rpx;
   padding: 30rpx;
-}
-.bg{
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
 }
 .avatar {
   width: 172rpx !important;

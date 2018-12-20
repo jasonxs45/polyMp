@@ -3,6 +3,7 @@
   "backgroundColorTop": "#ffffff",
   "backgroundColorBottom": "#f2f2f2",
   "usingComponents": {
-    "x-icon": "/components/x-icon/index"
+    "x-icon": "/components/x-icon/index",
+    "split": "/components/split/index"
   }
 }

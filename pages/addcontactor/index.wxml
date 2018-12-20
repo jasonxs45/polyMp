@@ -46,6 +46,6 @@
     </view>
   </scroll-view>
   <view class="btns">
-    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">添加</button>
+    <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">添加</x-btn>
   </view>
 </view>

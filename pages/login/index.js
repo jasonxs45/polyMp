@@ -5,7 +5,7 @@ Page({
   getUserInfo (e) {
     let iv = e.detail.iv
     let encryptedData = e.detail.encryptedData
-    let key = wx.getStorageSync('s_key')
+    let key = app.globalData.s_key || wx.getStorageSync('s_key')
     app.loading('请稍候')
     getUserInfoByKey({ iv, encryptedData, key }).then(r => {
       wx.hideLoading()

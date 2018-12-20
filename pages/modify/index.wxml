@@ -1,10 +1,10 @@
 <view class="modify">
   <view class="content">
     <view class="wxinfo">
-      <image class="avatar" mode="widthFix" src='{{avatar? avatar : "../../images/avatar.png"}}' bindtap='avatarTap' binderror='avatarError' />
+      <image class="avatar" mode="aspectFill" src='{{avatar? avatar : "../../images/avatar.png"}}' bindtap='avatarTap' binderror='avatarError' />
       <view class="nickname">点击修改头像</view>
     </view>
-    <view class="split" />
+    <split />
     <view class="form">
       <view class="flex item" bindtap='show' data-item="nickname">
         <view class="fh">昵称</view>
