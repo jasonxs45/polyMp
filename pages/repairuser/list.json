@@ -6,6 +6,8 @@
     "tabs": "/components/tabs/tabs",
     "tab-item": "/components/tabs/tab-item",
     "split": "/components/split/index",
-    "x-icon": "/components/x-icon/index"
+    "x-icon": "/components/x-icon/index",
+    "bottom-tip": "/components/bottom-tip/index",
+    "no-data": "/components/no-data/index"
   }
 }

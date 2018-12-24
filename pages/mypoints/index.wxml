@@ -1,11 +1,14 @@
 <view class="banner">
   <view class="tit">我的积分</view>
   <view class="num">{{points}}</view>
-  <navigator class="help" url="/pages/mypoints/explain">
+  <!-- <navigator class="help" url="/pages/mypoints/explain">
+    <x-icon type='help' />
+  </navigator> -->
+    <navigator class="help" url="/pages/news/detail?id=4">
     <x-icon type='help' />
   </navigator>
 </view>
-<view class="list">
+<view wx:if="{{list.length > 0}}" class="list">
   <view wx:for="{{list}}" wx:key="item-{{index}}" class="item flex">
     <view class="desc">
       <view class="tit">{{item.Title}}</view>
@@ -15,5 +18,6 @@
       {{item.Score}}
     </view>
   </view>
+  <bottom-tip finished="{{finished}}"/>
 </view>
-<view class="bottom">{{finished ? '没有更多了' : '加载中'}}</view>
+<no-data wx:else />

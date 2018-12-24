@@ -89,11 +89,44 @@ let _delcontactor = (MemberID, ContactsID) => {
     { MemberID, ContactsID }
   )
 }
- _visitapplylist
+// 租户邀访提交
+let _invitesubmit = (MemberID, Name, Tel, VisitTime, Remark, Number) => {
+  return fetch(
+    'WebApi.ashx?Act=Invitation',
+    { MemberID, Name, Tel, VisitTime, Remark, Number }
+  )
+}
+// 租户邀访记录
+let _invitelist = (MemberID, pageIndex = 1, pageSize = 5) => {
+  let param = {
+    Visit_Apply_list: {
+      InviteMemberID: MemberID, //参数租户会员ID
+      Type: "邀访",
+      join: {
+        inner_join1: {
+          join: "Office_Building.ID,Visit_Apply.BuildingID",
+          field: "Name:BuildingName"
+        },
+        inner_join2: {
+          join: "Office_Company.ID,Visit_Apply.CompanyID",
+          field: "Name:CompanyName"
+        }
+      },
+      order: "AddTime-",
+      IsDelete: false,
+      page: pageIndex, //当前页码
+      count: pageSize //每页数量
+    },
+    total_count: ''
+  }
+  return query(param)
+}
 export {
   _visitorsubmit,
   _visitapplylist,
   _visitreceivedlist,
   _contactorlist,
-  _delcontactor
+  _delcontactor,
+  _invitesubmit,
+  _invitelist
 }

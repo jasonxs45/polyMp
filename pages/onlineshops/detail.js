@@ -1,5 +1,6 @@
 import { _detail, _exchange } from '../../common/shop'
 import { formatDate } from '../../utils/util'
+const WxParse = require('../../libs/wxParse/wxParse.js')
 const app = getApp()
 Page({
   data: {
@@ -14,6 +15,8 @@ Page({
       let goods = res.data.Shop_Goods
       goods.ExchangeStart = formatDate(new Date(goods.ExchangeStart), 'yyyy年MM月dd日')
       goods.ExchangeEnd = formatDate(new Date(goods.ExchangeEnd), 'yyyy年MM月dd日')
+      let article = goods.Content
+      WxParse.wxParse('article', 'html', article, this, 0)
       this.setData({
         goods
       })
@@ -27,22 +30,30 @@ Page({
       })
     })
   },
-  exchange () {
-    app.loading('加载中')
-    _exchange(app.globalData.uid, this.data.id).then(res => {
-      wx.hideLoading()
-      wx.showModal({
-        title: res.data.IsSuccess ? '恭喜您' : '对不起',
-        content: res.data.Msg,
-        showCancel: false
-      })
-    }).catch(err => {
-      wx.hideLoading()
-      wx.showModal({
-        title: '对不起',
-        content: JSON.stringify(err) || '网络错误，请稍后再试',
-        showCancel: false
-      })
+  exchange() {
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定兑换吗？',
+      success: res => {
+        if (res.confirm) {
+          app.loading('加载中')
+          _exchange(app.globalData.uid, this.data.id).then(res => {
+            wx.hideLoading()
+            wx.showModal({
+              title: res.data.IsSuccess ? '恭喜您' : '对不起',
+              content: res.data.Msg,
+              showCancel: false
+            })
+          }).catch(err => {
+            wx.hideLoading()
+            wx.showModal({
+              title: '对不起',
+              content: JSON.stringify(err) || '网络错误，请稍后再试',
+              showCancel: false
+            })
+          })
+        }
+      }
     })
   },
   onLoad(options) {
@@ -60,7 +71,7 @@ Page({
   onHide() { },
   onUnload() { },
   onPullDownRefresh() {
-    this.getDetail()
+    // this.getDetail()
   },
   onReachBottom() { },
   onShareAppMessage() { }

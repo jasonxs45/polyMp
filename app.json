@@ -14,9 +14,9 @@
     "pages/conference/list",
     "pages/conference/detail",
     "pages/conference/apply",
-    "pages/passcarduser/submit",
-    "pages/passcarduser/list",
-    "pages/passcarduser/detail",
+    "pages/passcard/submit",
+    "pages/passcard/list",
+    "pages/passcard/detail",
     "pages/modifycontactor/index",
     "pages/onlineshops/detail",
     "pages/onlineshops/record",
@@ -24,9 +24,7 @@
     "pages/activity/detail",
     "pages/service/index",
     "pages/mypoints/index",
-    "pages/mypoints/explain",
     "pages/mymoney/index",
-    "pages/onlineshops/rules",
     "pages/repairuser/submit",
     "pages/repairuser/list",
     "pages/repairuser/detail",
@@ -37,7 +35,8 @@
     "pages/news/index",
     "pages/news/detail",
     "pages/myactivities/list",
-    "pages/myactivities/detail"
+    "pages/myactivities/detail",
+    "pages/passcard/scan"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

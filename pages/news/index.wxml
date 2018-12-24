@@ -1,14 +1,18 @@
 <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
   <swiper-item wx:for="{{banners}}" wx:key="swiper-item-{{index}}" class="swiper-item">
-    <image mode="aspectFill" src="{{item}}" class="img" />
+    <navigator class="nav" url="./detail?id={{item.ID}}">
+      <image mode="aspectFill" src="{{item.Thumbnail}}" class="img" />
+    </navigator>
   </swiper-item>
 </swiper>
-<view>
-  <navigator class="item flex" wx:for="{{list}}" wx:key="item-{{index}}" url="./detail?id={{id}}">
-    <image class="img" src="{{item.icon}}" mode="aspectFill" />
+<view wx:if="{{list.length > 0}}">
+  <navigator class="item flex" wx:for="{{list}}" wx:key="item-{{index}}" url="./detail?id={{item.ID}}">
+    <image class="img" src="{{item.Thumbnail}}" mode="aspectFill" />
     <view class="text">
-      <view class="title">徐念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参念沙应邀参加中西邀参加中西邀参加中西邀参加中西企业顾问委员会会议</view>
-      <view class="date">2018-12-16</view>
+      <view class="title">{{item.Title}}</view>
+      <view class="date">{{item.AddTime}}</view>
     </view>
   </navigator>
+  <bottom-tip finished="{{finished}}" />
 </view>
+<no-data wx:else />

@@ -12,6 +12,7 @@ page{
   width: 100%;
   height: 320rpx;
 }
+.swiper .nav,
 .swiper .img{
   width: 100%;
   height: 100%;
@@ -117,4 +118,22 @@ page{
   font-size: 28rpx;
   border-radius: 4rpx; 
   color: #fff !important;
+}
+.bottom-line{
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  padding:0 30rpx 30rpx;
+  font-size: 24rpx;
+}
+.bottom-line .text{
+    margin:0 20rpx;
+}
+.bottom-line::before,
+.bottom-line::after{
+  content: '';
+  height: 1rpx;
+  background: #ddd;
+  flex: 1;
+  display: block;
 }

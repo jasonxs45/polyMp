@@ -20,8 +20,11 @@ Page({
         item.AddTime = formatDate(new Date(item.AddTime), 'yyyy-MM-dd hh: mm')
         return item
       })
+      this.data.list = this.data.list.concat(list)
+      this.data.finished = this.data.list.length >= this.data.totalCount
       this.setData({
-        list: this.data.list.concat(list)
+        list: this.data.list,
+        finished: this.data.finished
       })
     }).catch(err => {
       console.log(err)

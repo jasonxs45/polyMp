@@ -147,6 +147,9 @@ page{
   color: #DC5C43;
   border-radius: 48rpx;
 }
+.sign-btn:after{
+  display: none;
+}
 .sign-btn[disabled]{
   background: #ddd !important;
   color: #666 !important;
@@ -261,14 +264,17 @@ page{
   overflow: hidden;
   border-bottom: 1rpx solid #ddd;
   padding: 30rpx;
+  position: relative;
 }
-.cell.bottom{
-  font-size: 26rpx;
-  line-height: 480rpx;
-  color: #666;
-  text-align: center;
+.cell .bottom{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15rpx;
 }
-.cell.bottom.w100{
+
+.cell.w100{
   width: 100%;
   height: auto !important;
   line-height: 1 !important;
@@ -306,8 +312,17 @@ page{
 }
 .cell .cost text{
   color: #666;
-  font-size: 16rpx;
+  font-size: 20rpx;
   font-weight: 400;
+}
+.cell .exchange{
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #333;
+}
+.cell .exchange text{
+  color: #666;
+  font-weight: 300;
 }
 .cell .btn{
   width: 118rpx;
@@ -361,6 +376,10 @@ page{
   padding: 10rpx 50rpx;
   z-index:1;
   line-height: 42rpx;
+}
+.desc text{
+  font-size: 150%;
+  font-weight: 500;
 }
 .close{
   margin-top: 120rpx;

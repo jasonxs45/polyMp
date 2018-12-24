@@ -1,0 +1,119 @@
+<view class="section user">
+  <view class="company">{{detail.CompanyName}}</view>
+  <view class="info flex">
+    <view class="applier">
+      申请人：{{detail.MemberName}}
+    </view>
+    <view class="tel">
+      {{detail.Tel}}
+    </view>
+  </view>
+</view>
+<split height="10" />
+<view class="list">
+  <view class="title">物品清单</view>
+  <view class="listXq">
+    <view class="goods flex" wx:for="{{detail.Goods}}" wx:key="goods-{{index}}">
+      <image class="img" mode="aspectFill" src="{{item.img}}" />
+      <view class="name">{{item.name}}</view>
+      <view class="count">*{{item.count}}</view>
+    </view>
+  </view>
+  <view class="remarks">备注</view>
+  <view class="remarksText">{{detail.Remark}}</view>
+  <view class="remarksTime flex p">
+    <view class="ph">提交时间</view>
+    <view class="pb">{{detail.OrderTime}}</view>
+  </view>
+</view>
+<split height="10" />
+<block wx:if="{{role==='租户' && detail.SN}}">
+  <view class="bombContent">
+    <image class="ewmImg" src="{{detail.qr}}"></image>
+    <view class="ewmText">NO.{{detail.SN}}</view>
+    <view class="prompt">请将此二维码出示给保安人员</view>
+  </view>
+  <split height="10" />
+</block>
+<block wx:if="{{detail.CompanyAuditTime}}">
+  <view class="result">
+    <view class="title">企业审批结果</view>
+    <split height="2" />
+    <view class="result-info">
+      <view class="result-text">{{detail.CompanyAuditRemark}}</view>
+      <view class="flex p">
+        <view class="ph">审批人：</view>
+        <view class="pb">{{detail.CompanyAuditorName}}</view>
+      </view>
+      <view class="flex p">
+        <view class="ph">审批时间：</view>
+        <view class="pb">{{detail.CompanyAuditTime}}</view>
+      </view>
+    </view>
+  </view>
+  <split height="10" />
+</block>
+<block wx:if="{{detail.AuditTime}}">
+  <view class="result">
+    <view class="title">区管审批结果</view>
+    <split height="2" />
+    <view class="result-info">
+      <view class="result-text">{{detail.AuditRemark}}</view>
+      <view class="flex p">
+        <view class="ph">审批人：</view>
+        <view class="pb">{{detail.AuditorName}}</view>
+      </view>
+      <view class="flex p">
+        <view class="ph">审批时间：</view>
+        <view class="pb">{{detail.AuditTime}}</view>
+      </view>
+    </view>
+  </view>
+  <split height="10" />
+</block>
+<block wx:if="{{detail.PassTime}}">
+  <view class="result">
+    <view class="title">保安审批结果</view>
+    <split height="2" />
+    <view class="result-info">
+      <view class="result-text">{{detail.PassRemark}}</view>
+      <view class="flex p">
+        <view class="ph">审批人：</view>
+        <view class="pb">{{detail.PasserName}}</view>
+      </view>
+      <view class="flex p">
+        <view class="ph">审批时间：</view>
+        <view class="pb">{{detail.PassTime}}</view>
+      </view>
+    </view>
+  </view>
+  <split height="10" />
+</block>
+<block wx:if="{{detail.showBtns}}">
+<view wx:if="{{role==='保安'}}" class="section">
+  <view class="tit">上传照片</view>
+  <img-row class="img-row" group="{{imgArr}}" max="{{1}}" binddel="delHandler" binduploadOver="uploadOverHandler" />
+</view>
+<block wx:if="{{role!=='租户'}}">
+  <view class="btns">
+    <x-btn class="btn" type="primary" bindtap="pass">审核通过</x-btn>
+    <x-btn class="btn" bindtap="openHandle">拒绝放行</x-btn>
+  </view>
+  <view class="handle-box {{handleBoxShow?'show':''}}"> 
+    <view class="section">
+      <textarea
+        placeholder="请填写拒绝原因"
+        hidden='{{!handleBoxShow}}'
+        bindinput='remarkHandler'
+        value="{{remark}}"
+        class="remark"
+      ></textarea>
+    </view>
+    <split height="10"/>
+    <view class="btns">
+      <x-btn class="btn" type="primary" bindtap="confirmRefuse">确认</x-btn>
+      <x-btn class="btn" bindtap="hideHandle">关闭</x-btn>
+    </view>
+  </view>
+</block>
+</block>

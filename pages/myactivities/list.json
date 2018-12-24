@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "我的活动",
-  "backgroundColor": "#ffffff",
-  "usingComponents": {},
+  "backgroundColor": "#f2f2f2",
+  "usingComponents": {
+    "bottom-tip": "/components/bottom-tip/index",
+    "no-data": "/components/no-data/index"
+  },
   "enablePullDownRefresh": true
 }

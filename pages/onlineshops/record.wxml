@@ -1,4 +1,4 @@
-<view class="list">
+<view wx:if="{{list.length > 0}}" class="list">
   <navigator wx:for="{{list}}" wx:key="item-{{index}}" url="./recordDetail?id={{item.ID}}"class="item flex">
     <image class="img" src="{{item.SmallImg}}" mode="aspectFill" />
     <view class="texts">
@@ -9,5 +9,6 @@
       </view>
     </view>
   </navigator>
+  <bottom-tip finished="{{finished}}"/>
 </view>
-<view class="bottom">{{finished ? '没有更多了' : '加载中'}}</view>
+<no-data wx:else />

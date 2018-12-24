@@ -110,13 +110,6 @@ swiper-item {
   padding: 0 30rpx;
   margin: 15rpx;
 }
-.bottom {
-  font-size: 26rpx;
-  line-height: 46rpx;
-  color: #666;
-  text-align: center;
-  margin: 15rpx 0;
-}
 .tosubmit{
   position: fixed;
   width: 80rpx;

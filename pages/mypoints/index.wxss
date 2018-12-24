@@ -49,9 +49,3 @@
   color: #4d4d4d;
   font-weight: bold;
 }
-.bottom{
-  text-align: center;
-  font-size: 26rpx;
-  color: #ddd;
-  padding: 30rpx;
-}

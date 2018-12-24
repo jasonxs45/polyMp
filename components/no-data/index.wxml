@@ -1,0 +1,4 @@
+<view class="no-data">
+  <image src="./nodata.png" />
+  <view>暂无内容</view>
+</view>

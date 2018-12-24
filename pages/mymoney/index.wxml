@@ -8,7 +8,7 @@
     <x-icon type='enter' />
   </view>
 </view>
-<view class="list">
+<view wx:if="{{list.length > 0}}" class="list">
   <view wx:for="{{list}}" wx:key="item-{{index}}" class="item flex">
     <view class="desc">
       <view class="tit">{{item.Title}}</view>
@@ -18,8 +18,9 @@
       {{item.RedMoney}}
     </view>
   </view>
+  <bottom-tip finished="{{finished}}"/>
 </view>
-<view class="bottom">{{finished ? '没有更多了' : '加载中'}}</view>
+<no-data wx:else/>
 <view class="popup {{showPop?'show': ''}}">
   <view class="panel">
     <view class="title">提现金额</view>

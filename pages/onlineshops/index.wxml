@@ -16,7 +16,7 @@
   <view class="card cardbg {{cardShort?'short':''}}">
     <!-- <image class="bg" src="../../images/unknowbg.png" /> -->
     <view class="title flex">
-      <navigator url="/pages/onlineshops/rules" class="tit">
+      <navigator url="/pages/news/detail?id=4" class="tit">
         连续签到积分翻倍
         <x-icon type="help" />
       </navigator>
@@ -44,8 +44,8 @@
   <swiper-item wx:for="{{banners}}" wx:key="banner-{{index}}">
     <image class="img" src='{{item}}' mode='aspectFill' />
   </swiper-item>
-</swiper> -->
-<split />
+</swiper>
+<split /> -->
 <view class="sortbar flex {{fixed?'fixed': ''}}">
   <view class="common item {{orderIndex === 0 ? 'active' : ''}}" bindtap='orderByCommon'>
     <text class="text">{{commonSorts[commonSortsIndex].label}}</text>
@@ -68,7 +68,7 @@
   </view>
 </view>
 <view hidden='{{!fixed}}' class="sortbar"></view>
-<view class="list-wrapper">
+<view wx:if="{{list.length > 0}}" class="list-wrapper">
   <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="./detail?id={{item.ID}}" class="cell">
     <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
     <view class="detail">
@@ -77,19 +77,23 @@
         <view class="cost">{{item.Score}}
           <text>积分</text>
         </view>
+        <view class="exchange">
+          <text>{{item.ExchangeCount}}人兑换</text>
+        </view>
       </view>
     </view>
   </navigator>
-  <view class="cell bottom {{list.length % 2 === 0 ? 'w100':''}}">
-    {{finished?'没有更多了':'加载中'}}
+  <view class="cell {{list.length % 2 === 0 ? 'w100':''}}">
+    <bottom-tip class="bottom" finished="{{finished}}" />
   </view>
 </view>
+<no-data wx:else />
 <view wx:if="{{succShow}}" class="success">
   <view class="bg"></view>
   <view class="success-wrapper">
     <view class="succ">
       <image class="succ_bg" src="./success.png" />
-      <text class="desc">恭喜您签到成功\n快去商城兑换物品吧！</text>
+      <text class="desc"><text>+{{singlePoint}}积分</text>\n恭喜您签到成功！</text>
     </view>
     <view class="close" bindtap='hideSucc'>
       <icon type="cancel" color="#fff" size="40" />

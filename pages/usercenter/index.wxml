@@ -23,7 +23,7 @@
 </view>
 <split />
 <view class="list">
-  <view class="group" wx:for="{{entires}}" wx:for-item="group" wx wx:key="group-{{index}}">
+  <view class="group" wx:for="{{entries}}" wx:for-item="group" wx wx:key="group-{{index}}">
     <view class="test">
       <navigator wx:for="{{group}}" wx:for-index="idx" wx:key="nav-{{idx}}" url="{{item.url}}" class="navigators flex">
         <view class="icon">

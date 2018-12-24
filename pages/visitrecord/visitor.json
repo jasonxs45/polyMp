@@ -4,7 +4,9 @@
   "usingComponents": {
     "x-icon": "/components/x-icon/index",
     "tabs": "/components/tabs/tabs",
-    "tab-item": "/components/tabs/tab-item"
+    "tab-item": "/components/tabs/tab-item",
+    "bottom-tip": "/components/bottom-tip/index",
+    "no-data": "/components/no-data/index"
   },
   "enablePullDownRefresh": true
 }

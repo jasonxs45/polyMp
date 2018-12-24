@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "企业快讯",
-  "backgroundColor": "#fff"
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "bottom-tip": "/components/bottom-tip/index"
+  },
+  "enablePullDownRefresh": true
 }

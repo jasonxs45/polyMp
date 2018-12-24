@@ -1,0 +1,66 @@
+<view class='electronic'>
+  <view class="section user">
+    <view class="company">{{companyname}}</view>
+    <view class="info flex">
+      <view class="applier">
+        申请人：{{name}}
+      </view>
+      <view class="tel">
+        {{tel}}
+      </view>
+    </view>
+  </view>
+  <split />
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">物品清单</view>
+      <view class="fb">
+        <view wx:for="{{goodsArr}}" wx:key="goods-{{index}}" class="goods flex">
+          <view class="img-wrapper">
+            <block wx:if='{{item.img}}'>
+              <image class="img" mode="aspectFill" src="{{item.img}}" data-index="{{index}}" bindtap='previewImg' />
+              <icon class="del" color='#f00' type="clear" data-index="{{index}}" bindtap='delImg' />
+            </block>
+            <view wx:else class="icon" data-index="{{index}}" bindtap='chooseImg'>
+              <x-icon type="camera" />
+            </view>
+          </view>
+          <input class="goods-name" value="{{item.name}}" data-index="{{index}}" placeholder='请输入物品名称' bindinput='nameInput'/>
+          <input class="goods-count" value="{{item.count}}" type='number' data-index="{{index}}" placeholder='数量' bindinput='countInput'/>
+          <view wx:if="{{index === 0}}" hidden='{{goodsArr.length < 2}}' class="goods-remove" ></view>
+          <view wx:else class="goods-remove" data-index="{{index}}" bindtap='remove'>
+            <x-icon class="remove" type="minus" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="add" bindtap='addLine'>
+      <x-icon type="plus" />{{goodsArr.length ? '继续添加':'添加物品'}}
+    </view>
+  </view>
+  <split />
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">通行时间</view>
+      <view class="fb flex">
+        <view class="clearable-input">
+          <datetimepicker class="timepicker" placeholder="请选择通行时间" bindchange='changeDateTime' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <split />
+  <view class="section">
+    <view class="form-bar">
+      <view class="fh">备注</view>
+      <view class="fb flex">
+        <view class="clearable-textarea">
+          <textarea placeholder="在此输入您要备注的文字" bindinput="textChange" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btns">
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="submit" class="btn">注册</x-btn>
+</view>

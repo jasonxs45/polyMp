@@ -1,0 +1,67 @@
+page {
+  background: #f2f2f2;
+}
+
+.list {
+  padding:0 30rpx;
+}
+
+.card {
+  background: #fff;
+  padding: 30rpx;
+  margin: 30rpx 0;
+  position: relative;
+  border-radius: 4rpx;
+}
+.p{
+  margin: 30rpx 0;
+}
+.p:first-child{
+  margin-top: 0
+}
+.ph {
+  width: 120rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #666;
+  line-height: 34rpx;
+}
+
+.pb {
+  flex: 1;
+  height: 36rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #333;
+  line-height: 36rpx;
+}
+
+.card .tag {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  padding: 0 10rpx;
+  background: #4D4D4D;
+  border-radius: 2px;
+  font-size: 20rpx;
+  font-weight: 500;
+  color: #fff;
+  z-index: 5;
+}
+.card .tag.red{
+  background: #D0261D;
+  color: #fff;
+}
+.card .tag.green{
+  background: #00b26a;
+  color: #fff;
+}
+
+.card .status.on {
+  background: #d0261d;
+  color: #fff;
+}

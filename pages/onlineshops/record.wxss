@@ -50,12 +50,3 @@ page{
   color: #666;
   line-height: 34rpx;
 }
-.bottom{
-  height: 90rpx;
-  position: relative;
-  text-align: center;
-  font-size: 26rpx;
-  color: #999;
-  padding: 30rpx;
-  margin-top: -90rpx;
-}

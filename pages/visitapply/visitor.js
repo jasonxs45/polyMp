@@ -1,5 +1,5 @@
 import { _getBuildingList, _getCompanyList } from '../../common/regist'
-import { _visitorsubmit } from '../../common/visit'
+import { _visitorsubmit as _submit } from '../../common/visit'
 import { NAME_REG, TEL_REG } from '../../utils/reg'
 import behavior from './behaviors'
 const app = getApp()
@@ -107,7 +107,7 @@ Component({
       this.setData({
         submitDisabled: true
       })
-      _visitorsubmit(
+      _submit(
         MemberID, CompanyID, InviteName, InviteTel, VisitTime, Remark, Number
       ).then(res => {
         this.setData({
@@ -118,7 +118,7 @@ Component({
           content: res.data.Msg,
           showCancel: false,
           success: r => {
-            if (r.confirm) {
+            if (r.confirm && res.data.IsSuccess) {
               wx.navigateTo({
                 url: '/pages/visitrecord/visitor'
               })

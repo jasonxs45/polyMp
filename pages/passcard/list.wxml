@@ -1,0 +1,23 @@
+<view wx:if="{{list.length > 0}}" class="list">
+  <navigator class="card" wx:for="{{list}}" wx:key="tab-item-{{index}}" url="./detail?role={{roleIndex}}&id={{item.ID}}">
+    <view class="flex p">
+      <view class="ph">申请人：</view>
+      <view class="pb">{{item.MemberName}}</view>
+    </view>
+    <view class="flex p">
+      <view class="ph">所属公司：</view>
+      <view class="pb">{{item.CompanyName}}</view>
+    </view>
+    <view class="flex p">
+      <view class="ph">提交时间：</view>
+      <view class="pb">{{item.AddTime}}</view>
+    </view>
+    <view class="flex p">
+      <view class="ph">出场时间：</view>
+      <view class="pb">{{item.OrderTime}}</view>
+    </view>
+    <view class="tag {{item.color}}">{{item.Status}}</view>
+  </navigator>
+  <bottom-tip finished="{{finished}}" />
+</view>
+<no-data wx:else />

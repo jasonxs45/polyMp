@@ -15,13 +15,16 @@
   <view class="detail_text_title">活动规则</view>
   <view class="detail_html">
     <view class="nodata" wx:if="{{!detail.Explain}}">暂无内容</view>
-    <rich-text nodes="{{detail.Explain}}"></rich-text>
+    <!-- <rich-text nodes="{{detail.Content}}"></rich-text> -->
+    <template is="wxParse" data="{{wxParseData:explain.nodes}}"/>
   </view>
 </view>
 <view class="detail detail2">
   <view class="detail_text_title">活动详情</view>
   <view class="detail_html">
     <view class="nodata" wx:if="{{!detail.Content}}">暂无内容</view>
-    <rich-text nodes="{{detail.Content}}"></rich-text>
+    <!-- <rich-text nodes="{{detail.Content}}"></rich-text> -->
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
   </view>
 </view>
+<import src="/libs/wxParse/wxParse.wxml"/>

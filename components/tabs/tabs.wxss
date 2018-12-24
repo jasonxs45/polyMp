@@ -4,6 +4,7 @@
   line-height: inherit;
   width: inherit;
   background: #fff;
+  box-shadow: 0 0 2rpx 1rpx rgba(0, 0, 0, .2);
 }
 
 .tabs-wrapper {

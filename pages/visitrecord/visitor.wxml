@@ -7,7 +7,7 @@
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
     <swiper-item wx:for="{{lists}}" wx:key="list-{{index}}">
-      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="scroll-view">
+      <scroll-view wx:if="{{item.length > 0}}" enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="scroll-view">
         <template
           wx:for="{{lists[index]}}"
           wx:for-index="idx"
@@ -16,8 +16,9 @@
           is="card{{currentIndex}}"
           data="{{card, idx}}"
         />
-        <view class="bottom">{{finished[currentIndex]?'没有更多了':'加载中'}}</view>
+        <bottom-tip finished="{{finished[currentIndex]}}" />
       </scroll-view>
+      <no-data wx:else />
     </swiper-item>
   </swiper>
 </view>
@@ -47,7 +48,7 @@
   <view class="card">
     <view class="flex head">
       <view class="tit">{{card.BuildingName}}</view>
-      <view class="sub-tit">2018/11/28 12:12</view>
+      <view class="sub-tit">{{card.AddTime}}</view>
     </view>
     <view class="body">
       <view class="company-name">{{card.CompanyName}}</view>

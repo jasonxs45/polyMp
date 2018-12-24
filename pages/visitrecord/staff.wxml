@@ -1,69 +1,92 @@
-<tabs class="tabs" bindchange="tabChange">
+<tabs class="tabs" bindchange="tabChange" current="{{currentIndex}}">
   <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" class="tab-item">
-    <view class="num">{{item.num}}</view>
-    <view class="text">{{item.text}}</view>
+    <view class="num">{{totalCount[index]}}</view>
+    <view class="text">{{item}}</view>
   </tab-item>
 </tabs>
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
-    <swiper-item>
-      <view wx:for="{{outLists}}" wx:key="out-{{index}}" class="card">
-        <view class="flex head">
-          <view class="tit">测试</view>
-          <view class="sub-tit">2018/11/28 12:12</view>
-        </view>
-        <view class="body">
-          <view class="company-name">武汉矩阵科技</view>
-          <view class="qr-detail">
-            <view class="detail {{item.open ? '' : 'hidden'}}">
-              <view class="form-bar">
-                <view class="fh">联系方式：</view>
-                <view class="fb">12312313</view>
-              </view>
-              <view class="form-bar">
-                <view class="fh">约访时间：</view>
-                <view class="fb">12312313</view>
-              </view>
-              <view class="form-bar">
-                <view class="fh">备注：</view>
-                <view class="fb">12312313</view>
-              </view>
-            </view>
-            <view class="packup-unfold" data-index="{{index}}" bindtap='toggleDetail'>
-              <x-icon class="icon" type="{{item.open ? 'packup' : 'unfold'}}" />
-              <text class="text">{{item.open ? '收起' : '展开'}}</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </swiper-item>
-    <swiper-item>
-      <view wx:for="{{6}}" wx:key="contactor-{{index}}" class="card">
-        <view class="flex head">
-          <view class="tit">测试</view>
-          <view class="sub-tit">15972228857</view>
-        </view>
-        <view class="body">
-          <view class="flex contactor-info">
-            <view class="info">
-              <view class="company-name">公司名称</view>
-              <view class="building-name">楼栋名称</view>
-            </view>
-            <view class="icon">
-              <x-icon type="enter" />
-            </view>
-          </view>
-        </view>
-        <view class="foot">
-          <button class="edit" bindtap="goModify">
-            <x-icon type="edit" />编辑</button>
-          <button class="del" bindtap="del">
-            <x-icon type="del" />删除</button>
-        </view>
-      </view>
+    <swiper-item wx:for="{{lists}}" wx:key="list-{{index}}">
+      <scroll-view
+        wx:if="{{item.length > 0}}"
+        enable-back-to-top
+        scroll-y
+        bindscrolltolower="onReachLower"
+        class="scroll-view"
+      >
+        <template
+          wx:for="{{lists[index]}}"
+          wx:for-index="idx"
+          wx:for-item="card"
+          wx:key="item-{{index}}-{{idx}}"
+          is="card{{currentIndex}}"
+          data="{{card, idx}}" 
+        />
+        <bottom-tip finished="{{finished[currentIndex]}}" />
+      </scroll-view>
+      <no-data wx:else />
     </swiper-item>
   </swiper>
-  <navigator wx:if="{{currentIndex === 1}}" class="add" url="/pages/addcontactor/index?role={{role}}">
-    <x-icon type="plus" />
-  </navigator>
 </view>
+<template name="card0">
+  <view class="card">
+    <view class="flex head">
+      <view class="tit">{{card.Name}}</view>
+      <view class="sub-tit">{{card.AddTime}}</view>
+    </view>
+    <view class="body">
+      <view class="qr-detail">
+        <view class="detail" style="border-top:none">
+          <view class="form-bar">
+            <view class="fh">联系方式：</view>
+            <view class="fb">{{card.Tel}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fh">预约时间：</view>
+            <view class="fb">{{card.VisitTime}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fh">备注：</view>
+            <view class="fb">{{card.Remark || '暂无'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="card">
+    <view class="flex head">
+      <view class="tit">{{card.BuildingName}}</view>
+      <view class="sub-tit">{{card.AddTime}}</view>
+    </view>
+    <view class="body">
+      <view class="company-name">武汉矩阵科技</view>
+      <view class="qr-detail">
+        <view class="detail {{card.open ? '' : 'hidden'}}">
+          <image src="{{card.qr}}" class="qrcode" />
+          <view class="main-tip">请向工作人员出示此二维码</view>
+          <view class="sub-tip">此二维码将在24小时后失效，未到预约时间不可使用</view>
+        </view>
+        <view class="packup-unfold" data-index="{{idx}}" bindtap='toggleDetail'>
+          <x-icon class="icon" type="{{card.open ? 'packup' : 'unfold'}}" />
+          <text class="text">{{card.open ? '收起' : '展开'}}</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+</template>
+<template name="card1">
+  <view class="card">
+    <view class="body">
+      <view class="contactor-info">
+        <view class="info">
+          <view class="company-name">{{card.Name}}</view>
+          <view class="building-name">{{card.Tel}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="foot">
+      <button class="del" data-id="{{card.ID}}" bindtap="delContactor">
+        <x-icon type="del" />删除</button>
+    </view>
+  </view>
+</template>

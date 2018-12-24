@@ -1,6 +1,7 @@
 import { _mydetail } from '../../common/activity'
 import { _getQr } from '../../common/getQr'
 import { formatDate } from '../../utils/util'
+const WxParse = require('../../libs/wxParse/wxParse.js')
 const app = getApp()
 Page({
   data: {
@@ -19,6 +20,10 @@ Page({
       detail.PlayEnd = formatDate(new Date(detail.PlayEnd), 'yyyy/MM/dd hh:mm')
       let applyDetail = res.data.Activity_Apply
       applyDetail.qrimg = _getQr(applyDetail.SN)
+      let content = detail.Content
+      WxParse.wxParse('content', 'html', content, this, 0)
+      let explain = detail.Explain
+      WxParse.wxParse('explain', 'html', explain, this, 0)
       this.setData({
         detail,
         applyDetail

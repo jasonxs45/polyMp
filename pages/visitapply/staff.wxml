@@ -3,7 +3,12 @@
     <view class="form">
       <view class="main-wrapper visitor-wrapper">
         <view class="form-bar">
-          <view class="fh">姓名</view>
+          <view class="fh flex" style="justify-content:space-between">
+            <view>姓名</view>
+            <view bindtap='openSide'>常用联系人
+              <x-icon type="enter" />
+            </view>
+          </view>
           <view class="fb flex">
             <view class="clearable-input">
               <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
@@ -43,6 +48,22 @@
   </view>
   <view class="btns">
     <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap='submit'>提交申请</x-btn>
-    <navigator class="torecord" url="/pages/visitrecord/visitor">来访记录</navigator>
+    <navigator class="torecord" url="/pages/visitrecord/staff">来访记录</navigator>
+  </view>
+</view>
+<view hidden='{{!sidemenuShow}}' class="side-menu">
+  <view class="bg"></view>
+  <view class="side-menu-wrapper">
+    <view class="title">选择常用联系人</view>
+    <scroll-view scroll-y class="list-wrapper">
+      <block wx:if="{{contactList.length > 0}}">
+        <view wx:for="{{contactList}}" wx:key="c-{{index}}" data-index="{{index}}" bindtap='selectContactor' class="flex contact">
+          <view class="name-cell">{{item.Name}}</view>
+          <view class="tel-cell">{{item.Tel}}</view>
+        </view>
+      </block>
+      <view wx:else class="no-c">暂无联系人</view>
+    </scroll-view>
+    <view class="close" bindtap='hideSide'>关闭</view>
   </view>
 </view>

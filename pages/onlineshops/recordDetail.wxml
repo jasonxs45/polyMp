@@ -1,4 +1,4 @@
-<image src="{{goods.BigImg}}" class="banner" mode="aspectFill" />
+<image src="{{goods.BigImg}}" class="banner" mode="widthFix" />
 <view class="info">
   <view class="cost">{{goods.GoodsScore}}<text>积分</text></view>
   <view class="title">{{goods.GoodsName}}</view>
@@ -13,7 +13,9 @@
 <view class="detail">
   <view class="title">商品详情</view>
   <view class="content">
-    <rich-text wx:if="{{goods.Content}}" nodes="{{goods.Content}}"></rich-text>
+  <template wx:if="{{goods.Content}}" is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <!-- <rich-text wx:if="{{goods.Content}}" nodes="{{goods.Content}}"></rich-text> -->
     <view wx:else class="nodata">暂无内容</view>
   </view>
 </view>
+<import src="/libs/wxParse/wxParse.wxml"/>

@@ -11,9 +11,9 @@
           <navigator class="acList" wx:for="{{list}}" wx:key="item+{{idx}}+{{index}}" url="/pages/activity/detail?id={{item.ID}}">
             <image mode="aspectFill" src="{{item.SmallImg}}" />
           </navigator>
+          <bottom-tip finished="{{finished[currentIndex]}}" />
         </block>
-        <!-- <view wx:else>暂无内容</view> -->
-        <view class="bottom">{{finished[currentIndex]?'没有更多了':'加载中'}}</view>
+        <no-data wx:else />
       </scroll-view>
     </swiper-item>
   </swiper>

@@ -5,6 +5,8 @@
   "backgroundColorBottom": "#fff",
   "usingComponents": {
     "x-icon": "/components/x-icon/index",
-    "x-btn": "/components/x-btn/index"
+    "x-btn": "/components/x-btn/index",
+    "bottom-tip": "/components/bottom-tip/index",
+    "no-data": "/components/no-data/index"
   }
 }

@@ -1,6 +1,6 @@
+@import "/libs/wxParse/wxParse.wxss";
 .banner{
   width:100%;
-  height: 320rpx;
 }
 .info{
   padding: 30rpx;
@@ -44,19 +44,29 @@
 }
 .detail .content{
   margin-top: 10rpx;
-  padding: 30rpx 30rpx 100rpx;
+  padding: 30rpx 10rpx 100rpx;
   font-size: 24rpx !important;
   color: #666 !important;
   line-height: 34rpx !important;
 }
+.content-detail image{
+  width: 100%;
+}
 .submit{
   position: fixed;
+  display: block;
   bottom: 0;
   left:0;
   width: 100%;
   z-index: 1;
   border-radius: 0 !important;
 }
+.submit button{
+  border-radius: 0;
+}
 .nodata{
   text-align: center;
+}
+.wxParse-img{
+  width: 100%;
 }

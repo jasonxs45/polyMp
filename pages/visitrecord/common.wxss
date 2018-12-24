@@ -29,6 +29,7 @@ swiper-item{
   background: #fff;
   overflow: hidden;
   justify-content: space-between;
+  box-shadow: 0 0 2rpx 1rpx rgba(0,0,0,.2);
 }
 .tab-item{
   flex: 1;
@@ -65,11 +66,11 @@ swiper-item{
   height: 76rpx;
   justify-content: space-between;
   border-bottom: 1rpx solid #ddd;
-  padding: 0 20rpx;
+  padding: 0 30rpx;
   align-items: center;
 }
 .card .head .tit {
-  color: #666;
+  color: #333;
   font-size: 26rpx;
   font-weight: 300;
   width: 420rpx;
@@ -78,7 +79,7 @@ swiper-item{
   overflow: hidden;
 }
 .card .head .sub-tit {
-  color: #666;
+  color: #333;
   font-size: 24rpx;
   font-weight: 300;
 }
@@ -171,11 +172,4 @@ swiper-item{
   text-align: center;
   border-radius: 50%;
   line-height: 80rpx;
-}
-.bottom {
-  font-size: 26rpx;
-  line-height: 46rpx;
-  color: #666;
-  text-align: center;
-  margin: 15rpx 0;
 }

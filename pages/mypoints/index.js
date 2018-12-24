@@ -59,8 +59,11 @@ Page({
     })
   },
   onLoad(options) {
-    app.fansReadyCb = () => {
+    app.memberReadyCb = () => {
       this.getAll()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
     }
     app.init()
   },

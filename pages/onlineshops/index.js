@@ -1,7 +1,4 @@
-const banners = ['https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
-  'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
-  'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232'
-]
+const banners = []
 import { _getscore } from '../../common/points'
 import { _signinList, _signin } from '../../common/signin'
 import { _list } from '../../common/shop'
@@ -13,6 +10,7 @@ Page({
     nickname: '',
     role: '',
     points: '',
+    singlePoint: '',
     steps: [],
     signedDays: 0,
     submitDisabled: false,
@@ -22,7 +20,7 @@ Page({
     list: [],
     order: 'Sort',
     pageIndex: 1,
-    pageSize: 4,
+    pageSize: 6,
     totalCount: null,
     finished: false,
     fixed: false,
@@ -100,7 +98,9 @@ Page({
       if (res.data.IsSuccess) {
         this.setData({
           succShow: true,
-          signedDays: this.data.signedDays + 1
+          signedDays: this.data.signedDays + 1,
+          points: res.data.Data.Score,
+          singlePoint: res.data.Data.GiftArr
         })
       } else {
         wx.showModal({

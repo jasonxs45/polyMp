@@ -1,6 +1,7 @@
 import { _recordDetail } from '../../common/shop'
 import { _getQr } from '../../common/getQr'
 import { formatDate } from '../../utils/util'
+const WxParse = require('../../libs/wxParse/wxParse.js')
 const app = getApp()
 Page({
   data: {
@@ -16,11 +17,14 @@ Page({
       goods.GoodsUseStart = formatDate(new Date(goods.GoodsUseStart), 'yyyy年MM月dd日')
       goods.GoodsUseEnd = formatDate(new Date(goods.GoodsUseEnd), 'yyyy年MM月dd日')
       goods.AddTime = formatDate(new Date(goods.AddTime), 'yyyy年MM月dd日')
+      let article = goods.Content
+      WxParse.wxParse('article', 'html', article, this, 0)
       this.setData({
         goods,
         code: _getQr(goods.TicketContent)
       })
     }).catch(err => {
+      console.log(err)
       wx.hideLoading()
       wx.showModal({
         title: '对不起',

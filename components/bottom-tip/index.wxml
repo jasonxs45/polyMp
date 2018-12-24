@@ -1,0 +1,1 @@
+<view class="bottom-tip">{{finished?'没有更多了':'加载中'}}</view>

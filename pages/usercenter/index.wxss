@@ -85,7 +85,7 @@
 }
 .navigators{
   border-bottom: 1rpx solid #ddd;
-  padding: 30rpx;
+  padding:20rpx 30rpx;
   align-items: center;
 }
 .group .navigators:last-child{

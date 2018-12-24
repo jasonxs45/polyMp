@@ -1,1 +1,1 @@
-/* pages/news/detail.wxss */
+@import "/libs/wxParse/wxParse.wxss";

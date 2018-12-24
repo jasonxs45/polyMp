@@ -1,35 +1,96 @@
-const banners = ['https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
-  'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
-  'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232'
-]
-const list = [
-  {
-    icon: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-section1-holiday-201811?wid=564&hei=516&fmt=png-alpha&qlt=80&.v=1540674991315',
-    name: '访客预约'
-  },
-  {
-    icon: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-1?wid=1068&hei=640&fmt=png-alpha&.v=1536171355016',
-    name: '会务预约'
-  },
-  {
-    icon: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-3?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396227637',
-    name: '电子放行单'
-  },
-  {
-    icon: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-gallery-2018-4?wid=2000&hei=1536&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1535396223232',
-    name: '报修投诉'
-  },
-  {
-    icon: 'https://store.storeimages.cdn-apple.com/8755/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-section1-holiday-201811?wid=564&hei=516&fmt=png-alpha&qlt=80&.v=1540674991315',
-    name: '积分商城'
-  }
-]
+import { _banner, _list } from '../../common/news'
+import { formatDate } from '../../utils/util'
 const app = getApp()
 Page({
   data: {
-    banners,
-    list
+    id: '',
+    list: [],
+    pageIndex: 1,
+    pageSize: 6,
+    finished: false,
+    totalCount: 0
   },
-  onLoad() {
+  totalQuery() {
+    app.loading('加载中')
+    Promise.all([
+      _banner(this.data.id),
+      _list(this.data.id, this.data.pageIndex, this.data.pageSize)
+    ]).then(res => {
+      console.log(res)
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      // banner
+      let banners = res[0].data.News_News_list
+      // 列表
+      let list = res[1].data.News_News_list.map(item => {
+        item.AddTime = formatDate(new Date(item.AddTime), 'yyyy-MM-dd hh: mm')
+        return item
+      })
+      let finished = false
+      let totalCount = res[1].data.total_count
+      finished = list.length >= totalCount
+      this.setData({
+        banners,
+        list,
+        totalCount,
+        finished
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  concatList() {
+    _list(this.data.id, this.data.pageIndex, this.data.pageSize).then(res => {
+      console.log(res)
+      let list = res.data.News_News_list.map(item => {
+        item.AddTime = formatDate(new Date(item.AddTime), 'yyyy-MM-dd hh: mm')
+        return item
+      })
+      this.data.list = this.data.list.concat(list)
+      this.setData({
+        list: this.data.list
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  onLoad(options) {
+    this.data.id = options.id
+    app.memberReadyCb = () => {
+    }
+    app.fansReadyCb = () => {
+      this.totalQuery()
+    }
+    app.init()
+  },
+  onReachBottom () {
+    if (this.data.list.length >= this.data.totalCount) {
+      this.setData({
+        finished: true
+      })
+    } else {
+      this.data.pageIndex += 1
+      this.concatList()
+    }
+  },
+  onPullDownRefresh () {
+    this.setData({
+      pageIndexes: 1,
+      finished: false,
+      totalCount: 0
+    })
+    this.totalQuery()
   }
 })

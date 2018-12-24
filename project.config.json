@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 33,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
@@ -57,87 +57,9 @@
 					"query": ""
 				},
 				{
-					"id": 2,
-					"name": "签到",
-					"pathName": "pages/onlineshops/index",
-					"query": ""
-				},
-				{
 					"id": -1,
 					"name": "修改资料",
 					"pathName": "pages/modify/index",
-					"query": ""
-				},
-				{
-					"id": 4,
-					"name": "访客记录-访客",
-					"pathName": "pages/visitrecord/visitor",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "访客记录-员工",
-					"pathName": "pages/visitrecord/staff",
-					"query": ""
-				},
-				{
-					"id": 6,
-					"name": "邀请访问页面",
-					"pathName": "pages/visitapply/staff",
-					"query": ""
-				},
-				{
-					"id": 7,
-					"name": "添加常用联系人",
-					"pathName": "pages/addcontactor/index",
-					"query": "role=员工"
-				},
-				{
-					"id": 8,
-					"name": "会务预约",
-					"pathName": "pages/conference/list",
-					"query": ""
-				},
-				{
-					"id": 9,
-					"name": "电子放行单提交",
-					"pathName": "pages/passcarduser/submit",
-					"query": ""
-				},
-				{
-					"id": 10,
-					"name": "编辑联系人",
-					"pathName": "pages/modifycontactor/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "积分商城首页",
-					"pathName": "pages/onlineshops/index",
-					"query": ""
-				},
-				{
-					"id": 12,
-					"name": "积分商城商品详细",
-					"pathName": "pages/onlineshops/detail",
-					"query": "id=1"
-				},
-				{
-					"id": 13,
-					"name": "积分商城兑换记录",
-					"pathName": "pages/onlineshops/record",
-					"query": ""
-				},
-				{
-					"id": 14,
-					"name": "圈层活动",
-					"pathName": "pages/activity/activity",
-					"query": ""
-				},
-				{
-					"id": 15,
-					"name": "授权",
-					"pathName": "pages/login/index",
 					"query": ""
 				},
 				{
@@ -147,10 +69,46 @@
 					"query": ""
 				},
 				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/mypoints/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的活动列表",
+					"pathName": "pages/myactivities/list",
+					"query": ""
+				},
+				{
+					"id": 29,
+					"name": "我的活动详情",
+					"pathName": "pages/myactivities/detail",
+					"query": "id=1"
+				},
+				{
+					"id": 13,
+					"name": "积分商城兑换记录",
+					"pathName": "pages/onlineshops/record",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "积分商城兑换记录详情",
+					"pathName": "pages/onlineshops/recordDetail",
+					"query": "id=1"
+				},
+				{
 					"id": 17,
 					"name": "用户报修列表",
 					"pathName": "pages/repairuser/list",
 					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "用户报修详情",
+					"pathName": "pages/repairuser/detail",
+					"query": "id=5"
 				},
 				{
 					"id": 18,
@@ -159,10 +117,58 @@
 					"query": "id=5"
 				},
 				{
-					"id": 19,
-					"name": "用户报修详情",
-					"pathName": "pages/repairuser/detail",
-					"query": "id=5"
+					"id": -1,
+					"name": "积分商城首页",
+					"pathName": "pages/onlineshops/index",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "积分商城商品详细",
+					"pathName": "pages/onlineshops/detail",
+					"query": "id=13"
+				},
+				{
+					"id": 14,
+					"name": "圈层活动",
+					"pathName": "pages/activity/activity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "圈层活动详情",
+					"pathName": "pages/activity/detail",
+					"query": "id=9"
+				},
+				{
+					"id": 4,
+					"name": "访客记录-访客",
+					"pathName": "pages/visitrecord/visitor",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "访客记录-租户",
+					"pathName": "pages/visitrecord/staff",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请访问页面",
+					"pathName": "pages/visitapply/visitor",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "邀请访问页面",
+					"pathName": "pages/visitapply/staff",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "授权",
+					"pathName": "pages/login/index",
+					"query": ""
 				},
 				{
 					"id": -1,
@@ -183,45 +189,21 @@
 					"query": ""
 				},
 				{
+					"id": 29,
+					"name": "会务预约列表",
+					"pathName": "pages/conference/list",
+					"query": ""
+				},
+				{
 					"id": -1,
 					"name": "会务预约申请",
 					"pathName": "pages/conference/apply",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "积分商城兑换记录详情",
-					"pathName": "pages/onlineshops/recordDetail",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
+					"id": 26,
 					"name": "企业快讯",
 					"pathName": "pages/news/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的积分",
-					"pathName": "pages/mypoints/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "圈层活动详情",
-					"pathName": "pages/activity/detail",
-					"query": "id=9"
-				},
-				{
-					"id": -1,
-					"name": "我的活动列表",
-					"pathName": "pages/myactivities/list",
-					"query": ""
-				},
-				{
-					"id": 29,
-					"name": "我的活动详情",
-					"pathName": "pages/myactivities/detail",
 					"query": "id=1"
 				},
 				{
@@ -231,22 +213,28 @@
 					"query": ""
 				},
 				{
+					"id": 28,
+					"name": "电子放行单提交",
+					"pathName": "pages/passcard/submit",
+					"query": ""
+				},
+				{
+					"id": 29,
+					"name": "电子放行单列表",
+					"pathName": "pages/passcard/list",
+					"query": "role=1"
+				},
+				{
+					"id": 30,
+					"name": "电子放行单详情",
+					"pathName": "pages/passcard/detail",
+					"query": "role=4&id=5"
+				},
+				{
 					"id": 31,
-					"name": "电子放行单用户列表",
-					"pathName": "pages/passcarduser/list",
-					"query": ""
-				},
-				{
-					"id": 32,
-					"name": "电子放行单用户详情",
-					"pathName": "pages/passcarduser/detail",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "申请访问页面",
-					"pathName": "pages/visitapply/visitor",
-					"query": ""
+					"name": "保安扫码",
+					"pathName": "pages/passcard/scan",
+					"query": "role=4"
 				}
 			]
 		}
