@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "企业快讯",
+  "navigationBarTitleText": "",
   "backgroundColor": "#fff",
   "usingComponents": {
     "bottom-tip": "/components/bottom-tip/index",

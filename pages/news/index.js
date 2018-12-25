@@ -26,6 +26,10 @@ Page({
         item.AddTime = formatDate(new Date(item.AddTime), 'yyyy-MM-dd hh: mm')
         return item
       })
+      let title = res[1].data.News_Type.TypeName
+      wx.setNavigationBarTitle({
+        title
+      })
       let finished = false
       let totalCount = res[1].data.total_count
       finished = list.length >= totalCount

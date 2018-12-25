@@ -52,6 +52,10 @@ Page({
     })
   },
   onLoad(options) {
+  },
+  onReady() {
+  },
+  onShow() {
     app.memberReadyCb = () => {
       let str = 'entries[0][0]'
       this.setData({
@@ -69,10 +73,6 @@ Page({
     app.fansReadyCb = () => {
       app.checkMember()
     }
-  },
-  onReady() {
-  },
-  onShow() {
     app.init()
   },
   onHide() { },

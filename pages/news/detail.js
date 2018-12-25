@@ -10,8 +10,9 @@ Page({
     app.loading('加载中')
     _detail(this.data.id).then(res => {
       wx.hideLoading()
+      let title = res.data.News_News.Title
       wx.setNavigationBarTitle({
-        title: res.data.News_News.Title
+        title
       })
       let article = res.data.News_News.Content
       WxParse.wxParse('article', 'html', article, this, 0)
@@ -28,8 +29,10 @@ Page({
   onLoad (options) {
     this.data.id = options.id
     app.memberReadyCb = () => {
+      console.log('newdetail 2')
     }
     app.fansReadyCb = () => {
+      console.log('newdetail 1')
       this.getDetail()
     }
     app.init()

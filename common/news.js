@@ -14,6 +14,10 @@ let _banner = typeid => {
 }
 let _list = (typeid, pageIndex = 1, pageSize = 6) => {
   let param = {
+    News_Type: {
+      ID: typeid, //条件 分类ID
+      field: "Name:TypeName"
+    },
     News_News_list: {
       TypeID: typeid,  //条件 分类ID
       order: "Sort",
