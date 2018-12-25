@@ -36,7 +36,8 @@
     "pages/myactivities/list",
     "pages/myactivities/detail",
     "pages/passcard/scan",
-    "pages/regist/audit"
+    "pages/regist/audit",
+    "pages/visitapply/audit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

@@ -34,6 +34,40 @@ let _visitapplylist = (MemberID, pageIndex = 1, pageSize = 5) => {
   }
   return query(param)
 }
+// 前台获取访客申请列表
+let _visitorlist = (comID, pageIndex = 1, pageSize = 5) => {
+  let CompanyID
+  if (comID !==0 && !comID) {
+    CompanyID = ''
+  } else {
+    CompanyID = comID
+  }
+  let param = {
+    Visit_Apply_list: {
+      CompanyID, //当前用户企业ID
+      join: {
+        inner_join: {
+          join: "Office_Company.ID,Visit_Apply.CompanyID",
+          field: "Name:CompanyName"
+        }
+      },
+      field: "ID,Name,Tel,VisitTime,InviteName,InviteTel",
+      Status: "待审核",
+      Type: "申访",
+      page: pageIndex,
+      count: pageSize
+    },
+    total_count: ''
+  }
+  return query(param)
+}
+// 访客审核
+let _audit = (ID, MemberID, Result) => {
+  return fetch(
+    'WebApi.ashx?Act=Visit_ApplyCheck',
+    { ID, MemberID, Result }
+  )
+}
 // 访客收到列表
 let _visitreceivedlist = (Tel, pageIndex = 1, pageSize = 5) => {
   let param = {
@@ -128,5 +162,7 @@ export {
   _contactorlist,
   _delcontactor,
   _invitesubmit,
-  _invitelist
+  _invitelist,
+  _visitorlist,
+  _audit
 }
