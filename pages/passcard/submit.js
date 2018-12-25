@@ -133,7 +133,7 @@ Page({
         success: r => {
           if (res.data.IsSuccess && r.confirm) {
             wx.navigateTo({
-              url: './list'
+              url: './list?role=1'
             })
           }
         }

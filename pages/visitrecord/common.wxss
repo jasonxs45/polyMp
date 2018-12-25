@@ -173,3 +173,12 @@ swiper-item{
   border-radius: 50%;
   line-height: 80rpx;
 }
+.invite{
+  justify-content: space-between;
+  padding:15rpx 30rpx 30rpx;
+}
+.invite-name,.invite-tel{
+  color:#333;
+  font-size:26rpx;
+  font-weight:300
+}

@@ -31,25 +31,33 @@ const app = getApp()
 Page({
   data: {
     banners: [],
-    entries: []
+    entries: [],
+    powerEntries: []
+  },
+  getEntries () {
+    let uid = app.globalData.uid || wx.getStorageSync('uid')
+    _servicelist(uid).then(res => {
+      // 入口菜单
+      let entries = res.data.Data.Menu
+      let powerEntries = res.data.Data.PowerMenu
+      this.setData({
+        entries,
+        powerEntries
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   },
   totalQuery() {
     app.loading('加载中')
-    let uid = app.globalData.uid || wx.getStorageSync('uid')
     Promise.all([
-      _bannerlist('服务banner'),
-      _servicelist(uid)
+      _bannerlist('服务banner')
     ]).then(res => {
       wx.hideLoading()
       // banner
       let banners = res[0].data.AD_Config_list
-      // 入口菜单
-      let entries = res[1].data.Data.Menu
-      let powerEntries = res[1].data.Data.PowerMenu
       this.setData({
-        banners,
-        entries,
-        powerEntries
+        banners
       })
     }).catch(err => {
       console.log(err)
@@ -68,5 +76,8 @@ Page({
       this.totalQuery()
     }
     app.init()
+  },
+  onShow () {
+    this.getEntries()
   }
 })

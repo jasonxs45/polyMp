@@ -89,31 +89,34 @@
   </view>
   <split height="10" />
 </block>
-<block wx:if="{{detail.showBtns}}">
-<view wx:if="{{role==='保安'}}" class="section">
-  <view class="tit">上传照片</view>
-  <img-row class="img-row" group="{{imgArr}}" max="{{1}}" binddel="delHandler" binduploadOver="uploadOverHandler" />
-</view>
-<block wx:if="{{role!=='租户'}}">
-  <view class="btns">
-    <x-btn class="btn" type="primary" bindtap="pass">审核通过</x-btn>
-    <x-btn class="btn" bindtap="openHandle">拒绝放行</x-btn>
-  </view>
-  <view class="handle-box {{handleBoxShow?'show':''}}"> 
-    <view class="section">
-      <textarea
-        placeholder="请填写拒绝原因"
-        hidden='{{!handleBoxShow}}'
-        bindinput='remarkHandler'
-        value="{{remark}}"
-        class="remark"
-      ></textarea>
-    </view>
-    <split height="10"/>
-    <view class="btns">
-      <x-btn class="btn" type="primary" bindtap="confirmRefuse">确认</x-btn>
-      <x-btn class="btn" bindtap="hideHandle">关闭</x-btn>
-    </view>
+<block wx:if="{{detail.Status === '已放行'}}">
+  <view class="result">
+    <view class="title">保安审批照片</view>
+     <split height="2" />
+     <view class="result-info">
+      <img-row class="img-row" readonly group="{{detail.PassImg}}" />
+     </view>
   </view>
 </block>
+<block wx:if="{{detail.showBtns}}">
+  <view wx:if="{{role==='保安'}}" class="section">
+    <view class="tit">上传照片</view>
+    <img-row class="img-row" onlyCamera group="{{imgArr}}" max="{{1}}" binddel="delHandler" binduploadOver="uploadOverHandler" />
+  </view>
+  <block wx:if="{{role!=='租户'}}">
+    <view class="btns">
+      <x-btn class="btn" type="primary" bindtap="pass">审核通过</x-btn>
+      <x-btn class="btn" bindtap="openHandle">拒绝放行</x-btn>
+    </view>
+    <view class="handle-box {{handleBoxShow?'show':''}}">
+      <view class="section">
+        <textarea placeholder="请填写拒绝原因" hidden='{{!handleBoxShow}}' bindinput='remarkHandler' value="{{remark}}" class="remark"></textarea>
+      </view>
+      <split height="10" />
+      <view class="btns">
+        <x-btn class="btn" type="primary" bindtap="confirmRefuse">确认</x-btn>
+        <x-btn class="btn" bindtap="hideHandle">关闭</x-btn>
+      </view>
+    </view>
+  </block>
 </block>

@@ -62,5 +62,5 @@
   </view>
 </view>
 <view class="btns">
-  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="submit" class="btn">注册</x-btn>
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap="submit" class="btn">提交</x-btn>
 </view>

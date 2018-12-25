@@ -9,6 +9,10 @@ Component({
       type: Boolean,
       value: false
     },
+    onlyCamera: {
+      type: Boolean,
+      value: false
+    },
     max: Number
   },
   data: {
@@ -33,6 +37,7 @@ Component({
       })
       wx.chooseImage({
         count,
+        sourceType: this.properties.onlyCamera ? ['camera'] : ['album', 'camera'],
         success: r => {
           this.setData({
             uploading: true

@@ -39,13 +39,25 @@ Page({
     entries: [],
     power: null
   },
+  getList () {
+    let member = app.globalData.member || wx.getStorageSync('member')
+    this.data.power = member && member.Type === '租户' ? 2 : 1
+    _homelist(this.data.power).then(res => {
+      // 入口菜单
+      let entries = res.data.Home_Menu_list
+      this.setData({
+        entries
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
   totalQuery() {
-    app.loading('加载中')
+    // app.loading('加载中')
     Promise.all([
       _bannerlist('首页banner'),
       _goodslist(undefined, undefined, undefined, true),
-      _actlist('unover', 1, 3),
-      _homelist(this.data.power)
+      _actlist('unover', 1, 3)
     ]).then(res => {
       console.log(res)
       wx.hideLoading()
@@ -55,13 +67,10 @@ Page({
       let actList = res[2].data.Activity_Activity_list
       // 商品列表
       let goodsList = res[1].data.Shop_Goods_list
-      // 入口菜单
-      let entries = res[3].data.Home_Menu_list
       this.setData({
         banners,
         goodsList,
-        actList,
-        entries
+        actList
       })
     }).catch(err => {
       console.log(err)
@@ -77,12 +86,11 @@ Page({
     app.memberReadyCb = () => {
     }
     app.fansReadyCb = () => {
-      let member = app.globalData.member || wx.getStorageSync('member')
-      this.data.power = member && member.Type === '租户' ? 2 : 1
       this.totalQuery()
     }
     app.init()
   },
   onShow() {
+    this.getList()
   }
 })

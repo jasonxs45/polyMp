@@ -51,7 +51,22 @@
       <view class="sub-tit">{{card.AddTime}}</view>
     </view>
     <view class="body">
-      <view class="company-name">{{card.CompanyName}}</view>
+      <view class="company-name">武汉矩阵科技</view>
+      <view class="qr-detail">
+        <view class="detail {{card.open ? '' : 'hidden'}}">
+          <view class="flex invite">
+            <view class="invite-name">邀访人：{{card.InviteName}}</view>
+            <view class="invite-tel">{{card.InviteTel}}</view>
+          </view>
+          <image src="{{card.qr}}" class="qrcode" />
+          <view class="main-tip">请向工作人员出示此二维码</view>
+          <view class="sub-tip">此二维码将在24小时后失效，未到预约时间不可使用</view>
+        </view>
+        <view class="packup-unfold" data-index="{{idx}}" bindtap='toggleDetail'>
+          <x-icon class="icon" type="{{card.open ? 'packup' : 'unfold'}}" />
+          <text class="text">{{card.open ? '收起' : '展开'}}</text>
+        </view>
+      </view>
     </view>
   </view>
 </template>

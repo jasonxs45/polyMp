@@ -19,12 +19,13 @@ Page({
     _detail(this.data.id).then(res => {
       wx.hideLoading()
       let detail = res.data.ERelease_Apply
-      detail.showBtns = !detail.Status.includes('拒绝')
+      detail.showBtns = detail.Status !== '已放行' && !detail.Status.includes('拒绝')
       detail.Goods = JSON.parse(detail.Goods)
       detail.OrderTime = detail.OrderTime && formatDate(new Date(detail.OrderTime), 'yyyy年MM月dd日 hh:mm')
       detail.CompanyAuditTime = detail.CompanyAuditTime && formatDate(new Date(detail.CompanyAuditTime), 'yyyy年MM月dd日 hh:mm')
       detail.AuditTime = detail.AuditTime && formatDate(new Date(detail.AuditTime), 'yyyy年MM月dd日 hh:mm')
       detail.PassTime = detail.PassTime && formatDate(new Date(detail.PassTime), 'yyyy年MM月dd日 hh:mm')
+      detail.PassImg = [detail.PassImg]
       detail.qr = _getQr(detail.SN)
       this.setData({
         detail

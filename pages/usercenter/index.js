@@ -11,7 +11,7 @@ const entries = [
   ],
   [
     { label: '会员权益', icon: './rights.png', url: '/pages/news/detail?id=1' },
-    { label: '服务建议', icon: './advise.png', url: '/pages/news/detail?id=2' },
+    { label: '联系我们', icon: './advise.png', url: '/pages/news/detail?id=2' },
     { label: '关于我们', icon: './about.png', url: '/pages/news/detail?id=3' }
   ]
 ]

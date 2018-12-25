@@ -38,6 +38,8 @@ Component({
         })
         lists[1] = res[1].data.Visit_Apply_list.map(item => {
           item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
+          item.open = false
+          item.qr = _getQr(item.SN)
           return item
         })
         lists[2] = res[2].data.Visit_Contacts_list
@@ -89,6 +91,8 @@ Component({
         if (currentIndex === 1) {
           list = res.data.Visit_Apply_list.map(item => {
             item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
+            item.open = false
+            item.qr = _getQr(item.SN)
             return item
           })
         }
@@ -110,9 +114,10 @@ Component({
       })
     },
     toggleDetail(e) {
+      let currentIndex = this.data.currentIndex
       let index = parseInt(e.currentTarget.dataset.index)
-      let open = this.data.lists[0][index].open
-      let str = `lists[0][${index}].open`
+      let open = this.data.lists[currentIndex][index].open
+      let str = `lists[${currentIndex}][${index}].open`
       this.setData({
         [str]: !open
       })
