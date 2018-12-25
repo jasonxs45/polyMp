@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 32,
 			"list": [
 				{
 					"id": 0,
@@ -235,6 +235,12 @@
 					"name": "保安扫码",
 					"pathName": "pages/passcard/scan",
 					"query": "role=4"
+				},
+				{
+					"id": 32,
+					"name": "租户注册审核",
+					"pathName": "pages/regist/audit",
+					"query": "id=1"
 				}
 			]
 		}

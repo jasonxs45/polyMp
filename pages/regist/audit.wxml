@@ -1,0 +1,26 @@
+<view wx:if="{{list.length > 0}}" class="list">
+  <view wx:for="{{list}}" wx:key="item-{{index}}" class="card">
+    <view class="head flex">
+      <view class="name">申请人：{{item.MemberName}}</view>
+      <view class="tel">{{item.Tel}}</view>
+    </view>
+    <split height="2" />
+    <view class="body">
+      <view class="flex p">
+        <view class="ph">申请加入：</view>
+        <view class="pb company-name">{{item.CompanyName}}</view>
+      </view>
+      <view class="flex p">
+        <view class="ph">申请时间：</view>
+        <view class="date">{{item.AddTime}}</view>
+      </view>
+    </view>
+    <split height="2" />
+    <view class="foot">
+      <view data-id="{{item.ID}}" data-index="{{index}}" class="refuse" bindtap='refuse'>拒绝</view>
+      <view data-id="{{item.ID}}" data-index="{{index}}" class="pass" bindtap='pass'>通过</view>
+    </view>
+  </view>
+  <bottom-tip finished="{{finished}}" />
+</view>
+<no-data wx:else />

@@ -10,7 +10,6 @@
     "pages/onlineshops/index",
     "pages/visitapply/visitor",
     "pages/visitapply/staff",
-    "pages/addcontactor/index",
     "pages/conference/list",
     "pages/conference/detail",
     "pages/conference/apply",
@@ -36,7 +35,8 @@
     "pages/news/detail",
     "pages/myactivities/list",
     "pages/myactivities/detail",
-    "pages/passcard/scan"
+    "pages/passcard/scan",
+    "pages/regist/audit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

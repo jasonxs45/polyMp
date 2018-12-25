@@ -1,0 +1,62 @@
+page{
+  background: #f2f2f2;
+}
+.list{
+  padding: 0 30rpx;
+}
+.card{
+  background: #fff;
+  border-radius: 4rpx;
+  margin: 30rpx 0;
+}
+.head{
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+}
+.body{
+  padding: 30rpx;
+}
+.name{
+  color: #666;
+  font-size: 24rpx;
+}
+.tel{
+  color: #666;
+  font-size: 24rpx;
+}
+.p{
+  margin-top: 20rpx;
+}
+.ph{
+  font-size: 26rpx;
+  color: #666;
+  width: 150rpx;
+}
+.pb{
+  flex: 1;
+  line-height: 36rpx;
+}
+.company-name{
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+.date{
+  font-size: 24rpx;
+  color: #666;
+}
+.foot{
+  text-align: right;
+}
+.pass,.refuse{
+  text-align: center;
+  display: inline-block;
+  font-size: 26rpx;
+  color: #777;
+  margin: 30rpx;
+  font-weight: 500;
+}
+.pass{
+  color: #4d4d4d;
+}

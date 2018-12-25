@@ -19,12 +19,16 @@ page{
   border-radius: 8rpx;
 }
 .entries{
-  justify-content: space-between;
-  margin: 50rpx 0;
+  margin: 30rpx -15rpx 10rpx;
+  flex-wrap: wrap;
+}
+.entries .cell{
+  width: 20%;
+  margin-bottom: 30rpx;
+  text-align: center;
 }
 .entry{
   display: inline-block;
-  text-align: center;
 }
 .entry .img{
   width:98rpx;

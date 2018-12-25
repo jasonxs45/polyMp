@@ -20,6 +20,7 @@ Component({
     name: '',
     tel: '',
     code: '',
+    msgCode: '',
     codeDisabled: false,
     codeLimit,
     submitDisabled: false
@@ -90,11 +91,13 @@ Component({
           })
         }
       }, 1000)
-      _getCode({ Phone: this.data.tel }).then(res => {
+      let Type = this.data.roleIndex + 1
+      _getCode(this.data.tel,  Type).then(res => {
         wx.hideToast()
         if (res.data.IsSuccess) {
           // app.toast(res.data.Msg)
           app.toast('已发送，请注意查收')
+          this.data.msgCode = res.data.Data
         } else {
           wx.showModal({
             title: '对不起',
@@ -154,6 +157,10 @@ Component({
       }
       if (!this.data.code) {
         app.toast('请填写验证码')
+        return
+      }
+      if (this.data.code !== this.data.msgCode) {
+        app.toast('验证码错误')
         return
       }
       let company = this.data.roleIndex === 0 ? this.data.companies[this.data.companySelectIndex].ID : null

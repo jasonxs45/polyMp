@@ -15,7 +15,7 @@ Page({
     ],
     currentIndex: 0,
     pageIndexes: [1, 1],
-    pageSize: 3,
+    pageSize: 4,
     states: ['unover', 'over'],
     finished: [false, false],
     totalCount: [null, null]
