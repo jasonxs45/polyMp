@@ -45,6 +45,14 @@ Page({
     })
     this.data.passImg = this.data.imgArr[0]
   },
+  preview (e) {
+    let index = e.currentTarget.dataset.index
+    let urls = this.data.detail.Goods.map(item => item.img)
+    wx.previewImage({
+      current: urls[index],
+      urls
+    })
+  },
   delHandler(e) {
     this.setData({
       imgArr: e.detail.group

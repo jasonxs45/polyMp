@@ -14,7 +14,7 @@
   <view class="title">物品清单</view>
   <view class="listXq">
     <view class="goods flex" wx:for="{{detail.Goods}}" wx:key="goods-{{index}}">
-      <image class="img" mode="aspectFill" src="{{item.img}}" />
+      <image class="img" mode="aspectFill" data-index="{{index}}" src="{{item.img}}" bindtap="preview" />
       <view class="name">{{item.name}}</view>
       <view class="count">*{{item.count}}</view>
     </view>
