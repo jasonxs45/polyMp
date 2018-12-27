@@ -74,10 +74,14 @@ Page({
     }
     app.fansReadyCb = () => {
       this.totalQuery()
+      this.getEntries()
     }
     app.init()
   },
-  onShow () {
-    this.getEntries()
+  onShow() {
+    let uid = app.globalData.uid || wx.getStorageSync('uid')
+    if (uid) {
+      this.getEntries()
+    }
   }
 })
