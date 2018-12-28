@@ -15,6 +15,7 @@ const entries = [
     { label: '关于我们', icon: './about.png', url: '/pages/news/detail?id=3' }
   ]
 ]
+import { _updateInfo } from '../../common/usercenter'
 import { _getscore } from '../../common/points'
 import { _money } from '../../common/money'
 import { formatNumber } from '../../utils/util'
@@ -27,28 +28,57 @@ Page({
     money: '',
     entries
   },
-  totalQuery() {
-    app.loading('加载中')
-    Promise.all([
-      _getscore(app.globalData.member.ID),
-      _money(app.globalData.member.ID)
-    ]).then(res => {
-      wx.hideLoading()
+  getScore () {
+    _getscore(app.globalData.member.ID).then(res => {
       // 积分
-      let num = res[0].data.Score_Log_sum || 0
-      // 红包
-      let money = res[1].data.Red_Log_sum || 0
+      let num = res.data.Score_Log_sum || 0
       this.setData({
-        points: formatNumber(num, 0),
+        points: formatNumber(num, 0)
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  getMoney() {
+    _money(app.globalData.member.ID).then(res => {
+      // 红包
+      let money = res.data.Red_Log_sum || 0
+      this.setData({
         money: formatNumber(money, 2)
       })
     }).catch(err => {
-      wx.hideLoading()
-      wx.showModal({
-        title: '对不起',
-        content: JSON.stringify(err) || '网络错误，请稍后再试',
-        showCancel: false
-      })
+      console.log(err)
+    })
+  },
+  updateInfo (cb) {
+    _updateInfo(app.globalData.uid).then(res => {
+      if (res.data.IsSuccess) {
+        // 判断是否有粉丝信息，有就直接获取，没有就跳转授权页面
+        if (res.data.Data.Fans) {
+          wx.setStorageSync('fans', res.data.Data.Fans)
+          app.globalData.fans = res.data.Data.Fans
+          wx.setStorageSync('member', res.data.Data.Member)
+          app.globalData.member = res.data.Data.Member
+          let str = 'entries[0][0]'
+          this.setData({
+            avatar: app.globalData.fans.HeadImgUrl,
+            nickname: app.globalData.fans.NickName,
+            role: app.globalData.member.Type,
+            [str]: {
+              label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
+              icon: './visit.png',
+              url: `/pages/visitrecord/${app.globalData.member.Type === '租户' ? 'staff' : 'visitor'}`
+            }
+          })
+          cb && cb()
+        }
+      }
+    })
+  },
+  totalQuery() {
+    this.updateInfo(() => {
+      this.getMoney()
+      this.getScore()
     })
   },
   onLoad(options) {
@@ -57,17 +87,6 @@ Page({
   },
   onShow() {
     app.memberReadyCb = () => {
-      let str = 'entries[0][0]'
-      this.setData({
-        avatar: app.globalData.fans.HeadImgUrl,
-        nickname: app.globalData.fans.NickName,
-        role: app.globalData.member.Type,
-        [str]: {
-          label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
-          icon: './visit.png',
-          url: `/pages/visitrecord/${app.globalData.member.Type === '租户' ? 'staff' : 'visitor'}`
-        }
-      })
       this.totalQuery()
     }
     app.fansReadyCb = () => {

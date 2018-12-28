@@ -8,6 +8,14 @@ let _modifyInfo = (opt) => {
      opt
     )
  }
+// 重新获取会员信息
+let _updateInfo = uid => {
+  return fetch(
+    'WebApi.ashx?Act=GetUserInfo',
+    { UnionID: uid }
+  )
+}
  export {
-   _modifyInfo
+   _modifyInfo,
+  _updateInfo
  }
