@@ -28,7 +28,7 @@
     <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
   </view>
 </view>
-<x-btn class="detaliBut" type="primary" bindtap="submit">
-  立即报名
+<x-btn class="detaliBut" disabled="{{disabled}}" type="primary" bindtap="submit">
+  {{disabled?'已结束':'立即报名'}}
 </x-btn>
 <import src="/libs/wxParse/wxParse.wxml"/>

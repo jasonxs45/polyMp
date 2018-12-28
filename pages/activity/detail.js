@@ -5,13 +5,24 @@ const app = getApp()
 Page({
   data: {
     id: null,
-    detail: {}
+    detail: {},
+    disabled: true
   },
   getDetail () {
     app.loading('加载中')
     _detail(this.data.id).then(res => {
       wx.hideLoading()
       let detail = res.data.Activity_Activity
+      let now = Date.now()
+      if (now > new Date(detail.ApplyStart).getTime() && now < new Date(detail.ApplyEnd).getTime()) {
+        this.setData({
+          disabled: false
+        })
+      } else {
+        this.setData({
+          disabled: true
+        })
+      }
       detail.ApplyStart = formatDate(new Date(detail.ApplyStart), 'yyyy/MM/dd hh:mm')
       detail.ApplyEnd = formatDate(new Date(detail.ApplyEnd), 'yyyy/MM/dd hh:mm')
       detail.PlayStart = formatDate(new Date(detail.PlayStart), 'yyyy/MM/dd hh:mm')

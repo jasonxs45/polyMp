@@ -22,8 +22,7 @@ Component({
       value: false,
       observer(newVal) {
         if (this.properties.imgBg) {
-          if (newVal) {
-            this.data.classes.push('disabled')
+          if (newVal === true) {
           } else {
             this.data.classes.splice(this.data.classes.findIndex(item => item === 'disabled'), 1)
           }
@@ -83,6 +82,7 @@ Component({
   },
   attached() {
     this.data.classes.push(this.properties.type)
+    console.log(this.data.classes)
     if (this.properties.imgBg) {
       this.data.classes.push('imgBg')
     }
@@ -92,6 +92,7 @@ Component({
     if (this.properties.loading) {
       this.data.classes.push('loading')
     }
+    console.log(this.data.classes)
     this.setData({
       classes: this.data.classes
     })
