@@ -1,5 +1,6 @@
 import {
   _invitelist as _list,
+  _staffreceivedlist,
   _contactorlist,
   _delcontactor as _del
 } from '../../common/visit'
@@ -9,28 +10,34 @@ const app = getApp()
 Component({
   behaviors: [behavior],
   data: {
-    tabs: ['发出的邀访', '常用联系人'],
-    lists: [[], []],
-    pageIndexes: [1, 1],
+    tabs: ['发出的邀访', '收到的申访', '常用联系人'],
+    lists: [[], [], []],
+    pageIndexes: [1, 1, 1],
     pageSize: 5,
-    finished: [false, false],
-    totalCount: [0, 0]
+    finished: [false, false, false],
+    totalCount: [0, 0, 0]
   },
   methods: {
     totalQuery() {
       app.loading('加载中')
       Promise.all([
         _list(app.globalData.member.ID, this.data.pageIndexes[0], this.data.pageSize),
-        _contactorlist(app.globalData.member.ID, this.data.pageIndexes[1], this.data.pageSize + 5)
+        _staffreceivedlist(app.globalData.member.ID, this.data.pageIndexes[1], this.data.pageSize),
+        _contactorlist(app.globalData.member.ID, this.data.pageIndexes[2], this.data.pageSize + 5)
       ]).then(res => {
         wx.hideLoading()
-        let lists = [[], []]
+        let lists = [[], [], []]
         lists[0] = res[0].data.Visit_Apply_list.map(item => {
           item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
           item.VisitTime = formatDate(new Date(item.VisitTime), 'yyyy/MM/dd hh:mm')
           return item
         })
-        lists[1] = res[1].data.Visit_Contacts_list
+        lists[1] = res[1].data.Visit_Apply_list.map(item => {
+          item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
+          item.VisitTime = formatDate(new Date(item.VisitTime), 'yyyy/MM/dd hh:mm')
+          return item
+        })
+        lists[2] = res[2].data.Visit_Contacts_list
         let finished = []
         let totalCount = res.map((item, index) => {
           finished.push(lists[index].length >= item.data.total_count)
@@ -61,7 +68,10 @@ Component({
         promise = Promise.resolve(_list(app.globalData.member.ID, this.data.pageIndexes[0], this.data.pageSize))
       }
       if (currentIndex === 1) {
-        promise = Promise.resolve(_contactorlist(app.globalData.member.ID, this.data.pageIndexes[1], this.data.pageSize + 5))
+        promise = Promise.resolve(_list(app.globalData.member.ID, this.data.pageIndexes[1], this.data.pageSize))
+      }
+      if (currentIndex === 2) {
+        promise = Promise.resolve(_contactorlist(app.globalData.member.ID, this.data.pageIndexes[2], this.data.pageSize + 5))
       }
       promise.then(res => {
         let list = []
@@ -73,6 +83,9 @@ Component({
           })
         }
         if (currentIndex === 1) {
+          lists = res.data.Visit_Contacts_list
+        }
+        if (currentIndex === 2) {
           lists = res.data.Visit_Contacts_list
         }
         this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(list)
@@ -150,7 +163,13 @@ Component({
         this.concatList()
       }
     },
-    onLoad(options) { },
+    onLoad(options) {
+      if (!!options.current) {
+        this.setData({
+          currentIndex: options.current
+        })
+      }
+    },
     onReady() { },
     onShow() {
       app.memberReadyCb = () => {
@@ -165,9 +184,9 @@ Component({
     onUnload() { },
     onPullDownRefresh() {
       this.setData({
-        pageIndexes: [1, 1],
-        finished: [false, false],
-        totalCount: [0, 0]
+        pageIndexes: [1, 1, 1],
+        finished: [false, false, false],
+        totalCount: [0, 0, 0]
       })
       this.totalQuery()
     },

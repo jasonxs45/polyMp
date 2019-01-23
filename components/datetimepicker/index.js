@@ -31,13 +31,16 @@ let defaultTimeValue = [
 ]
 Component({
   properties: {
-    placeholder: String
+    placeholder: String,
+    value: {
+      type: String,
+      value: `${nowYear}-${nowMonth}-${nowDate} ${nowHour}:${nowMinute}`
+    }
   },
   data: {
     currentYear: null,
     datetimeRange: [years, months, dates, hours, minutes],
-    datetimeValue: defaultTimeValue,
-    value: null
+    datetimeValue: defaultTimeValue
   },
   methods: {
     columnChange (e) {

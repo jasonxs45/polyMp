@@ -14,7 +14,6 @@ Component({
     companyName: '',
     name: '',
     tel: '',
-    datetimeValue: null,
     count: 1,
     backinfo: '',
     submitDisabled: false

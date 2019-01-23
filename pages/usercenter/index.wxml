@@ -1,10 +1,12 @@
-<view class="base-info topbg">
+<view class="base-info {{cardClass}}">
   <image class="avatar" mode="aspectFill" src='{{avatar || "../../images/avatar.png"}}' />
   <view class="nickname">
-    {{nickname || "昵称"}}
-    <navigator class="edit" url="/pages/modify/index">
-      <image src="./edit.png" />
-    </navigator>
+    <view class="nickbg">
+      {{nickname || "昵称"}}
+      <navigator class="edit" url="/pages/modify/index">
+        <image src="./edit.png" />
+      </navigator>
+    </view>
   </view>
   <view class="role">
     <text>{{role}}</text>

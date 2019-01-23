@@ -1,7 +1,7 @@
 const entries = [
   [
     { label: '申访记录', icon: './visit.png', url: '/pages/visitrecord/visitor' },
-    { label: '会务订单', icon: './meeting.png', url: '/pages/conference/list' }
+    { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
   ],
   [
     { label: '我的活动', icon: './activities.png', url: '/pages/myactivities/list' },
@@ -26,6 +26,8 @@ Page({
     nickname: '',
     points: '',
     money: '',
+    role: '',
+    cardClass: 'common',
     entries
   },
   getScore () {
@@ -60,10 +62,27 @@ Page({
           wx.setStorageSync('member', res.data.Data.Member)
           app.globalData.member = res.data.Data.Member
           let str = 'entries[0][0]'
+          let cardClass = ''
+          let level = app.globalData.member.Level
+          level = '黄金'
+          switch (level) {
+            case '黑金':
+              cardClass = 'black'
+              break;
+            case '黄金':
+              cardClass = 'yellow'
+              break;
+            case '白金':
+              cardClass = 'white'
+              break;
+            default:
+              cardClass = 'common'
+          }
           this.setData({
             avatar: app.globalData.fans.HeadImgUrl,
             nickname: app.globalData.fans.NickName,
-            role: app.globalData.member.Type,
+            role: app.globalData.member.Level + '会员',
+            cardClass,
             [str]: {
               label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
               icon: './visit.png',

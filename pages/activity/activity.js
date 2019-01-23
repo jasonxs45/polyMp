@@ -35,8 +35,8 @@ Page({
   totalQuery() {
     app.loading('加载中')
     Promise.all([
-      _list(this.data.states[0], this.data.pageIndexes[0], this.data.pageSize),
-      _list(this.data.states[1], this.data.pageIndexes[1], this.data.pageSize)
+      _list(this.data.states[0], app.globalData.member.ID, this.data.pageIndexes[0], this.data.pageSize),
+      _list(this.data.states[1], app.globalData.member.ID, this.data.pageIndexes[1], this.data.pageSize)
     ]).then(res => {
       wx.hideLoading()
       let lists = res.map(item => item.data.Activity_Activity_list)

@@ -3,23 +3,25 @@ import { fetch, query } from 'api'
  *           活动
  ==========================*/
 // 活动列表
-let _list = (over, pageIndex = 1, pageSize = 5) => {
+let _list = (over, MemberID, pageIndex = 1, pageSize = 5) => {
+  let playend = ''
   if (over === 'over') {
-    over = true
+    playend = '<#time_now'
   } 
   if (over === 'unover') {
-    over = false
+    playend = '>#time_now'
   }
-  let day = new Date()
-  let year = day.getFullYear()
-  let month = day.getMonth() + 1
-  let date = day.getDate()
   let param = {
     Activity_Activity_list: {
       Online: true, //已上线
       IsDelete: false, //未删除
       field: "ID,Name,SmallImg,ApplyEnd,PlayEnd,Sort", //查询字段
-      PlayEnd: `${over?'<=':'>'}${year}/${month}/${date}`, //使用JS获取当前时间
+      field_ApplyID: {
+        field: "Activity_Apply.ID.max",
+        ActivityID: "link#Activity_Activity.ID",
+        MemberID  //参数 当前用户ID
+      },
+      PlayEnd: playend, //使用JS获取当前时间
       order: "Sort", //默认排序
       page: pageIndex, //当前页数
       count: pageSize //每页条数

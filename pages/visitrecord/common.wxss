@@ -97,9 +97,16 @@ swiper-item{
 }
 .qr-detail {
   overflow: hidden;
+  border-top:1rpx dotted #ddd;
+}
+.status{
+  justify-content: space-between;
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #666;
 }
 .qr-detail .detail{
-  border-top:1rpx solid #ddd;
+  /* border-top:1rpx solid #ddd; */
   padding: 20rpx 0;
   transition: height,padding,opacity .3s;
 }
@@ -110,7 +117,7 @@ swiper-item{
   opacity: 0
 }
 .packup-unfold{
-  border-top:1rpx dotted #ddd;
+  /* border-top:1rpx dotted #ddd; */
   height: 80rpx;
   text-align: center;
   background: #fff;
@@ -181,4 +188,31 @@ swiper-item{
   color:#333;
   font-size:26rpx;
   font-weight:300
+}
+.tosubmit{
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  font-size: 40rpx;
+  bottom: 30rpx;
+  right: 30rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80rpx;
+}
+.cname{
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0 30rpx;
+}
+.company-name{
+  flex:1; 
+}
+.again{
+  width: 150rpx;
+  font-size: 26rpx;
+  text-align: right;
 }

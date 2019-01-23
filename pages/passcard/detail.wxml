@@ -103,7 +103,7 @@
     <view class="tit">上传照片</view>
     <img-row class="img-row" onlyCamera group="{{imgArr}}" max="{{1}}" binddel="delHandler" binduploadOver="uploadOverHandler" />
   </view>
-  <block wx:if="{{role!=='租户'}}">
+  <block wx:if="{{role!=='租户'&&(role==='企业'&&detail.Status!=='待放行')}}">
     <view class="btns">
       <x-btn class="btn" type="primary" bindtap="pass">审核通过</x-btn>
       <x-btn class="btn" bindtap="openHandle">拒绝放行</x-btn>

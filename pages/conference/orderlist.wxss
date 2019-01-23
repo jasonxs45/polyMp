@@ -1,0 +1,53 @@
+page{
+  background: #f2f2f2;
+}
+.item{
+  background: #fff;
+  padding: 30rpx;
+  margin: 30rpx;
+  border-radius: 4rpx;
+  position: relative;
+}
+.status{
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 22rpx;
+  padding: 5rpx 15rpx;
+  background: #ccc;
+  border-top-right-radius: 4rpx;
+}
+.line{
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  margin-top: 10rpx;
+}
+.name{
+  font-size: 26rpx;
+}
+.remark{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background: #f2f2f2;
+  padding: 10rpx;
+  margin: 30rpx 0;
+}
+.date{
+  font-size: 26rpx;
+}
+.order-time{
+  margin-top: 20rpx;
+}
+.order-time .h{
+  font-size: 26rpx;
+}
+.time-item{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 15rpx;
+  justify-content: space-between;
+}
+.date-value{
+  margin-left: 30rpx;
+}

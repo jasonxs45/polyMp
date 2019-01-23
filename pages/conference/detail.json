@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "会务预约",
   "usingComponents": {
-    "x-btn": "/components/x-btn/index"
+    "x-btn": "/components/x-btn/index",
+    "x-icon": "/components/x-icon/index"
   }
 }

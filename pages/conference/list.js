@@ -1,39 +1,42 @@
-const conAll = [
-  { id: '1', src: 'cs.jpg', name: 'P1+P2会议室1', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '2', src: 'cs.jpg', name: 'P1+P2会议室2', figure: '可容纳150人', address: ' 武汉市洪山区关山大道322号保利国' },
-  { id: '3', src: 'cs.jpg', name: 'P1+P2会议室3', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-  { id: '4', src: 'cs.jpg', name: 'P1+P2会议室4', figure: '可容纳150人', address: '武汉市洪山区关山大道322号保利国' },
-]
+import { _roomlist } from '../../common/meeting'
+const app = getApp()
 Page({
   data: {
-    conAll
+    list: []
   },
-  jump(e) {
-    wx.navigateTo({
-      url: '/pages/conference/detail?id=' + e.currentTarget.dataset.id
-    })
+  totalQuery() {
+    app.loading('加载中')
+    _roomlist()
+      .then(res => {
+        wx.hideLoading()
+        let list = res.data.Meeting_Room_list
+        this.setData({
+          list
+        })
+      }).catch(err => {
+        console.log(err)
+        wx.hideLoading()
+        wx.showModal({
+          title: '对不起',
+          content: JSON.stringify(err) || '网络错误，请稍后再试',
+          showCancel: false
+        })
+      })
   },
-  onLoad (options) {
+  onLoad(options) {
+    app.memberReadyCb = () => {
+      this.totalQuery()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
+    }
+    app.init()
   },
-  onReady () {
-  },
-  onShow () {
-  },
-  onHide () {
-  },
-  onUnload () {
-  },
-  onPullDownRefresh () {
-    this.setData({
-      conAll: conAll
-    })
-  },
-  onReachBottom () {
-    let con = this.data.conAll.concat(conAll)
-    this.setData({
-      conAll: con
-    })
-  },
-  onShareAppMessage () {
-  }
+  onReady() { },
+  onShow() { },
+  onHide() { },
+  onUnload() { },
+  onPullDownRefresh() {},
+  onReachBottom() {},
+  onShareAppMessage() { }
 })

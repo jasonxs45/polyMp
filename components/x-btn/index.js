@@ -1,5 +1,7 @@
 Component({
-  addGlobalClass: true,
+  options: {
+    addGlobalClass: true
+  },
   properties: {
     imgBg: {
       type: Boolean,
@@ -23,8 +25,9 @@ Component({
       observer(newVal) {
         if (this.properties.imgBg) {
           if (newVal === true) {
+            this.data.classes.push('disabled')
           } else {
-            this.data.classes.splice(this.data.classes.findIndex(item => item === 'disabled'), 1)
+            this.data.classes = this.data.classes.filter(item => item !== 'disabled')
           }
           this.setData({
             classes: this.data.classes
@@ -81,8 +84,8 @@ Component({
     openSetting() { }
   },
   attached() {
+    console.log(this.data.disabled)
     this.data.classes.push(this.properties.type)
-    console.log(this.data.classes)
     if (this.properties.imgBg) {
       this.data.classes.push('imgBg')
     }

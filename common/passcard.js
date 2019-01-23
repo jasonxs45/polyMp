@@ -34,7 +34,7 @@ let _userlist = (MemberID, pageIndex = 1, pageSize = 5) => {
   }
   return query(param)
 }
-// 企业列表
+// 企业待审核列表
 let _companylist = (CompanyID, pageIndex = 1, pageSize = 5) => {
   let param = {
     ERelease_Apply_list: {
@@ -55,6 +55,32 @@ let _companylist = (CompanyID, pageIndex = 1, pageSize = 5) => {
       IsDelete: false,
       page: pageIndex,
       count: pageSize
+    },
+    total_count: ''
+  }
+  return query(param)
+}
+// 企业已审核列表
+let _companypasslist = (CompanyAuditorID, pageIndex = 1, pageSize = 5) => {
+  let param = {
+    ERelease_Apply_list: {
+      CompanyAuditorID, //参数 当前用户ID
+      Status: "!=待企业审核",
+      join: {
+        inner_join: {
+          join: "Office_Company.ID,ERelease_Apply.CompanyID",
+          field: "Name:CompanyName"
+        },
+        inner_join2: {
+          join: "Office_Member.ID,ERelease_Apply.MemberID",
+          field: "Name:MemberName,Tel"
+        }
+      },
+      field: "ID,MemberID,OrderTime,Status,AddTime",
+      order: "AddTime-",
+      IsDelete: false,
+      page: 1,
+      count: 5
     },
     total_count: ''
   }
@@ -122,6 +148,7 @@ export {
   _usersubmit,
   _userlist,
   _companylist,
+  _companypasslist,
   _managerlist,
   _detail,
   _handle,

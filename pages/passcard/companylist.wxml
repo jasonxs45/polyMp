@@ -1,0 +1,36 @@
+<tabs class="actTop" bindchange="tabChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
+    <view class="text {{index === currentIndex ? 'on': ''}}">{{item.name}}</view>
+  </tab-item>
+</tabs>
+<view class="contain">
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="container">
+        <block wx:if="{{list.length > 0}}">
+          <navigator class="card" wx:for="{{list}}" wx:key="tab-item-{{index}}" url="./detail?role=2&id={{item.ID}}">
+            <view class="flex p">
+              <view class="ph">申请人：</view>
+              <view class="pb">{{item.MemberName}}</view>
+            </view>
+            <view class="flex p">
+              <view class="ph">所属公司：</view>
+              <view class="pb">{{item.CompanyName}}</view>
+            </view>
+            <view class="flex p">
+              <view class="ph">提交时间：</view>
+              <view class="pb">{{item.AddTime}}</view>
+            </view>
+            <view class="flex p">
+              <view class="ph">出场时间：</view>
+              <view class="pb">{{item.OrderTime}}</view>
+            </view>
+            <view class="tag {{item.color}}">{{item.Status}}</view>
+          </navigator>
+          <bottom-tip finished="{{finished[currentIndex]}}" />
+        </block>
+        <no-data wx:else />
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

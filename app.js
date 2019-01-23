@@ -5,7 +5,25 @@ App({
     s_key: null,
     uid: null,
     fans: null,
-    member: null
+    member: null,
+    meetingDate: [
+      {
+        "date": "2019年01月14日",
+        "value": [
+          "上午"
+        ]
+      },
+      {
+        "date": "2019年01月15日",
+        "value": [
+          "上午",
+          "下午"
+        ]
+      }
+    ]
+  },
+  updateMeetingDate(meetingDate) {
+    this.globalData.meetingDate = meetingDate
   },
   init() {
     let fans = this.globalData.fans || wx.getStorageSync('fans')
@@ -47,7 +65,7 @@ App({
                     console.log(result)
                     wx.showModal({
                       title: '对不起',
-                      content: result.data.Msg||'网络问题，请稍后再试！',
+                      content: result.data.Msg || '网络问题，请稍后再试！',
                       showCancel: false
                     })
                   }
@@ -92,7 +110,7 @@ App({
       this.fansReadyCb && this.fansReadyCb()
     }
   },
-  checkMember () {
+  checkMember() {
     let member = this.globalData.member || wx.getStorageSync('member')
     if (!member) {
       wx.showModal({
@@ -121,6 +139,6 @@ App({
   },
   toast,
   loading,
-  onLaunch() {},
+  onLaunch() { },
   onShow() { }
 })

@@ -1,0 +1,54 @@
+page{
+  background: #f2f2f2;
+}
+.section{
+  padding: 30rpx;
+  background: #fff;
+}
+.title,
+.user{
+  justify-content: space-between;
+  align-items: center;
+}
+.title .name{
+  font-size: 30rpx;
+}
+.status{
+  background: #ccc;
+  padding:5rpx 15rpx;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+}
+.remark{
+  background: #f2f2f2;
+  color: #333;
+  padding:10rpx;
+  font-size: 26rpx;
+  margin: 30rpx 0;
+}
+.user{
+  color: #666;
+  font-size: 26rpx;
+}
+.time{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.time:first-child{
+  margin-top: 0;
+}
+.time .h{
+  color: #666;
+}
+.time .b{
+  flex: 1;
+}
+.time-item{
+  margin-top: 15rpx;
+}
+.time-item .value{
+  margin-left: 30rpx;
+}
+.time-item:first-child{
+  margin-top: 0;
+}

@@ -147,8 +147,12 @@ Component({
         app.toast('请填写并选择公司')
         return
       }
-      if (!NAME_REG.test(this.data.name)) {
-        app.toast('请填写2-6位中文姓名')
+      // if (!NAME_REG.test(this.data.name)) {
+      //   app.toast('请填写2-6位中文姓名')
+      //   return
+      // }
+      if (!this.data.name.trim()) {
+        app.toast('请填写姓名')
         return
       }
       if (!TEL_REG.test(this.data.tel)) {

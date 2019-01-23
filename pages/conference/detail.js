@@ -1,21 +1,90 @@
-const conMain = {
-  id: '1',
-  img: '../conference/cs.jpg',
-  name: 'P1+P2会议室1',
-  figure: '可容纳150人',
-  address: '武汉市洪山区关山大道322号保利国',
-  text: [
-    { title: '空间设施', html: '<p>P4会议室占地总面积达100平方，位于保利国际中心35楼。商务空间可容纳25人，是决策会议、策略会议的绝佳场地。 满足您的创意交流/研讨培训/大型报告、举办路演、发布会、公司年会/主题演讲、观影、小型话剧/脱口秀等一系列需求。</p>' },
-    { title: '提供服务', html: '<p>配备投影仪显示系统、会议扩声系统。会议集控系统完善，会议室隔音效果好。</p><p>提供电梯内外屏会议通知、独立专用VIP电梯直达会议场所、演讲台、茶水供应、中央空调开放、WiFi全区域覆盖、停车场地等服务（节假日提供特别服务）</p>' }
-  ]
-}
+import { _detail, _dates } from '../../common/meeting'
+import { formatDate } from '../../utils/util'
+const WxParse = require('../../libs/wxParse/wxParse.js')
+const app = getApp()
 Page({
   data: {
-    conAll: '',
-    conMain
+    id: '',
+    detail: null,
+    dates: [],
+    selectedDates: [],
+    selecting: false
+  },
+  totalQuery () {
+    app.loading('加载中')
+    Promise.all([
+      _detail(this.data.id),
+      _dates(this.data.id)
+    ]).then(res => {
+      wx.hideLoading()
+      this.data.detail = res[0].data.Meeting_Room
+      this.data.detail.SlideImg = JSON.parse(this.data.detail.SlideImg)
+      let content = this.data.detail.Introduce
+      WxParse.wxParse('content', 'html', content, this, 0)
+      this.data.dates = res[1].data.Data.map(item => {
+        item.Date = formatDate(new Date(item.Date), 'yyyy年MM月dd日')
+        return item
+      })
+      this.setData({
+        detail: this.data.detail,
+        dates: this.data.dates
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+      wx.showModal({
+        title: '对不起',
+        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        showCancel: false
+      })
+    })
+  },
+  showSelect () {
+    this.setData({
+      selecting: true
+    })
+  },
+  hideSelect() {
+    this.setData({
+      selecting: false
+    })
+  },
+  checkHandler (e) {
+    let index = e.currentTarget.dataset.index
+    let value = e.detail.value
+    if (value.length > 0) {
+      let date = this.data.dates[index].Date
+      let idx = this.data.selectedDates.findIndex(item => item.date === date)
+      if (idx === -1) {
+        this.data.selectedDates.push({
+          date: this.data.dates[index].Date,
+          value
+        })
+      } else {
+        this.data.selectedDates[idx].value = value
+      }
+    }
+  },
+  confirm () {
+    if (this.data.selectedDates.length <= 0) {
+      app.toast("请选择日期!")
+      return
+    }
+    app.updateMeetingDate(this.data.selectedDates)
+    this.hideSelect()
+    wx.navigateTo({
+      url: `./apply?id=${this.data.id}`,
+    })
   },
   onLoad (options) {
-    console.log(options)
+    this.data.id = options.id
+    app.memberReadyCb = () => {
+      this.totalQuery()
+    }
+    app.fansReadyCb = () => {
+      app.checkMember()
+    }
+    app.init()
   },
   onReady () {},
   onShow () {},

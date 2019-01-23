@@ -155,6 +155,31 @@ let _invitelist = (MemberID, pageIndex = 1, pageSize = 5) => {
   }
   return query(param)
 }
+// 租户收到申请列表
+let _staffreceivedlist = (MemberID, pageIndex = 1, pageSize = 5) => {
+  let param = {
+    Visit_Apply_list: {
+      InviteMemberID: MemberID, //参数  当前租户MemberID
+      Type: "申访",
+      join: {
+        inner_join1: {
+          join: "Office_Building.ID,Visit_Apply.BuildingID",
+          field: "Name:BuildingName"
+        },
+        inner_join2: {
+          join: "Office_Company.ID,Visit_Apply.CompanyID",
+          field: "Name:CompanyName"
+        }
+      },
+      order: "AddTime-",
+      IsDelete: false,
+      page: pageIndex,
+      count: pageSize
+    },
+    total_count: ""
+  }
+  return query(param)
+}
 export {
   _visitorsubmit,
   _visitapplylist,
@@ -163,6 +188,7 @@ export {
   _delcontactor,
   _invitesubmit,
   _invitelist,
+  _staffreceivedlist,
   _visitorlist,
   _audit
 }

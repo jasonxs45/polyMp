@@ -13,6 +13,7 @@
     "pages/conference/list",
     "pages/conference/detail",
     "pages/conference/apply",
+    "pages/conference/orderlist",
     "pages/passcard/submit",
     "pages/passcard/list",
     "pages/passcard/detail",
@@ -29,7 +30,6 @@
     "pages/repairuser/detail",
     "pages/repairmanager/list",
     "pages/repairuser/rate",
-    "pages/conference/rule",
     "pages/onlineshops/recordDetail",
     "pages/news/index",
     "pages/news/detail",
@@ -37,7 +37,10 @@
     "pages/myactivities/detail",
     "pages/passcard/scan",
     "pages/regist/audit",
-    "pages/visitapply/audit"
+    "pages/visitapply/audit",
+    "pages/conference/orderdetail",
+    "pages/visitguide/index",
+    "pages/passcard/companylist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

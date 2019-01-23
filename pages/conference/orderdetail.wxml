@@ -1,0 +1,27 @@
+<view class="section">
+  <view class="flex title">
+    <view class="name">{{detail.RoomName}}</view>
+    <view class="status">{{detail.Status}}</view>
+  </view>
+  <view class="remark">{{detail.Remark}}</view>
+  <view class="flex user">
+    <view class="name">{{detail.Name}}</view>
+    <view class="tel">{{detail.Tel}}</view>
+  </view>
+</view>
+<split height="10"/>
+<view class="section">
+  <view class="flex time">
+    <view class="h">使用时间：</view>
+    <view class="b">
+      <view wx:for="{{detail.TimeList}}" wx:key="date-{{index}}" class="time-item">
+        <text>{{item.date}}</text>
+        <text class="value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex time">
+    <view class="h">预约时间：</view>
+    <view class="b">{{detail.AddTime}}</view>
+  </view>
+</view>

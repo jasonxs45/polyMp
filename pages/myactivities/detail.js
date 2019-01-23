@@ -29,6 +29,7 @@ Page({
         applyDetail
       })
     }).catch(err => {
+      console.log(err)
       wx.hideLoading()
       wx.showModal({
         title: '对不起',

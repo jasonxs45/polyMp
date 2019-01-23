@@ -7,7 +7,6 @@ Component({
   data: {
     name: '',
     tel: '',
-    datetimeValue: null,
     backinfo: '',
     visitorCount: 1,
     submitDisabled: false

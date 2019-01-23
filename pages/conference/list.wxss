@@ -44,8 +44,13 @@ page{
   clear: both;
   padding: 0 20rpx;
   font-size:24rpx;
-  font-family:PingFang-TC-Regular;
-  font-weight:400;
   color:rgba(153,153,153,1);
   line-height:30rpx;
+}
+.range{
+  justify-content: space-between;
+}
+.range .con_text{
+  font-size: 26rpx;
+  color: #4d4d4d;
 }

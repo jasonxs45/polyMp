@@ -1,11 +1,14 @@
 <view class="con_list">
-  <view class="con" wx:for="{{conAll}}" wx:key="con-{{index}}" data-id="{{item.id}}" bindtap="jump">
+  <navigator class="con" wx:for="{{list}}" wx:key="con-{{index}}" url="./detail?id={{item.ID}}">
     <view class="con_img">
-      <image mode="widthFix" src="{{item.src}}"></image>
+      <image mode="widthFix" src="{{item.Img}}"></image>
     </view>
-    <view class="con_title">{{item.name}}
-      <text>{{item.figure}}</text>
+    <view class="con_title">{{item.Name}}
+      <text>可容纳{{item.MaxNum}}人</text>
     </view>
-    <view class="con_text">地址：{{item.address}}</view>
-  </view>
+    <view class="flex range">
+      <view class="con_text">上午：{{item.AMTime}}</view>
+      <view class="con_text">下午：{{item.PMTime}}</view>
+    </view>
+  </navigator>
 </view>

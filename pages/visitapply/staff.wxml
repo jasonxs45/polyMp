@@ -48,7 +48,7 @@
   </view>
   <view class="btns">
     <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap='submit'>提交申请</x-btn>
-    <navigator class="torecord" url="/pages/visitrecord/staff">来访记录</navigator>
+    <!-- <navigator class="torecord" url="/pages/visitrecord/staff">来访记录</navigator> -->
   </view>
 </view>
 <view hidden='{{!sidemenuShow}}' class="side-menu">

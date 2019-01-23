@@ -57,7 +57,7 @@ Page({
     Promise.all([
       _bannerlist('首页banner'),
       _goodslist(undefined, undefined, undefined, true),
-      _actlist('unover', 1, 3)
+      _actlist('unover', app.globalData.member.ID, 1, 3)
     ]).then(res => {
       console.log(res)
       wx.hideLoading()

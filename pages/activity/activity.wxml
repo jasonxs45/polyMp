@@ -8,7 +8,7 @@
     <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx">
       <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="container">
         <block wx:if="{{list.length > 0}}">
-          <navigator class="acList" wx:for="{{list}}" wx:key="item+{{idx}}+{{index}}" url="/pages/activity/detail?id={{item.ID}}">
+          <navigator class="acList" wx:for="{{list}}" wx:key="item+{{idx}}+{{index}}" url="/pages/{{item.ApplyID !== null ? 'myactivities':'activity'}}/detail?id={{item.ApplyID !== null ? item.ApplyID:item.ID}}">
             <image mode="aspectFill" src="{{item.SmallImg}}" />
           </navigator>
           <bottom-tip finished="{{finished[currentIndex]}}" />

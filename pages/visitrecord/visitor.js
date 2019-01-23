@@ -173,7 +173,13 @@ Component({
         this.concatList()
       }
     },
-    onLoad(options) {},
+    onLoad(options) {
+      if (!!options.current) {
+        this.setData({
+          currentIndex: options.current
+        })
+      }
+    },
     onReady() { },
     onShow() {
       app.memberReadyCb = () => {

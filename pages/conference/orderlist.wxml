@@ -1,0 +1,21 @@
+<view wx:if="{{list.length > 0}}" class="list-wrapper">
+  <navigator wx:for="{{list}}" wx:key="item-{{index}}" url="./orderdetail?id={{item.ID}}" class="item">
+    <view class="flex line">
+      <view class="name">{{item.RoomName}}</view>
+      <view class="date">{{item.AddTime}}</view>
+    </view>
+    <view class="remark">{{item.Remark}}</view>
+    <view class="status">{{item.Status}}</view>
+    <view class="order-time">
+      <view class="h">预约时间：</view>
+      <view class="b">
+        <view wx:for="{{item.TimeList}}" wx:key="date-{{index}}" wx:for-item="date" wx:for-index="idx" class="flex time-item">
+        <view>{{date.date}}</view>
+        <view class="date-value">{{date.value}}</view>
+      </view>
+      </view>
+    </view>
+  </navigator>
+  <bottom-tip finished="{{finished}}"/>
+</view>
+<no-data wx:else />

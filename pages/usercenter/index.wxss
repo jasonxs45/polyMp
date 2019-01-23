@@ -5,19 +5,29 @@
   padding: 30rpx;
 }
 .avatar {
-  width: 172rpx !important;
-  height: 172rpx !important;
+  width: 160rpx !important;
+  height: 160rpx !important;
   display: block;
   margin: 0 auto;
   border-radius: 50%;
+  border: 1px solid #fff;
 }
 
 .nickname {
   text-align: center;
   font-size: 28rpx;
-  color: #333;
-  margin-top: 30rpx;
+  margin-top: 10rpx;
   line-height: 30rpx;
+}
+.nickbg{
+  display: inline-block;
+  background: #4d4d4d;
+  font-size: 20rpx;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 10rpx;
+  box-shadow: 0 0 2rpx 0 rgba(255,255,255, .3);
 }
 .go-signin{
   position: absolute;
@@ -56,6 +66,7 @@
   border-radius: 12px;
   font-weight: 500;
   padding: 0 10rpx;
+  box-shadow: 0 0 2rpx 0 rgba(255,255,255, .3);
 }
 
 .point-money {

@@ -7,27 +7,17 @@
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
     <swiper-item wx:for="{{lists}}" wx:key="list-{{index}}">
-      <scroll-view
-        wx:if="{{item.length > 0}}"
-        enable-back-to-top
-        scroll-y
-        bindscrolltolower="onReachLower"
-        class="scroll-view"
-      >
-        <template
-          wx:for="{{lists[index]}}"
-          wx:for-index="idx"
-          wx:for-item="card"
-          wx:key="item-{{index}}-{{idx}}"
-          is="card{{currentIndex}}"
-          data="{{card, idx}}" 
-        />
+      <scroll-view wx:if="{{item.length > 0}}" enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="scroll-view">
+        <template wx:for="{{lists[index]}}" wx:for-index="idx" wx:for-item="card" wx:key="item-{{index}}-{{idx}}" is="card{{currentIndex}}" data="{{card, idx}}" />
         <bottom-tip finished="{{finished[currentIndex]}}" />
       </scroll-view>
       <no-data wx:else />
     </swiper-item>
   </swiper>
 </view>
+<!-- <navigator url="/pages/visitapply/staff" class="tosubmit">
+  <x-icon type="plus" />
+</navigator> -->
 <template name="card0">
   <view class="card">
     <view class="flex head">
@@ -48,6 +38,14 @@
           <view class="form-bar">
             <view class="fh">备注：</view>
             <view class="fb">{{card.Remark || '暂无'}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fb">
+              <view wx:if="{{card.SN}}" class="again">
+                再次申访
+                <x-icon type='enter' />
+              </view>
+            </view>
           </view>
         </view>
       </view>
@@ -75,6 +73,36 @@
   </view> -->
 </template>
 <template name="card1">
+  <view class="card">
+    <view class="flex head">
+      <view class="tit">{{card.Name}}</view>
+      <view class="sub-tit">{{card.AddTime}}</view>
+    </view>
+    <view class="body">
+      <view class="qr-detail">
+        <view class="detail" style="border-top:none">
+          <view class="form-bar">
+            <view class="fh">联系方式：</view>
+            <view class="fb">{{card.Tel}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fh">预约时间：</view>
+            <view class="fb">{{card.VisitTime}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fh">备注：</view>
+            <view class="fb">{{card.Remark || '暂无'}}</view>
+          </view>
+          <view class="form-bar">
+            <view class="fh">状态：</view>
+            <view class="fb">{{card.Status}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<template name="card2">
   <view class="card">
     <view class="body">
       <view class="contactor-info">

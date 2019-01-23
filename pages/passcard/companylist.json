@@ -1,12 +1,11 @@
 {
-  "navigationBarTitleText": "访客记录",
+  "navigationBarTitleText": "我的放行单",
   "backgroundColor": "#f2f2f2",
+  "enablePullDownRefresh": true,
   "usingComponents": {
-    "x-icon": "/components/x-icon/index",
     "tabs": "/components/tabs/tabs",
     "tab-item": "/components/tabs/tab-item",
     "bottom-tip": "/components/bottom-tip/index",
     "no-data": "/components/no-data/index"
-  },
-  "enablePullDownRefresh": true
+  }
 }

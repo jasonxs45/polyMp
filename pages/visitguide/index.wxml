@@ -1,0 +1,10 @@
+<view class="navs" wx:if="{{roleType === '访客'}}">
+  <navigator class="nav" url="/pages/visitapply/visitor">我要申访</navigator>
+  <navigator class="nav" url="/pages/visitrecord/visitor">访客记录</navigator>
+  <navigator class="nav" url="/pages/visitrecord/visitor?current=2">常用联系人</navigator>
+</view>
+<view class="navs" wx:if="{{roleType === '租户'}}">
+  <navigator class="nav" url="/pages/visitapply/staff">我要邀访</navigator>
+  <navigator class="nav" url="/pages/visitrecord/staff">访客记录</navigator>
+  <navigator class="nav" url="/pages/visitrecord/staff?current=2">常用联系人</navigator>
+</view>

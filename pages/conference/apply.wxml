@@ -19,14 +19,11 @@
     <view class="form-bar">
       <view class="fh">预约时间</view>
       <view class="fb">
-        <view class="clearable-input" wx:if="{{yuyue.length<=0}}" bindtap="yuyueBut">
-          <text class='color9'>请选择预约时间</text>
-        </view>
-        <view class="con_time flex" wx:for="{{yuyue}}" wx:key="sj-{{index}}" data-id="{{index}}" bindtap="yuyueBut">
-          <text>{{item.rq}}</text>
-          <text>{{item.xq}}</text>
-          <text class="noon {{item.sw ? 'on' : ''}}">上午</text>
-          <text class="noon {{item.xw ? 'on' : ''}}">下午</text>
+        <view class="con_time flex" wx:for="{{selectedDate}}" wx:key="sj-{{index}}">
+          <text>{{item.date}}</text>
+          <view class="cell-group">
+            <text wx:for="{{item.value}}" wx:for-item="value" wx:for-index="idx" wx:key="value-{{idx}}" class="noon">{{value}}</text>
+          </view> 
         </view>
       </view>
     </view>
@@ -45,32 +42,10 @@
           <text>我已阅读</text>
         </label>
       </checkbox-group>
-      <navigator class="nav" url="./rule">《场地使用须知》</navigator>
+      <navigator class="nav" url="/pages/news/detail?id=5">《场地使用须知》</navigator>
     </view>
   </view>
 </view>
 <view class="btns">
-  <x-btn loading='{{submitDisabled}}' disabled='{{notallowed || submitDisabled}}' type='primary' bindtap="tijiao" class="btn">提交申请</x-btn>
-</view>
-<view class="timeMain" wx:if="{{yuyueB}}">
-  <view class="timeMain_bg" bindtap="yuyueBut"></view>
-  <view class="timeContent">
-    <view class="timeContent_c">
-      <view class="up">
-        <x-icon type="caret-up" />
-      </view>
-      <scroll-view scroll-y class="content">
-        <view class="con_time flex" wx:for="{{list}}" wx:key="sj-{{index}}">
-          <text>{{item.rq}}</text>
-          <text>{{item.xq}}</text>
-          <text class="noon {{item.sw ? 'on' : ''}}" bindtap="selectBut" data-id="{{index}}" data-value="1">上午</text>
-          <text class="noon {{item.xw ? 'on' : ''}}" bindtap="selectBut" data-id="{{index}}" data-value="2">下午</text>
-        </view>
-      </scroll-view>
-      <view class="down">
-        <x-icon type="caret-down" />
-      </view>
-    </view>
-  </view>
-  <view class="timeBtn" bindtap="yuyueBut">确认</view>
+  <x-btn loading="{{submitDisabled}}" disabled='{{ notallowed || submitDisabled}}'type='primary' bindtap="submit" class="btn">提交申请</x-btn>
 </view>

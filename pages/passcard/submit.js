@@ -110,10 +110,10 @@ Page({
       app.toast('请选择通行时间！')
       return
     }
-    if (!this.data.description.trim()) {
-      app.toast('备注信息不能为空！')
-      return
-    }
+    // if (!this.data.description.trim()) {
+    //   app.toast('备注信息不能为空！')
+    //   return
+    // }
     this.setData({
       submitDisabled: true
     })

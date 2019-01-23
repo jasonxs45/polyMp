@@ -1,28 +1,14 @@
-const list = [
-  { rq: '11月22日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月23日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月24日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月25日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月26日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月27日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月28日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月29日', xq: '星期四', sw: false, xw: false },
-  { rq: '11月30日', xq: '星期四', sw: false, xw: false },
-  { rq: '12月01日', xq: '星期四', sw: false, xw: false },
-  { rq: '12月02日', xq: '星期四', sw: false, xw: false },
-  { rq: '12月03日', xq: '星期四', sw: false, xw: false },
-  { rq: '12月04日', xq: '星期四', sw: false, xw: false },
-  { rq: '12月05日', xq: '星期四', sw: false, xw: false }
-]
+import { _submit } from '../../common/meeting'
+import { NAME_REG, TEL_REG } from '../../utils/reg'
+const app = getApp()
 Page({
   data: {
     name: '',
     tel: '',
     description: '',
-    yuyue: [],
-    list,
-    yuyueB: false,
-    notallowed: true
+    selectedDate: [],
+    notallowed: true,
+    submitDisabled: false
   },
   nameInput(e) {
     let value = e.detail
@@ -43,51 +29,75 @@ Page({
     })
   },
   allowHandler (e) {
-    console.log(e)
     this.data.notallowed = !this.data.notallowed
     this.setData({
       notallowed: this.data.notallowed
     })
   },
-  tijiao() {
-    wx.showModal({
-      title: '提交成功',
-      content: '恭喜您已提交成功，请耐心等候\r\n我们将尽快为您审核通过',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+  submit() {
+    if (!NAME_REG.test(this.data.name)) {
+      app.toast('请填写2-6位中文姓名')
+      return
+    }
+    if (!TEL_REG.test(this.data.tel)) {
+      app.toast('请填写正确格式的手机号码')
+      return
+    }
+    // if (!this.data.description.trim()) {
+    //   app.toast('请填写备注')
+    //   return
+    // }
+    this.setData({
+      submitDisabled: true
+    })
+    let RoomID = this.data.id
+    let MemberID = app.globalData.member.ID
+    let Name = this.data.name
+    let Tel = this.data.tel
+    let Remark = this.data.description
+    let TimeList = JSON.stringify(this.data.selectedDate)
+    console.log(TimeList)
+    _submit(RoomID, MemberID, Name, Tel, Remark, TimeList).then(res => {
+      this.setData({
+        submitDisabled: false
+      })
+      wx.showModal({
+        title: res.data.IsSuccess?'温馨提示':'对不起',
+        content: res.data.Msg,
+        success: r => {
+          if (r.confirm && res.data.IsSuccess) {
+            wx.navigateTo({
+              url: './orderlist'
+            })
+          }
         }
-      }
+      })
+    }).catch(err => {
+      console.log(err)
+      this.setData({
+        submitDisabled: false
+      })
     })
   },
-  yuyueBut() {
-    let yuyueB = !this.data.yuyueB
+  onLoad (options) {
+    this.data.id = options.id
     this.setData({
-      yuyueB: yuyueB
+      selectedDate: app.globalData.meetingDate
     })
-  },
-  selectBut(e) {
-    if (e.target.dataset.value == 1) {
-      list[e.target.dataset.id].sw = !list[e.target.dataset.id].sw
-    } else {
-      list[e.target.dataset.id].xw = !list[e.target.dataset.id].xw
+    app.memberReadyCb = () => {
+      this.setData({
+        name: app.globalData.member.Name,
+        tel: app.globalData.member.Tel
+      })
     }
-    let yuyue = [];
-    for (let i = 0; i < list.length; i++) {
-      if (list[i].sw || list[i].xw) {
-        yuyue.push(list[i])
-      }
+    app.fansReadyCb = () => {
+      app.checkMember()
     }
-    this.setData({
-      yuyue: yuyue,
-      list: list
-    })
+    app.init()
   },
-  onLoad (options) {},
   onReady () {},
-  onShow () {},
+  onShow () {
+  },
   onHide () {},
   onUnload () {},
   onShareAppMessage () {}
