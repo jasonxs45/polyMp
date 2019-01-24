@@ -26,7 +26,7 @@
   color: #fff;
   border-radius: 12px;
   font-weight: 500;
-  padding: 10rpx;
+  padding: 10rpx 20rpx;
   box-shadow: 0 0 2rpx 0 rgba(255,255,255, .3);
 }
 .go-signin{

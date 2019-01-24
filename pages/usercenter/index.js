@@ -64,24 +64,29 @@ Page({
           let str = 'entries[0][0]'
           let cardClass = ''
           let level = app.globalData.member.Level
-          // level = '黄金'
+          let role = '访客'
+          // level = ''
           switch (level) {
             case '黑金':
               cardClass = 'black'
+              role = level + '会员'
               break;
             case '黄金':
               cardClass = 'yellow'
+              role = level + '会员'
               break;
             case '白金':
               cardClass = 'white'
+              role = level + '会员'
               break;
             default:
               cardClass = 'common'
+              role = '访客'
           }
           this.setData({
             avatar: app.globalData.fans.HeadImgUrl,
             nickname: app.globalData.fans.NickName,
-            role: app.globalData.member.Level + '会员',
+            role,
             cardClass,
             [str]: {
               label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
