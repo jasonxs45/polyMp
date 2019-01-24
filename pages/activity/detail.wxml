@@ -12,7 +12,7 @@
     <text>活动时间: {{detail.PlayStart}}-{{detail.PlayEnd}}</text>
   </view>
 </view>
-<view class="detail detail2">
+<view wx:if="{{detail.Explain}}" class="detail detail2">
   <view class="detail_text_title">活动规则</view>
   <view class="detail_html">
     <view class="nodata" wx:if="{{!detail.Explain}}">暂无内容</view>
@@ -29,6 +29,6 @@
   </view>
 </view>
 <x-btn class="detaliBut" disabled="{{disabled}}" type="primary" bindtap="submit">
-  {{disabled?'已结束':'立即报名'}}
+  {{notstart?'未开始':disabled?'已结束':'立即报名'}}
 </x-btn>
 <import src="/libs/wxParse/wxParse.wxml"/>

@@ -156,6 +156,18 @@ Component({
         }
       })
     },
+    again (e) {
+      let card = e.currentTarget.dataset.card
+      let {
+        BuildingName,
+        CompanyName,
+        InviteName,
+        InviteTel
+      } = card
+      wx.navigateTo({
+        url: `/pages/visitapply/visitor?building=${BuildingName}&company=${CompanyName}&name=${InviteName}&tel=${InviteTel}`
+      })
+    },
     onReachLower() {
       let currentIndex = this.data.currentIndex
       if (this.data.finished[currentIndex]) {

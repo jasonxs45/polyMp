@@ -6,7 +6,8 @@ Page({
   data: {
     id: null,
     detail: {},
-    disabled: true
+    disabled: true,
+    notstart: true
   },
   getDetail () {
     app.loading('加载中')
@@ -14,6 +15,15 @@ Page({
       wx.hideLoading()
       let detail = res.data.Activity_Activity
       let now = Date.now()
+      if (now < new Date(detail.ApplyStart).getTime()) {
+        this.setData({
+          notstart: true
+        })
+      } else {
+        this.setData({
+          notstart: false
+        })
+      }
       if (now > new Date(detail.ApplyStart).getTime() && now < new Date(detail.ApplyEnd).getTime()) {
         this.setData({
           disabled: false

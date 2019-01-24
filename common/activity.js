@@ -35,7 +35,6 @@ let _detail = ID => {
   let param = {
     Activity_Activity: {
       ID,//活动ID
-      Online: true, //已上线
       IsDelete: false, //未删除
       //获取已报名人数 增加以下尚需经
       field_ApplyCount: {

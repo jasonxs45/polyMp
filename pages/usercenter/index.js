@@ -64,7 +64,7 @@ Page({
           let str = 'entries[0][0]'
           let cardClass = ''
           let level = app.globalData.member.Level
-          level = '黄金'
+          // level = '黄金'
           switch (level) {
             case '黑金':
               cardClass = 'black'

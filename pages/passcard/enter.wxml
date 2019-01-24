@@ -1,0 +1,4 @@
+<view class="navs">
+  <navigator class="nav" url="./submit">提交放行单</navigator>
+  <navigator class="nav" url='./{{role == 2 ? "companylist":"list"}}?role={{role}}'>我的放行单</navigator>
+</view>

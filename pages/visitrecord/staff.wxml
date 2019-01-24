@@ -39,10 +39,15 @@
             <view class="fh">备注：</view>
             <view class="fb">{{card.Remark || '暂无'}}</view>
           </view>
+          <split height='1'/>
           <view class="form-bar">
+            <view class="fh">\n</view>
             <view class="fb">
-              <view wx:if="{{card.SN}}" class="again">
-                再次申访
+              <view wx:if="{{card.SN}}" class="again"
+              data-card="{{card}}"
+              bindtap='again'
+              >
+                再次邀访
                 <x-icon type='enter' />
               </view>
             </view>

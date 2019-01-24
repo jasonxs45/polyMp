@@ -141,10 +141,11 @@ swiper-item{
   color: #999;
 }
 .company-name{
-  font-size: 36rpx;
+  font-size: 30rpx;
   color: #333;
   font-weight: 500;
-  padding: 40rpx 0 50rpx;
+  padding: 40rpx 15rpx 50rpx 0;
+  line-height: 1.5;
 }
 .contactor-info .company-name{
   padding:0;
@@ -215,4 +216,5 @@ swiper-item{
   width: 150rpx;
   font-size: 26rpx;
   text-align: right;
+  line-height: 1.5;
 }

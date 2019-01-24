@@ -26,8 +26,12 @@
     </view>
     <view class="body">
       <view class="flex cname">
-        <view class="company-name">武汉矩阵科技</view>
-        <view wx:if="{{card.SN}}" class="again">
+        <view class="company-name">{{card.CompanyName}}</view>
+        <view
+          wx:if="{{card.SN}}"
+          class="again"
+          data-card="{{card}}"
+          bindtap='again'>
           再次申访<x-icon type='enter'/>
         </view>      
       </view>
@@ -58,7 +62,7 @@
       <view class="sub-tit">{{card.AddTime}}</view>
     </view>
     <view class="body">
-      <view class="company-name">武汉矩阵科技</view>
+      <view class="company-name">{{card.CompanyName}}</view>
       <view class="qr-detail">
         <view class="detail {{card.open ? '' : 'hidden'}}">
           <view class="flex invite">

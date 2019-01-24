@@ -11,6 +11,7 @@ Component({
     companies: [],
     buildingSelectIndex: null,
     companySelectIndex: null,
+    buildingName: '',
     companyName: '',
     name: '',
     tel: '',
@@ -25,8 +26,11 @@ Component({
         wx.hideLoading()
         if (res.data.code == 200) {
           this.data.buildings = res.data.Office_Building_list
+          let index = this.data.buildings.findIndex(item => item.Name === this.data.buildingName)
+          index = index === -1 ? 0 : index
           this.setData({
-            buildings: this.data.buildings
+            buildings: this.data.buildings,
+            buildingSelectIndex: index
           })
         }
       }).catch(err => {
@@ -166,6 +170,13 @@ Component({
       })
     },
     onLoad(options) {
+      console.log(options)
+      this.setData({
+        buildingName: options.building || '',
+        companyName: options.company || '',
+        name: options.name || '',
+        tel: options.tel || ''
+      })
     },
     onReady() { },
     onShow() {

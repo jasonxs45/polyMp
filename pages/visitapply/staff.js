@@ -77,6 +77,10 @@ Component({
       })
     },
     onLoad(options) {
+      this.setData({
+        name: options.name || '',
+        tel: options.tel || ''
+      })
       app.memberReadyCb = () => {
       }
       app.fansReadyCb = () => {

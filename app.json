@@ -40,7 +40,8 @@
     "pages/visitapply/audit",
     "pages/conference/orderdetail",
     "pages/visitguide/index",
-    "pages/passcard/companylist"
+    "pages/passcard/companylist",
+    "pages/passcard/enter"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
