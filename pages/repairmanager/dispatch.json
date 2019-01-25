@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "分配",
+  "backgroundColor": "#f2f2f2",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "x-icon": "/components/x-icon/index",
+    "x-btn": "/components/x-btn/index"
+  }
+}

@@ -19,8 +19,10 @@
       <view class="count">*{{item.count}}</view>
     </view>
   </view>
-  <view class="remarks">备注</view>
-  <view class="remarksText">{{detail.Remark}}</view>
+  <block wx:if="{{detail.Remark}}">
+    <view class="remarks">备注</view>
+    <view class="remarksText">{{detail.Remark}}</view>
+  </block>
   <view class="remarksTime flex p">
     <view class="ph">提交时间</view>
     <view class="pb">{{detail.OrderTime}}</view>

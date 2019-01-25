@@ -1,0 +1,30 @@
+<tabs class="tabs" bindchange="tabChange" current="{{currentIndex}}">
+  <tab-item class="tab-item" wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
+    <view class="text {{index === currentIndex ? 'active': ''}}">{{item}}</view>
+  </tab-item>
+</tabs>
+<view class="content">
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx" class="list-wrapper">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower"  class="scroll-view">
+        <view wx:if="{{list.length > 0}}" class="scroll-area">
+          <navigator wx:for="{{list}}" wx:key="item-{{idx}}-{{index}}" url="./detail?role=2&id={{item.ID}}&state={{currentIndex}}" class="card">
+            <view class="head flex">
+              <view class="tit">{{item.CompanyName}}</view>
+              <view class="date">{{item.AddTime}}</view>
+            </view>
+            <split class="line" height="1" />
+            <view class="body">
+              <text class="desc">{{item.Description}}</text>
+              <view class="tags">
+                <view class="tag">{{item.TypeName}}</view>
+              </view>
+            </view>
+          </navigator>
+          <bottom-tip finished="{{finished[currentIndex]}}" />
+        </view>
+        <no-data wx:else />
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,57 @@
+<view class="detail-page {{ padding ? 'padding':''}}">
+  <view class="card section">
+    <view class="title">{{detail.CompanyName}}</view>
+    <view class="date">{{detail.AddTime}}</view>
+    <split class="line" height="2" />
+    <view class="desc">{{detail.Description}}</view>
+    <img-row class="imgrow" readonly group="{{detail.Img}}" />
+    <split class="line" height="1" />
+    <view class="tags">
+      <view class="tag">{{detail.TypeName}}</view>
+    </view>
+  </view>
+  <split />
+  <block wx:if="{{steps.length > 0}}">
+    <view class="section">
+      <view class="sub-tit">处理进度</view>
+      <view class="steps-wrapper">
+        <view wx:for="{{steps}}" wx:key="step-{{index}}" class="step flex">
+          <view class="circle">
+            <view class="cir"></view>
+          </view>
+          <view class="content">
+            <view class="date">{{item.AddTime}}</view>
+            <view class="flex handler">
+              <view class="ph name">处理人：{{item.StaffName}}</view>
+              <view class="pb tel">
+                <text>{{item.StaffTel}}</text>
+              </view>
+            </view>
+            <view class="desc">
+              <text class="depart">{{item.Department}}</text>
+            </view>
+            <view wx:if="{{item.Content}}" class="handle-reply">{{item.Content}}</view>
+            <img-row wx:if="{{item.ImgUrl.length > 0}}" class="reply-imgrow" readonly group="{{item.ImgUrl}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <split />
+  </block>
+</view>
+<view wx:if="{{roleName === '客服' && detail.Status !== '已完成'}}" class="btns {{padding ?'padding': ''}}">
+  <navigator url="./dispatch?role={{role}}&id={{id}}" class="btn">
+    <x-btn type="primary" class="btn">分配处理人</x-btn>
+  </navigator>
+  <navigator wx:if="{{detail.Status === '待回复'}}" url="./dispatch?role={{role}}&id={{id}}&reply=true" class="btn">
+    <x-btn type="default" class="btn">回复客户</x-btn>
+  </navigator>
+</view>
+<view wx:if="{{roleName === '处理人' && state == 0 }}" class="btns {{padding ?'padding': ''}}">
+  <navigator url="./dispatch?role={{role}}&id={{id}}" class="btn">
+    <x-btn type="primary" class="btn">分配处理人</x-btn>
+  </navigator>
+  <navigator url="./dispatch?role={{role}}&id={{id}}&reply=true" class="btn">
+    <x-btn type="default" class="btn">处理完成</x-btn>
+  </navigator>
+</view>

@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-miniprogram-computed@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/miniprogram-computed/-/miniprogram-computed-0.0.6.tgz#c8fc83517a1394ee436838a2bb266ec4ab58da2f"
-  integrity sha512-J47fQ+nM9hP+GHq8la5b1UvW+sxbkdy09Lf3tl+jQtxFBsDUScHoDjBqk7Dytn9REuxir4n5pomAG9/7gNEsiA==
+miniprogram-computed@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/miniprogram-computed/-/miniprogram-computed-0.0.7.tgz#183c9f99c32aa8f40f49f4861671021185aa72df"
+  integrity sha512-K3yvBGHPI7IYjaqd92i3+b9gV8j1OpfewBgATcue4LbdcC7n8hIyzITy9fvhj6lHm8oxtTpxRratAq+U6neWaw==

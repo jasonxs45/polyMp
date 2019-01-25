@@ -1,0 +1,22 @@
+<view class="dispatch">
+  <view class="section">
+    <block wx:if="{{reply === false}}">
+    <view class="title">请选择处理人</view>
+    <picker range='{{handlers}}' range-key='Name' value='{{index}}' bindchange='handlerSelect'>
+      <view class="flex select">
+        <view wx:if="{{index !== null}}">
+          {{handlers[index].Name + '-' + handlers[index].Tel}}
+        </view>
+        <view wx:else class="placeholder">请选择处理人</view>
+        <view class="icon">
+          <x-icon type="caret-down" />
+        </view>
+      </view>
+    </picker>
+    </block>
+    <textarea class="textarea" placeholder='请填写处理意见' bindinput='textareaChange'></textarea>
+  </view>
+</view>
+<view class="btns">
+  <x-btn disabled="{{disabled}}" type="primary" bindtap="submit">确定</x-btn>
+</view>

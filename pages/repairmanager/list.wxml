@@ -1,38 +1,40 @@
 <tabs class="tabs" bindchange="tabChange" current="{{currentIndex}}">
-  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" class="tab-item">
-    <view class="text {{currentIndex === index ? 'active': ''}}">{{item.text}}</view>
+  <tab-item class="tab-item" wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
+    <view class="text {{index === currentIndex ? 'active': ''}}">{{item}}</view>
   </tab-item>
 </tabs>
 <view class="content">
   <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
-    <swiper-item wx:for="{{lists}}" wx:key="swiper-item-{{index}}" class="list-wrapper">
-      <navigator
-        wx:for="{{item}}"
-        wx:for-index="idx"
-        wx:key="index-{{idx}}"
-        url="./detail?id={{1}}"
-        class="card"
-      >
-        <view wx:if="{{index==='finishList'}}" class="mark">
-          待评价
+    <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx" class="list-wrapper">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower"  class="scroll-view">
+        <view wx:if="{{list.length > 0}}" class="scroll-area">
+          <navigator wx:for="{{list}}" wx:key="item-{{idx}}-{{index}}" url="./detail?role=1&id={{item.ID}}" class="card">
+            <view class="head flex">
+              <view class="tit">{{item.CompanyName}}</view>
+              <view class="date">{{item.AddTime}}</view>
+            </view>
+            <split class="line" height="1" />
+            <view class="body">
+              <text class="desc">{{item.Description}}</text>
+              <view class="tags">
+                <view class="tag">{{item.TypeName}}</view>
+              </view>
+            </view>
+          </navigator>
+          <bottom-tip finished="{{finished[currentIndex]}}" />
         </view>
-        <view class="head flex">
-          <view class="tit">
-          武汉市木仓科技有限公司
-          </view>
-          <view class="date">2018-03-13 12:11</view>
-        </view>
-        <split class="line" height="1" />
-        <view class="body">
-          <text class="desc">办公室的墙面墙纸大面积脱落，过道的天花板有渗水现象，烦请尽快安排维修人员处理。</text>
-          <view class="tags">
-            <view class="tag">墙面</view>
-            <view class="tag">墙墙面</view>
-            <view class="tag">墙墙墙面</view>
-            <view class="tag">墙面</view>
-          </view>
-        </view>
-      </navigator>
+        <no-data wx:else />
+      </scroll-view>
     </swiper-item>
   </swiper>
+</view>
+<view class="assign" hidden='{{!assign}}'>
+  <view class="assignM">
+    <view>受理</view>
+    <split class="line" height="2" />
+    <view>
+      <navigator url='./refuse'>拒接</navigator>
+    </view>
+    <view bindtap='cancel'>取消</view>
+  </view>
 </view>

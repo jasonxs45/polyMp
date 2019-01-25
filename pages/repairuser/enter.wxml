@@ -1,0 +1,4 @@
+<view class="navs">
+  <navigator class="nav" url="./submit">提交报修投诉</navigator>
+  <navigator class="nav" url='./list'>报修投诉记录</navigator>
+</view>

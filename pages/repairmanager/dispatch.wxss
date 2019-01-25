@@ -1,0 +1,50 @@
+page{
+  background: #f2f2f2;
+}
+.dispatch{
+  min-height: 100vh;
+  padding-bottom: 180rpx;
+}
+.section{
+  padding: 30rpx;
+  background: #fff;
+}
+.select{
+  background: #f2f2f2;
+  padding: 30rpx 15rpx;
+  font-size: 30rpx;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+  color: #333;
+  border-radius: 4rpx;
+}
+.select .icon{
+  width: 60rpx;
+  text-align: right;
+  color: #888;
+}
+.select  .placeholder{
+  color: #888;
+}
+.title{
+  font-size: 28rpx;
+  color: #333;
+  margin: 30rpx 0;
+}
+.textarea{
+  display: block;
+  width: 100%;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  background: #f2f2f2;
+  padding: 30rpx;
+  line-height: 1.5;
+  border-radius: 4rpx;
+}
+.btns{
+  position: relative;
+  padding:30rpx;
+  height: 180rpx;
+  margin-top: -180rpx;
+}

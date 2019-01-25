@@ -28,8 +28,11 @@
     "pages/repairuser/submit",
     "pages/repairuser/list",
     "pages/repairuser/detail",
-    "pages/repairmanager/list",
     "pages/repairuser/rate",
+    "pages/repairmanager/list",
+    "pages/repairmanager/detail",
+    "pages/repairmanager/dispatch",
+    "pages/repairmanager/handlerslist",
     "pages/onlineshops/recordDetail",
     "pages/news/index",
     "pages/news/detail",
@@ -41,7 +44,8 @@
     "pages/conference/orderdetail",
     "pages/visitguide/index",
     "pages/passcard/companylist",
-    "pages/passcard/enter"
+    "pages/passcard/enter",
+    "pages/repairuser/enter"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

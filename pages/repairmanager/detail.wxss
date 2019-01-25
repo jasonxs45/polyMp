@@ -1,0 +1,173 @@
+page{
+  background: #f2f2f2;
+}
+.detail-page{
+  min-height: 100vh;
+  padding-bottom: -180rpx;
+}
+.detail-page.padding{
+  min-height: 100vh;
+  padding-bottom: 300rpx;
+}
+.section{
+  padding: 30rpx;
+  background: #fff;
+}
+.imgrow {
+  display: block;
+  margin-top: 30rpx;
+}
+.card .title{
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 500;
+}
+.card .date{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.card .line{
+  margin-top: 28rpx;
+  display: block;
+}
+.card .desc{
+  color: #333;
+  font-size: 26rpx;
+  line-height: 34rpx;
+  display: block;
+  margin-top: 18rpx;
+}
+.card .tags{
+  margin:15rpx -15rpx;
+  font-size: 0;
+}
+.card .tags .tag{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  margin: 15rpx 15rpx 0;
+}
+.sub-tit{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 500;
+  line-height: 34rpx;
+  margin-top: 10rpx;
+}
+.steps-wrapper{
+  margin-top: 30rpx;
+}
+.step .circle{
+  width:50rpx;
+  margin-left: 5rpx;
+  position: relative;
+}
+.step .circle .cir{
+  position: absolute;
+  top:0;
+  left: 50%;
+  margin-left: -17rpx;
+  z-index: 1;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  border:1px solid #4d4d4d;
+  background: #fff;
+}
+.step .content{
+  flex:1;
+  margin-left: 18rpx;
+  padding-top: 8rpx;
+  padding-bottom: 90rpx;
+}
+.step:last-child .content{
+  padding-bottom: 30rpx
+}
+.step .date{
+  font-size: 24rpx;
+  color: #999;
+}
+.step .desc{
+  font-size: 26rpx;
+  color: #666;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+.step .desc .depart{
+  color: #333;
+  font-weight: 500;
+}
+.step .circle::after{
+  content: '';
+  display: block;
+  position: relative;
+  width: 1px;
+  height: 100%;
+  background: #4d4d4d;
+  margin: 0 auto;
+}
+.step:last-child .circle::after{
+  display: none;
+}
+.step:first-child .circle .cir{
+  width: 46rpx;
+  height: 46rpx;
+  margin-left: -23rpx;
+  padding: 3rpx;
+}
+.step:first-child .circle .cir::before{
+  content: '';
+  display: block;
+  background: #4d4d4d;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.handle-reply{
+  font-size: 22rpx;
+  background: #f5f5f5;
+  padding: 15rpx;
+  border-radius: 8rpx;
+  margin-top: 15rpx;
+}
+.reply-imgrow{
+  display: block;
+  padding: 15rpx;
+  margin-top: 15rpx;
+}
+.reply-imgrow .cell image{
+  width: 100rpx !important;
+  height: 100rpx !important;
+}
+.handler{
+  font-size: 24rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  color: #666;
+}
+.handler .tel{
+  text-align: right;
+}
+.btns{
+  height: 180rpx;
+  position: relative;
+  margin-top: -180rpx;
+  padding: 30rpx;
+}
+.btns.padding{
+  height: 300rpx;
+  margin-top: -300rpx;
+}
+.btns .btn{
+  display: block;
+  margin-top: 30rpx
+}
+.btns .btn:first-child{
+  margin-top: 0;
+}

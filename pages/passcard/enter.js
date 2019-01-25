@@ -1,12 +1,9 @@
 // pages/passcard/enter.js
 Page({
   data: {
-    role: null
+    role: 1
   },
   onLoad (options) {
-    this.setData({
-      role: options.role
-    })
   },
   onReady () {},
   onShow () {},

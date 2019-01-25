@@ -15,15 +15,15 @@ Page({
   totalQuery() {
     app.loading('加载中')
     let promise = null
-    if (this.data.role === '租户') {
-      promise = Promise.resolve(_userlist(app.globalData.member.ID, this.data.pageIndex, this.data.pageSize))
-    }
-    if (this.data.role === '企业') {
-      promise = Promise.resolve(_companylist(app.globalData.member.CompanyID, this.data.pageIndex, this.data.pageSize))
-    }
-    if (this.data.role === '区管') {
-      promise = Promise.resolve(_managerlist( this.data.pageIndex, this.data.pageSize))
-    }
+    // if (this.data.role === '租户') {
+    promise = Promise.resolve(_userlist(app.globalData.member.ID, this.data.pageIndex, this.data.pageSize))
+    // }
+    // if (this.data.role === '企业') {
+    //   promise = Promise.resolve(_companylist(app.globalData.member.CompanyID, this.data.pageIndex, this.data.pageSize))
+    // }
+    // if (this.data.role === '区管') {
+    //   promise = Promise.resolve(_managerlist( this.data.pageIndex, this.data.pageSize))
+    // }
     promise.then(res => {
       wx.stopPullDownRefresh()
       wx.hideLoading()
@@ -55,15 +55,15 @@ Page({
   },
   concatList() {
     let promise = null
-    if (this.data.role === '租户') {
-      promise = Promise.resolve(_userlist(app.globalData.member.ID, this.data.pageIndex, this.data.pageSize))
-    }
-    if (this.data.role === '企业') {
-      promise = Promise.resolve(_companylist(app.globalData.member.CompanyID, this.data.pageIndex, this.data.pageSize))
-    }
-    if (this.data.role === '区管') {
-      promise = Promise.resolve(_managerlist(this.data.pageIndex, this.data.pageSize))
-    }
+    // if (this.data.role === '租户') {
+    promise = Promise.resolve(_userlist(app.globalData.member.ID, this.data.pageIndex, this.data.pageSize))
+    // }
+    // if (this.data.role === '企业') {
+    //   promise = Promise.resolve(_companylist(app.globalData.member.CompanyID, this.data.pageIndex, this.data.pageSize))
+    // }
+    // if (this.data.role === '区管') {
+    //   promise = Promise.resolve(_managerlist(this.data.pageIndex, this.data.pageSize))
+    // }
     promise.then(res => {
       let list
       list = res.data.ERelease_Apply_list.map(item => {

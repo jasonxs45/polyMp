@@ -2,6 +2,13 @@ import { _usersubmit as _submit } from '../../common/passcard'
 import { _uploadFile } from '../../common/uploadFile'
 import { rootUrl } from '../../common/config'
 const app = getApp()
+let now = new Date()
+let nowYear = now.getFullYear()
+let nowMonth = now.getMonth() + 1
+let nowDate = now.getDate()
+let nowHour = now.getHours()
+let nowMinute = '00' + now.getMinutes()
+nowMinute = nowMinute.substr(nowMinute.length - 2)
 Page({
   data: {
     goodsArr: [
@@ -11,7 +18,7 @@ Page({
         count: '',
       }
     ],
-    datetimeValue: null,
+    datetimeValue: `${nowYear}-${nowMonth}-${nowDate} ${nowHour}:${nowMinute}`,
     description: '',
     submitDisabled: false
   },
