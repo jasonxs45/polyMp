@@ -77,10 +77,18 @@ let _recordDetail = (memberid, id) => {
   }
   return query(param)
 }
+// 礼品核销
+let _sign = (SN, UnionID) => {
+  return fetch(
+    'WebApi.ashx?Act=TicketSign',
+    { SN, UnionID }
+  )
+}
 export {
   _list,
   _detail,
   _exchange,
   _record,
-  _recordDetail
+  _recordDetail,
+  _sign
 }

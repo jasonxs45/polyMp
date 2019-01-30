@@ -23,7 +23,7 @@ Component({
     ],
     pageIndexes: [1, 1, 1],
     pageSize: 4,
-    states: ['待受理', '已受理', '已完成'],
+    states: ['待受理', '处理中', '已完成'],
     finished: [false, false, false],
     totalCount: [null, null, null]
   },

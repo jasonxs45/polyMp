@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "navigationBarTitleText": "活动签到",
+  "usingComponents": {
+    "x-btn": "/components/x-btn/index"
+  }
+}

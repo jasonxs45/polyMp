@@ -21,11 +21,13 @@ Page({
         goods
       })
     }).catch(err => {
+      console.log(err)
       wx.stopPullDownRefresh()
       wx.hideLoading()
       wx.showModal({
         title: '对不起',
-        content: JSON.stringify(err) || '网络错误，请稍后再试',
+        // content: JSON.stringify(err) || '网络错误，请稍后再试',
+        content: err,
         showCancel: false
       })
     })
@@ -42,7 +44,14 @@ Page({
             wx.showModal({
               title: res.data.IsSuccess ? '恭喜您' : '对不起',
               content: res.data.Msg,
-              showCancel: false
+              showCancel: false,
+              success: r => {
+                if (res.data.IsSuccess && r.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/onlineshops/record'
+                  })
+                }
+              }
             })
           }).catch(err => {
             console.log(err)

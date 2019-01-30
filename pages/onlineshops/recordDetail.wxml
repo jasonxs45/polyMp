@@ -6,7 +6,9 @@
 </view>
 <split height="10"/>
 <view class="qrcode">
+  <view wx:if="{{goods.Used}}" class="yhx">状态：已核销</view>
   <image class="code" src="{{code}}"/>
+  <view class="code-num">NO.{{goods.TicketContent}}</view>
   <view class="exchange-date">兑换时间：{{goods.AddTime}}</view>
 </view>
 <split height="10"/>

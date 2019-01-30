@@ -1,7 +1,7 @@
 const entries = [
   [
     { label: '申访记录', icon: './visit.png', url: '/pages/visitrecord/visitor' },
-    { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
+    //{ label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
   ],
   [
     { label: '我的活动', icon: './activities.png', url: '/pages/myactivities/list' },

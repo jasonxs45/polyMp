@@ -44,7 +44,7 @@
 }
 .detail .content{
   margin-top: 10rpx;
-  padding: 30rpx 10rpx 0;
+  padding: 30rpx 10rpx;
   font-size: 24rpx !important;
   color: #666 !important;
   line-height: 34rpx !important;
@@ -70,9 +70,19 @@
   padding: 3rpx;
   margin: 30rpx auto;
 }
+.code-num{
+  font-size:24rpx;
+  color:#333333;
+  line-height:34rpx;
+  text-align: center;
+}
 .exchange-date{
   color: #333;
   font-size: 24rpx;
   text-align: center;
   margin: 30rpx auto;
+}
+.yhx{
+  text-align: center;
+  font-size: 30rpx;
 }

@@ -54,6 +54,10 @@ page {
   background: #cccccc;
   margin: 0 auto 30rpx;
 }
+.detail_rem .yhx{
+  padding-bottom: 30rpx;
+  font-size: 30rpx;
+}
 .detail_rem text{
   font-size:24rpx;
   color:#333333;

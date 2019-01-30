@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "navigationBarTitleText": "卡券核销",
+  "usingComponents": {
+    "x-btn": "/components/x-btn/index"
+  }
+}

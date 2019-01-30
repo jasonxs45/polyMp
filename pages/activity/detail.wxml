@@ -8,8 +8,11 @@
     </view>
   </view>
   <view class="detail_text">
-    <text>报名时间: {{detail.ApplyStart}}-{{detail.ApplyEnd}}</text>
-    <text>活动时间: {{detail.PlayStart}}-{{detail.PlayEnd}}</text>
+    <text>报名开始时间: {{detail.ApplyStart}}</text>
+    <text>报名截至时间: {{detail.ApplyEnd}}</text>
+    <text style='border-bottom:2rpx solid rgba(0,0,0,0.0972);'></text>
+    <text>活动开始时间: {{detail.PlayStart}}</text>
+    <text>活动结束时间: {{detail.PlayEnd}}</text>
   </view>
 </view>
 <view wx:if="{{detail.Explain}}" class="detail detail2">

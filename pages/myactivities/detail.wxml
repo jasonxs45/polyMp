@@ -8,6 +8,7 @@
   </view>
 </view>
 <view class="detail detail_rem">
+  <view wx:if="{{applyDetail.SignIn}}" class="yhx">状态：已核销</view>
   <image mode="widthFix" src="{{applyDetail.qrimg}}"></image>
   <text>NO.{{applyDetail.SN}}</text>
 </view>

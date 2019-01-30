@@ -16,13 +16,13 @@
 .nickname {
   text-align: center;
   font-size: 28rpx;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   line-height: 30rpx;
 }
 .nickbg{
   display: inline-block;
   background: #4d4d4d;
-  font-size: 20rpx;
+  font-size: 24rpx;
   color: #fff;
   border-radius: 12px;
   font-weight: 500;
@@ -48,9 +48,10 @@
 .edit {
   display: inline-block;
   vertical-align: middle;
-  padding: 0 10rpx 0 5rpx;
+  padding: 0 5rpx 0 5rpx;
 }
 .edit image{
+  margin-left: 5rpx;
   width: 30rpx;
   height: 30rpx;
 }

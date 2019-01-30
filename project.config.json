@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 41,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
@@ -84,7 +84,7 @@
 					"id": 6,
 					"name": "我的活动详情",
 					"pathName": "pages/myactivities/detail",
-					"query": "id=2"
+					"query": "id=13"
 				},
 				{
 					"id": 13,
@@ -96,7 +96,7 @@
 					"id": 8,
 					"name": "积分商城兑换记录详情",
 					"pathName": "pages/onlineshops/recordDetail",
-					"query": "id=1"
+					"query": "id=38"
 				},
 				{
 					"id": 17,
@@ -126,7 +126,7 @@
 					"id": 13,
 					"name": "积分商城商品详细",
 					"pathName": "pages/onlineshops/detail",
-					"query": "id=13"
+					"query": "id=21"
 				},
 				{
 					"id": 14,
@@ -138,7 +138,7 @@
 					"id": 15,
 					"name": "圈层活动详情",
 					"pathName": "pages/activity/detail",
-					"query": "id=2"
+					"query": "id=1"
 				},
 				{
 					"id": 4,
@@ -243,7 +243,7 @@
 					"query": "role=2"
 				},
 				{
-					"id": 30,
+					"id": 33,
 					"name": "电子放行单详情",
 					"pathName": "pages/passcard/detail",
 					"query": "role=4&id=6"
@@ -294,6 +294,18 @@
 					"id": -1,
 					"name": "处理人报修列表",
 					"pathName": "pages/repairmanager/handlerslist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "活动签到",
+					"pathName": "pages/activity/scan",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "礼品核销",
+					"pathName": "pages/onlineshops/scan",
 					"query": ""
 				}
 			]

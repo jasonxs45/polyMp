@@ -45,7 +45,9 @@
     "pages/visitguide/index",
     "pages/passcard/companylist",
     "pages/passcard/enter",
-    "pages/repairuser/enter"
+    "pages/repairuser/enter",
+    "pages/activity/scan",
+    "pages/onlineshops/scan"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

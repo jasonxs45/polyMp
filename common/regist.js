@@ -55,6 +55,7 @@ let _registlist = (pageIndex = 1, pageSize = 5) => {
           field: "Name:CompanyName"
         }
       },
+      order: "AddTime",
       page: pageIndex,
       count: pageSize
     },

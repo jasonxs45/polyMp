@@ -40,7 +40,7 @@
         <view class="fh">姓名</view>
         <view class="fb flex">
           <view class="clearable-input">
-            <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+            <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入您的真实姓名，以便租户身份审核' />
           </view>
         </view>
       </view>

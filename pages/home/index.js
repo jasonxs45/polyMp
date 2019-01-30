@@ -1,8 +1,8 @@
-import { fetch } from '../../common/api'
 import { _homelist } from '../../common/menus'
 import { _list as _bannerlist } from '../../common/banner'
 import { _list as _goodslist }  from '../../common/shop'
 import { _list as _actlist } from '../../common/activity'
+import { _ad } from '../../common/ad'
 const entries = [
   {
     icon: './visitapply.png',
@@ -37,7 +37,9 @@ Page({
     actList: [],
     goodsList: [],
     entries: [],
-    power: null
+    power: null,
+    ad: null,
+    adshow: true
   },
   getList () {
     let member = app.globalData.member || wx.getStorageSync('member')
@@ -57,7 +59,8 @@ Page({
     Promise.all([
       _bannerlist('首页banner'),
       _goodslist(undefined, undefined, undefined, true),
-      _actlist('unover', app.globalData.member.ID, 1, 3)
+      _actlist('unover', app.globalData.member.ID, 1, 3),
+      _ad()
     ]).then(res => {
       console.log(res)
       wx.hideLoading()
@@ -67,10 +70,16 @@ Page({
       let actList = res[2].data.Activity_Activity_list
       // 商品列表
       let goodsList = res[1].data.Shop_Goods_list
+      // 广告
+      let ad = {
+        img: res[3].data.Data.image,
+        url: res[3].data.Data.url
+      }
       this.setData({
         banners,
         goodsList,
-        actList
+        actList,
+        ad
       })
     }).catch(err => {
       console.log(err)
@@ -80,6 +89,16 @@ Page({
         content: JSON.stringify(err) || '网络错误，请稍后再试',
         showCancel: false
       })
+    })
+  },
+  adLoaded () {
+    this.setData({
+      adshow: true
+    })
+  },
+  hideAd () {
+    this.setData({
+      adshow: false
     })
   },
   onLoad() {

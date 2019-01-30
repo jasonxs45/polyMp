@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "积分中心",
+  "navigationBarTitleText": "积分商城",
   "backgroundColor": "#fff",
   "usingComponents": {
     "x-icon": "/components/x-icon/index",

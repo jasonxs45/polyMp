@@ -27,7 +27,7 @@ Component({
         if (res.data.code == 200) {
           this.data.buildings = res.data.Office_Building_list
           let index = this.data.buildings.findIndex(item => item.Name === this.data.buildingName)
-          index = index === -1 ? 0 : index
+          index = index === -1 ? null : index
           this.setData({
             buildings: this.data.buildings,
             buildingSelectIndex: index
@@ -145,7 +145,9 @@ Component({
       let contactor = this.data.contactList[index]
       this.data.name = contactor.Name
       this.data.tel = contactor.Tel
-      this.data.buildingSelectIndex = this.data.buildings.findIndex(item => item.ID === contactor.BuildingID)
+      let bindex = this.data.buildings.findIndex(item => item.ID === contactor.BuildingID)
+      bindex = bindex === -1 ? null : bindex
+      this.data.buildingSelectIndex = bindex
       this.data.companyName = contactor.CompanyName
       _getCompanyList(contactor.BuildingID).then(res => {
         if (res.data.code == 200) {

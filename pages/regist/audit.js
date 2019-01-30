@@ -42,6 +42,7 @@ Page({
       this.data.pageIndex,
       this.data.pageSize
     ).then(res => {
+      console.log(res)
       this.data.list = this.data.list.concat(res.data.Office_MemberApply_list)
       this.setData({
         list: this.data.list

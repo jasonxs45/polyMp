@@ -1,0 +1,2 @@
+<image class="bg" src="/images/ad.png" />
+<x-btn type="primary" class="btn" bindtap="openScan">点击扫码</x-btn>

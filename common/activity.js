@@ -84,10 +84,18 @@ let _mydetail = (ID, MemberID) => {
   }
   return query(param)
 }
+// 活动签到
+let _sign = (SN, UnionID) => {
+  return fetch(
+    'WebApi.ashx?Act=ApplySign',
+    {SN, UnionID}
+  )
+}
 export {
   _list,
   _detail,
   _submit,
   _mylist,
-  _mydetail
+  _mydetail,
+  _sign
 }
