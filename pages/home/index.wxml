@@ -51,7 +51,7 @@
 <view class="bottom-line flex">
   <view class="text">我是有底线的</view>
 </view>
-<view wx:if="{{adshow}}" class="ad-wrapper">
+<view wx:if="{{ad&&adshow}}" class="ad-wrapper">
   <view class="bg" bindtap='hideAd'></view>
   <view class="ad">
     <navigator class='adimg' url="{{ad.url}}">

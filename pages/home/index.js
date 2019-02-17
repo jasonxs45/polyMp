@@ -71,9 +71,12 @@ Page({
       // 商品列表
       let goodsList = res[1].data.Shop_Goods_list
       // 广告
-      let ad = {
-        img: res[3].data.Data.image,
-        url: res[3].data.Data.url
+      let ad = null
+      if (res[3].data.Data) {
+        ad = {
+          img: res[3].data.Data.image,
+          url: res[3].data.Data.url
+        }
       }
       this.setData({
         banners,
