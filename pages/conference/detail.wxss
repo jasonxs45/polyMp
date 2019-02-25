@@ -112,6 +112,9 @@ page {
   width: 100% !important;
   height: 100% !important;
 }
+.checkbox-cell .checkbox[disabled]+.text {
+  background: #ddd;
+}
 .checkbox-cell .text{
   display: inline-block;
   width: 100%;

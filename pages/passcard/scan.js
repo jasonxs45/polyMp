@@ -39,7 +39,9 @@ Page({
   onLoad (options) {
     this.data.role = options.role
   },
-  onReady () {},
+  onReady () {
+    this.openScan()
+  },
   onShow () {},
   onHide () {},
   onUnload () {},

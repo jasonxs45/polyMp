@@ -70,7 +70,12 @@
 <view hidden='{{!fixed}}' class="sortbar"></view>
 <view wx:if="{{list.length > 0}}" class="list-wrapper">
   <navigator wx:for="{{list}}" wx:key="cell-{{index}}" url="./detail?id={{item.ID}}" class="cell">
-    <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
+    <view class='img'>
+      <view wx:if='{{item.State !== "正常"}}' class='disable'>
+        已抢光
+      </view>
+      <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
+    </view>
     <view class="detail">
       <view class="title">{{item.Name}}</view>
       <view class="info">

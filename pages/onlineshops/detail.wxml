@@ -13,5 +13,5 @@
     <view wx:else class="nodata">暂无内容</view>
   </view>
 </view>
-<x-btn class="submit" type="primary" bindtap="exchange">立即兑换</x-btn>
+<x-btn disabled='{{goods.State !== "正常"}}' class="submit" type="primary" bindtap="exchange">{{goods.State === "正常"?"立即兑换":goods.State}}</x-btn>
 <import src="/libs/wxParse/wxParse.wxml"/>

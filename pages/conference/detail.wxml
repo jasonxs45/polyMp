@@ -36,11 +36,11 @@
           <text>{{item.Week}}</text>
           <checkbox-group class="cell-group" data-index="{{index}}" bindchange="checkHandler">
             <label class="checkbox-cell">
-              <checkbox value='上午' class="checkbox"/>
+              <checkbox value='上午' class="checkbox" disabled='{{item.AM === false}}'/>
               <text class="text">上午</text>
             </label>
             <label class='checkbox-cell'>
-              <checkbox value='下午' class="checkbox"/>
+              <checkbox value='下午' class="checkbox" disabled='{{item.PM === false}}'/>
               <text class="text">下午</text>
             </label>
           </checkbox-group>
