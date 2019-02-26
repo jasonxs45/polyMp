@@ -36,7 +36,12 @@
   </view>
   <view class="list-wrapper">
     <navigator wx:for="{{goodsList}}" wx:key="cell-{{index}}" url="/pages/onlineshops/detail?id={{item.ID}}" class="cell">
-      <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
+      <view class='img'>
+        <view wx:if='{{item.State !== "正常"}}' class='disable'>
+          已抢光
+        </view>
+        <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
+      </view>
       <view class="detail">
         <view class="tit">{{item.Name}}</view>
         <view class="info">
@@ -55,8 +60,8 @@
   <view class="bg" bindtap='hideAd'></view>
   <view class="ad">
     <navigator class='adimg' url="{{ad.url}}">
-      <image src="{{ad.img}}" bindload='adLoaded' mode="widthFix" binderror='hideAd'/>
+      <image src="{{ad.img}}" bindload='adLoaded' mode="widthFix" binderror='hideAd' />
     </navigator>
-    <icon type="cancel" size="40" color="rgb(177,36,25)" bindtap='hideAd'/>
+    <icon type="cancel" size="40" color="rgb(177,36,25)" bindtap='hideAd' />
   </view>
 </view>
