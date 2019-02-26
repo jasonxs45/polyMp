@@ -55,7 +55,7 @@
       <view class="fh">备注</view>
       <view class="fb flex">
         <view class="clearable-textarea">
-          <textarea placeholder="在此输入您要备注的文字" bindinput="textChange" />
+          <textarea placeholder="在此输入您要备注的文字" bindinput="textChange" value='{{description}}' />
         </view>
       </view>
     </view>

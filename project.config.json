@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 44,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -244,16 +244,18 @@
 					"query": ""
 				},
 				{
-					"id": 32,
+					"id": 33,
 					"name": "电子放行单列表",
 					"pathName": "pages/passcard/list",
-					"query": "role=2"
+					"query": "role=1",
+					"scene": null
 				},
 				{
-					"id": 33,
+					"id": 34,
 					"name": "电子放行单详情",
 					"pathName": "pages/passcard/detail",
-					"query": "role=4&id=6"
+					"query": "role=1&id=20",
+					"scene": null
 				},
 				{
 					"id": 31,

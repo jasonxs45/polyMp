@@ -3,10 +3,10 @@ import { fetch, query } from 'api'
  *         电子放行单
  ==========================*/
 //  租户提交
-let _usersubmit = (MemberID, Goods, OrderTime, Remark) => {
+let _usersubmit = (ID = 0, MemberID, Goods, OrderTime, Remark) => {
   return fetch(
     'WebApi.ashx?Act=AddERelease',
-    { MemberID, Goods, OrderTime, Remark }
+    { ID, MemberID, Goods, OrderTime, Remark }
   )
 }
 // 租户列表

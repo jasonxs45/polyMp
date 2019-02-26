@@ -37,6 +37,7 @@
   </view>
   <split height="10" />
 </block>
+<!-- 企业审批结果 -->
 <block wx:if="{{detail.CompanyAuditTime}}">
   <view class="result">
     <view class="title">企业审批结果</view>
@@ -55,6 +56,7 @@
   </view>
   <split height="10" />
 </block>
+<!-- 区管审批结果 -->
 <block wx:if="{{detail.AuditTime}}">
   <view class="result">
     <view class="title">区管审批结果</view>
@@ -73,6 +75,7 @@
   </view>
   <split height="10" />
 </block>
+<!-- 保安审批结果 -->
 <block wx:if="{{detail.PassTime}}">
   <view class="result">
     <view class="title">保安审批结果</view>
@@ -94,10 +97,10 @@
 <block wx:if="{{detail.Status === '已放行'}}">
   <view class="result">
     <view class="title">保安审批照片</view>
-     <split height="2" />
-     <view class="result-info">
+    <split height="2" />
+    <view class="result-info">
       <img-row class="img-row" readonly group="{{detail.PassImg}}" />
-     </view>
+    </view>
   </view>
 </block>
 <block wx:if="{{detail.showBtns}}">
@@ -122,3 +125,9 @@
     </view>
   </block>
 </block>
+<!-- 租户重新提交 -->
+  <view wx:if='{{detail.again}}' class="btns">
+    <navigator class="btn" url='./submit?id={{id}}'>
+      <x-btn class="btn" type="primary">重新提交</x-btn>
+    </navigator>
+  </view>

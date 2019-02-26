@@ -19,6 +19,8 @@ Page({
     _detail(this.data.id).then(res => {
       wx.hideLoading()
       let detail = res.data.ERelease_Apply
+      // 是否可重新提交
+      detail.again = this.data.role === "租户" && detail.Status.includes("拒绝")
       detail.showBtns = detail.Status !== '已放行' && !detail.Status.includes('拒绝')
       detail.Goods = JSON.parse(detail.Goods)
       detail.OrderTime = detail.OrderTime && formatDate(new Date(detail.OrderTime), 'yyyy年MM月dd日 hh:mm')
@@ -147,11 +149,11 @@ Page({
     })
   },
   onLoad(options) {
-    console.log(options)
     let index = options.role - 1
     this.data.role = roles[index]
     this.data.id = options.id
     this.setData({
+      id: this.data.id,
       role: this.data.role
     })
     app.memberReadyCb = () => {
