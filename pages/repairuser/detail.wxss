@@ -3,7 +3,8 @@ page{
 }
 .detail-page.padding{
   min-height: 100vh;
-  padding-bottom: 180rpx;
+  /* padding-bottom: 180rpx; */
+  padding-bottom: 30rpx;
 }
 .section{
   padding: 30rpx;
@@ -146,7 +147,7 @@ page{
 .btns{
   height: 180rpx;
   position: relative;
-  margin-top: -180rpx;
+  /* margin-top: -180rpx; */
   padding: 30rpx;
 }
 .rate-texts{
