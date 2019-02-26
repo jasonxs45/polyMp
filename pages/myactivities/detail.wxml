@@ -2,6 +2,9 @@
 <view class="detail">
   <view class="detail_title">
     <view class="detail_title_t1">{{detail.Name}}</view>
+    <view class="detail_title_t2 flex">
+      <text class="desc">已有{{detail.ApplyCount}}人报名</text>
+    </view>
   </view>
   <view class="detail_text">
     <text>活动时间: {{detail.PlayStart}}-{{detail.PlayEnd}}</text>

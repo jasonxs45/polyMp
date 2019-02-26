@@ -79,7 +79,11 @@ let _mydetail = (ID, MemberID) => {
       MemberID //会员ID
     },
     Activity_Activity: {
-      ID: "from#Activity_Apply.ActivityID"
+      ID: "from#Activity_Apply.ActivityID",
+      field_ApplyCount: {
+        field: "Activity_Apply.ID.count",
+        ActivityID: "from#Activity_Apply.ActivityID"
+      }
     }
   }
   return query(param)

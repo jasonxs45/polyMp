@@ -110,3 +110,8 @@ page {
 .nodata{
   text-align: center;
 }
+.detail_title_t2 .desc{
+  font-size:24rpx;
+  color:#666666;
+  display: block;
+}
