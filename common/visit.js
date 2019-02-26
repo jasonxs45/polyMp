@@ -116,6 +116,13 @@ let _contactorlist = (MemberID, pageIndex = 1, pageSize = 5) => {
   }
   return query(param)
 }
+// 编辑常用联系人
+let _modify = (MemberID, ContactsID, CompanyID = 0, InviteName, InviteTel) => {
+  return fetch(
+    'WebApi.ashx?Act=EditContacts',
+    { MemberID, ContactsID, CompanyID, InviteName, InviteTel }
+  )
+}
 // 删除常用联系人
 let _delcontactor = (MemberID, ContactsID) => {
   return fetch(
@@ -185,6 +192,7 @@ export {
   _visitapplylist,
   _visitreceivedlist,
   _contactorlist,
+  _modify,
   _delcontactor,
   _invitesubmit,
   _invitelist,

@@ -39,14 +39,11 @@
             <view class="fh">备注：</view>
             <view class="fb">{{card.Remark || '暂无'}}</view>
           </view>
-          <split height='1'/>
+          <split height='1' />
           <view class="form-bar">
             <view class="fh">\n</view>
             <view class="fb">
-              <view wx:if="{{card.SN}}" class="again"
-              data-card="{{card}}"
-              bindtap='again'
-              >
+              <view wx:if="{{card.SN}}" class="again" data-card="{{card}}" bindtap='again'>
                 再次邀访
                 <x-icon type='enter' />
               </view>
@@ -113,11 +110,19 @@
       <view class="contactor-info">
         <view class="info">
           <view class="company-name">{{card.Name}}</view>
-          <view class="building-name">{{card.Tel}}</view>
+          <view class="building-name">
+            <tel tel='{{card.Tel}}' />
+          </view>
         </view>
       </view>
     </view>
     <view class="foot">
+      <navigator class="edit"
+      url='/pages/modifycontactor/index?id={{card.ID}}&role=租户&building={{card.BuildingName}}&company={{card.CompanyName}}&name={{card.Name}}&tel={{card.Tel}}'>
+        <button class="edit">
+          <x-icon type="edit" />编辑
+        </button>
+      </navigator>
       <button class="del" data-id="{{card.ID}}" bindtap="delContactor">
         <x-icon type="del" />删除</button>
     </view>

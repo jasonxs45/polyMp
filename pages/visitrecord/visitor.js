@@ -122,6 +122,12 @@ Component({
         [str]: !open
       })
     },
+    goModify (e) {
+      let id = e.currentTarget.dataset.id
+      wx.navigateTo({
+        url: `/pages/modifycontactor/index?id=${id}`
+      })
+    },
     delContactor (e) {
       let id = e.currentTarget.dataset.id
       wx.showModal({

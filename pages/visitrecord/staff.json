@@ -6,6 +6,7 @@
     "split": "/components/split/index",
     "tabs": "/components/tabs/tabs",
     "tab-item": "/components/tabs/tab-item",
+    "tel": "/components/tel/index",
     "bottom-tip": "/components/bottom-tip/index",
     "no-data": "/components/no-data/index"
   },

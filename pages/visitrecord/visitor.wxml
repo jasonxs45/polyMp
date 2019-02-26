@@ -27,13 +27,10 @@
     <view class="body">
       <view class="flex cname">
         <view class="company-name">{{card.CompanyName}}</view>
-        <view
-          wx:if="{{card.SN}}"
-          class="again"
-          data-card="{{card}}"
-          bindtap='again'>
-          再次申访<x-icon type='enter'/>
-        </view>      
+        <view wx:if="{{card.SN}}" class="again" data-card="{{card}}" bindtap='again'>
+          再次申访
+          <x-icon type='enter' />
+        </view>
       </view>
       <view class="qr-detail">
         <view wx:if="{{!card.SN}}" class="flex status">
@@ -90,14 +87,21 @@
     <view class="body">
       <view class="contactor-info">
         <view class="info">
-          <view class="company-name">{{card.CompanyName}}</view>
-          <view class="building-name">{{card.BuildingName}}</view>
+          <view wx:if="{{card.CompanyName}}" class="company-name">{{card.CompanyName}}</view>
+          <view wx:if="{{card.BuildingName}}" class="building-name">{{card.BuildingName}}</view>
         </view>
       </view>
     </view>
     <view class="foot">
+      <navigator class="edit"
+      url='/pages/modifycontactor/index?id={{card.ID}}&role=访客&building={{card.BuildingName}}&company={{card.CompanyName}}&name={{card.Name}}&tel={{card.Tel}}'>
+        <button class="edit">
+          <x-icon type="edit" />编辑
+        </button>
+      </navigator>
       <button class="del" data-id="{{card.ID}}" bindtap="delContactor">
-        <x-icon type="del" />删除</button>
+        <x-icon type="del" />删除
+      </button>
     </view>
   </view>
 </template>

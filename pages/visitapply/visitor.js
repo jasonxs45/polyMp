@@ -31,6 +31,10 @@ Component({
           this.setData({
             buildings: this.data.buildings,
             buildingSelectIndex: index
+          }, () => {
+            if (this.data.companyName) {
+              this.getCompanyList()
+            }
           })
         }
       }).catch(err => {
@@ -47,8 +51,12 @@ Component({
       _getCompanyList(id).then(res => {
         if (res.data.code == 200) {
           this.data.allCompanies = res.data.Office_Company_list
+          let index = this.data.allCompanies.findIndex(item => item.Name === this.data.companyName)
+          index = index === -1 ? null : index
           this.setData({
-            allCompanies: this.data.allCompanies
+            allCompanies: this.data.allCompanies,
+            companies: this.data.allCompanies,
+            companySelectIndex: index
           })
         }
       }).catch(err => {

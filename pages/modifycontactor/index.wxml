@@ -6,11 +6,11 @@
           <view class="fh">写字楼</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <picker class="input select" range='{{buildings}}' range-key='name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
-                <text wx:if="{{buildingSelectIndex !== null}}">
-                  {{buildings[buildingSelectIndex].name}}
-                </text>
-                <text wx:else class="placeholder">请选择写字楼</text>
+              <picker class="input select" range='{{buildings}}' range-key='Name' value='{{buildingSelectIndex}}' bindchange='buildingSelect'>
+                <view class="text" wx:if="{{buildingSelectIndex !== null}}">
+                  {{buildings[buildingSelectIndex].Name}}
+                </view>
+                <view wx:else class="text placeholder">请选择写字楼</view>
                 <view class="icon">
                   <x-icon type="caret-down" />
                 </view>
@@ -22,7 +22,7 @@
           <view class="fh">公司</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='name' bindselect='companySelect' />
+              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='Name' bindselect='companySelect' />
             </view>
           </view>
         </view>
@@ -43,15 +43,15 @@
           </view>
         </view>
       </view>
-      <view wx:if="{{role === '员工' }}" class="main-wrapper visitor-wrapper">
-        <view class="form-bar">
+      <view wx:if="{{role === '租户' }}" class="main-wrapper visitor-wrapper">
+        <!-- <view class="form-bar">
           <view class="fh">公司</view>
           <view class="fb flex">
             <view class="clearable-input">
               <x-input clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入公司名称' />
             </view>
           </view>
-        </view>
+        </view> -->
         <view class="form-bar">
           <view class="fh">姓名</view>
           <view class="fb flex">
@@ -72,6 +72,6 @@
     </view>
   </scroll-view>
   <view class="btns">
-    <button loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn">确认</button>
+    <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' bindtap='submit' class="btn">确认</x-btn>
   </view>
 </view>
