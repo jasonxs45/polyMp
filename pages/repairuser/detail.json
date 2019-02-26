@@ -6,6 +6,7 @@
     "split": "/components/split/index",
     "star": "/components/star/index",
     "x-btn": "/components/x-btn/index",
+    "tel": "/components/tel/index",
     "img-row": "/components/imgrow/img-row"
   }
 }

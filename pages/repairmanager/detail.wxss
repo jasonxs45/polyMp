@@ -171,3 +171,10 @@ page{
 .btns .btn:first-child{
   margin-top: 0;
 }
+.p{
+  justify-content: space-between;
+  align-items: center;
+  margin: 15rpx 0;
+  font-size: 28rpx;
+  color: #666;
+}

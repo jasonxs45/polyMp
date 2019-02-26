@@ -1,0 +1,3 @@
+.tel{
+  text-decoration: underline;
+}

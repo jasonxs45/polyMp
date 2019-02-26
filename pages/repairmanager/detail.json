@@ -5,6 +5,7 @@
   "usingComponents": {
     "split": "/components/split/index",
     "star": "/components/star/index",
+    "tel": "/components/tel/index",
     "x-btn": "/components/x-btn/index",
     "img-row": "/components/imgrow/img-row"
   }

@@ -1,6 +1,10 @@
 <view class="detail-page {{detail.FinishTime && detail.EvaluateTime === null ?'padding': ''}}">
   <view class="card section">
     <view class="title">{{detail.CompanyName}}</view>
+    <view class='p flex'>
+      <view class='ph'>{{detail.Name}}</view>
+      <view class='pb'>{{detail.Tel}}</view>
+    </view>
     <view class="date">{{detail.AddTime}}</view>
     <split class="line" height="2" />
     <view class="desc">{{detail.Description}}</view>

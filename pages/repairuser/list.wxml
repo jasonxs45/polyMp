@@ -29,7 +29,7 @@
           </navigator>
           <bottom-tip finished="{{finished}}"/>
         </view>
-        <no-data wx:esle />
+        <no-data wx:else />
       </scroll-view>
     </swiper-item>
   </swiper>

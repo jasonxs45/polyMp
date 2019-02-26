@@ -1,6 +1,12 @@
 <view class="detail-page {{ padding ? 'padding':''}}">
   <view class="card section">
     <view class="title">{{detail.CompanyName}}</view>
+    <view class='p flex'>
+      <view class='ph'>{{detail.Name}}</view>
+      <view class='pb'>
+        <tel tel='{{detail.Tel}}' />
+      </view>
+    </view>
     <view class="date">{{detail.AddTime}}</view>
     <split class="line" height="2" />
     <view class="desc">{{detail.Description}}</view>
@@ -24,7 +30,7 @@
             <view class="flex handler">
               <view class="ph name">处理人：{{item.StaffName}}</view>
               <view class="pb tel">
-                <text>{{item.StaffTel}}</text>
+                <tel tel='{{item.StaffTel}}' />
               </view>
             </view>
             <view class="desc">
