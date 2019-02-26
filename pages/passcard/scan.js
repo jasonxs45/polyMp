@@ -40,6 +40,7 @@ Page({
     this.data.role = options.role
   },
   onReady () {
+    // 自动打开
     this.openScan()
   },
   onShow () {},
