@@ -2,6 +2,20 @@ import { fetch, query } from 'api'
 /**==========================
  *           活动
  ==========================*/
+//  首页活动列表
+let _homelist = () => {
+  let param = {
+    Activity_Activity_list: {
+      Online: true, //已上线
+      IsDelete: false, //未删除
+      field: "ID,Name,SmallImg,ApplyEnd,PlayEnd,Sort", //查询字段
+      PlayEnd: ">#time_now",
+      order: "Sort", //默认排序
+      top: 2 //首页只显示6条
+    }
+  }
+  return query(param)
+}
 // 活动列表
 let _list = (over, MemberID, pageIndex = 1, pageSize = 5) => {
   let playend = ''
@@ -97,6 +111,7 @@ let _sign = (SN, UnionID) => {
 }
 export {
   _list,
+  _homelist,
   _detail,
   _submit,
   _mylist,

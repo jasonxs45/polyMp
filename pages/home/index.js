@@ -1,7 +1,7 @@
 import { _homelist } from '../../common/menus'
 import { _list as _bannerlist } from '../../common/banner'
 import { _list as _goodslist }  from '../../common/shop'
-import { _list as _actlist } from '../../common/activity'
+import { _homelist as _actlist } from '../../common/activity'
 import { _ad } from '../../common/ad'
 const entries = [
   {
@@ -59,7 +59,7 @@ Page({
     Promise.all([
       _bannerlist('首页banner'),
       _goodslist(undefined, undefined, undefined, true),
-      _actlist('unover', app.globalData.member.ID, 1, 3),
+      _actlist(),
       _ad()
     ]).then(res => {
       console.log(res)
@@ -108,6 +108,7 @@ Page({
     app.memberReadyCb = () => {
     }
     app.fansReadyCb = () => {
+      console.log(app.globalData)
       this.totalQuery()
       this.getList()
     }
