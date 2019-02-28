@@ -41,7 +41,8 @@
           <view class="content">
             <view class="date">{{item.AddTime}}</view>
             <view class="desc">
-              <text class="depart">【{{item.Department}}】</text>{{item.ArriveDuration}}</view>
+              <text class="depart">{{item.Department}}</text>{{item.ArriveDuration}}</view>
+            <view wx:if="{{item.Content}}" class="handle-reply">{{item.Content}}</view>
           </view>
         </view>
       </view>

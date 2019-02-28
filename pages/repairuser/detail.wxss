@@ -166,3 +166,10 @@ page{
   font-size: 28rpx;
   color: #666;
 }
+.handle-reply{
+  font-size: 22rpx;
+  background: #f5f5f5;
+  padding: 15rpx;
+  border-radius: 8rpx;
+  margin-top: 15rpx;
+}

@@ -14,18 +14,22 @@ Component({
         target: 'handleList'
       },
       {
+        text: '待评价',
+        target: 'evaluateList'
+      },
+      {
         text: '已完成',
         target: 'finishList'
       }
     ],
     lists: [
-      [], [], []
+      [], [], [], []
     ],
-    pageIndexes: [1, 1, 1],
+    pageIndexes: [1, 1, 1, 1],
     pageSize: 4,
-    states: ['待受理', '处理中', '已完成'],
-    finished: [false, false, false],
-    totalCount: [null, null, null]
+    states: ['待受理', '处理中', '待评价', '已完成'],
+    finished: [false, false, false, false],
+    totalCount: [null, null, null, null]
   },
   methods: {
     tabChange(e) {
@@ -133,9 +137,9 @@ Component({
     onUnload() { },
     onPullDownRefresh() {
       this.setData({
-        pageIndexes: [1, 1, 1],
-        finished: [false, false, false],
-        totalCount: [null, null, null]
+        pageIndexes: [1, 1, 1, 1],
+        finished: [false, false, false, false],
+        totalCount: [null, null, null, null]
       })
       this.totalQuery()
     },

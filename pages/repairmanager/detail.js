@@ -20,7 +20,7 @@ Component({
       } else {
         console.log(this.data.roleName, this.data.detail.Status)
         if (this.data.roleName === '客服') {
-          if (this.data.detail.Status === '待受理') {
+          if (this.data.detail.Status === '待受理' || this.data.detail.Status === '待评价') {
             bool = false
           } else {
             bool = true

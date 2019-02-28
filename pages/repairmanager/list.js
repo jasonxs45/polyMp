@@ -3,13 +3,13 @@ import { formatDate } from '../../utils/util'
 const app = getApp()
 Component({
   data: {
-    lists: [[], [], []],
-    tabMenus: ['待受理', '待回复', '已完成'],
+    lists: [[], [], [], []],
+    tabMenus: ['待受理', '待回复', '待评价', '已完成'],
     currentIndex: 0,
-    pageIndexes: [1, 1, 1],
+    pageIndexes: [1, 1, 1, 1],
     pageSize: 4,
-    finished: [false, false, false],
-    totalCount: [null, null, null]
+    finished: [false, false, false, false],
+    totalCount: [null, null, null, null]
   },
   methods: {
     tabChange(e) {
@@ -106,9 +106,9 @@ Component({
     },
     onReady() { },
     onShow() {
-      this.data.finished = [false, false, false]
-      this.data.pageIndexes = [1, 1, 1]
-      this.data.totalCount = [null, null, null]
+      this.data.finished = [false, false, false, false]
+      this.data.pageIndexes = [1, 1, 1, 1]
+      this.data.totalCount = [null, null, null, null]
       app.memberReadyCb = () => {
         this.totalQuery()
       }
@@ -120,9 +120,9 @@ Component({
     onHide() { },
     onUnload() { },
     onPullDownRefresh() {
-      this.data.finished = [false, false, false]
-      this.data.pageIndexes = [1, 1, 1]
-      this.data.totalCount = [null, null, null]
+      this.data.finished = [false, false, false, false]
+      this.data.pageIndexes = [1, 1, 1, 1]
+      this.data.totalCount = [null, null, null, null]
       this.setData({
         finished: this.data.finished,
         lists: this.data.lists
