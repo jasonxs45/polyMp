@@ -186,6 +186,7 @@ page{
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
   transition: height .2s;
   overflow: hidden;
+  z-index: 10;
 }
 .drop-menu .common-sortby{
   font-size: 26rpx;
@@ -355,7 +356,7 @@ page{
   height: 100%;
   top:0;
   left:0;
-  z-index:1;
+  z-index:100;
 }
 .success .bg{
   width: 100%;
