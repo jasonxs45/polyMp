@@ -12,7 +12,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.0",
+	"libVersion": "2.6.1",
 	"appid": "wx0d84f26eb0336e5b",
 	"projectname": "polyMp",
 	"debugOptions": {
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 33,
+			"current": 47,
 			"list": [
 				{
 					"id": 0,
@@ -196,36 +196,6 @@
 					"query": ""
 				},
 				{
-					"id": 29,
-					"name": "会务预约列表",
-					"pathName": "pages/conference/list",
-					"query": ""
-				},
-				{
-					"id": 34,
-					"name": "会务预约详细",
-					"pathName": "pages/conference/detail",
-					"query": "id=2"
-				},
-				{
-					"id": 25,
-					"name": "会务预约申请",
-					"pathName": "pages/conference/apply",
-					"query": "id=2"
-				},
-				{
-					"id": -1,
-					"name": "会务预约订单列表",
-					"pathName": "pages/conference/orderlist",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "会务预约订单详情",
-					"pathName": "pages/conference/orderdetail",
-					"query": "id=2"
-				},
-				{
 					"id": 26,
 					"name": "企业快讯",
 					"pathName": "pages/news/index",
@@ -316,6 +286,62 @@
 					"name": "修改联系人",
 					"pathName": "pages/modifycontactor/index",
 					"query": "id=9&role=访客",
+					"scene": null
+				},
+				{
+					"id": 40,
+					"name": "会务预约会议室列表",
+					"pathName": "pages/conference/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "会务预约会议室详细",
+					"pathName": "pages/conference/detail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 42,
+					"name": "用户会务预约提交申请",
+					"pathName": "pages/conference/apply",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "用户会务预约订单列表",
+					"pathName": "pages/conference/orderlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "用户会务预约订单详情",
+					"pathName": "pages/conference/orderdetail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 45,
+					"name": "会务预约管理员详情",
+					"pathName": "pages/conferenceauditor/detail",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会务预约管理员列表",
+					"pathName": "pages/conferenceauditor/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 47,
+					"name": "会务预约管理员详情编辑",
+					"pathName": "pages/conferenceauditor/edit",
+					"query": "id=8&roomid=2",
 					"scene": null
 				}
 			]

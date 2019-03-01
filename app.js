@@ -7,19 +7,19 @@ App({
     fans: null,
     member: null,
     meetingDate: [
-      {
-        "date": "2019年01月14日",
-        "value": [
-          "上午"
-        ]
-      },
-      {
-        "date": "2019年01月15日",
-        "value": [
-          "上午",
-          "下午"
-        ]
-      }
+      // {
+      //   "date": "2019年01月14日",
+      //   "value": [
+      //     "上午"
+      //   ]
+      // },
+      // {
+      //   "date": "2019年01月15日",
+      //   "value": [
+      //     "上午",
+      //     "下午"
+      //   ]
+      // }
     ]
   },
   updateMeetingDate(meetingDate) {

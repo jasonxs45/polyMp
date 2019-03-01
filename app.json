@@ -47,7 +47,10 @@
     "pages/passcard/enter",
     "pages/repairuser/enter",
     "pages/activity/scan",
-    "pages/onlineshops/scan"
+    "pages/onlineshops/scan",
+    "pages/conferenceauditor/list",
+    "pages/conferenceauditor/detail",
+    "pages/conferenceauditor/edit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

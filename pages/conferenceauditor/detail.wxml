@@ -1,0 +1,50 @@
+<image class='thumb' mode='widthFix' src='{{detail.Img}}' />
+<view class="section">
+  <view class="flex title">
+    <view class="name">{{detail.RoomName}}</view>
+    <view class="status">{{detail.Status}}</view>
+  </view>
+  <view class="remark">{{detail.Remark}}</view>
+  <view class="flex user">
+    <view class="name">{{detail.Name}}</view>
+    <view class="tel">
+      <tel tel='{{detail.Tel}}' />
+    </view>
+  </view>
+</view>
+<split height="10" />
+<view class="section">
+  <view class="flex time">
+    <view class="h">使用时间：</view>
+    <view class="b">
+      <view wx:for="{{detail.TimeList}}" wx:key="date-{{index}}" class="time-item flex">
+        <view>{{item.date}}</view>
+        <view class="value">{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="flex time">
+    <view class="h">预约时间：</view>
+    <view class="b">{{detail.AddTime}}</view>
+  </view>
+</view>
+<split height="10" />
+<view class='section'>
+  <view class='flex price'>
+    <view class='ph'>订单金额：</view>
+    <view class='pb'>￥
+      <text>{{price}}</text>
+    </view>
+  </view>
+</view>
+<block wx:if='{{detail.Status === "待支付"}}'>
+  <view class='btns'>
+    <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>
+    <x-btn class='btn' type='primary' bindtap='confirmPay'>设置为已支付</x-btn>
+    <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
+  </view>
+</block>
+<view wx:if='{{detail.Status === "待审核"}}' class='btns'>
+  <x-btn class='btn' type='primary' bindtap='audit'>审核通过</x-btn>
+  <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
+</view>

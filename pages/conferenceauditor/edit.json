@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "修改订单",
+  "usingComponents": {
+    "x-input": "/components/x-input/index",
+    "x-btn": "/components/x-btn/index",
+    "x-icon": "/components/x-icon/index",
+    "split": "/components/split/index",
+    "tel": "/components/tel/index"
+  }
+}

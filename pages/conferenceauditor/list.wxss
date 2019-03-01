@@ -1,0 +1,137 @@
+page{
+  background: #f2f2f2;
+}
+.content {
+  padding-top: 80rpx;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.tabs {
+  color: #888;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  justify-content: space-between;
+  box-shadow: 0 0 2rpx 0 rgba(0,0,0,.2);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  height: inherit;
+  line-height: inherit;
+}
+
+.tab-item .text {
+  color: #999;
+  font-size: 26rpx;
+  height: inherit;
+  line-height: inherit;
+}
+.tab-item .text.active{
+  color: #333;
+}
+.scroll-view{
+  height: 100%;
+}
+.scroll-area{
+  padding:0;
+}
+.item{
+  background: #fff;
+  padding: 30rpx;
+  margin: 30rpx;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.line{
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  margin-top: 10rpx;
+}
+.name{
+  font-size: 26rpx;
+}
+.remark{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background: #f2f2f2;
+  padding: 10rpx;
+  margin: 30rpx 0;
+}
+.date{
+  font-size: 26rpx;
+}
+.order-time{
+  margin-top: 20rpx;
+}
+.order-time .h{
+  font-size: 26rpx;
+}
+.time-item{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 15rpx;
+  justify-content: space-between;
+}
+.date-value{
+  margin-left: 30rpx;
+}
+.applier{
+  font-size: 28rpx;
+  justify-content: space-between;
+  color: #333;
+}
+.assign{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background:rgba(0,0,0,0.4);
+  z-index: 100;
+}
+.assignM{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #F5F5F5;
+}
+.assignM>view{
+  display: block;
+  width: 100%;
+  background: #fff;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size:34rpx;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.assignM>view navigator{
+  display: block;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.assignM .line{
+  margin-top: 2rpx;
+  display: block;
+}
+.assignM>view:last-child{
+  margin-top: 20rpx;
+}

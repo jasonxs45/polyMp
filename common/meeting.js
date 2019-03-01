@@ -1,6 +1,6 @@
 import { fetch, query } from 'api'
 /**==========================
- *           会务预约
+ *         用户会务预约
  ==========================*/
 //  会议室列表
 let _roomlist = () => {
@@ -33,7 +33,7 @@ let _dates = ID => {
 let _submit = (RoomID, MemberID, Name, Tel, Remark, TimeList) => {
   return fetch(
     'WebApi.ashx?Act=ReserveMeeting',
-    { RoomID, MemberID, Name, Tel, Remark, TimeList}
+    { RoomID, MemberID, Name, Tel, Remark, TimeList }
   )
 }
 // 订单列表
@@ -65,12 +65,80 @@ let _orderdetail = ID => {
       join: {
         inner_join: {
           join: "Meeting_Room.ID,Meeting_Apply.RoomID",
-          field: "Name:RoomName"
+          field: "Name:RoomName,Img"
         }
       }
     }
   }
   return query(param)
+}
+/**==========================
+ *       管理员会务预约
+ ==========================*/
+//  查询列表
+let _auditlist = (status, pageIndex, pageSize) => {
+  let param = {
+    Meeting_Apply_list: {
+      IsDelete: false,
+      order: "AddTime-",
+      Status: status, //状态包括(待审核、待支付、已完成、已取消)
+      join: {
+        inner_join: {
+          join: "Meeting_Room.ID,Meeting_Apply.RoomID",
+          field: "Name:RoomName"
+        }
+      },
+      page: pageIndex, //当前页码
+      count: pageSize //每页条数
+    },
+    total_count: ""
+  }
+  return query(param)
+}
+// 取消订单
+let _cancel = (ID, UnionID) => {
+  return fetch(
+    'WebApi.ashx?Act=CancelApply',
+    {
+      ID,
+      UnionID
+    }
+  )
+}
+// 审核通过
+let _audit = (ID, UnionID) => {
+  return fetch(
+    'WebApi.ashx?Act=CheckApply',
+    {
+      ID,
+      UnionID
+    }
+  )
+}
+// 确定支付
+let _confirmPay = (ID, UnionID, PayType) => {
+  return fetch(
+    'WebApi.ashx?Act=MeetingApplyPay',
+    {
+      ID,
+      UnionID,
+      PayType
+    }
+  )
+}
+// 编辑订单
+let _modify = (ID, UnionID, RoomID, Remark, TimeList, OrderAmount) => {
+  return fetch(
+    'WebApi.ashx?Act=UptMeetingApply',
+    {
+      ID,
+      UnionID,
+      RoomID,
+      Remark,
+      TimeList,
+      OrderAmount
+    }
+  )
 }
 export {
   _roomlist,
@@ -78,5 +146,10 @@ export {
   _dates,
   _submit,
   _orderlist,
-  _orderdetail
+  _orderdetail,
+  _auditlist,
+  _cancel,
+  _audit,
+  _confirmPay,
+  _modify
 }

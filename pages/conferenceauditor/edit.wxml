@@ -1,0 +1,86 @@
+<view class='section'>
+  <view class="flex user">
+    <view class="name">{{detail.Name}}</view>
+    <view class="tel">
+      <tel tel='{{detail.Tel}}' />
+    </view>
+  </view>
+</view>
+<split height='10' />
+<view class="section">
+  <view class="room">
+    <view class='tit'>选择会议室</view>
+    <picker class="picker" range='{{roomlist}}' range-key='Name' value='{{roomIndex}}' bindchange='roomSelect'>
+      <view class='wrapper'>
+        <text wx:if="{{roomIndex !== null}}">{{roomlist[roomIndex].Name}}</text>
+        <text wx:else class="placeholder">请选择会议室</text>
+      </view>
+      <view class="icon">
+        <x-icon type="caret-down" />
+      </view>
+    </picker>
+  </view>
+</view>
+<split height='10' />
+<view class='section'>
+  <view class='flex change-date'>
+    <view class='tit'>选择时间</view>
+    <view class='change' bindtap='showSelect'>修改时间
+      <x-icon type='enter' />
+    </view>
+  </view>
+  <view>
+    <view wx:for="{{showDates}}" wx:key="date-{{index}}" class="time-item flex">
+      <view>{{item.date}}</view>
+      <view class="value">{{item.value}}</view>
+    </view>
+  </view>
+</view>
+<split height='10' />
+<view class='section'>
+  <view class='tit'>费用</view>
+  <view class='price flex'>
+    <view class='ph'>￥</view>
+    <view class='pb'>
+        <x-input type='number' value='{{price}}' placeholder='请输入费用' clear bindinput='priceHandler' class='price-input'/>
+    </view>
+  </view>
+</view>
+<split height='10' />
+<view class='section'>
+  <view class='tit'>备注</view>
+  <textarea hidden='{{selecting}}' class='remark' value='{{remark}}' placeholder='请填写备注' bindinput='textHandler'></textarea>
+</view>
+<view class='btns'>
+  <x-btn type='primary' bindtap='modify'>提交</x-btn>
+</view>
+<view hidden='{{!selecting}}' class="timeMain">
+  <view class="timeMain_bg" bindtap="yuyueBut"></view>
+  <view class="timeContent">
+    <view class="timeBtn flex">
+      <view class="cancel" bindtap="hideSelect">取消</view>
+      <view class="confirm" bindtap="confirm">确认</view>
+    </view>
+    <view class="timeContent_c">
+      <scroll-view scroll-y class="content">
+        <view class="con_time flex" wx:for="{{dates}}" wx:key="sj-{{index}}">
+          <text>{{item.Date}}</text>
+          <text>{{item.Week}}</text>
+          <checkbox-group class="cell-group" data-index="{{index}}" bindchange="checkHandler">
+            <label class="checkbox-cell">
+              <checkbox value='上午' class="checkbox" disabled='{{item.AM === false}}' checked='{{item.amChecked}}'/>
+              <text class="text">上午</text>
+            </label>
+            <label class='checkbox-cell'>
+              <checkbox value='下午' class="checkbox" disabled='{{item.PM === false}}' checked='{{item.pmChecked}}'/>
+              <text class="text">下午</text>
+            </label>
+          </checkbox-group>
+        </view>
+      </scroll-view>
+      <view class="down">
+        <x-icon type="caret-down" />
+      </view>
+    </view>
+  </view>
+</view>

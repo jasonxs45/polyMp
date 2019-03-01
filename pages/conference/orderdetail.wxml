@@ -1,3 +1,4 @@
+<image class='thumb' mode='widthFix' src='{{detail.Img}}' />
 <view class="section">
   <view class="flex title">
     <view class="name">{{detail.RoomName}}</view>

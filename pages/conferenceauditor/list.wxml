@@ -1,0 +1,50 @@
+<tabs class="tabs" bindchange="tabChange" current="{{currentIndex}}">
+  <tab-item class="tab-item" wx:for="{{tabMenus}}" wx:key="tab-item-{{index}}">
+    <view class="text {{index === currentIndex ? 'active': ''}}">{{item}}</view>
+  </tab-item>
+</tabs>
+<view class="content">
+  <swiper class="swiper" duration='300' current='{{currentIndex}}' bindchange='swiperChange'>
+    <swiper-item wx:for="{{lists}}" wx:key="list+{{idx}}" wx:for-item="list" wx:for-index="idx" class="list-wrapper">
+      <scroll-view enable-back-to-top scroll-y bindscrolltolower="onReachLower" class="scroll-view">
+        <view wx:if="{{list.length > 0}}" class="scroll-area">
+          <navigator wx:for="{{list}}" wx:key="item-{{index}}" url="./detail?id={{item.ID}}" class="item">
+            <view class="flex line">
+              <view class="name">{{item.RoomName}}</view>
+              <view class="date">{{item.AddTime}}</view>
+            </view>
+            <view class="remark">{{item.Remark}}</view>
+            <!-- <view class="status">{{item.Status}}</view> -->
+            <!-- <view class="order-time">
+              <view class="h">预约时间：</view>
+              <view class="b">
+                <view wx:for="{{item.TimeList}}" wx:key="date-{{index}}" wx:for-item="date" wx:for-index="idx" class="flex time-item">
+                  <view>{{date.date}}</view>
+                  <view class="date-value">{{date.value}}</view>
+                </view>
+              </view>
+            </view> -->
+            <view class='flex applier'>
+              <view class=''>申请人：{{item.Name}}</view>
+              <view class=''>
+                <tel tel='{{item.Tel}}' />
+              </view>
+            </view>
+          </navigator>
+          <bottom-tip finished="{{finished[currentIndex]}}" />
+        </view>
+        <no-data wx:else />
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- <view class="assign" hidden='{{!assign}}'>
+  <view class="assignM">
+    <view>受理</view>
+    <split class="line" height="2" />
+    <view>
+      <navigator url='./refuse'>拒接</navigator>
+    </view>
+    <view bindtap='cancel'>取消</view>
+  </view>
+</view> -->
