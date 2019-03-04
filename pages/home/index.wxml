@@ -22,7 +22,8 @@
       <x-icon type="enter" />
     </navigator>
   </view>
-  <navigator wx:for="{{actList}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/{{item.ApplyID !== null ? 'myactivities':'activity'}}/detail?id={{item.ApplyID !== null ? item.ApplyID:item.ID}}">
+  <!-- <navigator wx:for="{{actList}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/{{(!!item.ApplyID) ? 'myactivities':'activity'}}/detail?id={{(!!item.ApplyID) ? item.ApplyID:item.ID}}"> -->
+  <navigator wx:for="{{actList}}" wx:key="activity-{{index}}" class="activity-nav" url="/pages/activity/detail?id={{item.ID}}">
     <image mode="aspectFill" class="img" src="{{item.SmallImg}}" />
   </navigator>
 </view>
