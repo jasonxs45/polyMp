@@ -1,2 +1,21 @@
 <image class="bg" src="/images/ad.png" />
+<view wx:if='{{baseinfo}}' class='info-box'>
+  <view class='tit'>会员信息</view>
+  <view class='flex p'>
+    <view class='ph'>会员身份：</view>
+    <view class='pb'>{{baseinfo.Type}}</view>
+  </view>
+  <view wx:if='{{CompanyName}}' class='flex p'>
+    <view class='ph'>企业名称：</view>
+    <view class='pb'>{{baseinfo.CompanyName}}</view>
+  </view>
+  <view class='flex p'>
+    <view class='ph'>会员姓名：</view>
+    <view class='pb'>{{baseinfo.Name}}</view>
+  </view>
+  <view class='flex p'>
+    <view class='ph'>会员电话：</view>
+    <view class='pb'>{{baseinfo.Tel}}</view>
+  </view>
+</view>
 <x-btn type="primary" class="btn" bindtap="openScan">点击扫码</x-btn>

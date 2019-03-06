@@ -3,11 +3,35 @@
   height: 100vh;
   display: block;
 }
+.info-box{
+  position: absolute;
+  width: 680rpx;
+  height: calc(100% - 360rpx);
+  top: 30rpx;
+  left: 50%;
+  margin-left: -340rpx;
+  border-radius: 8rpx;
+  background: rgba(255,255,255, .9);
+  padding: 30rpx;
+}
+.tit{
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: 500;
+}
+.p {
+  margin: 30rpx 0;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.ph{
+  color: #666;
+}
 .btn{
   display: block;
   position: absolute;
-  width: 600rpx;
+  width: 680rpx;
   left: 50%;
-  margin-left: -300rpx;
+  margin-left: -340rpx;
   bottom: 120rpx;
 }

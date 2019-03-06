@@ -94,10 +94,11 @@ Page({
     app.fansReadyCb = () => {
       app.checkMember()
     }
-    app.init()
   },
   onReady () {},
-  onShow () {},
+  onShow () {
+    app.init()
+  },
   onHide () {},
   onUnload () {},
   onShareAppMessage () {}

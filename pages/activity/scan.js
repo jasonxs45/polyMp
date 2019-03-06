@@ -2,7 +2,8 @@ import { _sign } from '../../common/activity'
 const app = getApp()
 Page({
   data: {
-    role: null
+    role: null,
+    baseinfo: null
   },
   openScan() {
     wx.scanCode({
@@ -13,6 +14,10 @@ Page({
         _sign(code, app.globalData.uid).then(res => {
           wx.hideLoading()
           if (res.data.IsSuccess) {
+            let baseinfo = res.data.data
+            this.setData({
+              baseinfo
+            })
             wx.showModal({
               title: '温馨提示',
               content: res.data.Msg,
@@ -40,7 +45,7 @@ Page({
   onLoad(options) {
   },
   onReady() {
-    this.openScan()
+    // this.openScan()
   },
   onShow() {
     app.memberReadyCb = () => {
