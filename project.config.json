@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 48,
+			"current": 44,
 			"list": [
 				{
 					"id": 0,
@@ -318,10 +318,10 @@
 					"scene": null
 				},
 				{
-					"id": 29,
+					"id": 44,
 					"name": "用户会务预约订单详情",
 					"pathName": "pages/conference/orderdetail",
-					"query": "id=2",
+					"query": "id=4",
 					"scene": null
 				},
 				{

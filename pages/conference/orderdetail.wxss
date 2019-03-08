@@ -55,3 +55,27 @@ page{
 .time-item:first-child{
   margin-top: 0;
 }
+.price{
+  font-size: 28rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.price .ph{
+  color: #666;
+}
+.price .pb text{
+  font-size: 180%;
+  color: #f00;
+  font-weight: 600;
+}
+.btns{
+  padding:0 30rpx;
+  margin: 60rpx 0;
+}
+.btns .btn{
+  margin: 30rpx 0;
+  display: block;
+}
+.btns .btn button{
+  font-size: 32rpx;
+}

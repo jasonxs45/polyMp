@@ -26,3 +26,15 @@
     <view class="b">{{detail.AddTime}}</view>
   </view>
 </view>
+<split height="10" />
+<view class='section'>
+  <view class='flex price'>
+    <view class='ph'>订单金额：</view>
+    <view class='pb'>￥
+      <text>{{price}}</text>
+    </view>
+  </view>
+</view>
+<view wx:if='{{detail.Status === "待支付"}}' class='btns'>
+  <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>
+</view>

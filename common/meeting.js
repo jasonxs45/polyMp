@@ -72,6 +72,16 @@ let _orderdetail = ID => {
   }
   return query(param)
 }
+// 支付接口
+let _pay = (UnionID, ID) => {
+  return fetch(
+    'WebApi.ashx?Act=PayMeetingApply',
+    {
+      UnionID,
+      ID
+    }
+  )
+}
 /**==========================
  *       管理员会务预约
  ==========================*/
@@ -147,6 +157,7 @@ export {
   _submit,
   _orderlist,
   _orderdetail,
+  _pay,
   _auditlist,
   _cancel,
   _audit,

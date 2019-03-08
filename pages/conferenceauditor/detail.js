@@ -156,15 +156,16 @@ Component({
     // 转到编辑
     goEdit () {
       wx.navigateTo({
-        url: `./edit?id=${this.data.id}`,
+        url: `./edit?id=${this.data.id}&roomid=${this.data.detail.ID}`
       })
     },
     onLoad(options) {
       this.data.id = options.id
-      this.getDetail()
     },
     onReady() { },
-    onShow() { },
+    onShow() {
+      this.getDetail()
+    },
     onHide() { },
     onUnload() { },
     onPullDownRefresh() { },
