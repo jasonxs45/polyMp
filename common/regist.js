@@ -70,11 +70,21 @@ let _audit = (ID, UnionID, Result) => {
     { ID, UnionID, Result }
   )
 }
+// 签到领取红包
+let _redenvelope = UnionID => {
+  return fetch(
+    'WebApi.ashx?Act=GetRedPacket',
+    {
+      UnionID
+    }
+  )
+}
 export {
   _getCode,
   _regist,
   _getBuildingList,
   _getCompanyList,
   _registlist,
-  _audit
+  _audit,
+  _redenvelope
 }

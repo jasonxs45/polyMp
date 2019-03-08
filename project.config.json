@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 48,
 			"list": [
 				{
 					"id": 0,
@@ -343,6 +343,13 @@
 					"name": "会务预约管理员详情编辑",
 					"pathName": "pages/conferenceauditor/edit",
 					"query": "id=8&roomid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/redenvelope/index",
+					"query": "",
 					"scene": null
 				}
 			]

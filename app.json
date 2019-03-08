@@ -50,7 +50,8 @@
     "pages/onlineshops/scan",
     "pages/conferenceauditor/list",
     "pages/conferenceauditor/detail",
-    "pages/conferenceauditor/edit"
+    "pages/conferenceauditor/edit",
+    "pages/redenvelope/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

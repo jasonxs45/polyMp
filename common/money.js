@@ -33,8 +33,18 @@ let _toaccount = (MemberID, Money) => {
     { MemberID, Money }
   )
 }
+//  查询是否有注册红包
+let _redpacket = UnionID => {
+  return fetch(
+    'WebApi.ashx?Act=GetMemberRedState',
+    {
+      UnionID
+    }
+  )
+}
 export {
   _money,
   _record,
-  _toaccount
+  _toaccount,
+  _redpacket
 }

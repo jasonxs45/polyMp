@@ -66,3 +66,12 @@
     <icon type="cancel" size="40" color="rgb(177,36,25)" bindtap='hideAd' />
   </view>
 </view>
+<view wx:if='{{hasRedPacket}}' class='rp-wrapper'>
+  <view class="bg" bindtap='hideRp'></view>
+  <view class="ad">
+    <navigator class='adimg' url="/pages/redenvelope/index">
+      <image src="./rp.png" mode="widthFix" binderror='hideRp' />
+    </navigator>
+    <icon type="cancel" size="40" color="rgb(177,36,25)" bindtap='hideRp' />
+  </view>
+</view>

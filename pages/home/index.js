@@ -2,6 +2,7 @@ import { _homelist } from '../../common/menus'
 import { _list as _bannerlist } from '../../common/banner'
 import { _list as _goodslist }  from '../../common/shop'
 import { _homelist as _actlist } from '../../common/activity'
+import { _redpacket } from '../../common/money'
 import { _ad } from '../../common/ad'
 const entries = [
   {
@@ -39,7 +40,8 @@ Page({
     entries: [],
     power: null,
     ad: null,
-    adshow: true
+    adshow: false,
+    hasRedPacket: false
   },
   getList () {
     let member = app.globalData.member || wx.getStorageSync('member')
@@ -54,15 +56,58 @@ Page({
       console.log(err)
     })
   },
+  getRedPacket (uid) {
+    app.loading('加载中')
+    _redpacket(uid).then(res => {
+      console.log(res)
+      let hasRedPacket = false
+      if (res.data.IsSuccess) {
+        wx.hideLoading()
+        hasRedPacket = true
+        let rpshow = true
+        this.setData({
+          rpshow
+        })
+      } else {
+        hasRedPacket = false
+        _ad().then(r => {
+          wx.hideLoading()
+          console.log(r)
+          // 广告
+          let ad = null
+          let adshow =false
+          if (r.data.Data) {
+            ad = {
+              img: r.data.Data.image,
+              url: r.data.Data.url
+            }
+            adshow = true
+            this.setData({
+              ad,
+              adshow
+            })
+          }
+        }).catch(e => {
+          console.log(e)
+          wx.hideLoading()
+        })
+      }
+      this.setData({
+        hasRedPacket
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+    })
+  },
   totalQuery() {
     // app.loading('加载中')
     Promise.all([
       _bannerlist('首页banner'),
       _goodslist(undefined, undefined, undefined, true),
       _actlist(),
-      _ad()
+      // _ad()
     ]).then(res => {
-      console.log(res)
       wx.hideLoading()
       // banner
       let banners = res[0].data.AD_Config_list
@@ -71,18 +116,18 @@ Page({
       // 商品列表
       let goodsList = res[1].data.Shop_Goods_list
       // 广告
-      let ad = null
-      if (res[3].data.Data) {
-        ad = {
-          img: res[3].data.Data.image,
-          url: res[3].data.Data.url
-        }
-      }
+      // let ad = null
+      // if (res[3].data.Data) {
+      //   ad = {
+      //     img: res[3].data.Data.image,
+      //     url: res[3].data.Data.url
+      //   }
+      // }
       this.setData({
         banners,
         goodsList,
         actList,
-        ad
+        // ad
       })
     }).catch(err => {
       console.log(err)
@@ -104,13 +149,18 @@ Page({
       adshow: false
     })
   },
+  hideRp () {
+    this.setData({
+      rpshow: false
+    })
+  },
   onLoad() {
     app.memberReadyCb = () => {
     }
     app.fansReadyCb = () => {
       console.log(app.globalData)
       this.totalQuery()
-      this.getList()
+      // this.getList()
     }
     app.init()
   },
@@ -118,6 +168,7 @@ Page({
     let uid = app.globalData.uid || wx.getStorageSync('uid')
     if (uid) {
       this.getList()
+      this.getRedPacket(uid)
     }
   }
 })

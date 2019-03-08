@@ -1,0 +1,29 @@
+<image class='bg' mode='aspectFill' src='./bg.jpg' />
+<scroll-view scroll-y class='wrapper'>
+  <image class='tit' mode='widthFix' src='./tit.png' />
+  <image class='subtit' mode='widthFix' src='./subtit.png' />
+  <view class='packets'>
+    <view class='flex r1'>
+      <image class='envelope' bindtap='clickHandler' mode='widthFix' src='./envelope.png' />
+      <image class='envelope' bindtap='clickHandler' mode='widthFix' src='./envelope.png' />
+      <image class='envelope' bindtap='clickHandler' mode='widthFix' src='./envelope.png' />
+    </view>
+    <view class='flex r2'>
+      <image class='envelope' bindtap='clickHandler' mode='widthFix' src='./envelope.png' />
+      <image class='envelope' bindtap='clickHandler' mode='widthFix' src='./envelope.png' />
+    </view>
+  </view>
+  <image class='rule' mode='widthFix' src='./rule.png' />
+</scroll-view>
+<view wx:if="{{succShow}}" class="success">
+  <view class="bg"></view>
+  <view class="success-wrapper">
+    <view class="succ">
+      <image class="succ_bg" src="./success.png" />
+      <text class="desc"><text>+{{money}}元</text>\n恭喜您领取成功！</text>
+    </view>
+    <view class="close" bindtap='hideSucc'>
+      <icon type="cancel" color="#fff" size="40" />
+    </view>
+  </view>
+</view>
