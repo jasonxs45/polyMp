@@ -78,9 +78,13 @@
   z-index:1;
   line-height: 42rpx;
 }
-.desc text{
+.desc .num{
   font-size: 150%;
   font-weight: 500;
+}
+.desc .nav{
+  display: inline-block;
+  color: #ee1200;
 }
 .close{
   margin-top: 120rpx;
