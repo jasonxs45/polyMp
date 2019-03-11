@@ -5,7 +5,7 @@
     <view class='ph'>会员身份：</view>
     <view class='pb'>{{baseinfo.Type}}</view>
   </view>
-  <view wx:if='{{CompanyName}}' class='flex p'>
+  <view wx:if='{{baseinfo.CompanyName}}' class='flex p'>
     <view class='ph'>企业名称：</view>
     <view class='pb'>{{baseinfo.CompanyName}}</view>
   </view>
@@ -13,7 +13,7 @@
     <view class='ph'>会员姓名：</view>
     <view class='pb'>{{baseinfo.Name}}</view>
   </view>
-  <view class='flex p'>
+  <view wx:if='{{baseinfo.Tel}}' class='flex p'>
     <view class='ph'>会员电话：</view>
     <view class='pb'>{{baseinfo.Tel}}</view>
   </view>

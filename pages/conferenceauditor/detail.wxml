@@ -4,7 +4,7 @@
     <view class="name">{{detail.RoomName}}</view>
     <view class="status">{{detail.Status}}</view>
   </view>
-  <view class="remark">{{detail.Remark}}</view>
+  <view wx:if='{{detail.Remark}}' class="remark">{{detail.Remark}}</view>
   <view class="flex user">
     <view class="name">{{detail.Name}}</view>
     <view class="tel">

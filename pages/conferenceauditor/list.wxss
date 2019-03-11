@@ -94,6 +94,7 @@ page{
   font-size: 28rpx;
   justify-content: space-between;
   color: #333;
+  margin: 30rpx 0 0;
 }
 .assign{
   position: fixed;

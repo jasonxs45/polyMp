@@ -13,7 +13,7 @@
               <view class="name">{{item.RoomName}}</view>
               <view class="date">{{item.AddTime}}</view>
             </view>
-            <view class="remark">{{item.Remark}}</view>
+            <view wx:if='{{item.Remark}}' class="remark">{{item.Remark}}</view>
             <!-- <view class="status">{{item.Status}}</view> -->
             <!-- <view class="order-time">
               <view class="h">预约时间：</view>

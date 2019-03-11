@@ -14,7 +14,7 @@ Page({
         _sign(code, app.globalData.uid).then(res => {
           wx.hideLoading()
           if (res.data.IsSuccess) {
-            let baseinfo = res.data.data
+            let baseinfo = res.data.Data
             this.setData({
               baseinfo
             })
@@ -45,7 +45,7 @@ Page({
   onLoad(options) {
   },
   onReady() {
-    // this.openScan()
+    this.openScan()
   },
   onShow() {
     app.memberReadyCb = () => {
