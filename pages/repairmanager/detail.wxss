@@ -59,6 +59,25 @@ page{
   line-height: 34rpx;
   margin-top: 10rpx;
 }
+.rate-item{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.rate-item .tit,
+.rate-item .describe{
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+  width: 140rpx;
+}
+.rate-item .describe{
+  text-align: right;
+  width: 180rpx;
+}
+.stars .star{
+  margin: 10rpx;
+}
 .steps-wrapper{
   margin-top: 30rpx;
 }

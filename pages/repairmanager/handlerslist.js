@@ -71,7 +71,7 @@ Component({
         this.data.pageIndexes[currentIndex],
         this.data.pageSize
       ).then(res => {
-        let list = item.data.Repair_Apply_list.map(ele => {
+        let list = res.data.Repair_Apply_list.map(ele => {
           ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy/MM/dd hh:mm')
           return ele
         })
