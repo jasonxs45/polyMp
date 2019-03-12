@@ -87,6 +87,7 @@ Component({
       let currentPageIndex = this.data.pageIndexes[this.data.currentIndex]
       console.log(currentPageIndex)
       _list(
+        app.globalData.member.ID,
         this.data.states[currentIndex],
         this.data.pageIndexes[currentIndex],
         this.data.pageSize
