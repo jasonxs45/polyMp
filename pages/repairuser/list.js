@@ -91,7 +91,12 @@ Component({
         this.data.pageIndexes[currentIndex],
         this.data.pageSize
       ).then(res => {
-        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(res.data.Activity_Activity_list)
+        let list = res.data.Repair_Apply_list.map(ele => {
+          let addtime = new Date(ele.AddTime)
+          ele.AddTime = formatDate(addtime, 'yyyy/MM/dd hh:mm')
+          return ele
+        })
+        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(list)
         let str = `lists[${currentIndex}]`
         this.setData({
           [str]: this.data.lists[currentIndex]
