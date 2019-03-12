@@ -1,4 +1,4 @@
-import {_handlinglist, _handledlist } from '../../common/repair'
+import { _handlinglist, _handledlist } from '../../common/repair'
 import { formatDate } from '../../utils/util'
 const app = getApp()
 Component({
@@ -66,11 +66,16 @@ Component({
       let currentPageIndex = this.data.pageIndexes[this.data.currentIndex]
       console.log(currentPageIndex)
       _list(
+        app.globalData.uid,
         this.data.tabMenus[currentIndex],
         this.data.pageIndexes[currentIndex],
         this.data.pageSize
       ).then(res => {
-        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(res.data.Repair_Apply_list)
+        let list = item.data.Repair_Apply_list.map(ele => {
+          ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy/MM/dd hh:mm')
+          return ele
+        })
+        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(list)
         let str = `lists[${currentIndex}]`
         this.setData({
           [str]: this.data.lists[currentIndex]
@@ -101,18 +106,18 @@ Component({
       }
     },
     onLoad(options) {
-    },
-    onReady() { },
-    onShow() {
-      this.data.finished = [false, false]
-      this.data.pageIndexes = [1, 1]
-      this.data.totalCount = [null, null]
       app.memberReadyCb = () => {
         this.totalQuery()
       }
       app.fansReadyCb = () => {
         app.checkMember()
       }
+    },
+    onReady() { },
+    onShow() {
+      this.data.finished = [false, false]
+      this.data.pageIndexes = [1, 1]
+      this.data.totalCount = [null, null]
       app.init()
     },
     onHide() { },

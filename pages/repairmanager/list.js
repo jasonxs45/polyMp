@@ -41,7 +41,7 @@ Component({
           })
           return list
         })
-        
+
         let finished = []
         let totalCount = res.map((item, index) => {
           finished.push(lists[index].length >= item.data.total_count)
@@ -68,11 +68,16 @@ Component({
       let currentPageIndex = this.data.pageIndexes[this.data.currentIndex]
       console.log(currentPageIndex)
       _list(
+        app.globalData.uid,
         this.data.tabMenus[currentIndex],
         this.data.pageIndexes[currentIndex],
         this.data.pageSize
       ).then(res => {
-        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(res.data.Repair_Apply_list)
+        let list = item.data.Repair_Apply_list.map(ele => {
+          ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy/MM/dd hh:mm')
+          return ele
+        })
+        this.data.lists[currentIndex] = this.data.lists[currentIndex].concat(list)
         let str = `lists[${currentIndex}]`
         this.setData({
           [str]: this.data.lists[currentIndex]
@@ -103,18 +108,18 @@ Component({
       }
     },
     onLoad(options) {
-    },
-    onReady() { },
-    onShow() {
-      this.data.finished = [false, false, false, false]
-      this.data.pageIndexes = [1, 1, 1, 1]
-      this.data.totalCount = [null, null, null, null]
       app.memberReadyCb = () => {
         this.totalQuery()
       }
       app.fansReadyCb = () => {
         app.checkMember()
       }
+    },
+    onReady() { },
+    onShow() {
+      this.data.finished = [false, false, false, false]
+      this.data.pageIndexes = [1, 1, 1, 1]
+      this.data.totalCount = [null, null, null, null]
       app.init()
     },
     onHide() { },

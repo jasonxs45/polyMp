@@ -128,9 +128,6 @@ Component({
       }
     },
     onLoad(options) {
-    },
-    onReady() { },
-    onShow() {
       app.memberReadyCb = () => {
         this.totalQuery()
       }
@@ -138,6 +135,9 @@ Component({
         app.checkMember()
       }
       app.init()
+    },
+    onReady() { },
+    onShow() {
     },
     onHide() { },
     onUnload() { },
