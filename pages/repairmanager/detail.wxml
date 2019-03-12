@@ -25,7 +25,7 @@
         <star class="stars" readonly score="{{scores[index]}}" />
         <view class="describe">{{describes[scores[index] - 1]}}</view>
       </view>
-      <!-- <text wx:if="{{detail.EvaluateRemark}}" class="rate-texts">{{detail.EvaluateRemark}}</text> -->
+      <text wx:if="{{detail.EvaluateRemark}}" class="rate-texts">{{detail.EvaluateRemark}}</text>
     </view>
     <split />
   </block>

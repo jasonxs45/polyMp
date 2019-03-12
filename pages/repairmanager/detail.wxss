@@ -197,3 +197,13 @@ page{
   font-size: 28rpx;
   color: #666;
 }
+.rate-texts{
+  background: #f5f5f5;
+  color: #333;
+  font-size: 30rpx;
+  display: block;
+  padding: 20rpx;
+  line-height: 1.5;
+  margin: 30rpx 0 0;
+  border-radius: 8rpx;
+}
