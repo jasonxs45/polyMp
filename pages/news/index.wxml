@@ -1,11 +1,11 @@
 <block wx:if="{{list.length > 0}}">
-  <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
+  <!-- <swiper duration='200' indicator-dots indicator-color='rgba(255,255,255, .6)' indicator-active-color='#fff' class="swiper">
     <swiper-item wx:for="{{banners}}" wx:key="swiper-item-{{index}}" class="swiper-item">
       <navigator class="nav" url="./detail?id={{item.ID}}">
         <image mode="aspectFill" src="{{item.Thumbnail}}" class="img" />
       </navigator>
     </swiper-item>
-  </swiper>
+  </swiper> -->
   <view>
     <navigator class="item flex" wx:for="{{list}}" wx:key="item-{{index}}" url="./detail?id={{item.ID}}">
       <image class="img" src="{{item.Thumbnail}}" mode="aspectFill" />
