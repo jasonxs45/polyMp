@@ -57,7 +57,7 @@ Page({
     })
   },
   getRedPacket (uid) {
-    app.loading('加载中')
+    // app.loading('加载中')
     _redpacket(uid).then(res => {
       console.log(res)
       let hasRedPacket = false
