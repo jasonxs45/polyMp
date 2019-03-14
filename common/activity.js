@@ -19,8 +19,10 @@ let _homelist = () => {
 // 活动列表
 let _list = (over, MemberID, pageIndex = 1, pageSize = 5) => {
   let playend = ''
+  let order = 'Sort'//默认排序
   if (over === 'over') {
     playend = '<#time_now'
+    order = 'PlayEnd-'
   } 
   if (over === 'unover') {
     playend = '>#time_now'
@@ -36,7 +38,7 @@ let _list = (over, MemberID, pageIndex = 1, pageSize = 5) => {
         MemberID  //参数 当前用户ID
       },
       PlayEnd: playend, //使用JS获取当前时间
-      order: "Sort", //默认排序
+      order, 
       page: pageIndex, //当前页数
       count: pageSize //每页条数
     },
