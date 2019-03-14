@@ -68,6 +68,42 @@ page{
   color: #f00;
   font-weight: 600;
 }
+.tit{
+  font-size: 26rpx;
+}
+.goods{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+  font-size: 26rpx;
+}
+.goods-name,
+.goods-count,
+.goods-price{
+  background: none;
+  height: 80rpx;
+  background: #f5f5f5;
+}
+.goods-name{
+  flex: 1;
+  padding:0 10rpx;
+}
+.goods-price{
+  width:140rpx;
+  text-align: center;
+  margin-left: 5rpx;
+}
+.goods-count{
+  width:100rpx;
+  text-align: center;
+  margin-left: 5rpx;
+}
+.head .goods-name,
+.head .goods-count,
+.head .goods-price{
+  background: none;
+  height: auto;
+}
 .btns{
   padding:0 30rpx;
   margin: 60rpx 0;

@@ -1,359 +1,359 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true,
-    "nodeModules": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.6.1",
-  "appid": "wx0d84f26eb0336e5b",
-  "projectname": "polyMp",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "scripts": {
-    "beforeCompile": "",
-    "beforePreview": "",
-    "beforeUpload": ""
-  },
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 34,
-      "list": [
-        {
-          "id": 0,
-          "name": "注册",
-          "pathName": "pages/regist/regist",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "个人中心",
-          "pathName": "pages/usercenter/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "修改资料",
-          "pathName": "pages/modify/index",
-          "query": ""
-        },
-        {
-          "id": 16,
-          "name": "我的红包",
-          "pathName": "pages/mymoney/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "我的积分",
-          "pathName": "pages/mypoints/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "我的活动列表",
-          "pathName": "pages/myactivities/list",
-          "query": ""
-        },
-        {
-          "id": 6,
-          "name": "我的活动详情",
-          "pathName": "pages/myactivities/detail",
-          "query": "id=13"
-        },
-        {
-          "id": 13,
-          "name": "积分商城兑换记录",
-          "pathName": "pages/onlineshops/record",
-          "query": ""
-        },
-        {
-          "id": 8,
-          "name": "积分商城兑换记录详情",
-          "pathName": "pages/onlineshops/recordDetail",
-          "query": "id=38"
-        },
-        {
-          "id": -1,
-          "name": "积分商城首页",
-          "pathName": "pages/onlineshops/index",
-          "query": ""
-        },
-        {
-          "id": 13,
-          "name": "积分商城商品详细",
-          "pathName": "pages/onlineshops/detail",
-          "query": "id=21"
-        },
-        {
-          "id": 14,
-          "name": "圈层活动",
-          "pathName": "pages/activity/activity",
-          "query": ""
-        },
-        {
-          "id": 17,
-          "name": "圈层活动详情",
-          "pathName": "pages/activity/detail",
-          "query": "id=16",
-          "scene": null
-        },
-        {
-          "id": 4,
-          "name": "访客记录-访客",
-          "pathName": "pages/visitrecord/visitor",
-          "query": ""
-        },
-        {
-          "id": 5,
-          "name": "访客记录-租户",
-          "pathName": "pages/visitrecord/staff",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "申请访问页面",
-          "pathName": "pages/visitapply/visitor",
-          "query": ""
-        },
-        {
-          "id": 6,
-          "name": "邀请访问页面",
-          "pathName": "pages/visitapply/staff",
-          "query": ""
-        },
-        {
-          "id": 15,
-          "name": "授权",
-          "pathName": "pages/login/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "首页",
-          "pathName": "pages/home/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "服务",
-          "pathName": "pages/service/index",
-          "query": ""
-        },
-        {
-          "id": 26,
-          "name": "企业快讯",
-          "pathName": "pages/news/index",
-          "query": "id=1"
-        },
-        {
-          "id": 32,
-          "name": "租户注册审核",
-          "pathName": "pages/regist/audit",
-          "query": "id=1"
-        },
-        {
-          "id": 33,
-          "name": "访客来访申请审核",
-          "pathName": "pages/visitapply/audit",
-          "query": "id=1"
-        },
-        {
-          "id": -1,
-          "name": "访客系统入口",
-          "pathName": "pages/visitguide/index",
-          "query": ""
-        },
-        {
-          "id": 28,
-          "name": "电子放行单提交",
-          "pathName": "pages/passcard/submit",
-          "query": ""
-        },
-        {
-          "id": 33,
-          "name": "电子放行单列表",
-          "pathName": "pages/passcard/list",
-          "query": "role=1",
-          "scene": null
-        },
-        {
-          "id": 34,
-          "name": "电子放行单详情",
-          "pathName": "pages/passcard/detail",
-          "query": "role=1&id=20",
-          "scene": null
-        },
-        {
-          "id": 31,
-          "name": "保安扫码",
-          "pathName": "pages/passcard/scan",
-          "query": "role=4"
-        },
-        {
-          "id": 34,
-          "name": "企业电子放行单列表",
-          "pathName": "pages/passcard/companylist",
-          "query": "role=3",
-          "scene": null
-        },
-        {
-          "id": 39,
-          "name": "物品放行",
-          "pathName": "pages/passcard/enter",
-          "query": "role=1"
-        },
-        {
-          "id": -1,
-          "name": "活动签到",
-          "pathName": "pages/activity/scan",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "礼品核销",
-          "pathName": "pages/onlineshops/scan",
-          "query": ""
-        },
-        {
-          "id": 44,
-          "name": "修改联系人",
-          "pathName": "pages/modifycontactor/index",
-          "query": "id=9&role=访客",
-          "scene": null
-        },
-        {
-          "id": 40,
-          "name": "会务预约会议室列表",
-          "pathName": "pages/conference/list",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 41,
-          "name": "会务预约会议室详细",
-          "pathName": "pages/conference/detail",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "id": 42,
-          "name": "用户会务预约提交申请",
-          "pathName": "pages/conference/apply",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "id": 28,
-          "name": "用户会务预约订单列表",
-          "pathName": "pages/conference/orderlist",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 44,
-          "name": "用户会务预约订单详情",
-          "pathName": "pages/conference/orderdetail",
-          "query": "id=4",
-          "scene": null
-        },
-        {
-          "id": 45,
-          "name": "会务预约管理员详情",
-          "pathName": "pages/conferenceauditor/detail",
-          "query": "id=4",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "会务预约管理员列表",
-          "pathName": "pages/conferenceauditor/list",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 47,
-          "name": "会务预约管理员详情编辑",
-          "pathName": "pages/conferenceauditor/edit",
-          "query": "id=8&roomid=2",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "红包",
-          "pathName": "pages/redenvelope/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "报修入口",
-          "pathName": "pages/repairuser/enter",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "报修提交",
-          "pathName": "pages/repairuser/submit",
-          "query": ""
-        },
-        {
-          "id": 17,
-          "name": "用户报修列表",
-          "pathName": "pages/repairuser/list",
-          "query": ""
-        },
-        {
-          "id": 10,
-          "name": "用户报修详情",
-          "pathName": "pages/repairuser/detail",
-          "query": "id=17",
-          "scene": null
-        },
-        {
-          "id": 18,
-          "name": "用户报修评价",
-          "pathName": "pages/repairuser/rate",
-          "query": "id=5"
-        },
-        {
-          "id": 21,
-          "name": "管理员报修列表",
-          "pathName": "pages/repairmanager/list",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "处理人报修列表",
-          "pathName": "pages/repairmanager/handlerslist",
-          "query": ""
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
+	"appid": "wx0d84f26eb0336e5b",
+	"projectname": "polyMp",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 37,
+			"list": [
+				{
+					"id": 0,
+					"name": "注册",
+					"pathName": "pages/regist/regist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/usercenter/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改资料",
+					"pathName": "pages/modify/index",
+					"query": ""
+				},
+				{
+					"id": 16,
+					"name": "我的红包",
+					"pathName": "pages/mymoney/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/mypoints/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的活动列表",
+					"pathName": "pages/myactivities/list",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "我的活动详情",
+					"pathName": "pages/myactivities/detail",
+					"query": "id=13"
+				},
+				{
+					"id": 13,
+					"name": "积分商城兑换记录",
+					"pathName": "pages/onlineshops/record",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "积分商城兑换记录详情",
+					"pathName": "pages/onlineshops/recordDetail",
+					"query": "id=38"
+				},
+				{
+					"id": -1,
+					"name": "积分商城首页",
+					"pathName": "pages/onlineshops/index",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "积分商城商品详细",
+					"pathName": "pages/onlineshops/detail",
+					"query": "id=21"
+				},
+				{
+					"id": 14,
+					"name": "圈层活动",
+					"pathName": "pages/activity/activity",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "圈层活动详情",
+					"pathName": "pages/activity/detail",
+					"query": "id=16",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "访客记录-访客",
+					"pathName": "pages/visitrecord/visitor",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "访客记录-租户",
+					"pathName": "pages/visitrecord/staff",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请访问页面",
+					"pathName": "pages/visitapply/visitor",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "邀请访问页面",
+					"pathName": "pages/visitapply/staff",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "授权",
+					"pathName": "pages/login/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "服务",
+					"pathName": "pages/service/index",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "企业快讯",
+					"pathName": "pages/news/index",
+					"query": "id=1"
+				},
+				{
+					"id": 32,
+					"name": "租户注册审核",
+					"pathName": "pages/regist/audit",
+					"query": "id=1"
+				},
+				{
+					"id": 33,
+					"name": "访客来访申请审核",
+					"pathName": "pages/visitapply/audit",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "访客系统入口",
+					"pathName": "pages/visitguide/index",
+					"query": ""
+				},
+				{
+					"id": 28,
+					"name": "电子放行单提交",
+					"pathName": "pages/passcard/submit",
+					"query": ""
+				},
+				{
+					"id": 33,
+					"name": "电子放行单列表",
+					"pathName": "pages/passcard/list",
+					"query": "role=1",
+					"scene": null
+				},
+				{
+					"id": 34,
+					"name": "电子放行单详情",
+					"pathName": "pages/passcard/detail",
+					"query": "role=1&id=20",
+					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "保安扫码",
+					"pathName": "pages/passcard/scan",
+					"query": "role=4"
+				},
+				{
+					"id": 34,
+					"name": "企业电子放行单列表",
+					"pathName": "pages/passcard/companylist",
+					"query": "role=3",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "物品放行",
+					"pathName": "pages/passcard/enter",
+					"query": "role=1"
+				},
+				{
+					"id": -1,
+					"name": "活动签到",
+					"pathName": "pages/activity/scan",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "礼品核销",
+					"pathName": "pages/onlineshops/scan",
+					"query": ""
+				},
+				{
+					"id": 44,
+					"name": "修改联系人",
+					"pathName": "pages/modifycontactor/index",
+					"query": "id=9&role=访客",
+					"scene": null
+				},
+				{
+					"id": 40,
+					"name": "会务预约会议室列表",
+					"pathName": "pages/conference/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "会务预约会议室详细",
+					"pathName": "pages/conference/detail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 42,
+					"name": "用户会务预约提交申请",
+					"pathName": "pages/conference/apply",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "用户会务预约订单列表",
+					"pathName": "pages/conference/orderlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "用户会务预约订单详情",
+					"pathName": "pages/conference/orderdetail",
+					"query": "id=8",
+					"scene": null
+				},
+				{
+					"id": 45,
+					"name": "会务预约管理员详情",
+					"pathName": "pages/conferenceauditor/detail",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会务预约管理员列表",
+					"pathName": "pages/conferenceauditor/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 47,
+					"name": "会务预约管理员详情编辑",
+					"pathName": "pages/conferenceauditor/edit",
+					"query": "id=8&roomid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/redenvelope/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修入口",
+					"pathName": "pages/repairuser/enter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "报修提交",
+					"pathName": "pages/repairuser/submit",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "用户报修列表",
+					"pathName": "pages/repairuser/list",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "用户报修详情",
+					"pathName": "pages/repairuser/detail",
+					"query": "id=17",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "用户报修评价",
+					"pathName": "pages/repairuser/rate",
+					"query": "id=5"
+				},
+				{
+					"id": 21,
+					"name": "管理员报修列表",
+					"pathName": "pages/repairmanager/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "处理人报修列表",
+					"pathName": "pages/repairmanager/handlerslist",
+					"query": ""
+				}
+			]
+		}
+	}
 }

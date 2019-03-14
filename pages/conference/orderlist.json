@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "预约记录",
+  "enablePullDownRefresh": true,
   "backgroundColor": "#f2f2f2",
   "usingComponents": {
     "bottom-tip": "/components/bottom-tip/index",

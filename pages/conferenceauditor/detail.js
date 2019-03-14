@@ -11,7 +11,8 @@ Component({
   behaviors: [computedBehavior],
   data: {
     id: null,
-    detail: null
+    detail: null,
+    goodsArr: []
   },
   computed: {
     price () {
@@ -30,8 +31,10 @@ Component({
         let detail = res.data.Meeting_Apply
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
+        let goodsArr = detail.ItemList ? JSON.parse(detail.ItemList) : []
         this.setData({
-          detail
+          detail,
+          goodsArr
         })
       }).catch(err => {
         console.log(err)
@@ -156,7 +159,7 @@ Component({
     // 转到编辑
     goEdit () {
       wx.navigateTo({
-        url: `./edit?id=${this.data.id}&roomid=${this.data.detail.ID}`
+        url: `./edit?id=${this.data.id}&roomid=${this.data.detail.RoomID}`
       })
     },
     onLoad(options) {

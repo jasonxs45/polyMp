@@ -18,7 +18,8 @@ Component({
     selectedDates: [],
     dates: [],
     remark: '',
-    price: ''
+    price: '',
+    goodsArr: []
   },
   computed: {
     showDates() {
@@ -51,22 +52,31 @@ Component({
     dates() {
       app.loading('加载中')
       _dates(this.data.roomid).then(res => {
+        console.log(res)
         wx.hideLoading()
-        this.data.dates = res.data.Data.map(item => {
-          item.Date = formatDate(new Date(item.Date), 'yyyy年MM月dd日')
-          let dates = this.data.showDates
-          for (let i = 0; i < dates.length; i++) {
-            if (dates[i].date === item.Date) {
-              console.log(dates[i].date, dates[i].value)
-              item.amChecked = dates[i].value.includes('上午')
-              item.pmChecked = dates[i].value.includes('下午')
+        if (res.data.IsSuccess) {
+          this.data.dates = res.data.Data.map(item => {
+            item.Date = formatDate(new Date(item.Date), 'yyyy年MM月dd日')
+            let dates = this.data.showDates
+            for (let i = 0; i < dates.length; i++) {
+              if (dates[i].date === item.Date) {
+                console.log(dates[i].date, dates[i].value)
+                item.amChecked = dates[i].value.includes('上午')
+                item.pmChecked = dates[i].value.includes('下午')
+              }
             }
-          }
-          return item
-        })
-        this.setData({
-          dates: this.data.dates
-        })
+            return item
+          })
+          this.setData({
+            dates: this.data.dates
+          })
+        } else {
+          wx.showModal({
+            title: '对不起',
+            content: res.data.Msg,
+            showCancel: false
+          })
+        }
       }).catch(err => {
         console.log(err)
         wx.hideLoading()
@@ -75,6 +85,47 @@ Component({
           content: '请求失败，请稍后再试',
           showCancel: false
         })
+      })
+    },
+    addLine() {
+      this.data.goodsArr.push({
+        name: '',
+        price: '',
+        count: ''
+      })
+      this.setData({
+        goodsArr: this.data.goodsArr
+      })
+    },
+    remove(e) {
+      let index = e.currentTarget.dataset.index
+      this.data.goodsArr.splice(index, 1)
+      this.setData({
+        goodsArr: this.data.goodsArr
+      })
+    },
+    nameInput(e) {
+      let value = e.detail.value
+      let index = e.currentTarget.dataset.index
+      let str = `goodsArr[${index}].name`
+      this.setData({
+        [str]: value
+      })
+    },
+    countInput(e) {
+      let value = e.detail.value
+      let index = e.currentTarget.dataset.index
+      let str = `goodsArr[${index}].count`
+      this.setData({
+        [str]: value
+      })
+    },
+    priceInput(e) {
+      let value = e.detail.value
+      let index = e.currentTarget.dataset.index
+      let str = `goodsArr[${index}].price`
+      this.setData({
+        [str]: value
       })
     },
     totalQuery() {
@@ -86,7 +137,8 @@ Component({
         wx.hideLoading()
         let detail = res[0].data.Meeting_Apply
         let remark = detail.Remark
-        let price = detail.OrderAmount
+        let price = detail.OrderAmount + ''
+        let goodsArr = detail.ItemList ? JSON.parse(detail.ItemList) : []
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let roomlist = res[1].data.Meeting_Room_list
@@ -97,7 +149,8 @@ Component({
           roomlist,
           roomIndex,
           remark,
-          price
+          price,
+          goodsArr
         }, () => {
           if (roomIndex !== -1) {
             this.dates()
@@ -189,19 +242,50 @@ Component({
         app.toast('预约时间不能为空')
         return
       }
-      if (!this.data.price.trim()) {
+      for (let i = 0; i < this.data.goodsArr.length; i++) {
+        let goods = this.data.goodsArr[i]
+        if (!String(goods.name).trim()) {
+          app.toast(`请填写第${i + 1}件物品的名称`)
+          return
+        }
+        if (!String(goods.price).trim()) {
+          app.toast(`请填写第${i + 1}件物品的单价`)
+          return
+        }
+        let price = Number(goods.price)
+        if (isNaN(price) || price < 0) {
+          app.toast('请填写有效单价')
+          return
+        }
+        if (!String(goods.count).trim()) {
+          app.toast(`第${i + 1}件物品的数量不能为空`)
+          return
+        }
+        let count = Number(goods.count)
+        if (isNaN(count) || count < 0) {
+          app.toast('请填写有效数量')
+          return
+        }
+      }
+      if (!String(this.data.price).trim()) {
         app.toast('费用不能为空')
         return
       }
-      app.loading('加载中')
+      let cost = Number(this.data.price)
+      if (isNaN(cost) || cost < 0) {
+        app.toast('请填写有效费用')
+        return
+      }
       let ID = this.data.id
       let UnionID = app.globalData.uid || wx.getStorageSync('uid')
       let RoomID = this.data.roomid
       let Remark = this.data.remark
       let TimeList = JSON.stringify(this.data.showDates)
-      console.log(TimeList)
+      let ItemList = JSON.stringify(this.data.goodsArr)
+      console.log(ItemList)
       let OrderAmount = this.data.price
-      _modify(ID, UnionID, RoomID, Remark, TimeList, OrderAmount).then(res => {
+      app.loading('加载中')
+      _modify(ID, UnionID, RoomID, Remark, TimeList, ItemList, OrderAmount).then(res => {
         console.log(res)
         wx.hideLoading()
         wx.showModal({

@@ -26,6 +26,22 @@
     <view class="b">{{detail.AddTime}}</view>
   </view>
 </view>
+<block wx:if='{{goodsArr.length > 0}}'>
+  <split height='10' />
+  <view class='section'>
+    <view class='tit'>物品详单</view>
+    <view class="goods flex head">
+      <view class="goods-name">物品名称</view>
+      <view class="goods-count">数量</view>
+      <view class="goods-price">总价(元)</view>
+    </view>
+    <view wx:for="{{goodsArr}}" wx:key="goods-{{index}}" class="goods flex">
+      <input disabled class="goods-name" value="{{item.name}}" />
+      <input disabled class="goods-count" value="{{item.count}}" />
+      <input disabled class="goods-price" value="{{item.price}}" />
+    </view>
+  </view>
+</block>
 <split height="10" />
 <view class='section'>
   <view class='flex price'>
@@ -34,6 +50,9 @@
       <text>{{price}}</text>
     </view>
   </view>
+</view>
+<view wx:if='{{detail.Status === "待审核" || detail.Status === "待支付"}}' class='btns'>
+  <x-btn type='primary' class='btn' bindtap='cancel'>取消订单</x-btn>
 </view>
 <view wx:if='{{detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>

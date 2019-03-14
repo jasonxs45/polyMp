@@ -56,7 +56,9 @@ Page({
       wx.hideLoading()
     })
   },
-  onLoad(options) {
+  onLoad(options) {},
+  onReady() { },
+  onShow() {
     app.memberReadyCb = () => {
       this.getAll()
     }
@@ -65,11 +67,17 @@ Page({
     }
     app.init()
   },
-  onReady() { },
-  onShow() { },
   onHide() { },
   onUnload() { },
-  onPullDownRefresh() { },
+  onPullDownRefresh() {
+    this.setData({
+      finished: false,
+      pageIndex: 1,
+      totalCount: null
+    }, () => {
+      this.getAll()
+    })
+  },
   onReachBottom() {
     if (this.data.list.length >= this.data.totalCount) {
       this.setData({

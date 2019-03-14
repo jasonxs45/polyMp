@@ -137,7 +137,7 @@ let _confirmPay = (ID, UnionID, PayType) => {
   )
 }
 // 编辑订单
-let _modify = (ID, UnionID, RoomID, Remark, TimeList, OrderAmount) => {
+let _modify = (ID, UnionID, RoomID, Remark, TimeList, ItemList, OrderAmount) => {
   return fetch(
     'WebApi.ashx?Act=UptMeetingApply',
     {
@@ -146,6 +146,7 @@ let _modify = (ID, UnionID, RoomID, Remark, TimeList, OrderAmount) => {
       RoomID,
       Remark,
       TimeList,
+      ItemList,
       OrderAmount
     }
   )
