@@ -1,7 +1,7 @@
 <view class="signin topbg">
   <!-- <image class="bg" src="./bg.png" /> -->
   <view class="base-info">
-    <image class="avatar" mode="widthFix" src='{{avatar || "../../images/avatar.png"}}' />
+    <image class="avatar" mode="aspectFill" src='{{avatar || "../../images/avatar.png"}}' />
     <view class="info">
       <view class="nickname">
         {{nickname || "昵称"}}

@@ -57,7 +57,7 @@
     <split />
   </block>
 </view>
-<view wx:if="{{roleName === '客服' && (detail.Status !== '待评价' && detail.Status !== '已完成')}}" class="btns {{padding ?'padding': ''}}">
+<view wx:if="{{roleName === '客服' && detail.Status !== '待评价' && detail.Status !== '已完成'}}" class="btns {{padding ?'padding': ''}}">
   <navigator url="./dispatch?role={{role}}&id={{id}}" class="btn">
     <x-btn type="primary" class="btn">分配处理人</x-btn>
   </navigator>

@@ -84,7 +84,13 @@ let _rate = (RepairID,Evaluate1,Evaluate2,Evaluate3,Remark) => {
   )
 }
 // 客服获取报修列表
-let _managerlist = (Status, pageIndex = 1, pageSize = 5) => {
+let _managerlist = (status, pageIndex = 1, pageSize = 5) => {
+  let Status = status
+  if (status === '处理中' || status === '待评价' || status === '已完成') {
+    Status = status
+  } else {
+    Status = '!=处理中,!=待评价,!=已完成' //待处理
+  }
   let param = {
     Repair_Apply_list: {
       Status, //条件 工单状态  （待受理、待回复、已完成）

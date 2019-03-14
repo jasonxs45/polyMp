@@ -4,7 +4,7 @@ const app = getApp()
 Component({
   data: {
     lists: [[], [], [], []],
-    tabMenus: ['待受理', '待回复', '待评价', '已完成'],
+    tabMenus: ['待处理', '处理中', '待评价', '已完成'],
     currentIndex: 0,
     pageIndexes: [1, 1, 1, 1],
     pageSize: 4,
