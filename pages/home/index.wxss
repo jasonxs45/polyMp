@@ -69,7 +69,7 @@ page{
 }
 .cell {
   width: 330rpx;
-  height: 530rpx;
+  height: 485rpx;
   margin: 15rpx;
   background: #fff;
   overflow: hidden;
@@ -98,7 +98,7 @@ page{
   text-shadow: 1px 1px 3px rgba(0,0,0,.7);
 }
 .cell .detail{
-  padding:30rpx;
+  padding:15rpx 30rpx;
 }
 .cell .tit{
   font-size: 28rpx;
@@ -115,7 +115,7 @@ page{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 30rpx;
+  margin-top: 15rpx;
 }
 .cell .cost{
   font-size: 28rpx;
@@ -126,6 +126,15 @@ page{
   color: #666;
   font-size: 16rpx;
   font-weight: 400;
+}
+.cell .exchange{
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #333;
+}
+.cell .exchange text{
+  color: #666;
+  font-weight: 300;
 }
 .cell .btn{
   width: 118rpx;

@@ -49,6 +49,9 @@
           <view class="cost">{{item.Score}}
             <text>积分</text>
           </view>
+          <view class="exchange">
+            <text>{{item.ExchangeCount}}人兑换</text>
+          </view>
         </view>
       </view>
     </navigator>
