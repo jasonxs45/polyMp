@@ -9,9 +9,10 @@
   </view>
   <view class="flex p">
     <view class="price">
-      <view class='current'>优惠价：<text class='num'>{{detail.Price}}</text>元/半天</view>
       <view class='origin'>
         <text space='emsp'>原 价：</text>{{detail.OriginalPrice}}元/半天</view>
+      <view class='current'>优惠价：
+        <text class='num'>{{detail.Price}}</text>元/半天</view>
     </view>
     <view class="advance">提前
       <text>{{detail.AdvanceDays}}</text>天预约</view>

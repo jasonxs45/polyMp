@@ -214,4 +214,5 @@ page {
 }
 .origin{
   margin-top: 15rpx;
+  text-decoration: line-through;
 }
