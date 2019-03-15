@@ -135,9 +135,11 @@ page {
   text-align: center;
   background: #333;
   font-size: 34rpx;
-  font-family: PingFang-TC-Medium;
   font-weight: 500;
   color: #edc27b;
+}
+.detaliBut .x-btn{
+  border-radius: 0;
 }
 .nodata{
   text-align: center;

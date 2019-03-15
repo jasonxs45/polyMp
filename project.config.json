@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 34,
 			"list": [
 				{
 					"id": 0,
@@ -255,10 +255,10 @@
 					"scene": null
 				},
 				{
-					"id": 41,
+					"id": 34,
 					"name": "会务预约会议室详细",
 					"pathName": "pages/conference/detail",
-					"query": "id=2",
+					"query": "id=6",
 					"scene": null
 				},
 				{

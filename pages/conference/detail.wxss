@@ -207,3 +207,11 @@ page {
 .confirm{
   color: #333;
 }
+.current .num{
+  color: #f00;
+  font-weight: 500;
+  font-size: 120%;
+}
+.origin{
+  margin-top: 15rpx;
+}

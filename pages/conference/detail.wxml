@@ -8,8 +8,13 @@
     <text>可容纳{{detail.MaxNum}}人</text>
   </view>
   <view class="flex p">
-    <view class="price">{{detail.Price}}元/半天</view>
-    <view class="advance">提前<text>{{detail.AdvanceDays}}</text>天预约</view>
+    <view class="price">
+      <view class='current'>优惠价：<text class='num'>{{detail.Price}}</text>元/半天</view>
+      <view class='origin'>
+        <text space='emsp'>原 价：</text>{{detail.OriginalPrice}}元/半天</view>
+    </view>
+    <view class="advance">提前
+      <text>{{detail.AdvanceDays}}</text>天预约</view>
   </view>
   <view class="flex p">
     <view class="price">楼层：{{detail.Floor}}</view>
@@ -17,7 +22,7 @@
   </view>
 </view>
 <view class="desc">
-  <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
 </view>
 <view class="conigators" bindtap='showSelect'>
   <x-btn type="primary">预约申请</x-btn>
@@ -36,11 +41,11 @@
           <text>{{item.Week}}</text>
           <checkbox-group class="cell-group" data-index="{{index}}" bindchange="checkHandler">
             <label class="checkbox-cell">
-              <checkbox value='上午' class="checkbox" disabled='{{item.AM === false}}'/>
+              <checkbox value='上午' class="checkbox" disabled='{{item.AM === false}}' />
               <text class="text">上午</text>
             </label>
             <label class='checkbox-cell'>
-              <checkbox value='下午' class="checkbox" disabled='{{item.PM === false}}'/>
+              <checkbox value='下午' class="checkbox" disabled='{{item.PM === false}}' />
               <text class="text">下午</text>
             </label>
           </checkbox-group>
@@ -52,4 +57,4 @@
     </view>
   </view>
 </view>
-<import src="/libs/wxParse/wxParse.wxml"/>
+<import src="/libs/wxParse/wxParse.wxml" />
