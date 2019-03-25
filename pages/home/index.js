@@ -70,7 +70,7 @@ Page({
         })
       } else {
         hasRedPacket = false
-        _ad().then(r => {
+        _ad(uid).then(r => {
           wx.hideLoading()
           console.log(r)
           // 广告

@@ -5,6 +5,10 @@
     <view class='ph'>会员身份：</view>
     <view class='pb'>{{baseinfo.Type}}</view>
   </view>
+  <view class='flex p'>
+    <view class='ph'>会员等级：</view>
+    <view class='pb'>{{baseinfo.Level}}</view>
+  </view>
   <view wx:if='{{baseinfo.CompanyName}}' class='flex p'>
     <view class='ph'>企业名称：</view>
     <view class='pb'>{{baseinfo.CompanyName}}</view>
