@@ -50,6 +50,20 @@
       <text>{{price}}</text>
     </view>
   </view>
+  <split style='display:block;margin-top: 30rpx;' height='2' />
+  <view class='account-title'>银行转账信息</view>
+  <view class='flex account'>
+    <view class='h'><text>单位名称：</text></view>
+    <view class='b'>武汉保利金谷房地产开发有限公司</view>
+  </view>
+  <view class='flex account'>
+    <view class='h'><text>开户银行：</text></view>
+    <view class='b'>中国银行民族大道支行</view>
+  </view>
+  <view class='flex account'>
+    <view class='h'><text space='emsp'>账  号：</text></view>
+    <view class='b'>57428554697</view>
+  </view>
 </view>
 <view wx:if='{{detail.Status === "待审核" || detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='cancel'>取消订单</x-btn>
