@@ -207,12 +207,16 @@ page {
 .confirm{
   color: #333;
 }
-.current .num{
+.current{
   color: #f00;
+}
+.current .num{
   font-weight: 500;
   font-size: 120%;
 }
 .origin{
   margin-top: 15rpx;
+}
+.origin .num{
   text-decoration: line-through;
 }

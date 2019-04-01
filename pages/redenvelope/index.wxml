@@ -21,7 +21,7 @@
     <view class="succ">
       <image class="succ_bg" src="./success.png" />
       <view class='desc'>
-        <text><text class='num'>+{{money}}元</text>\n恭喜您领取成功！</text>
+        <text><text class='num'>+{{money}}元</text></text>
         <view>
           <view class='l1'>请到个人中心</view>
           <navigator class='nav' url='/pages/mymoney/index'>【我的红包】</navigator>
