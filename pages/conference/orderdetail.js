@@ -124,6 +124,11 @@ Component({
         }
       })
     },
+    goInvoice() {
+      wx.navigateTo({
+        url: `./invoice?id=${this.data.id}`
+      })
+    },
     onLoad(options) {
       this.data.id = options.id
       app.memberReadyCb = () => {

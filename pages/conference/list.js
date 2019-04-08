@@ -1,17 +1,46 @@
-import { _roomlist } from '../../common/meeting'
+import { _roomlist, _filter } from '../../common/meeting'
+const computedBehavior = require('miniprogram-computed')
 const app = getApp()
-Page({
+Component({
+  behaviors: [computedBehavior],
   data: {
-    list: []
+    list: [],
+    filters: [],
+    filterIndex: 0,
+    filter: ''
   },
-  totalQuery() {
-    app.loading('加载中')
-    _roomlist()
-      .then(res => {
+  computed: {
+    filtedList() {
+      console.log(this.data.filter)
+      return this.data.list.filter(item => 
+        this.data.filter?item.MaxNum == this.data.filter: true
+        )
+    }
+  },
+  methods: {
+    totalQuery() {
+      app.loading('加载中')
+      Promise.all([
+        _roomlist(),
+        _filter()
+      ]).then(res => {
         wx.hideLoading()
-        let list = res.data.Meeting_Room_list
+        let list = res[0].data.Meeting_Room_list
+        let filters = res[1].data.Meeting_Room_distinct_ext.sort((a, b) => {
+          return b - a
+        }).map(item => {
+          return {
+            label: item,
+            value: item
+          }
+        })
+        filters.unshift({
+          label: '全部',
+          value: ''
+        })
         this.setData({
-          list
+          list,
+          filters
         })
       }).catch(err => {
         console.log(err)
@@ -22,21 +51,30 @@ Page({
           showCancel: false
         })
       })
-  },
-  onLoad(options) {
-    app.memberReadyCb = () => {
-      this.totalQuery()
-    }
-    app.fansReadyCb = () => {
-      app.checkMember()
-    }
-    app.init()
-  },
-  onReady() { },
-  onShow() { },
-  onHide() { },
-  onUnload() { },
-  onPullDownRefresh() {},
-  onReachBottom() {},
-  onShareAppMessage() { }
+    },
+    switchFilter(e) {
+      let index = e.currentTarget.dataset.index
+      this.data.filter = this.data.filters[index].value
+      this.setData({
+        filter: this.data.filter,
+        filterIndex: index
+      })
+    },
+    onLoad(options) {
+      app.memberReadyCb = () => {
+        this.totalQuery()
+      }
+      app.fansReadyCb = () => {
+        app.checkMember()
+      }
+      app.init()
+    },
+    onReady() { },
+    onShow() { },
+    onHide() { },
+    onUnload() { },
+    onPullDownRefresh() { },
+    onReachBottom() { },
+    onShareAppMessage() { }
+  }
 })

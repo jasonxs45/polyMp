@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 49,
 			"list": [
 				{
 					"id": 0,
@@ -279,7 +279,7 @@
 					"id": 37,
 					"name": "用户会务预约订单详情",
 					"pathName": "pages/conference/orderdetail",
-					"query": "id=8",
+					"query": "id=15",
 					"scene": null
 				},
 				{
@@ -352,6 +352,13 @@
 					"name": "处理人报修列表",
 					"pathName": "pages/repairmanager/handlerslist",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户会务预约发票申请",
+					"pathName": "pages/conference/invoice",
+					"query": "id=15",
+					"scene": null
 				}
 			]
 		}

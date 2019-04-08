@@ -2,6 +2,18 @@ import { fetch, query } from 'api'
 /**==========================
  *         用户会务预约
  ==========================*/
+//  筛选的项目
+let _filter = () => {
+  let param = {
+    Meeting_Room_distinct_ext: {
+      IsDelete: false,
+      Online: true,
+      order: "RoomType",
+      field: "RoomType"
+    }
+  }
+  return query(param)
+}
 //  会议室列表
 let _roomlist = () => {
   var param = {
@@ -151,7 +163,34 @@ let _modify = (ID, UnionID, RoomID, Remark, TimeList, ItemList, OrderAmount) => 
     }
   )
 }
+// 申请开票
+let _invoice = opt => {
+  let {
+    ID,
+    InvoiceType,
+    InvoiceName,
+    InvoiceNumber,
+    InvoiceAddress,
+    InvoicePhone,
+    InvoiceBank,
+    InvoiceAccount
+  } = opt
+  return fetch(
+    'WebApi.ashx?Act=OpenInvoice',
+    {
+      ID,
+      InvoiceType,
+      InvoiceName,
+      InvoiceNumber,
+      InvoiceAddress,
+      InvoicePhone,
+      InvoiceBank,
+      InvoiceAccount
+    }
+  )
+}
 export {
+  _filter,
   _roomlist,
   _detail,
   _dates,
@@ -163,5 +202,6 @@ export {
   _cancel,
   _audit,
   _confirmPay,
-  _modify
+  _modify,
+  _invoice
 }

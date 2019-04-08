@@ -51,7 +51,8 @@
     "pages/conferenceauditor/list",
     "pages/conferenceauditor/detail",
     "pages/conferenceauditor/edit",
-    "pages/redenvelope/index"
+    "pages/redenvelope/index",
+    "pages/conference/invoice"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

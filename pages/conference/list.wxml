@@ -1,5 +1,21 @@
+<view class='top flex'>
+  <view class='th'>最大人数：</view>
+  <view class='tb filters'>
+    <scroll-view scroll-x class='scroller'>
+      <view class='row'>
+        <view
+          wx:for='{{filters}}'
+          wx:key='filter-{{index}}'
+          data-index='{{index}}'
+          bindtap='switchFilter'
+          class='filter {{index == filterIndex ? "active":""}}'
+        >{{item.label}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
 <view class="con_list">
-  <navigator class="con" wx:for="{{list}}" wx:key="con-{{index}}" url="./detail?id={{item.ID}}">
+  <navigator class="con" wx:for="{{filtedList}}" wx:key="con-{{index}}" url="./detail?id={{item.ID}}">
     <view class="con_img">
       <image mode="widthFix" src="{{item.Img}}"></image>
     </view>

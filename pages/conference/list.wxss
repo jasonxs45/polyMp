@@ -1,8 +1,59 @@
 page{
   background: #f2f2f2;
 }
+.top{
+  width: 100%;
+  height: 100rpx;
+  background: rgba(255,255,255, .9);
+  position: fixed;
+  top:0;
+  left:0;
+  align-items: center;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+}
+.filters{
+  flex: 0 0 calc(100% - 150rpx);
+  width: calc(100% - 150rpx);
+  height: 100%;
+}
+.top .th{
+  width: 150rpx;
+  flex: 0 0 150rpx;
+}
+.filters .scroller{
+  width: 100%;
+  height: 100%;
+  line-height: 90rpx;
+  padding-top: 15rpx;
+}
+.filters .scroller .row{
+  margin-left: -10rpx;
+  margin-right: -20rpx;
+  font-size: 0;
+  white-space: nowrap;
+}
+.filters .filter{
+  display: inline-block;
+  margin: 0 10rpx;
+  font-size: 26rpx;
+  padding:0 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border: 1px solid #aaa;
+  color: #aaa;
+  border-radius: 4rpx;
+}
+.filters .filter.active{
+  background: #4d4d4d;
+  color: #fff;
+  border-color: #4d4d4d;
+}
 .con_list{
   padding: 40rpx 30rpx;
+}
+.top + .con_list{
+  padding-top: 120rpx;
 }
 .con{
   background: #fff;

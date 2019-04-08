@@ -1,0 +1,69 @@
+<view class="regist">
+  <view class="form">
+    <view class="form-bar">
+      <view class="fh">选择身份</view>
+      <view class="fb flex">
+        <cell-radio-group current="{{typeIndex}}" bindchange="typeChange">
+          <cell-radio bg class="cell-radio" wx:for="{{types}}" wx:key="type-{{index}}">
+            {{item}}
+          </cell-radio>
+        </cell-radio-group>
+      </view>
+    </view>
+    <view class="main-wrapper visitor-wrapper">
+      <view class="form-bar">
+        <view class="fh">发票抬头</view>
+        <view class="fb flex">
+          <view class="clearable-input">
+            <x-input clear value='{{name}}' class="input" data-attr='name' bindinput='inputHandler' placeholder='请输入发票抬头' />
+          </view>
+        </view>
+      </view>
+      <block wx:if='{{typeIndex == 0}}'>
+        <view class="form-bar">
+          <view class="fh">开票税号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear data-attr='invoiceNumber' bindinput='inputHandler' value='{{invoiceNumber}}' class="input" placeholder='请输入开票税号' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">开票地址</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear value='{{addr}}' data-attr='addr' bindinput='inputHandler' class="input" placeholder='请输入开票地址' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">开票电话号码</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' data-attr='tel' bindinput='inputHandler' value='{{tel}}' class="input" placeholder='请输入开票电话号码' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">开票开户银行</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear value='{{bank}}' data-attr='bank' class="input" bindinput='inputHandler' placeholder='请输入开票开户银行' />
+            </view>
+          </view>
+        </view>
+        <view class="form-bar">
+          <view class="fh">开票开户银行卡号</view>
+          <view class="fb flex">
+            <view class="clearable-input">
+              <x-input clear type='number' value='{{card}}' data-attr='card' bindinput='inputHandler' class="input" placeholder='请输入开票开户银行卡号' />
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="btns">
+  <x-btn loading='{{submitDisabled}}' disabled='{{submitDisabled}}' type='primary' class="btn" bindtap="submit">申请</x-btn>
+</view>

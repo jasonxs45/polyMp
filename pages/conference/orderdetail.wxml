@@ -65,9 +65,22 @@
     <view class='b'>57428554697</view>
   </view>
 </view>
+<block wx:if='{{detail.InvoiceState}}'>
+  <split height="10" />
+  <view class='section'>
+    <view class='account flex'>
+      <view class='h'>发票状态</view>
+      <view class='b'>{{detail.InvoiceState == 1 ? '已申请' : detail.InvoiceState == 2?'已开票':''}}</view>
+    </view>
+  </view>
+  <split height="10" />
+</block>
 <view wx:if='{{detail.Status === "待审核" || detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='cancel'>取消订单</x-btn>
 </view>
 <view wx:if='{{detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>
+</view>
+<view wx:if='{{detail.Status === "已完成"}}' class='btns'>
+  <x-btn wx:if='{{detail.InvoiceState === 0}}' type='primary' class='btn' bindtap='goInvoice'>申请开票</x-btn>
 </view>
