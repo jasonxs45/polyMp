@@ -116,3 +116,19 @@ page{
 .btns .btn button{
   font-size: 32rpx;
 }
+.account-title{
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+.account {
+  justify-content: space-between;
+  font-size: 26rpx;
+  margin: 15rpx 0;
+}
+.account .h {
+  color: #666;
+  width: 150rpx;
+}
+.account .b{
+  color: #000;
+}

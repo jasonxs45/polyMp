@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 49,
+			"current": 38,
 			"list": [
 				{
 					"id": 0,
@@ -283,10 +283,10 @@
 					"scene": null
 				},
 				{
-					"id": 45,
+					"id": 38,
 					"name": "会务预约管理员详情",
 					"pathName": "pages/conferenceauditor/detail",
-					"query": "id=4",
+					"query": "id=16",
 					"scene": null
 				},
 				{

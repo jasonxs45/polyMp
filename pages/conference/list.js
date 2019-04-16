@@ -13,7 +13,7 @@ Component({
     filtedList() {
       console.log(this.data.filter)
       return this.data.list.filter(item => 
-        this.data.filter?item.MaxNum == this.data.filter: true
+        this.data.filter ? item.RoomType == this.data.filter: true
         )
     }
   },

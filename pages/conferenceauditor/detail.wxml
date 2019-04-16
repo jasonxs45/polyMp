@@ -6,7 +6,19 @@
   </view>
   <view wx:if='{{detail.Remark}}' class="remark">{{detail.Remark}}</view>
   <view class="flex user">
-    <view class="name">{{detail.Name}}</view>
+    <view class="name">会员类型：</view>
+    <view class="tel">
+      {{detail.Type}}
+    </view>
+  </view>
+  <view wx:if='{{detail.Type === "租户"}}' class="flex user">
+    <view class="name">公司名称：</view>
+    <view class="tel">
+      {{detail.CompanyName}}
+    </view>
+  </view>
+  <view class="flex user">
+    <view class="name">{{detail.Name + ''}}</view>
     <view class="tel">
       <tel tel='{{detail.Tel}}' />
     </view>
@@ -53,6 +65,16 @@
     </view>
   </view>
 </view>
+<block wx:if='{{detail.InvoiceState}}'>
+  <split height="10" />
+  <view class='section'>
+    <view class='account flex'>
+      <view class='h'>发票状态</view>
+      <view class='b'>{{detail.InvoiceState == 1 ? '已申请' : detail.InvoiceState == 2?'已开票':''}}</view>
+    </view>
+  </view>
+  <split height="10" />
+</block>
 <block wx:if='{{detail.Status === "待支付"}}'>
   <view class='btns'>
     <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>

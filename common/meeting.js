@@ -8,7 +8,7 @@ let _filter = () => {
     Meeting_Room_distinct_ext: {
       IsDelete: false,
       Online: true,
-      order: "RoomType",
+      order: "Sort",
       field: "RoomType"
     }
   }
@@ -20,7 +20,7 @@ let _roomlist = () => {
     Meeting_Room_list: {
       IsDelete: false,
       order: "Sort",
-      field: "ID,Name,Img,Floor,Area,DeskType,MaxNum,AdvanceDays,Sort,AddTime,IsDelete,Online,Price,AMTime,PMTime"
+      field: "ID,Name,Img,Floor,Area,DeskType,MaxNum,RoomType,AdvanceDays,Sort,AddTime,IsDelete,Online,Price,AMTime,PMTime"
     }
   }
   return query(param)
@@ -75,9 +75,17 @@ let _orderdetail = ID => {
       ID, //参数 预约单ID
       IsDelete: false,
       join: {
-        inner_join: {
+        inner_join1: {
           join: "Meeting_Room.ID,Meeting_Apply.RoomID",
           field: "Name:RoomName,Img"
+        },
+        inner_join2: {
+          join: "Office_Member.ID,Meeting_Apply.MemberID",
+          field: "Type,CompanyID"
+        },
+        left_join: {
+          join: "Office_Company.ID,Office_Member.CompanyID",
+          field: "Name:CompanyName"
         }
       }
     }
