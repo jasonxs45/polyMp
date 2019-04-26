@@ -1,7 +1,7 @@
 const entries = [
   [
     { label: '申访记录', icon: './visit.png', url: '/pages/visitrecord/visitor' },
-    //{ label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
+    { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
   ],
   [
     { label: '我的活动', icon: './activities.png', url: '/pages/myactivities/list' },
@@ -30,7 +30,7 @@ Page({
     cardClass: 'common',
     entries
   },
-  getScore () {
+  getScore() {
     _getscore(app.globalData.member.ID).then(res => {
       // 积分
       let num = res.data.Score_Log_sum || 0
@@ -52,7 +52,7 @@ Page({
       console.log(err)
     })
   },
-  updateInfo (cb) {
+  updateInfo(cb) {
     _updateInfo(app.globalData.uid).then(res => {
       if (res.data.IsSuccess) {
         // 判断是否有粉丝信息，有就直接获取，没有就跳转授权页面

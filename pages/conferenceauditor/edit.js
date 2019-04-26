@@ -18,7 +18,8 @@ Component({
     selectedDates: [],
     dates: [],
     remark: '',
-    price: '',
+    calcPrice: '',
+    propPrice: '',
     goodsArr: []
   },
   computed: {
@@ -46,13 +47,22 @@ Component({
           return []
         }
       }
+    },
+    showPrice () {
+      let goodsPrice = this.data.goodsArr.reduce((prev, curr) => prev += Number(curr.price), 0)
+      let price = this.data.roomlist.length?this.data.roomlist[this.data.roomIndex].Price: 0
+      let halfDays = this.data.selectedDates.reduce((prev, curr) => prev += (Number(curr.amChecked) + Number(curr.pmChecked)), 0)
+      let roomPrice = price * halfDays
+      let calcPrice = goodsPrice + roomPrice
+      this.data.calcPrice = calcPrice
+      let finalPrice = this.data.calcPrice
+      return formatNumber(finalPrice, 2)
     }
   },
   methods: {
     dates() {
       app.loading('加载中')
       _dates(this.data.roomid).then(res => {
-        console.log(res)
         wx.hideLoading()
         if (res.data.IsSuccess) {
           this.data.dates = res.data.Data.map(item => {
@@ -60,7 +70,6 @@ Component({
             let dates = this.data.showDates
             for (let i = 0; i < dates.length; i++) {
               if (dates[i].date === item.Date) {
-                console.log(dates[i].date, dates[i].value)
                 item.amChecked = dates[i].value.includes('上午')
                 item.pmChecked = dates[i].value.includes('下午')
               }
@@ -137,20 +146,27 @@ Component({
         wx.hideLoading()
         let detail = res[0].data.Meeting_Apply
         let remark = detail.Remark
-        let price = detail.OrderAmount + ''
+        let propPrice = detail.OrderAmount + ''
         let goodsArr = detail.ItemList ? JSON.parse(detail.ItemList) : []
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let roomlist = res[1].data.Meeting_Room_list
         let roomIndex = roomlist.findIndex(item => item.Name === detail.RoomName)
         roomIndex = roomIndex === -1 ? null : roomIndex
+        let selectedDates = detail.TimeList.map(item => {
+          item.amChecked = item.value.includes('上午')
+          item.pmChecked = item.value.includes('下午')
+          item.Date = item.date
+          return item
+        })
         this.setData({
           detail,
           roomlist,
           roomIndex,
           remark,
-          price,
-          goodsArr
+          propPrice,
+          goodsArr,
+          selectedDates
         }, () => {
           if (roomIndex !== -1) {
             this.dates()
@@ -190,13 +206,6 @@ Component({
     },
     priceHandler (e) {
       let price = e.detail.replace(/\,/g, '')
-      // price.substr(0,price.indexOf('.')+1)
-      // price = price.substr(0, price.indexOf('.') + 3)
-      // if (price.includes('.')) {
-      //   // this.data.price = formatNumber(price, 2)
-      // } else {
-      //   this.data.price = formatNumber(price, 0)
-      // }
       this.data.price = price
       this.setData({
         price: this.data.price
@@ -207,23 +216,6 @@ Component({
       let value = e.detail.value
       this.data.dates[index].amChecked = value.includes('上午')
       this.data.dates[index].pmChecked = value.includes('下午')
-      // if (value.length > 0) {
-      //   let date = this.data.dates[index].Date
-      //   let idx = this.data.selectedDates.findIndex(item => item.date === date)
-      //   if (idx === -1) {
-      //     this.data.selectedDates.push({
-      //       date: this.data.dates[index].Date,
-      //       value
-      //     })
-      //   } else {
-      //     this.data.selectedDates[idx].value = value
-      //   }
-      // }
-      // this.data.dates[index].amChecked = value.includes('上午')
-      // this.data.dates[index].pmChecked = value.includes('下午')
-      // this.setData({
-      //   dates: this.data.dates
-      // })
     },
     confirm() {
       this.data.selectedDates = this.data.dates.filter(item => {

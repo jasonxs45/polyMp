@@ -51,7 +51,7 @@ Page({
   },
   checkHandler (e) {
     let index = e.currentTarget.dataset.index
-    let value = e.detail.value
+    let value = e.detail.value.length > 1 ? ['上午', '下午'] : e.detail.value
     if (value.length > 0) {
       let date = this.data.dates[index].Date
       let idx = this.data.selectedDates.findIndex(item => item.date === date)

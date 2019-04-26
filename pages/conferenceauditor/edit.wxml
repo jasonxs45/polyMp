@@ -43,7 +43,7 @@
     <view wx:for="{{goodsArr}}" wx:key="goods-{{index}}" class="goods flex">
       <input class="goods-name" value="{{item.name}}" data-index="{{index}}" placeholder='请输入物品名称' bindinput='nameInput' />
       <input class="goods-count" value="{{item.count}}" type='number' data-index="{{index}}" placeholder='数量' bindinput='countInput' />
-      <input class="goods-price" value="{{item.price}}" data-index="{{index}}" placeholder='总价(元)' bindinput='priceInput' />
+      <input class="goods-price" value="{{item.price}}" type='digit' data-index="{{index}}" placeholder='总价(元)' bindinput='priceInput' />
       <view class="goods-remove" data-index="{{index}}" bindtap='remove'>
         <x-icon class="remove" type="minus" />
       </view>
@@ -59,7 +59,7 @@
   <view class='price flex'>
     <view class='ph'>￥</view>
     <view class='pb'>
-      <x-input type='number' value='{{price}}' placeholder='请输入费用' clear bindinput='priceHandler' class='price-input' />
+      <x-input type='number' value='{{showPrice}}' disabled class='price-input' />
     </view>
   </view>
 </view>

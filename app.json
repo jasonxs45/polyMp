@@ -89,5 +89,6 @@
         "selectedIconPath": "/images/user2.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -12,7 +12,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
+	"libVersion": "2.6.5",
 	"appid": "wx0d84f26eb0336e5b",
 	"projectname": "polyMp",
 	"debugOptions": {
@@ -24,6 +24,8 @@
 		"beforePreview": "",
 		"beforeUpload": ""
 	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -42,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 38,
+			"current": 40,
 			"list": [
 				{
 					"id": 0,
@@ -290,17 +292,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 39,
 					"name": "会务预约管理员列表",
 					"pathName": "pages/conferenceauditor/list",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 47,
+					"id": 40,
 					"name": "会务预约管理员详情编辑",
 					"pathName": "pages/conferenceauditor/edit",
-					"query": "id=8&roomid=2",
+					"query": "id=29&roomid=4",
 					"scene": null
 				},
 				{
