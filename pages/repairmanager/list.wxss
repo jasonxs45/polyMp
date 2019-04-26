@@ -72,16 +72,21 @@ page{
 }
 .card .head{
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 .card .head .tit{
   color: #333;
   font-size: 26rpx;
   font-weight: bold;
+  flex: 1;
+  line-height: 1.5;
 }
 .card .head .date{
   color: #999;
   font-size: 24rpx;
+  text-align: right;
+  width:210rpx;
+  line-height: 1.5;
 }
 .card .line{
   margin-top: 28rpx;
