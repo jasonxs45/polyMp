@@ -107,7 +107,7 @@ page{
 }
 .btns{
   margin: 60rpx 0;
-  padding:0 30rpx;
+  padding:30rpx 30rpx;
 }
 .btns .btn{
   margin: 30rpx 0;

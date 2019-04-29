@@ -32,6 +32,10 @@ Component({
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let goodsArr = detail.ItemList ? JSON.parse(detail.ItemList) : []
+        goodsArr.forEach(item => {
+          item.price = Number(item.price)
+          // item.price = formatNumber(item.price, 2)
+        })
         this.setData({
           detail,
           goodsArr

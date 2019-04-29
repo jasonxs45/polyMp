@@ -75,12 +75,12 @@
   </view>
   <split height="10" />
 </block>
-<view wx:if='{{detail.Status === "待审核" || detail.Status === "待支付"}}' class='btns'>
-  <x-btn type='primary' class='btn' bindtap='cancel'>取消订单</x-btn>
-</view>
 <view wx:if='{{detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>
 </view>
 <view wx:if='{{detail.Status === "已完成"}}' class='btns'>
   <x-btn wx:if='{{detail.InvoiceState === 0}}' type='primary' class='btn' bindtap='goInvoice'>申请开票</x-btn>
+</view>
+<view wx:if='{{detail.Status === "待审核" || detail.Status === "待支付"}}' class='btns'>
+  <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
 </view>

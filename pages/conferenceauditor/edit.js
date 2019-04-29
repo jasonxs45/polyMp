@@ -4,7 +4,10 @@ import {
   _dates,
   _modify
 } from '../../common/meeting'
-import { formatDate, formatNumber } from '../../utils/util'
+import {
+  formatDate,
+  formatNumber
+} from '../../utils/util'
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
 Component({
@@ -41,16 +44,12 @@ Component({
         }
         return arr
       } else {
-        if (this.data.detail) {
-          return this.data.detail.TimeList
-        } else {
-          return []
-        }
+        return []
       }
     },
-    showPrice () {
+    showPrice() {
       let goodsPrice = this.data.goodsArr.reduce((prev, curr) => prev += Number(curr.price), 0)
-      let price = this.data.roomlist.length?this.data.roomlist[this.data.roomIndex].Price: 0
+      let price = this.data.roomlist.length ? this.data.roomlist[this.data.roomIndex].Price : 0
       let halfDays = this.data.selectedDates.reduce((prev, curr) => prev += (Number(curr.amChecked) + Number(curr.pmChecked)), 0)
       let roomPrice = price * halfDays
       let calcPrice = goodsPrice + roomPrice
@@ -131,6 +130,7 @@ Component({
     },
     priceInput(e) {
       let value = e.detail.value
+      value = value.indexOf('.') === -1 ? value : value.substring(0, value.indexOf('.') + 3)
       let index = e.currentTarget.dataset.index
       let str = `goodsArr[${index}].price`
       this.setData({
@@ -148,6 +148,9 @@ Component({
         let remark = detail.Remark
         let propPrice = detail.OrderAmount + ''
         let goodsArr = detail.ItemList ? JSON.parse(detail.ItemList) : []
+        goodsArr.forEach(item => {
+          item.price = Number(item.price)
+        })
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let roomlist = res[1].data.Meeting_Room_list
@@ -201,15 +204,8 @@ Component({
         selecting: false
       })
     },
-    textHandler (e) {
+    textHandler(e) {
       this.data.remark = e.detail.value
-    },
-    priceHandler (e) {
-      let price = e.detail.replace(/\,/g, '')
-      this.data.price = price
-      this.setData({
-        price: this.data.price
-      })
     },
     checkHandler(e) {
       let index = e.currentTarget.dataset.index
@@ -219,7 +215,7 @@ Component({
     },
     confirm() {
       this.data.selectedDates = this.data.dates.filter(item => {
-        if (item.amChecked || item.pmChecked) {
+        if (item.amChecked === true || item.pmChecked === true) {
           return item
         }
       })
@@ -229,7 +225,7 @@ Component({
         this.hideSelect()
       })
     },
-    modify () {
+    modify() {
       if (!this.data.showDates.length) {
         app.toast('预约时间不能为空')
         return
@@ -238,15 +234,6 @@ Component({
         let goods = this.data.goodsArr[i]
         if (!String(goods.name).trim()) {
           app.toast(`请填写第${i + 1}件物品的名称`)
-          return
-        }
-        if (!String(goods.price).trim()) {
-          app.toast(`请填写第${i + 1}件物品的单价`)
-          return
-        }
-        let price = Number(goods.price)
-        if (isNaN(price) || price < 0) {
-          app.toast('请填写有效单价')
           return
         }
         if (!String(goods.count).trim()) {
@@ -258,12 +245,21 @@ Component({
           app.toast('请填写有效数量')
           return
         }
+        if (!String(goods.price).trim()) {
+          app.toast(`请填写第${i + 1}件物品的总价`)
+          return
+        }
+        let price = Number(goods.price)
+        if (isNaN(price) || price < 0) {
+          app.toast(`请填写第${i + 1}件物品的有效总价`)
+          return
+        }
       }
-      if (!String(this.data.price).trim()) {
-        app.toast('费用不能为空')
-        return
-      }
-      let cost = Number(this.data.price)
+      // if (!String(this.data.price).trim()) {
+      //   app.toast('费用不能为空')
+      //   return
+      // }
+      let cost = Number(this.data.showPrice.replace(',', ''))
       if (isNaN(cost) || cost < 0) {
         app.toast('请填写有效费用')
         return
@@ -274,8 +270,7 @@ Component({
       let Remark = this.data.remark
       let TimeList = JSON.stringify(this.data.showDates)
       let ItemList = JSON.stringify(this.data.goodsArr)
-      console.log(ItemList)
-      let OrderAmount = this.data.price
+      let OrderAmount = cost
       app.loading('加载中')
       _modify(ID, UnionID, RoomID, Remark, TimeList, ItemList, OrderAmount).then(res => {
         console.log(res)
@@ -305,12 +300,12 @@ Component({
       this.data.roomid = options.roomid
       this.totalQuery()
     },
-    onReady() { },
-    onShow() { },
-    onHide() { },
-    onUnload() { },
-    onPullDownRefresh() { },
-    onReachBottom() { },
-    onShareAppMessage() { }
+    onReady() {},
+    onShow() {},
+    onHide() {},
+    onUnload() {},
+    onPullDownRefresh() {},
+    onReachBottom() {},
+    onShareAppMessage() {}
   }
 })
