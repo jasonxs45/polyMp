@@ -102,6 +102,16 @@ let _pay = (UnionID, ID) => {
     }
   )
 }
+// 上传支付凭证
+let _uploadPayBack = (ID, VoucherImg) => {
+  return fetch(
+    'WebApi.ashx?Act=UploadVoucherImg',
+    {
+      ID,
+      VoucherImg
+    }
+  )
+}
 /**==========================
  *       管理员会务预约
  ==========================*/
@@ -206,6 +216,7 @@ export {
   _orderlist,
   _orderdetail,
   _pay,
+  _uploadPayBack,
   _auditlist,
   _cancel,
   _audit,

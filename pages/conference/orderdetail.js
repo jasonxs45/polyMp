@@ -1,4 +1,4 @@
-import { _orderdetail as _detail, _pay, _cancel } from '../../common/meeting'
+import { _orderdetail as _detail, _uploadPayBack, _cancel } from '../../common/meeting'
 import { formatDate, formatNumber } from '../../utils/util'
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
@@ -7,7 +7,8 @@ Component({
   data: {
     id: null,
     detail: null,
-    goodsArr: []
+    goodsArr: [],
+    payBack: []
   },
   computed: {
     price() {
@@ -19,6 +20,43 @@ Component({
     }
   },
   methods: {
+    uploadOverHandler(e) {
+      this.setData({
+        payBack: this.data.payBack.concat(e.detail.group)
+      }, () => {
+        app.loading('提交中')
+        _uploadPayBack(this.data.id, this.data.payBack.join(',')).
+        then(res => {
+          wx.hideLoading()
+          if (res.data.IsSuccess) {
+            wx.showModal({
+              title: '温馨提示',
+              content: '提交成功',
+              showCancel: false
+            })
+          } else {
+            wx.showModal({
+              title: '对不起',
+              content: '提交失败',
+              showCancel: false
+            })
+          }
+        }).catch(err => {
+          console.log(err)
+          wx.hideLoading()
+          wx.showModal({
+            title: '对不起',
+            content: '请求失败，请稍后再试',
+            showCancel: false
+          })
+        })
+      })
+    },
+    delHandler(e) {
+      this.setData({
+        payBack: e.detail.group
+      })
+    },
     getDetail() {
       app.loading('加载中')
       _detail(this.data.id).then(res => {
@@ -27,9 +65,11 @@ Component({
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let goodsArr = JSON.parse(detail.ItemList)
+        let payBack = detail.VoucherImg ? [detail.VoucherImg]: []
         this.setData({
           detail,
-          goodsArr
+          goodsArr,
+          payBack
         })
       }).catch(err => {
         console.log(err)

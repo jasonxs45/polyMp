@@ -4,6 +4,7 @@
   "usingComponents": {
     "x-btn": "/components/x-btn/index",
     "split": "/components/split/index",
-    "tel": "/components/tel/index"
+    "tel": "/components/tel/index",
+    "img-row": "/components/imgrow/img-row"
   }
 }

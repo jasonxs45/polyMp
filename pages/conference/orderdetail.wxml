@@ -73,11 +73,24 @@
       <view class='b'>{{detail.InvoiceState == 1 ? '已申请' : detail.InvoiceState == 2?'已开票':''}}</view>
     </view>
   </view>
-  <split height="10" />
 </block>
-<view wx:if='{{detail.Status === "待支付"}}' class='btns'>
+<block wx:if='{{detail.Status === "待支付" && !detail.VoucherImg}}'>
+  <split height="10" />
+  <view class='section'>
+    <view class='tit'>上传支付凭证</view>
+    <img-row group="{{payBack}}" readonly='{{detail.VoucherImg}}' max="1" class='payback' binddel="delHandler" binduploadOver="uploadOverHandler"></img-row>
+  </view>
+</block>
+<block wx:if='{{detail.VoucherImg}}'>
+  <split height="10" />
+  <view class='section'>
+    <view class='tit'>支付凭证</view>
+    <img-row group="{{payBack}}" readonly='{{detail.VoucherImg}}' class='payback'></img-row>
+  </view>
+</block>
+<!-- <view wx:if='{{detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>
-</view>
+</view> -->
 <view wx:if='{{detail.Status === "已完成"}}' class='btns'>
   <x-btn wx:if='{{detail.InvoiceState === 0}}' type='primary' class='btn' bindtap='goInvoice'>申请开票</x-btn>
 </view>

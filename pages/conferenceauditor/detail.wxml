@@ -65,6 +65,13 @@
     </view>
   </view>
 </view>
+<block wx:if='{{detail.VoucherImg}}'>
+  <split height="10" />
+  <view class='section'>
+    <view class='tit'>支付凭证</view>
+    <img-row group="{{payBack}}" readonly='{{detail.VoucherImg}}' class='payback'></img-row>
+  </view>
+</block>
 <block wx:if='{{detail.InvoiceState}}'>
   <split height="10" />
   <view class='section'>

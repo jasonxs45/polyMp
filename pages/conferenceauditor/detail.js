@@ -21,6 +21,10 @@ Component({
       } else {
         return 0.00
       }
+    },
+    payBack () {
+      return this.data.detail && this.data.detail.VoucherImg
+             ? [this.data.detail.VoucherImg] : []
     }
   },
   methods: {

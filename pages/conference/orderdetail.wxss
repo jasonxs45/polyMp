@@ -1,5 +1,6 @@
 page{
   background: #f2f2f2;
+  padding-bottom: 10rpx;
 }
 .thumb{
   width: 100%;
@@ -130,4 +131,8 @@ page{
 }
 .account .b{
   color: #000;
+}
+.payback{
+  display: block;
+  margin-top: 30rpx;
 }

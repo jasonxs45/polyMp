@@ -281,14 +281,14 @@
 					"id": 37,
 					"name": "用户会务预约订单详情",
 					"pathName": "pages/conference/orderdetail",
-					"query": "id=15",
+					"query": "id=26",
 					"scene": null
 				},
 				{
 					"id": 38,
 					"name": "会务预约管理员详情",
 					"pathName": "pages/conferenceauditor/detail",
-					"query": "id=29",
+					"query": "id=26",
 					"scene": null
 				},
 				{

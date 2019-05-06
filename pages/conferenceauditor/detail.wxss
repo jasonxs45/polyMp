@@ -132,3 +132,7 @@ page{
 .account .b{
   color: #000;
 }
+.payback{
+  display: block;
+  margin-top: 30rpx;
+}
