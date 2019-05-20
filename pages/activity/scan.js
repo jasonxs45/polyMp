@@ -58,5 +58,4 @@ Page({
   onUnload() { },
   onPullDownRefresh() { },
   onReachBottom() { },
-  onShareAppMessage() { }
 })

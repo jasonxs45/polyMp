@@ -147,6 +147,5 @@ Page({
         showCancel: false
       })
     })
-  },
-  onShareAppMessage() { }
+  }
 })

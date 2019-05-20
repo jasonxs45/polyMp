@@ -207,7 +207,6 @@ Component({
       app.fansReadyCb = null
     },
     onPullDownRefresh() { },
-    onReachBottom() { },
-    onShareAppMessage() { }
+    onReachBottom() { }
   }
 })

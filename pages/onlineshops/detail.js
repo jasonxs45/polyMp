@@ -83,6 +83,5 @@ Page({
   onPullDownRefresh() {
     // this.getDetail()
   },
-  onReachBottom() { },
-  onShareAppMessage() { }
+  onReachBottom() { }
 })

@@ -93,7 +93,6 @@ Component({
     onHide() { },
     onUnload() { },
     onPullDownRefresh() { },
-    onReachBottom() { },
-    onShareAppMessage() { }
+    onReachBottom() { }
   }
 })

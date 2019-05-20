@@ -167,6 +167,5 @@ Page({
   onReady() { },
   onShow() { },
   onHide() { },
-  onUnload() { },
-  onShareAppMessage() { }
+  onUnload() { }
 })

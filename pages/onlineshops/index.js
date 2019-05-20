@@ -233,6 +233,5 @@ Page({
   },
   onPageScroll(obj) {
     this._onScroll(obj.scrollTop)
-  },
-  onShareAppMessage() { }
+  }
 })

@@ -200,7 +200,6 @@ Component({
       })
       this.totalQuery()
     },
-    onReachBottom() { },
-    onShareAppMessage() { }
+    onReachBottom() { }
   }
 })

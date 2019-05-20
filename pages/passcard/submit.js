@@ -204,6 +204,5 @@ Page({
     }
   },
   onHide() { },
-  onUnload() { },
-  onShareAppMessage() { }
+  onUnload() { }
 })

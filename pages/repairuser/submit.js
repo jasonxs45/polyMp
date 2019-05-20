@@ -105,6 +105,5 @@ Page({
   onHide () {},
   onUnload () {},
   onPullDownRefresh () {},
-  onReachBottom () {},
-  onShareAppMessage () {}
+  onReachBottom () {}
 })
