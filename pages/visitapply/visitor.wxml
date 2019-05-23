@@ -27,7 +27,7 @@
           <view class="fh">公司</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择公司名称' selected-items='{{companies}}' selected-item-key='Name' bindselect='companySelect' />
+              <x-input select clear value='{{companyName}}' class="input" bindinput='companyInput' placeholder='请输入并选择申访公司名称' selected-items='{{companies}}' selected-item-key='Name' bindselect='companySelect' />
             </view>
           </view>
         </view>
@@ -35,7 +35,7 @@
           <view class="fh">姓名</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入姓名' />
+              <x-input clear value='{{name}}' class="input" bindinput='nameInput' placeholder='请输入您要拜访人的姓名' />
             </view>
           </view>
         </view>
@@ -43,7 +43,7 @@
           <view class="fh">手机号</view>
           <view class="fb flex">
             <view class="clearable-input">
-              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入手机号码' />
+              <x-input clear type='number' value='{{tel}}' class="input" bindinput='telInput' placeholder='请输入您要拜访人的电话' />
             </view>
           </view>
         </view>
@@ -64,7 +64,7 @@
         <view hidden='{{sidemenuShow}}' class="form-bar">
           <view class="fh">备注</view>
           <view class="fb">
-            <textarea placeholder='请填写备注' class="textarea" bindinput='textInput'></textarea>
+            <textarea placeholder='如若不知拜访人姓名和电话，请填写拜访事由，例如：面试' class="textarea" bindinput='textInput'></textarea>
           </view>
         </view>
       </view>
