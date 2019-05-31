@@ -111,6 +111,13 @@ let _sign = (SN, UnionID) => {
     {SN, UnionID}
   )
 }
+// 评价
+let _rate = (ID, Evaluate1, Evaluate2, Evaluate3, Remark) => {
+  return fetch(
+    'WebApi.ashx?Act=ActivityEvaluate',
+    { ID, Evaluate1, Evaluate2, Evaluate3, Remark }
+  )
+}
 export {
   _list,
   _homelist,
@@ -118,5 +125,6 @@ export {
   _submit,
   _mylist,
   _mydetail,
-  _sign
+  _sign,
+  _rate
 }

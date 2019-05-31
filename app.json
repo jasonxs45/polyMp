@@ -52,7 +52,9 @@
     "pages/conferenceauditor/detail",
     "pages/conferenceauditor/edit",
     "pages/redenvelope/index",
-    "pages/conference/invoice"
+    "pages/conference/invoice",
+    "pages/conference/rate",
+    "pages/myactivities/rate"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

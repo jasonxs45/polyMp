@@ -54,3 +54,9 @@ page{
   line-height: 100rpx;
   font-weight: 600;
 }
+.tip{
+  padding: 30rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: #666;
+}

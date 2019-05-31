@@ -2,13 +2,19 @@ import { _orderdetail as _detail, _uploadPayBack, _cancel } from '../../common/m
 import { formatDate, formatNumber } from '../../utils/util'
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
+const describes = [
+  '非常不满意', '不满意', '一般', '满意', '非常满意'
+]
 Component({
   behaviors: [computedBehavior],
   data: {
     id: null,
     detail: null,
     goodsArr: [],
-    payBack: []
+    payBack: [],
+    rateItems: ['会场环境', '配套设施', '服务质量'],
+    scores: [],
+    describes
   },
   computed: {
     price() {
@@ -16,6 +22,13 @@ Component({
         return formatNumber(this.data.detail.OrderAmount, 2)
       } else {
         return 0.00
+      }
+    },
+    evaluateShow () {
+      if (this.data.detail) {
+        return this.data.detail.Status === '已完成' && this.data.detail.EvaluateTime === null
+      } else {
+        return false
       }
     }
   },
@@ -65,11 +78,13 @@ Component({
         detail.AddTime = formatDate(new Date(detail.AddTime), 'yyyy年MM月dd hh:mm')
         detail.TimeList = JSON.parse(detail.TimeList)
         let goodsArr = JSON.parse(detail.ItemList)
+        let scores = [detail.Evaluate1, detail.Evaluate2, detail.Evaluate3]
         let payBack = detail.VoucherImg ? [detail.VoucherImg]: []
         this.setData({
           detail,
           goodsArr,
-          payBack
+          payBack,
+          scores
         })
       }).catch(err => {
         console.log(err)
@@ -169,17 +184,22 @@ Component({
         url: `./invoice?id=${this.data.id}`
       })
     },
+    goRate () {
+      wx.navigateTo({
+        url: `./rate?id=${this.data.id}`
+      })
+    },
     onLoad(options) {
       this.data.id = options.id
+    },
+    onReady() { },
+    onShow() {
       app.memberReadyCb = () => {
         this.getDetail()
       }
       app.fansReadyCb = () => {
         app.checkMember()
       }
-    },
-    onReady() { },
-    onShow() {
       app.init()
     },
     onHide() { },

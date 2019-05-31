@@ -115,3 +115,6 @@ page {
   color:#666666;
   display: block;
 }
+.btns{
+  padding: 60rpx 30rpx;
+}

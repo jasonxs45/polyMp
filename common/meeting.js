@@ -112,6 +112,13 @@ let _uploadPayBack = (ID, VoucherImg) => {
     }
   )
 }
+// 评价
+let _rate = (ID, Evaluate1, Evaluate2, Evaluate3, Remark) => {
+  return fetch(
+    'WebApi.ashx?Act=MeetingEvaluate',
+    { ID, Evaluate1, Evaluate2, Evaluate3, Remark }
+  )
+}
 /**==========================
  *       管理员会务预约
  ==========================*/
@@ -217,6 +224,7 @@ export {
   _orderdetail,
   _pay,
   _uploadPayBack,
+  _rate,
   _auditlist,
   _cancel,
   _audit,

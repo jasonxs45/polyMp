@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我要评价",
+  "backgroundColorTop": "#ffffff",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "star": "/components/star/index",
+    "x-btn": "/components/x-btn/index"
+  }
+}

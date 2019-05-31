@@ -38,6 +38,11 @@ Page({
       })
     })
   },
+  goRate() {
+    wx.navigateTo({
+      url: `./rate?id=${this.data.id}`
+    })
+  },
   onLoad(options) {
     this.data.id = options.id
     app.memberReadyCb = () => {

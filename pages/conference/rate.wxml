@@ -1,0 +1,13 @@
+<view class="rate">
+  <view class="section">
+    <view wx:for="{{rateItems}}" wx:key="rate-item-{{index}}" class="rate-item flex">
+      <view class="tit">{{item}}</view>
+      <star class="stars" data-index="{{index}}" bindchange="rate" />
+      <view class="describe">{{describes[scores[index] - 1]}}</view>
+    </view>
+    <textarea class="rate-texts" placeholder="请输入您要补充的信息" bindinput='textInputHandler'></textarea>
+  </view>
+</view>
+<view class="btns">
+  <x-btn disabled="{{submitDisable}}" loading="{{submitDisable}}" type="primary" bindtap="submit">提交</x-btn>
+</view>

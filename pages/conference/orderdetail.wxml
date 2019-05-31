@@ -10,7 +10,7 @@
     <view class="tel">{{detail.Tel}}</view>
   </view>
 </view>
-<split height="10"/>
+<split height="10" />
 <view class="section">
   <view class="flex time">
     <view class="h">使用时间：</view>
@@ -53,15 +53,21 @@
   <split style='display:block;margin-top: 30rpx;' height='2' />
   <view class='account-title'>银行转账信息</view>
   <view class='flex account'>
-    <view class='h'><text>单位名称：</text></view>
+    <view class='h'>
+      <text>单位名称：</text>
+    </view>
     <view class='b'>武汉保利金谷房地产开发有限公司</view>
   </view>
   <view class='flex account'>
-    <view class='h'><text>开户银行：</text></view>
+    <view class='h'>
+      <text>开户银行：</text>
+    </view>
     <view class='b'>中国银行民族大道支行</view>
   </view>
   <view class='flex account'>
-    <view class='h'><text space='emsp'>账  号：</text></view>
+    <view class='h'>
+      <text space='emsp'>账  号：</text>
+    </view>
     <view class='b'>5742 5855 4697</view>
   </view>
 </view>
@@ -88,9 +94,25 @@
     <img-row group="{{payBack}}" readonly='{{detail.VoucherImg}}' class='payback'></img-row>
   </view>
 </block>
+<block wx:if="{{detail.EvaluateTime !== null}}">
+  <split height="10"/>
+  <view class="section">
+    <view class="tit">我的评价</view>
+    <view wx:for="{{rateItems}}" wx:key="rate-item-{{index}}" class="rate-item flex">
+      <view class="tit">{{item}}</view>
+      <star class="stars" readonly score="{{scores[index]}}" />
+      <view class="describe">{{describes[scores[index] - 1]}}</view>
+    </view>
+    <text wx:if="{{detail.EvaluateRemark}}" class="rate-texts">{{detail.EvaluateRemark}}</text>
+  </view>
+  <split />
+</block>
 <!-- <view wx:if='{{detail.Status === "待支付"}}' class='btns'>
   <x-btn type='primary' class='btn' bindtap='doPay'>支付</x-btn>
 </view> -->
+<view wx:if='{{evaluateShow}}' class='btns'>
+  <x-btn type='primary' class='btn' bindtap='goRate'>我要评价</x-btn>
+</view>
 <view wx:if='{{detail.Status === "已完成"}}' class='btns'>
   <x-btn wx:if='{{detail.InvoiceState === 0}}' type='primary' class='btn' bindtap='goInvoice'>申请开票</x-btn>
 </view>

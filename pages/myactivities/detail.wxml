@@ -31,4 +31,7 @@
     <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
   </view>
 </view>
+<view wx:if='{{applyDetail.EvaluateTime === null}}' class='btns'>
+  <x-btn type='primary' class='btn' bindtap='goRate'>我要评价</x-btn>
+</view>
 <import src="/libs/wxParse/wxParse.wxml"/>
