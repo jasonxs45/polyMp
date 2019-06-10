@@ -60,7 +60,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.detail.Name,
-      path: `/pages/activity/detail?id=${this.data.id}`
+      path: `/pages/activity/detail?id=${this.applyDetail.ActivityID}`
     }
   }
 })

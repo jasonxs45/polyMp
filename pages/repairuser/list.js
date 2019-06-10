@@ -27,7 +27,7 @@ Component({
     ],
     pageIndexes: [1, 1, 1, 1],
     pageSize: 4,
-    states: ['待受理', '处理中', '待评价', '已完成'],
+    states: ['待受理', '处理中||待回复', '待评价', '已完成'],
     finished: [false, false, false, false],
     totalCount: [null, null, null, null]
   },

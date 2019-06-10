@@ -65,6 +65,7 @@ Page({
     console.log(currentPageIndex)
     _list(
       this.data.states[currentIndex],
+      app.globalData.member.ID,
       this.data.pageIndexes[currentIndex],
       this.data.pageSize
     ).then(res => {
