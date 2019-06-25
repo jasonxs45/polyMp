@@ -2,7 +2,8 @@ import {
   _orderdetail as _detail,
   _roomlist,
   _dates,
-  _modify
+  _modify,
+  _modifyDate
 } from '../../common/meeting'
 import {
   formatDate,
@@ -61,7 +62,7 @@ Component({
   methods: {
     dates() {
       app.loading('加载中')
-      _dates(this.data.roomid).then(res => {
+      _modifyDate(this.data.roomid).then(res => {
         wx.hideLoading()
         if (res.data.IsSuccess) {
           this.data.dates = res.data.Data.map(item => {

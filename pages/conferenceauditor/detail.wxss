@@ -107,7 +107,7 @@ page{
   height: auto;
 }
 .btns{
-  padding:0 30rpx;
+  padding:0 30rpx 80rpx;
 }
 .btns .btn{
   margin: 30rpx 0;

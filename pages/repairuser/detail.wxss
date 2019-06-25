@@ -172,4 +172,6 @@ page{
   padding: 15rpx;
   border-radius: 8rpx;
   margin-top: 15rpx;
+  line-height: 1.5;
+  word-break: break-all;
 }

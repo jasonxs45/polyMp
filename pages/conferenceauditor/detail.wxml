@@ -82,15 +82,16 @@
   </view>
   <split height="10" />
 </block>
-<block wx:if='{{detail.Status === "待支付"}}'>
-  <view class='btns'>
-    <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>
-    <x-btn class='btn' type='primary' bindtap='confirmPay'>设置为已支付</x-btn>
-    <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
-  </view>
-</block>
+<view wx:if='{{detail.Status === "待支付"}}' class='btns'>
+  <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>
+  <x-btn class='btn' type='primary' bindtap='confirmPay'>设置为已支付</x-btn>
+  <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
+</view>
 <view wx:if='{{detail.Status === "待审核"}}' class='btns'>
   <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>
   <x-btn class='btn' type='primary' bindtap='audit'>审核通过</x-btn>
   <x-btn class='btn' bindtap='cancel'>取消订单</x-btn>
+</view>
+<view wx:if='{{detail.Status === "已完成"}}' class='btns'>
+  <x-btn class='btn' type='primary' bindtap='goEdit'>编辑</x-btn>
 </view>

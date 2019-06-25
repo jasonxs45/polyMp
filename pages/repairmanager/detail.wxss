@@ -127,7 +127,7 @@ page{
   position: relative;
   width: 1px;
   height: 100%;
-  background: #4d4d4d;
+  background: #ccc;
   margin: 0 auto;
 }
 .step:last-child .circle::after{
@@ -153,6 +153,8 @@ page{
   padding: 15rpx;
   border-radius: 8rpx;
   margin-top: 15rpx;
+  line-height: 1.5;
+  word-break: break-all;
 }
 .reply-imgrow{
   display: block;

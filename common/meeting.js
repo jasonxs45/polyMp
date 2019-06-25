@@ -188,6 +188,13 @@ let _modify = (ID, UnionID, RoomID, Remark, TimeList, ItemList, OrderAmount) => 
     }
   )
 }
+// 管理员获取会议室时间
+const _modifyDate = id => {
+  return fetch(
+    'WebApi.ashx?Act=GetAdminMeetingDate',
+    { ID: id }
+  )
+}
 // 申请开票
 let _invoice = opt => {
   let {
@@ -230,5 +237,6 @@ export {
   _audit,
   _confirmPay,
   _modify,
+  _modifyDate,
   _invoice
 }
