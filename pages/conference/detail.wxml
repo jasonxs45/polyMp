@@ -11,10 +11,10 @@
   <view class="flex p">
     <view class="price">
       <view
-        wx:if='{{detail.Price}}'
+        wx:if='{{detail.Price != detail.OriginalPrice}}'
         class='current'
       ><text class='num'>{{detail.Price}}</text> 优惠价</view>
-      <view class='origin {{detail.Price?"through":""}}'>
+      <view class='origin {{detail.Price != detail.OriginalPrice?"through":""}}'>
         <text space='emsp'>价 格：</text>
         <text class='num'>{{detail.OriginalPrice}}</text> 元/半天
       </view>

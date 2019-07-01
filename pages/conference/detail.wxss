@@ -214,7 +214,7 @@ page {
   font-weight: 500;
   font-size: 120%;
 }
-.origin{
+.origin.through{
   margin-top: 15rpx;
 }
 .origin.through .num{
