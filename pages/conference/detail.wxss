@@ -217,6 +217,14 @@ page {
 .origin{
   margin-top: 15rpx;
 }
-.origin .num{
+.origin.through .num{
   text-decoration: line-through;
+}
+.main {
+  flex: 1;
+  font-size: 30rpx;
+  line-height: 36rpx;
+}
+.sub{
+  flex:0 0 200rpx
 }

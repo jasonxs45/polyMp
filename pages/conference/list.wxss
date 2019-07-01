@@ -74,18 +74,16 @@ page{
   color: #333333;
   font-size: 36rpx;
   line-height: 46rpx;
-  font-family:PingFang-TC-Regular;
   font-weight: 500;
   margin-bottom: 30rpx;
+  align-items:flex-start;
 }
 .con_title text{
   padding: 0 10rpx;
-  margin-top: 8rpx;
   height:36rpx;
   background:#4d4d4d;
   color: #fff;
   font-size: 24rpx;
-  font-family:PingFang-TC-Medium;
   line-height:36rpx;
   text-align: center;
   font-weight:400;
@@ -104,4 +102,12 @@ page{
 .range .con_text{
   font-size: 26rpx;
   color: #4d4d4d;
+}
+.main {
+  flex: 1;
+  font-size: 30rpx;
+  line-height: 36rpx;
+}
+.sub{
+  flex:0 0 200rpx
 }

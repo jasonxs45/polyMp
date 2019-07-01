@@ -4,13 +4,17 @@
   </swiper-item>
 </swiper>
 <view class="con">
-  <view class="con_title">{{detail.Name}}
-    <text>可容纳{{detail.MaxNum}}人</text>
+  <view class="con_title flex">
+    <view class='main'>{{detail.Name}}</view>
+    <view class='sub'><text>可容纳{{detail.MaxNum}}人</text></view>
   </view>
   <view class="flex p">
     <view class="price">
-      <view class='current'><text class='num'>{{detail.Price}}</text> 优惠价</view>
-      <view class='origin'>
+      <view
+        wx:if='{{detail.Price}}'
+        class='current'
+      ><text class='num'>{{detail.Price}}</text> 优惠价</view>
+      <view class='origin {{detail.Price?"through":""}}'>
         <text space='emsp'>价 格：</text>
         <text class='num'>{{detail.OriginalPrice}}</text> 元/半天
       </view>
