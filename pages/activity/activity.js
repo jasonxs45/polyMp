@@ -148,5 +148,8 @@ Page({
         showCancel: false
       })
     })
+  },
+  onShareAppMessage () {
+    return app.shareInfo
   }
 })

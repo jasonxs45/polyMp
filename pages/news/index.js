@@ -96,5 +96,8 @@ Page({
       totalCount: 0
     })
     this.totalQuery()
+  },
+  onShareAppMessage() {
+    return app.shareInfo
   }
 })

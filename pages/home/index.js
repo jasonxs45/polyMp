@@ -170,5 +170,8 @@ Page({
       this.getList()
       this.getRedPacket(uid)
     }
+  },
+  onShareAppMessage() {
+    return app.shareInfo
   }
 })

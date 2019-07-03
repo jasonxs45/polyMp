@@ -84,5 +84,7 @@ Page({
   onHide () {},
   onUnload () {},
   onPullDownRefresh () {},
-  onReachBottom () {}
+  onShareAppMessage() {
+    return app.shareInfo
+  }
 })

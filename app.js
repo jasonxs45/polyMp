@@ -1,6 +1,11 @@
 import { fetch } from 'common/api'
 import { toast, loading } from 'utils/util'
 App({
+  shareInfo: {
+    title: '湖北保利商办平台',
+    path: '/pages/home/index',
+    imageUrl: '/images/ad.png'
+  },
   globalData: {
     s_key: null,
     uid: null,

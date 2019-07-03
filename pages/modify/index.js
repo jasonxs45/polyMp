@@ -307,5 +307,8 @@ Page({
   onHide () {},
   onUnload () {},
   onPullDownRefresh () {},
-  onReachBottom () {}
+  onReachBottom () {},
+  onShareAppMessage() {
+    return app.shareInfo
+  }
 })

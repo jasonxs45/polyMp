@@ -99,5 +99,8 @@ Page({
   onShow () {
   },
   onHide () {},
-  onUnload () {}
+  onUnload () {},
+  onShareAppMessage() {
+    return app.shareInfo
+  }
 })

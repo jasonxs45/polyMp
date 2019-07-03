@@ -149,6 +149,9 @@ Component({
       })
       this.totalQuery()
     },
-    onReachBottom() { }
+    onReachBottom() { },
+    onShareAppMessage() {
+      return app.shareInfo
+    }
   }
 })

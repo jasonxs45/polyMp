@@ -131,6 +131,9 @@ Component({
         lists: this.data.lists
       })
       this.totalQuery()
+    },
+    onShareAppMessage() {
+      return app.shareInfo
     }
   }
 })
