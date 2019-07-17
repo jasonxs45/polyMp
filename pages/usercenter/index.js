@@ -61,7 +61,7 @@ Page({
           app.globalData.fans = res.data.Data.Fans
           wx.setStorageSync('member', res.data.Data.Member)
           app.globalData.member = res.data.Data.Member
-          let str = 'entries[0][0]'
+          let str = 'entries[0]'
           let cardClass = ''
           let level = app.globalData.member.Level
           let role = '访客'
@@ -83,16 +83,24 @@ Page({
               cardClass = 'common'
               role = '访客'
           }
+          entries[0][0] = {
+            label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
+            icon: './visit.png',
+            url: `/pages/visitrecord/${app.globalData.member.Type === '租户' ? 'staff' : 'visitor'}`
+          }
+          if (role !== '访客') {
+            entries[0] = [
+              { label: '申访记录', icon: './visit.png', url: '/pages/visitrecord/visitor' },
+              { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' },
+              { label: '人脸识别呼梯', icon: './face.png', url: '/pages/face/index' }
+            ]
+          }
           this.setData({
             avatar: app.globalData.fans.HeadImgUrl,
             nickname: app.globalData.fans.NickName,
             role,
             cardClass,
-            [str]: {
-              label: app.globalData.member.Type === '租户' ? '邀访记录' : '申访记录',
-              icon: './visit.png',
-              url: `/pages/visitrecord/${app.globalData.member.Type === '租户' ? 'staff' : 'visitor'}`
-            }
+            [str]: entries[0] 
           })
           cb && cb()
         }

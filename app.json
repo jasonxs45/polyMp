@@ -54,7 +54,8 @@
     "pages/redenvelope/index",
     "pages/conference/invoice",
     "pages/conference/rate",
-    "pages/myactivities/rate"
+    "pages/myactivities/rate",
+    "pages/face/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

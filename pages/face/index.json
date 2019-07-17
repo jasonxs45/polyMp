@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "人脸识别呼梯",
+  "usingComponents": {
+    "split": "/components/split/index",
+    "x-icon": "/components/x-icon/index",
+    "x-btn": "/components/x-btn/index"
+  }
+}

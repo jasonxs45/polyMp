@@ -44,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 45,
+			"current": 50,
 			"list": [
 				{
 					"id": 0,
@@ -281,7 +281,7 @@
 					"id": 37,
 					"name": "用户会务预约订单详情",
 					"pathName": "pages/conference/orderdetail",
-					"query": "id=49",
+					"query": "id=66",
 					"scene": null
 				},
 				{
@@ -360,6 +360,12 @@
 					"name": "用户会务预约发票申请",
 					"pathName": "pages/conference/invoice",
 					"query": "id=15",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "人脸识别",
+					"pathName": "pages/face/index",
 					"scene": null
 				}
 			]
