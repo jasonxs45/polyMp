@@ -154,7 +154,7 @@ Component({
       let index = e.currentTarget.dataset.index
       let contactor = this.data.contactList[index]
       this.data.name = contactor.Name
-      this.data.tel = contactor.Tel.trim()
+      this.data.tel = contactor.Tel.replace(/\s/g, '')
       let bindex = this.data.buildings.findIndex(item => item.ID === contactor.BuildingID)
       bindex = bindex === -1 ? null : bindex
       this.data.buildingSelectIndex = bindex
