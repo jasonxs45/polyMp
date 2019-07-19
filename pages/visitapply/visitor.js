@@ -33,7 +33,8 @@ Component({
             buildingSelectIndex: index,
           }, () => {
             // if (this.data.companyName) {
-              this.getCompanyList()
+              const id = this.data.buildings[index].ID
+              this.getCompanyList(id)
             // }
           })
         }
