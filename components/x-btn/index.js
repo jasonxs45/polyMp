@@ -84,7 +84,6 @@ Component({
     openSetting() { }
   },
   attached() {
-    console.log(this.data.disabled)
     this.data.classes.push(this.properties.type)
     if (this.properties.imgBg) {
       this.data.classes.push('imgBg')
@@ -95,7 +94,6 @@ Component({
     if (this.properties.loading) {
       this.data.classes.push('loading')
     }
-    console.log(this.data.classes)
     this.setData({
       classes: this.data.classes
     })

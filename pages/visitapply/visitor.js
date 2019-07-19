@@ -27,14 +27,14 @@ Component({
         if (res.data.code == 200) {
           this.data.buildings = res.data.Office_Building_list
           let index = this.data.buildings.findIndex(item => item.Name === this.data.buildingName)
-          index = index === -1 ? null : index
+          index = index === -1 ? 0 : index
           this.setData({
             buildings: this.data.buildings,
-            buildingSelectIndex: index
+            buildingSelectIndex: index,
           }, () => {
-            if (this.data.companyName) {
+            // if (this.data.companyName) {
               this.getCompanyList()
-            }
+            // }
           })
         }
       }).catch(err => {
@@ -115,6 +115,7 @@ Component({
       let VisitTime = this.data.datetimeValue
       let Remark = this.data.backinfo
       let Number = this.data.count
+      console.log(MemberID, CompanyID, InviteName, InviteTel, VisitTime, Remark, Number)
       this.setData({
         submitDisabled: true
       })
@@ -152,7 +153,7 @@ Component({
       let index = e.currentTarget.dataset.index
       let contactor = this.data.contactList[index]
       this.data.name = contactor.Name
-      this.data.tel = contactor.Tel
+      this.data.tel = contactor.Tel.trim()
       let bindex = this.data.buildings.findIndex(item => item.ID === contactor.BuildingID)
       bindex = bindex === -1 ? null : bindex
       this.data.buildingSelectIndex = bindex
@@ -163,7 +164,7 @@ Component({
           this.setData({
             companies: this.data.companies
           }, () => {
-            this.data.companySelectIndex = this.data.companies.findIndex(item => item.ID === contactor.BuildingID)
+            this.data.companySelectIndex = this.data.companies.findIndex(item => item.ID === contactor.CompanyID)
             this.setData({
               name: this.data.name,
               tel: this.data.tel,
