@@ -59,7 +59,7 @@
   <view class='price flex'>
     <view class='ph'>￥</view>
     <view class='pb'>
-      <x-input type='number' value='{{showPrice}}' disabled class='price-input' />
+      <x-input type='number' type='digit' value='{{showPrice}}' bindinput='onInput' bindblur='onBlur' class='price-input' />
     </view>
   </view>
 </view>

@@ -24,7 +24,8 @@ Component({
     remark: '',
     calcPrice: '',
     propPrice: '',
-    goodsArr: []
+    goodsArr: [],
+    _editValue: null
   },
   computed: {
     showDates() {
@@ -55,8 +56,13 @@ Component({
       let roomPrice = price * halfDays
       let calcPrice = goodsPrice + roomPrice
       this.data.calcPrice = calcPrice
-      let finalPrice = this.data.calcPrice
-      return formatNumber(finalPrice, 2)
+      let finalPrice
+      if (this.data._editValue !== null) {
+        finalPrice = this.data._editValue
+      } else {
+        finalPrice = formatNumber(this.data.calcPrice, 2)
+      }
+      return finalPrice
     }
   },
   methods: {
@@ -226,6 +232,23 @@ Component({
         this.hideSelect()
       })
     },
+    onInput (e) {
+      this.data._editValue = e.detail
+      this.setData({
+        _editValue: this.data._editValue
+      })
+    },
+    onBlur (e) {
+      let cost = Number(this.data._editValue.replace(/\,/g, ''))
+      if (isNaN(cost)) {
+        app.toast('请输入有效的总价')
+        cost = 0
+      }
+      this.data._editValue = formatNumber(cost, 2)
+      this.setData({
+        _editValue: this.data._editValue
+      })
+    },
     modify() {
       if (!this.data.showDates.length) {
         app.toast('预约时间不能为空')
@@ -260,7 +283,7 @@ Component({
       //   app.toast('费用不能为空')
       //   return
       // }
-      let cost = Number(this.data.showPrice.replace(',', ''))
+      let cost = Number(this.data.showPrice.replace(/\,/g, ''))
       if (isNaN(cost) || cost < 0) {
         app.toast('请填写有效费用')
         return
