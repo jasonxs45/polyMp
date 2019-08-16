@@ -1,5 +1,5 @@
 const NAME_REG = /^[\u4e00-\u9fa5]{2,6}$/i
-const TEL_REG = /^1([3,4,5,6,7,8]{1}[0-9]{9})$/i
+const TEL_REG = /^1([3,4,5,6,7,8,9]{1}[0-9]{9})$/i
 const ID_CHECK = (idcard) => {
   const Errors = [
     '验证通过!',

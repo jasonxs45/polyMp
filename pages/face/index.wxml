@@ -1,23 +1,36 @@
 <view class='face-wrapper'>
   <view class='sticky-foot'>
     <view class='photo-wrapper'>
-      <image class='photo' wx:if='{{photo}}' src='{{photo}}' mode='aspectFit' />
-      <button wx:else class='upload-btn' bindtap='onChooseImg'>
-        <x-icon type='plus' />
-      </button>
+      <image wx:if='{{photo && !cameraShow}}' class='photo' src='{{photo}}' mode='aspectFit' />
+      <view wx:else class='upload-btn'>
+        <view class='camera-box'>
+          <camera wx:if='{{cameraShow}}' flash='off' device-position='front' class='camera' binderror='onCameraError' bindinitdone='onCameraInitDone' bindstop='onCameraStop'>
+            <cover-image class='shape' src='./shape.png' />
+          </camera>
+          <button wx:else class='upload-btn' bindtap='openCamera'>
+            <x-icon type='camera' />
+          </button>
+        </view>
+      </view>
     </view>
     <view class='tip'>{{state}}</view>
-    <view wx:if='{{photo}}' class='again'>
-      <text bindtap='onChooseImg'>重新上传</text>
+    <view class='again'>
+      <button plain wx:if='{{!cameraShow && !shoot}}' size='mini' bindtap='openCamera'>换张照片</button>
+      <button plain wx:if='{{cameraShow && cameraReady && !shoot}}' size='mini' bindtap='takePhoto'>拍照</button>
+      <block wx:if='{{shoot}}'>
+        <view class='caution'>拍照完成，请点击上传按钮</view>
+        <button plain size='mini' bindtap='openCamera'>重拍</button>
+        <button plain size='mini' bindtap='uploadPhoto'>上传</button>
+      </block>
     </view>
-    <view wx:else class='tip'>请上传个人正面人脸照片</view>
+    <view wx:if='{{!photo}}' class='tip'>请上传个人正面人脸照片</view>
     <!-- <split height='10' /> -->
     <view class='section'>
       <view class='title'>默认呼梯楼层</view>
       <view class='row'>
         <radio-group class='radio-group' bindchange='floorChange'>
           <label class='radio-item' wx:for='{{floors}}' wx:key='floor-{{index}}'>
-            <radio class='radio' value='{{item.floor}}' checked='{{item.checked}}'/>
+            <radio class='radio' value='{{item.floor}}' checked='{{item.checked}}' />
             <view class='text'>{{item.floor}}</view>
           </label>
         </radio-group>

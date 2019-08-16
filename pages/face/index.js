@@ -9,36 +9,83 @@ Page({
     photo: '',
     _defaultFloor: '',
     floors: [],
-    floor: ''
+    floor: '',
+    cameraShow: false,
+    cameraReady: false,
+    shoot: false
   },
-  onChooseImg () {
-    let photo = this.data.photo
-    wx.chooseImage({
-      count: 1,
-      success: res => {
-        console.log('success')
-        let filePath = res.tempFilePaths[0]
-        app.loading('上传中')
-        _uploadFile(filePath, r => {
-          wx.hideLoading()
-          let obj = JSON.parse(r.data)
-          photo = rootUrl + obj.url
+  openCamera () {
+    wx.getSetting({
+      success: r => {
+        const { authSetting } = r
+        if (authSetting['scope.camera']) {
+          console.log('已授权摄像头')
           this.setData({
-            photo
+            cameraShow: true,
+            shoot: false
           })
+        } else {
+          console.log('未授权摄像头')
+          wx.showModal({
+            title: '温馨提示',
+            content: '你尚未授权使用摄像头，前往设置',
+            success: res => {
+              if (res.confirm) {
+                wx.openSetting({})
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  onCameraError () {
+    console.log('拒绝使用摄像头')
+  },
+  onCameraInitDone () {
+    console.log('摄像头就绪')
+    this.setData({
+      cameraReady: true
+    })
+    console.log(this.data.cameraReady)
+  },
+  onCameraStop () {
+    console.log('摄像头停止')
+  },
+  takePhoto () {
+    let context = wx.createCameraContext()
+    context.takePhoto({
+      success: r => {
+        console.log(r)
+        this.setData({
+          photo: r.tempImagePath,
+          cameraShow: false,
+          shoot: true
         })
-      },
-      fail: err => {}
+      }
+    })
+  },
+  uploadPhoto () {
+    let filePath = this.data.photo
+    app.loading('上传中')
+    _uploadFile(filePath, r => {
+      wx.hideLoading()
+      app.toast('上传成功')
+      let obj = JSON.parse(r.data)
+      let photo = rootUrl + obj.url
+      this.data.photo = photo
     })
   },
   floorChange (e) {
     this.data.floor = e.detail.value
   },
   getFloor () {
+    app.loading('加载中')
     const uid = app.globalData.uid
     wx.showNavigationBarLoading()
     _floorlist(uid)
       .then(res => {
+        wx.hideLoading()
         wx.hideNavigationBarLoading()
         let floors = res.data.Data.Floor.map(item => {
           item = {
@@ -64,6 +111,7 @@ Page({
       })
       .catch(err => {
         console.log(err)
+        wx.hideLoading()
         wx.hideNavigationBarLoading()
         wx.showModal({
           title: '对不起',
@@ -73,9 +121,9 @@ Page({
       })
   },
   onSubmit () {
-    const { photo, floor } = this.data
-    if (!photo) {
-      app.toast('请上传照片')
+    const { floor } = this.data
+    if (!(/upload/ig).test(this.data.photo)) {
+      app.toast('请先上传照片')
       return
     }
     if (!floor) {
@@ -84,7 +132,7 @@ Page({
     }
     const uid = app.globalData.uid || wx.getStorageSync('uid')
     app.loading('加载中')
-    _submit(uid, photo, floor)
+    _submit(uid, this.data.photo, floor)
       .then(res => {
         wx.hideLoading()
         wx.showModal({
@@ -133,13 +181,24 @@ Page({
     }
     app.init()
   },
-  onReady () {},
-  onShow () {
+  onReady () {
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.camera']) {
+          wx.authorize({
+            scope: 'scope.camera',
+            success() {
+              console.log('已授权摄像头')
+            },
+            fail () {
+              console.log('未授权摄像头')
+            }
+          })
+        }
+      }
+    })
   },
-  onHide () {},
-  onUnload () {},
-  onPullDownRefresh () {},
-  onReachBottom () {},
+  onShow () {},
   onShareAppMessage() {
     return app.shareInfo
   }

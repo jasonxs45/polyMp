@@ -44,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -77,16 +77,18 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "我的活动列表",
 					"pathName": "pages/myactivities/list",
-					"query": ""
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 6,
 					"name": "我的活动详情",
 					"pathName": "pages/myactivities/detail",
-					"query": "id=13"
+					"query": "id=455",
+					"scene": null
 				},
 				{
 					"id": 13,
