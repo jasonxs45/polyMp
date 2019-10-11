@@ -1,4 +1,10 @@
 <view class="navs">
-  <navigator class="nav" url="./submit">提交报修投诉</navigator>
-  <navigator class="nav" url='./list'>报修投诉记录</navigator>
+  <navigator class="nav" url="./submit">
+    <text>提交报修投诉</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/提交报修投诉.png' />
+  </navigator>
+  <navigator class="nav" url='./list'>
+    <text>报修投诉记录</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/报修投诉记录.png' />
+  </navigator>
 </view>

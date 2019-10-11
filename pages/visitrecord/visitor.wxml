@@ -40,6 +40,7 @@
         <block wx:if="{{card.SN}}">
           <view class="detail {{card.open ? '' : 'hidden'}}">
             <image src="{{card.qr}}" class="qrcode" />
+            <view class='sn-code'>SN:{{card.SN}}</view>
             <view class="main-tip">请向工作人员出示此二维码</view>
             <view class="sub-tip">此二维码将在24小时后失效，未到预约时间不可使用</view>
           </view>

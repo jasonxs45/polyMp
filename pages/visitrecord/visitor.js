@@ -33,13 +33,13 @@ Component({
         lists[0] = res[0].data.Visit_Apply_list.map(item => {
           item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
           item.open = false
-          item.qr = _getQr(item.SN)
+          item.qr = item.QRCode ? _getQr(item.QRCode) : _getQr(item.SN)
           return item
         })
         lists[1] = res[1].data.Visit_Apply_list.map(item => {
           item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
           item.open = false
-          item.qr = _getQr(item.SN)
+          item.qr = item.QRCode ? _getQr(item.QRCode) : _getQr(item.SN)
           return item
         })
         lists[2] = res[2].data.Visit_Contacts_list
@@ -84,7 +84,7 @@ Component({
           list = res.data.Visit_Apply_list.map(item => {
             item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
             item.open = false
-            item.qr = _getQr(item.SN)
+            item.qr = item.QRCode ? _getQr(item.QRCode) : _getQr(item.SN)
             return item
           })
         }
@@ -92,7 +92,7 @@ Component({
           list = res.data.Visit_Apply_list.map(item => {
             item.AddTime = formatDate(new Date(item.AddTime), 'yyyy/MM/dd hh:mm')
             item.open = false
-            item.qr = _getQr(item.SN)
+            item.qr = item.QRCode ? _getQr(item.QRCode) : _getQr(item.SN)
             return item
           })
         }

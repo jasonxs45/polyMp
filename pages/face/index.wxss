@@ -70,6 +70,13 @@ page{
   font-size: 24rpx;
   text-decoration: underline;
 }
+.again .desc{
+  text-align: left !important;
+  color: #777 !important;
+  text-decoration: none;
+  line-height: 1.5;
+  display: inline-block;
+}
 .upload-btn{
   margin: 0;
   height: 100%;

@@ -91,8 +91,8 @@ Page({
           if (role !== '访客') {
             entries[0] = [
               { label: '申访记录', icon: './visit.png', url: '/pages/visitrecord/visitor' },
-              { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' },
-              { label: '人脸识别呼梯', icon: './face.png', url: '/pages/face/index' }
+              { label: '会务订单', icon: './meeting.png', url: '/pages/conference/orderlist' }
+              // ,{ label: '人脸识别呼梯', icon: './face.png', url: '/pages/face/index' }
             ]
           }
           this.setData({

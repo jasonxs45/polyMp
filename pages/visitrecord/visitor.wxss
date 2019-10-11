@@ -16,3 +16,8 @@
   font-weight: 300;
   margin-top: 12rpx;
 }
+.sn-code{
+  font-size: 28rpx;
+  color: #333;
+  margin: 20rpx;
+}

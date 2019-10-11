@@ -1,5 +1,11 @@
 <view class="navs">
-  <navigator class="nav" url="./submit">提交放行单</navigator>
+  <navigator class="nav" url="./submit">
+    <text>提交放行单</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/提交放行单.png' />
+  </navigator>
   <!-- <navigator class="nav" url='./{{role == 2 ? "companylist":"list"}}?role={{role}}'>我的放行单</navigator> -->
-  <navigator class="nav" url='./list?role={{role}}'>我的放行单</navigator>
+  <navigator class="nav" url='./list?role={{role}}'>
+   <text>我的放行单</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/我的放行单.png' />
+  </navigator>
 </view>

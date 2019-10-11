@@ -1,10 +1,28 @@
 <view class="navs" wx:if="{{roleType === '访客'}}">
-  <navigator class="nav" url="/pages/visitapply/visitor">我要申访</navigator>
-  <navigator class="nav" url="/pages/visitrecord/visitor">访客记录</navigator>
-  <navigator class="nav" url="/pages/visitrecord/visitor?current=2">常用联系人</navigator>
+  <navigator class="nav" url="/pages/visitapply/visitor">
+    <text>我要申访</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/我要申访.png' />
+  </navigator>
+  <navigator class="nav" url="/pages/visitrecord/visitor">
+    <text>访客记录</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/访客记录.png' />
+  </navigator>
+  <navigator class="nav" url="/pages/visitrecord/visitor?current=2">
+    <text>常用联系人</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/常用联系人.png' />
+  </navigator>
 </view>
 <view class="navs" wx:if="{{roleType === '租户'}}">
-  <navigator class="nav" url="/pages/visitapply/staff">我要邀访</navigator>
-  <navigator class="nav" url="/pages/visitrecord/staff">访客记录</navigator>
-  <navigator class="nav" url="/pages/visitrecord/staff?current=2">常用联系人</navigator>
+  <navigator class="nav" url="/pages/visitapply/staff">
+    <text>我要邀访</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/我要邀访.png' />
+  </navigator>
+  <navigator class="nav" url="/pages/visitrecord/staff">
+    <text>访客记录</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/访客记录.png' />
+  </navigator>
+  <navigator class="nav" url="/pages/visitrecord/staff?current=2">
+    <text>常用联系人</text>
+    <image mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/listimg/常用联系人.png' />
+  </navigator>
 </view>

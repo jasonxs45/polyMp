@@ -16,6 +16,9 @@
     <view class='tip'>{{state}}</view>
     <view class='again'>
       <button plain wx:if='{{!cameraShow && !shoot}}' size='mini' bindtap='openCamera'>换张照片</button>
+      <view wx:else>
+        <text class='desc'>1、请将人脸放置在人脸框区域\n2、请不要佩戴眼镜和帽子\n3、人脸倾斜不要超过30度\n4、请在光线良好的环境下采集</text>
+      </view>
       <button plain wx:if='{{cameraShow && cameraReady && !shoot}}' size='mini' bindtap='takePhoto'>拍照</button>
       <block wx:if='{{shoot}}'>
         <view class='caution'>拍照完成，请点击上传按钮</view>
