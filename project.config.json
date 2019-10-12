@@ -53,7 +53,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 51,
+			"current": 52,
 			"list": [
 				{
 					"id": 0,
@@ -384,6 +384,13 @@
 					"id": -1,
 					"name": "放行入口",
 					"pathName": "pages/passcard/enter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "问卷调查",
+					"pathName": "pages/investigate/index",
 					"query": "",
 					"scene": null
 				}

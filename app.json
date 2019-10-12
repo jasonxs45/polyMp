@@ -55,7 +55,8 @@
     "pages/conference/invoice",
     "pages/conference/rate",
     "pages/myactivities/rate",
-    "pages/face/index"
+    "pages/face/index",
+    "pages/investigate/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -93,5 +94,8 @@
       }
     ]
   },
+  "navigateToMiniProgramAppIdList": [
+    "wxfbc030de027141bb"
+  ],
   "sitemapLocation": "sitemap.json"
 }

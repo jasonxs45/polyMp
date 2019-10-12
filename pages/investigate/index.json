@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "x-btn": "/components/x-btn/index"
+  }
+}

@@ -1,0 +1,15 @@
+.main{
+  width: 100%;
+  position: relative;
+}
+.img{
+  width: 100%;
+}
+.nav{
+  position: absolute;
+  width: 300rpx;
+  bottom: 90rpx;
+  left: 50%;
+  margin-left: -150rpx;
+  opacity: .9;
+}
