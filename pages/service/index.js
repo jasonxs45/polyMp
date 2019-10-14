@@ -70,6 +70,8 @@ Page({
     })
   },
   onLoad(options) {
+  },
+  onShow() {
     app.memberReadyCb = () => {
     }
     app.fansReadyCb = () => {
@@ -77,12 +79,10 @@ Page({
       this.getEntries()
     }
     app.init()
-  },
-  onShow() {
-    let uid = app.globalData.uid || wx.getStorageSync('uid')
-    if (uid) {
-      this.getEntries()
-    }
+    // let uid = app.globalData.uid || wx.getStorageSync('uid')
+    // if (uid) {
+    //   this.getEntries()
+    // }
   },
   onShareAppMessage() {
     return app.shareInfo

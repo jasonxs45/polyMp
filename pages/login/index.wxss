@@ -16,6 +16,11 @@
 .btn{
   position: absolute;
   width: 80vw;
-  bottom: 10vh;
   left: 10vw;
+}
+.btn.auth{
+  bottom: calc(10vh + 120rpx);
+}
+.btn.nav{
+  bottom: 10vh;
 }

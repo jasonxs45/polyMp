@@ -30,7 +30,8 @@ App({
   updateMeetingDate(meetingDate) {
     this.globalData.meetingDate = meetingDate
   },
-  init() {
+  init(opt) {
+    const atHome = opt
     let fans = this.globalData.fans || wx.getStorageSync('fans')
     if (!fans) {
       this.loading('加载中')
@@ -61,9 +62,11 @@ App({
                       this.globalData.member = result.data.Data.Member
                       this.fansReadyCb && this.fansReadyCb()
                     } else {
-                      wx.redirectTo({
-                        url: '/pages/login/index'
-                      })
+                      if (!atHome) {
+                        wx.redirectTo({
+                          url: '/pages/login/index'
+                        })
+                      }
                     }
                   } else {
                     wx.hideLoading()
@@ -79,9 +82,11 @@ App({
                 })
               } else {
                 console.log('login没有返回uid,跳转授权页面')
-                wx.redirectTo({
-                  url: '/pages/login/index'
-                })
+                if (!atHome) {
+                  wx.redirectTo({
+                    url: '/pages/login/index'
+                  })
+                }
               }
             } else {
               wx.showModal({

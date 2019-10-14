@@ -7,7 +7,7 @@
       <image wx:else mode="aspectFill" src="{{item.Img}}" class="img" />
     </swiper-item>
   </swiper>
-  <view class="entries flex">
+  <view wx:if='{{entries.length}}' class="entries flex">
     <navigator class="entry" wx:for="{{entries}}" wx:key="entry-{{index}}" url="{{item.Url}}">
       <image class="img" src="{{item.Img}}" />
       <view class="text">{{item.Title}}</view>

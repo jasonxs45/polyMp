@@ -1,4 +1,7 @@
 <view class="login">
   <image mode="aspectFill" src="/images/ad.png" class="bg"/>
-  <x-btn class="btn" type="primary" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>点击进入</x-btn>
+  <x-btn class="btn auth" type="primary" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>点击进入</x-btn>
+  <navigator class="btn nav" open-type='switchTab' url='/pages/home/index'>
+    <x-btn type='primary'>返回首页</x-btn>
+  </navigator>
 </view>

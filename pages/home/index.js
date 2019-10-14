@@ -159,10 +159,19 @@ Page({
     }
     app.fansReadyCb = () => {
       console.log(app.globalData)
-      this.totalQuery()
-      // this.getList()
+      let uid = app.globalData.uid || wx.getStorageSync('uid')
+      if (uid) {
+        this.getList()
+        this.getRedPacket(uid)
+      }
     }
-    app.init()
+    // app.init({ atHome: true })
+    this.totalQuery()
+    this.getList()
+    let uid = app.globalData.uid || wx.getStorageSync('uid')
+    if (uid) {
+      this.getRedPacket(uid)
+    }
   },
   onShow() {
     let uid = app.globalData.uid || wx.getStorageSync('uid')

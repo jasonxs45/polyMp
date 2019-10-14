@@ -75,9 +75,9 @@ Page({
     app.memberReadyCb = () => {
     }
     app.fansReadyCb = () => {
-      this.totalQuery()
     }
-    app.init()
+    // app.init()
+    this.totalQuery()
   },
   onReachBottom () {
     if (this.data.list.length >= this.data.totalCount) {
