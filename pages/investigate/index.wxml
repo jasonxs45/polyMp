@@ -1,6 +1,9 @@
 <view class='main'>
   <image class='img' mode='widthFix' src='http://baolishangban.1juke.cn/res/Upload/wenjuan.jpg ' />
-  <navigator class='nav' target='miniProgram' app-id='wxfbc030de027141bb' path='pages/index/index?unionId={{uid}}'>
+  <navigator wx:if='{{member && member.BuildingID === 1 }}' class='nav' target='miniProgram' app-id='wxfbc030de027141bb' path='pages/index/index?unionId={{uid}}'>
     <x-btn disabled='{{disabled}}' type='primary' class="btn">点击进入</x-btn>
   </navigator>
+  <view wx:else class='nav'>
+    <x-btn type='primary' disabled class="btn" bindtap='tip'>点击进入</x-btn>
+  </view>
 </view>

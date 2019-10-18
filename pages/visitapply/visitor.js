@@ -117,38 +117,38 @@ Component({
       let Remark = this.data.backinfo
       let Number = this.data.count
       console.log(MemberID, CompanyID, InviteName, InviteTel, VisitTime, Remark, Number)
-      // this.setData({
-      //   submitDisabled: true
-      // })
-      // _submit(
-      //   MemberID, CompanyID, InviteName, InviteTel, VisitTime, Remark, Number
-      // ).then(res => {
-      //   this.setData({
-      //     submitDisabled: false
-      //   })
-      //   wx.showModal({
-      //     title: res.data.IsSuccess?'温馨提示':'对不起',
-      //     content: res.data.Msg,
-      //     showCancel: false,
-      //     success: r => {
-      //       if (r.confirm && res.data.IsSuccess) {
-      //         wx.navigateTo({
-      //           url: '/pages/visitrecord/visitor'
-      //         })
-      //       }
-      //     }
-      //   })
-      // }).catch(err => {
-      //   this.setData({
-      //     submitDisabled: false
-      //   })
-      //   console.log(err)
-      //   wx.showModal({
-      //     title: '对不起',
-      //     content: '网络错误，请稍后再试',
-      //     showCancel: false
-      //   })
-      // })
+      this.setData({
+        submitDisabled: true
+      })
+      _submit(
+        MemberID, CompanyID, InviteName, InviteTel, VisitTime, Remark, Number
+      ).then(res => {
+        this.setData({
+          submitDisabled: false
+        })
+        wx.showModal({
+          title: res.data.IsSuccess?'温馨提示':'对不起',
+          content: res.data.Msg,
+          showCancel: false,
+          success: r => {
+            if (r.confirm && res.data.IsSuccess) {
+              wx.navigateTo({
+                url: '/pages/visitrecord/visitor'
+              })
+            }
+          }
+        })
+      }).catch(err => {
+        this.setData({
+          submitDisabled: false
+        })
+        console.log(err)
+        wx.showModal({
+          title: '对不起',
+          content: '网络错误，请稍后再试',
+          showCancel: false
+        })
+      })
     },
     selectContactor(e) {
       let index = e.currentTarget.dataset.index
