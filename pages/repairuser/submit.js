@@ -10,7 +10,7 @@ Page({
     desc: '',
     submitDisabled: false
   },
-  getTypelist () {
+  getTypelist() {
     app.loading('加载中')
     _typelist().then(res => {
       wx.hideLoading()
@@ -28,7 +28,7 @@ Page({
       })
     })
   },
-  submit () {
+  submit() {
     if (this.data.categoryIndex === null) {
       app.toast('请选择类别！')
       return
@@ -42,56 +42,57 @@ Page({
     this.setData({
       submitDisabled: true
     })
-    _submit(typeid, app.globalData.member.ID, this.data.desc, img).then(res => {
-      this.setData({
-        submitDisabled: false
-      })
-      wx.showModal({
-        title: res.data.IsSuccess ? '提示':'对不起',
-        content: res.data.Msg,
-        showCancel: false,
-        success: r => {
-          if (r.confirm) {
-            if (res.data.IsSuccess) {
-              wx.redirectTo({
-                url: './list'
-              })
+    _submit(typeid, app.globalData.member.ID, this.data.desc, img)
+      .then(res => {
+        this.setData({
+          submitDisabled: false
+        })
+        wx.showModal({
+          title: res.data.IsSuccess ? '提示' : '对不起',
+          content: res.data.Msg,
+          showCancel: false,
+          success: r => {
+            if (r.confirm) {
+              if (res.data.IsSuccess) {
+                wx.redirectTo({
+                  url: './list'
+                })
+              }
             }
           }
-        }
+        })
+      }).catch(err => {
+        this.setData({
+          submitDisabled: false
+        })
+        console.log(err)
+        wx.showModal({
+          title: '对不起',
+          content: '网络错误，请稍后再试！',
+          showCancel: false
+        })
       })
-    }).catch(err => {
-      this.setData({
-        submitDisabled: false
-      })
-      console.log(err)
-      wx.showModal({
-        title: '对不起',
-        content: '网络错误，请稍后再试！',
-        showCancel: false
-      })
-    })
   },
-  categorySelect (e) {
+  categorySelect(e) {
     let value = e.detail.value
     this.setData({
       categoryIndex: value
     })
   },
-  textHandler (e) {
+  textHandler(e) {
     this.data.desc = e.detail.value
   },
-  uploadOverHandler (e) {
+  uploadOverHandler(e) {
     this.setData({
       imgArr: this.data.imgArr.concat(e.detail.group)
     })
   },
-  delHandler (e) {
+  delHandler(e) {
     this.setData({
       imgArr: e.detail.group
     })
   },
-  onLoad (options) {
+  onLoad(options) {
     app.memberReadyCb = () => {
       this.getTypelist()
     }
@@ -100,12 +101,12 @@ Page({
     }
     app.init()
   },
-  onReady () {},
-  onShow () {},
-  onHide () {},
-  onUnload () {},
-  onPullDownRefresh () {},
-  onReachBottom () {},
+  onReady() { },
+  onShow() { },
+  onHide() { },
+  onUnload() { },
+  onPullDownRefresh() { },
+  onReachBottom() { },
   onShareAppMessage() {
     return app.shareInfo
   }

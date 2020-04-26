@@ -34,7 +34,7 @@
         <view class="form-bar">
           <view class="fh">来访人数</view>
           <view class="fb flex">
-            <number min="1" width="120" />
+            <number min="1" width="120" bindonChange='onChange' />
           </view>
         </view>
         <view class="form-bar">

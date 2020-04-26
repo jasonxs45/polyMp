@@ -12,6 +12,12 @@ Component({
     submitDisabled: false
   },
   methods: {
+    onChange (e) {
+      const { value } = e.detail
+      this.setData({
+        visitorCount: value
+      })
+    },
     selectContactor(e) {
       let index = e.currentTarget.dataset.index
       let contactor = this.data.contactList[index]
@@ -42,7 +48,7 @@ Component({
       let Tel = this.data.tel
       let VisitTime = this.data.datetimeValue
       let Remark = this.data.backinfo
-      let Number = this.data.count
+      let Number = this.data.visitorCount
       this.setData({
         submitDisabled: true
       })

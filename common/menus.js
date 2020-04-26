@@ -3,7 +3,7 @@ let _homelist = power => {
   let param = {
     Home_Menu_list: {
       order: "Sort",
-      field: "Title,Img,Url",
+      field: "Title,Img,Url,Type",
       IsShow:true,
       Power: power //参数 未注册和访客传1  租户传2
     }
